@@ -1,0 +1,17 @@
+﻿@using ReportViewerForMvc;
+@{
+    ViewBag.Title = "ReportIncomeAccounting";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+<h2>ReportIncomeAccounting</h2>
+
+<section class="report_page tab_page">
+    <div class="top_tab clearfix">
+        <form method="post">
+            
+        </form>
+    </div>
+    @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+
+</section>

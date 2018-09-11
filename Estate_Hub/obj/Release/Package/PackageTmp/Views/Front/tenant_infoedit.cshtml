@@ -1,0 +1,102 @@
+﻿
+
+@model Proptiwise.Models.Tenant
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "tenant_infoedit";
+    Layout = null;
+}
+
+<link href="~/Content/Site.css" rel="stylesheet">
+
+<style>
+    .modal-body dl dd {
+        margin: 0 !important;
+    }
+</style>
+
+
+
+<script type="text/javascript">
+    function Fill() {
+        document.getElementById("RemHidden").value = "";
+    }
+</script>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="model_title">Identification</h4>
+</div>
+            @using (Html.BeginForm("tenant_infoedit", "Front", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                  
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true)
+                        <div class="form-group clearfix">                            
+                            <div class="col-md-6 col-sm-6">
+                            	@Html.LabelFor(model => model.DriverLicense, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.DriverLicense, new { @class="form-control",placeholder = "Driving License", required = true, oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.DriverLicense)
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                            	@Html.LabelFor(model => model.SocialSecurity, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.SocialSecurity, new { @class = "form-control", placeholder = "Social Security", required = true, oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.SocialSecurity)
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">                            
+                            <div class="col-md-6 col-sm-6">
+                            	@Html.LabelFor(model => model.Profile, new { @class = "control-label" })                             
+                                @Html.DropDownList("profile", new List<SelectListItem>
+                                 {
+                                     new SelectListItem{ Text="Select Profile", Value = "0"},
+                                     new SelectListItem{ Text="Single", Value = "1"},
+                                   new SelectListItem{ Text="Unmarried Couple,no children", Value = "2"},
+                                     new SelectListItem{ Text="Married Couple,no children", Value = "3"},
+                                     new SelectListItem{ Text="Family with children", Value = "4"},
+                                     new SelectListItem{ Text="Single Parent with children", Value = "5"},
+                                       new SelectListItem{ Text="Related Tenants", Value = "6"},
+                                       new SelectListItem{ Text="Unrelated Tenants", Value = "7"},
+                                       new SelectListItem{ Text="Student", Value = "8"},
+                                       new SelectListItem{ Text="Retired or Senior", Value = "9"},
+                                        new SelectListItem{ Text="Other", Value = "10"},
+                                   
+                                 }, new { id = "profile",@class="form-control" })
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+							    @Html.Label("Date Of Birth", new { @class = "control-label" })
+                                <input type="text" id="datepicker" placeholder="Select Date" class="form-control" name="date" value="@Model.Dateofbirth">
+                            </div>
+                        </div>
+						 <div class="form-group clearfix">
+                      
+                       <div class="col-md-6 col-sm-6">
+                           @Html.LabelFor(model => model.PassportNo, new { @class = "control-label" })
+                           @Html.TextBoxFor(model => model.PassportNo, new { @class = "form-control", placeholder = "Passport No", required = true, oninput = "setCustomValidity('')" })
+                           @Html.ValidationMessageFor(model => model.PassportNo)
+                       </div>
+                       <div class="col-md-6 col-sm-6">
+                           <br /><br />
+                           @*@Html.LabelFor(model => model.Smoker, new { @class = "control-label" })*@
+                        Smoker   @Html.CheckBox("Smoker", false)
+                           @Html.ValidationMessageFor(model => model.Smoker)
+                       </div>
+                        </div>
+                        <div class="footer_btn"><input type="submit" value="Register" class="btn btn-info btn-block"></div>
+                       
+                    </div>
+                </div>
+            }
+
+
+<script>
+    $(function () {
+
+        $("#datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1930:2050"
+        });
+    });
+</script>

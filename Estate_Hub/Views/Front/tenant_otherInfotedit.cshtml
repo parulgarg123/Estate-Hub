@@ -1,0 +1,122 @@
+﻿@model Proptiwise.Models.Tenant
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "tenant_commentedit";
+    Layout = null;
+}
+
+
+
+
+<link href="~/Content/Site.css" rel="stylesheet">
+
+
+<style>
+    .modal-body dl dd {
+        margin: 0 !important;
+    }
+</style>
+
+
+<script type="text/javascript">
+    function Fill() {
+        document.getElementById("RemHidden").value = "";
+    }
+</script>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="model_title">Other Information</h4>
+</div>
+            @using (Html.BeginForm("tenant_otherInfotedit", "Front", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Tenant_Id)
+                <div class="modal-body">
+                
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true)
+
+                        <div class="form-group clearfix">
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.MaritalStatus, new { @class = "control-label" })
+                                @Html.DropDownList("MaritalStatus", new List<SelectListItem>
+                                {
+                                    new SelectListItem{ Text="Single", Value = "1" },
+                                    new SelectListItem{ Text="Married", Value = "2" },
+                                    new SelectListItem{ Text="Separated", Value = "3" },
+                                    new SelectListItem{ Text="Divorced", Value = "4" },
+                                    new SelectListItem{ Text="Widowed", Value = "5" },
+                                    new SelectListItem{ Text="Domestic Partnership", Value = "6" }
+                                 }, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MaritalStatus)
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.IfVisa, new { @class = "control-label" })
+                                @Html.DropDownList("IfVisa", new List<SelectListItem>
+                                {
+                                    new SelectListItem{ Text="Yes", Value = "1" },
+                                    new SelectListItem{ Text="No", Value = "2" }
+
+                                 }, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IfVisa)
+                            </div>
+
+                        </div>
+                        <div class="form-group clearfix">
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.Pets, new { @class = "control-label" })
+                                @Html.DropDownList("Pets", new List<SelectListItem>
+                                {
+                                    new SelectListItem{ Text="Yes", Value = "1" },
+                                    new SelectListItem{ Text="No", Value = "2" }
+                                 }, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Pets)
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.ifPets, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.ifPets, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ifPets)
+                            </div>
+
+                        </div>
+                        <div class="form-group clearfix">
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.Children, new { @class = "control-label" })
+                                @Html.DropDownList("Children", new List<SelectListItem>
+                                {
+                                    new SelectListItem{ Text="Yes", Value = "1" },
+                                    new SelectListItem{ Text="No", Value = "2" }
+                                 }, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Children)
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.IfChildren, new { @class = "control-label" })
+                                @Html.DropDownList("IfChildren", new List<SelectListItem>
+                                {
+                                    new SelectListItem{ Text="Select", Value = "0" },
+                                    new SelectListItem{ Text="1", Value = "1" },
+                                    new SelectListItem{ Text="2", Value = "2" },
+                                      new SelectListItem{ Text="3", Value = "3" },
+                                    new SelectListItem{ Text="4", Value = "4" },
+                                      new SelectListItem{ Text="5", Value = "5" },
+                                    new SelectListItem{ Text="6", Value = "6" },
+                                      new SelectListItem{ Text="7", Value = "7" },
+                                    new SelectListItem{ Text="8", Value = "8" },
+                                      new SelectListItem{ Text="9", Value = "9" },
+                                    new SelectListItem{ Text="10", Value = "10" }
+                                 }, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IfChildren)
+                            </div>
+
+                        </div>
+
+
+                        <div class="footer_btn"><input type="submit" value="Submit" class="btn btn-info btn-block"></div>
+                      
+                    </div>
+                </div>
+            }
+
+   

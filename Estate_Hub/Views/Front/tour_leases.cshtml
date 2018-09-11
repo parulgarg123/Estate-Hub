@@ -1,0 +1,80 @@
+﻿@using Proptiwise.Models;
+@{
+    ViewBag.Title = "tour_leases";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+<section class="account_column">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><h1>Leases</h1></div>
+            <aside class="col-md-3 col-sm-4">
+                <ul class="ac_list">
+                    <li><a href="tour_tenants">Tenants</a></li>
+                    <li><a href="tour_properties">Properties</a></li>
+                    <li class="active_list"><a href="tour_leases">Leases</a></li>
+                    <li><a href="tour_payments">Payments</a></li>
+                    <li><a href="tour_accounting">Accounting</a></li>
+                    <li><a href="tour_workorder">Work Orders</a></li>
+                    <li><a href="tour_form">Forms & Letters</a></li>
+                    <li><a href="tour_reports">Reports</a></li>
+                    <li><a href="tour_users">Users & Security</a></li>
+                    <li><a href="tour_tenantportal">Tenant Portal</a></li>
+                    <li><a href="tour_tenantscreening">Tenant Screening</a></li>
+                    <li><a href="tour_extras">Extras</a></li>
+                    <li><a href="tour_screenshots">Screenshots</a></li>
+                </ul>
+            </aside>
+            <div class="content col-md-9 col-sm-8">
+                <div>
+                    <h3>Leases</h3>
+                    <p><img alt="Tour" src="@getallpath.getpath/images/test.png" class="alignright"></p>
+                    <h4>The heart of your data - made simple!</h4>
+                    <p>
+                        With proptiwise it's easy to keep track of lease terms, due dates, and move outs. All lease information is integrated into every tenant and property view - no more hunting for start dates, rent rates, and other important information.
+                    </p>
+                    <ul class="clear">
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Flexible Lease Terms
+                            </h4>
+                            <p>Most lease terms are supported, including monthly, bi-monthly, weekly, bi-weekly, daily, quarterly, and yearly leases. Enter specific start &amp; end dates, specify rent amount, and when first payment is due. You can also add secondary tenants to any lease.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Late Fees &amp; Deposits
+                            </h4>
+                            <p>Proptiwise supports all common late fee scenarios, including flat rates, per day fees, percent of rent derived fees, grace periods, and maximum (capped) late fees. Keep track of flat fee deposits, first/last month's rent, and when deposit is due.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Other (Non-Rent) Charges
+                            </h4>
+                            <p>Add information about the other payments your tenants make regularly, in addition to rental payments, such as garage fees, key deposits and replacement fees, parking or pet fees, storage fees, or utility/water charges.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Payment Schedule
+                            </h4>
+                            <p>Easily generate a handy payment schedule of every due date and how much is due on the lease.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Renew Leases Easily
+                            </h4>
+                            <p>Renew expired tenants, increase the rent and specify the new terms of the lease with just a couple of clicks. </p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Tenant Move Outs
+                            </h4>
+                            <p>A dedicated move out workflow will let you move existing tenants out, free up the property for lease to another tenant, and archive prior payment history.</p>
+                        </li>
+                    </ul>
+                </div>
+      
+            </div>
+        </div>
+    </div>
+</section>
+

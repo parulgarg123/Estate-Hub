@@ -1,0 +1,403 @@
+﻿
+
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "PropertyListing";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+@*<section onclick="initialize();" class="prop_column">*@
+<section class="prop_column">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <span class="dropdown">
+                        @Html.DropDownList("SortBy", ViewBag.SortByPropList as SelectList, new { onchange = "this.form.submit();" })
+                    </span>
+                </form>
+              <ul><li class="pull-left"><a class="btn btn-primary" width="20px" href="Search">Back To Search</a></li></ul>
+                <ul class="side_list nav nav-tabs responsive hidden-xs hidden-sm" id="myTab">
+                    
+                <li selected class="active"><a href="#tab-1"><i class="fa fa-list" aria-hidden="true"></i> List</a></li>
+                    <li><a id="map-tab" href="#tab-2"><i class="fa fa-map-marker"></i> Map</a></li>
+                    
+                </ul>
+                <div class="clearfix"></div>
+
+                <div class="col-md-9 col-sm-9">
+
+                    <div class="tab-content responsive hidden-xs hidden-sm">
+                        <div class="tab-pane active" id="tab-1">
+                            @{
+
+                                var data1 = Session["propertydata"] as List<Property>;
+                                if (ViewBag.SortBy == "1")
+                                {
+                                    data1 = data1.OrderByDescending(p => p.Price).ToList();
+                                }
+                                else if (ViewBag.SortBy == "2")
+                                {
+                                    data1 = data1.OrderBy(p => p.Price).ToList();
+                                }
+
+                                else if (ViewBag.SortBy == "3")
+                                {
+                                    data1 = data1.OrderByDescending(p => p.SqFt).ToList();
+                                }
+
+                            
+
+                                if (data1 != null)
+                                {
+                                    if(data1.Count>0)
+                                    { 
+                                    foreach (var p in data1)
+                                    {
+                                        <article class="prop_list clearfix">
+                                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                               
+                                     
+                                      
+                                            <ul class="bxslider">        
+                                    @{
+                                        if (p.PropertyPhotos != null)
+                                        {
+                                            var imag = p.PropertyPhotos.Split(',');
+                                            foreach (var Photo in imag)
+                                            {
+                                            <li>
+                                                <a class="fancybox" href="@getallpath.getpath/Folders/PropertyImages/@Photo" data-fancybox-group="gallery">
+                                                    <img src="@getallpath.getpath/Folders/PropertyImages/@Photo" alt="Property">
+                                                </a>
+                                            </li>
+                                            @*<li><img src="@getallpath.getpath/images/thumb-1.jpg" alt="Property"></li>*@
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <li><img src="@getallpath.getpath/images/NoImage.png" alt="Property"></li>
+                                        }
+                                    }
+
+                                 </ul>
+                                   
+                                            </div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                                @*<input type="hidden" name="pid" value="@p.PID" />*@
+                                                <h3 class="propname"> @p.City</h3>
+                                                <h6>@p.PropertyStyle.Style_Name|@p.Bedroom BD |@p.Bathroom BA |@p.SqFt SqFt</h6>
+                                                <span class="price_content col-md-6 col-sm-6">
+                                                    @if(p.Price!=null)
+                                                    { 
+                                                    <p><font>Asking Price</font>@getallpath.currency@Math.Round(Convert.ToDouble(p.Price), 2)/m</p>
+                                                    }
+                                                    else
+                                                    {
+                                                          <p><font>Asking Price</font>--</p>
+                                                    }
+                                                    @if (p.DepositReq != null)
+                                                    {
+                                                        <p><font>Deposit</font>@getallpath.currency@Math.Round(Convert.ToDouble(p.DepositReq), 2)/m</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p><font>Deposit</font>--</p>
+                                                    }
+                                                    </span>
+                                                    <span class="price_content col-md-6 col-sm-6">
+                                                      
+                                                        @if (p.Bedroom != null)
+                                                        {
+                                                            <p><font>Bedrooms</font>@p.Bedroom</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p><font>Bedrooms</font>--</p>
+                                                        }
+                                                        @if (p.Bathroom != null)
+                                                        {
+                                                            <p><font>Bathrooms</font>@p.Bathroom</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p><font>Bathrooms</font>--</p>
+                                                        }
+                                                        @if (p.Furnished != null)
+                                                        {
+                                                            if(p.Furnished=="Furnished")
+                                                            { 
+                                                            <p><font>Furnished</font>Yes</p>
+                                                        }
+                                                            else
+                                                            {
+                                                                 <p><font>Furnished</font>No</p>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            <p><font>Furnished</font>--</p>
+                                                        }
+                                                        </span>
+                                                        <span class="price_content col-md-12 col-sm-12">
+                                                            
+                                                            @if (p.Description != null)
+                                                            {
+                                                                <p><font>Description</font>@p.Description</p>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p><font>Description</font>--</p>
+                                                            }
+                                                            @*<p><font>Estimated Rent</font>$@p.RentIncome/m</p>*@
+                                                        </span>
+                                                @*<span class="price_content col-md-6 col-sm-6">
+                                                                @{
+                                                    double opexp = (p.TotalExpenses / 12);
+                                                    double cashflow = (p.CashFlow / 12);
+                                                                }
+                                                                <p><font>OP Expenses</font>$@opexp/m</p>
+                                                                <p><font>Cash Flow</font>$@cashflow/m</p>
+
+                                                                <p><font>Cape Rat</font>$@Math.Round(p.CapRate, 2)%</p>
+                                                            </span>*@
+
+                                                <p>
+                                                    <a class="add_btn add_to_list" href="@getallpath.getpath/SaveList/@p.Property_Id">Add To WhishList</a>
+                                                    <a class="detail_btn" href="@getallpath.getpath/PropertyDetails/@p.Property_Id">View Details</a>
+                                                </p>
+                                            </div>
+                                        </article>
+                                    }
+                                    }
+                                     else { 
+                                <h4>No property found for this search</h4>}
+                                }
+                               
+                            }
+                        </div>
+                        <div class="tab-pane" id="tab-2" onclick=" initialize();">
+                            @{
+                                //  if (Session["SearchData"] != null)
+                                //    {
+
+                                //var   pdata = new JavaScriptSerializer().Serialize(data2);
+                                var data2 = Session["SearchJson"];
+                                <div id="map_canvas" style="width:100%;height:450px;"></div>
+
+                                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBylNa1W2qT0E8KFu_bAKCIOSpnfSxEos"></script>
+                                <script type="text/javascript">
+                                    window.onload = function () {
+                                        initialize();
+                                        var map;
+                                    }
+                                    function initialize() {
+
+
+                                        var markdata = '@data2';
+                                        markdata = markdata.replace(/&quot;/g, '"');
+                                        //markdata=markdata.replace(/"\[/g,'[');
+                                        // markdata=markdata.replace(/]"/g,']');
+                                        // markdata=markdata.replace(/ /g,'');
+                                        var markers = JSON.parse(markdata);
+                                        // console.log(markers);
+                                        var mapOptions = {
+                                            center: new google.maps.LatLng(markers[0].Latitude, markers[0].Longitude),
+                                            zoom: 12,
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                            streetViewControl: true
+                                        };
+                                        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+                                        var infoWindow = new google.maps.InfoWindow();
+                                        for (i = 0; i < markers.length; i++) {
+                                            var data = markers[i]
+                                            var myLatlng = new google.maps.LatLng(data.Latitude, data.Longitude);
+                                            var marker = new google.maps.Marker({
+                                                position: myLatlng,
+                                                map: map,
+                                                title: data.Street + " " + data.City + " " + data.State + " " + data.Zip
+                                            });
+                                            // console.log(marker);
+                                            (function (marker, data) {
+                                                google.maps.event.addListener(marker, "click", function (e) {
+                                                    // showaside(data.PID);
+                                                    //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                                                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + "<a href=@getallpath.getpath/PropertyDetails/" + data.Property_Id + ">" + data.Street + " " + data.City + " " + data.State + " " + data.Zip + "</a>" + "</div>");
+                                                    infoWindow.open(map, marker);
+                                                });
+                                            })(marker, data);
+                                        }
+                                    }
+                                    @*function showaside(PID) {
+                                                $.ajax({
+                                                    url: "@getallpath.getpath/_PropertyDetails",
+                                                    type: "GET",
+                                                    data: { id: PID },
+                                                    beforeSend:function(){
+                                                        $("#ImageLoadingState1").show();
+                                                    },
+                                                    success: function (data) {
+                                                        console.log(data);
+                                                        $("#right-side-partial").html(data);
+                                                        $('#asidedetails').show();
+                                                        $("#ImageLoadingState1").hide();
+                                                    }
+                                                });
+
+                                            }*@
+                                </script>
+                            }
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <aside class="col-md-3 col-sm-3">
+                    <a class="sidebar_col clearfix" href="#">
+                        <span class="col-md-4 col-sm-12 col-xs-4"><img src="@getallpath.getpath/images/thumb-3.jpg" alt="Thumb"></span>
+                        <span class="col-md-8 col-sm-12 col-xs-8 sidebar_txt">
+                            <h6>Lorem Ipsum dummy</h6>
+                            <p>Contrary to popular belief, simply random text</p>
+                            <p><font>Marketed By:</font></p>
+                        </span>
+                    </a>
+                    <a class="sidebar_col clearfix" href="#">
+                        <span class="col-md-4 col-sm-12 col-xs-4"><img src="@getallpath.getpath/images/thumb-3.jpg" alt="Thumb"></span>
+                        <span class="col-md-8 col-sm-12 col-xs-8 sidebar_txt">
+                            <h6>Lorem Ipsum dummy</h6>
+                            <p>Contrary to popular belief, simply random text</p>
+                            <p><font>Marketed By:</font></p>
+                        </span>
+                    </a>
+                    <a class="sidebar_col clearfix" href="#">
+                        <span class="col-md-4 col-sm-12 col-xs-4"><img src="@getallpath.getpath/images/thumb-3.jpg" alt="Thumb"></span>
+                        <span class="col-md-8 col-sm-12 col-xs-8 sidebar_txt">
+                            <h6>Lorem Ipsum dummy</h6>
+                            <p>Contrary to popular belief, simply random text</p>
+                            <p><font>Marketed By:</font></p>
+                        </span>
+                    </a>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+@if (ViewBag.PropertyListMessage != null)
+{
+    <div id="myModal" class="modal hide fade modalErrorMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+
+        <div class="modal-body" style="">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            
+            <p>@ViewBag.PropertyListMessage</p>
+        </div>
+
+    </div>
+
+}
+
+
+
+<div id="myModalmylist" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="text-align-last: center">Add Property To MyList</h4>
+            </div>
+            <form class="form-account" role="form" method="post">
+                <div class="modal-body">
+
+                    <div class="form-group clearfix">
+                        <input type="hidden" id="p_id" name="pid" />
+                        <span class="col-md-6 col-sm-6">
+                            <label>List Name*</label>
+                            <input type="text" class="form-control" required autofocus name="ListName">
+                        </span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" name="Command" value="SaveList" type="submit">Add To WhishList</button>
+                  
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div id="myModalmylist" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="text-align-last: center">Add Property To MyList</h4>
+            </div>
+            <form class="form-account" id="frmaddtolist" role="form" method="post">
+
+                <div class="modal-body">
+                    <input type="hidden" id="p_id" name="pid" />
+                    @*@if (ViewBag.ExistingList != null)
+                    {
+                        var lst = ViewBag.ExistingList as SelectList;
+                        if (lst.Count() > 0)
+                        {
+                            <div class="form-group clearfix">
+
+                                <span class="col-md-6 col-sm-6">
+                                    <label>Select List*</label>
+
+                                    @Html.DropDownList("SelectList", ViewBag.ExistingList as SelectList, "Select", new { @id = "selctlst", @class = "form-control drplist" })
+                                </span>
+
+                            </div>
+
+                            <div class="form-group clearfix">
+
+                                <span class="col-md-6 col-sm-6">
+                                    <label>Or</label>
+
+                                </span>
+                            </div>
+                        }
+                    }*@
+                    <div class="form-group clearfix">
+
+                        <span class="col-md-6 col-sm-6">
+                            <label>List Name*</label>
+                            <input type="text" id="lstname" class="form-control drplist" name="ListName">
+                        </span>
+                    </div>
+                    @*@if (ViewBag.SelectOneMessage != null)
+                    {
+                        <div class="form-group clearfix">
+                            <span class="col-md-6 col-sm-6">
+                                <font>@ViewBag.SelectOneMessage</font>
+                            </span>
+                        </div>
+                    }*@
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" name="Command" value="SaveList" type="submit">Add To WhishList</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+<script>
+    $(document).ready(function () {
+        $('.fancybox').fancybox();
+    });
+</script>
+}

@@ -1,0 +1,55 @@
+﻿@using ReportViewerForMvc;
+@{
+    ViewBag.Title = "ReportLease";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+<section class="report_page tab_page">
+    <div class="top_tab clearfix">
+        <form method="post">
+            <ul class="inner_list">
+                @*<li class="name_col">
+                    <select class="name_field form-control" name="drpBuilding" id="building">
+                        <option value="PropertyName">All Buildings</option>
+                    </select>
+                    @Html.DropDownList("drpBuilding", ViewBag.building as SelectList, new { @class = "name_field form-control", @id = "building" })
+                    <button class="sortbtn" name="Command" value="Building"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                </li>*@
+               
+                <li class="name_col">
+                    @Html.DropDownList("drpProperty", ViewBag.property as SelectList, "All", new { @class = "name_field form-control", @id = "property" })
+                    <button class="sortbtn" name="Command" value="Property"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                </li>
+                <li class="name_col">
+                    <select class="name_field form-control" name="drpTenant" id="tenant">
+                        <option value="TenantName">All Tenants</option>
+                    </select>
+                    <button class="sortbtn" name="Command" value="Tenant"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                </li>
+                
+                <li class="name_col">
+                    @*<select class="name_field form-control" name="drpSort">
+                <option value="PropertyName"></option>
+                <option value="Address1">Test</option>
+                <option value="Address2">Test</option>
+            </select>*@
+                    <input type="text" class="name_field form-control" name="Fromdate" autocomplete="off" id="fromdate" placeholder="Search From" />
+                    @*<button class="sortbtn" name="Command" value="Sort"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></button>*@
+                </li>
+                <li class="name_col">
+                    <input type="text" class="name_field form-control" name="Todate" autocomplete="off" id="todate" placeholder="Search To" />
+                    <button class="sortbtn" name="Command" value="Sort"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                
+              
+                </li>
+                
+
+            </ul>
+        </form>
+    </div>
+
+
+
+    @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+
+</section>

@@ -1,0 +1,989 @@
+﻿@using Proptiwise.Models
+@model Proptiwise.Models.Property
+@{
+    ViewBag.Title = "property_details";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+
+<section class="tab_page">
+    <div class="container">
+        <div class="row">
+            <div class="col-me-12"><h1>Property Details-@Model.PropertyName</h1></div>
+            <ul class="nav nav-tabs responsive" id="myTab">
+                <li class="active"><a href="#tab-1">General Info</a></li>
+                <li><a href="#tab-2">Work Orders</a></li>
+                <li><a href="#tab-3">Inventory</a></li>
+                @*<li><a href="#tab-4">Custom Fields</a></li>*@
+                <li><a href="#tab-5">Advertise Listing</a></li>
+                @*<li><a href="#tab-6">Add Images</a></li>*@
+                
+            </ul>
+            <div class="tab-content responsive">
+                <div class="tab-pane active" id="tab-1">
+                    <div class="columns clear">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="top_info">
+                                <h3>Location Information</h3>
+                                <a class="edit_link on-edit1 editbutton" href="@getallpath.getpath/CreateProperty/@Model.Property_Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="contact_info">
+                                <span class="user_img">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                                <span class="txtinfo">
+                                    @if (Model.PropertyName != null)
+                                    {
+                                        <h4>@Model.PropertyName</h4>
+                                    }
+                                    else
+                                    {
+                                        <h4>No Name</h4>
+                                    }
+                                    <b>Address</b><p>@Model.StreetAddress @Model.BuildingName @Model.UnitNumber @Model.Town @Model.City @Model.Suberb @Model.State</p>
+
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="top_info">
+                                <h3>Classification</h3>
+                                @*<a class="edit_link on-edit2 editbutton" href="@getallpath.getpath/property_classedit/" data-modal=''><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>*@
+                            </div>
+                            <div class="contact_info">
+                                <ul class="identi_list">
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Property Type-
+                                        @if (Model.PropertyTypeId == null)
+                                        {
+                                            <span>
+
+                                                -Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>-@Model.PropertyType.PropertyTypeName</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Property Style-
+                                        @if (Model.PropertyStyleId == null)
+                                        {
+                                            <span>
+
+                                                - Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>-@Model.PropertyStyle.Style_Name</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Parking -
+                                        @if (Model.Parking_Id == null)
+                                        {
+                                            <span>
+
+                                                - Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>-@Model.Parking_Id</span>
+                                        }
+                                    </li>
+
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Heating -
+                                        @if (Model.Heating_Id == null)
+                                        {
+                                            <span>
+
+                                                -Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>-@Model.Heating_Id</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Air Conditioning -
+                                        @if (Model.AirConditioning_Id == null)
+                                        {
+                                            <span>
+
+                                                -Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>-@Model.AirConditioning_Id</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Flooring -
+                                        @if (Model.Flooring_Id == null)
+                                        {
+                                            <span>
+
+                                                -Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>-@Model.Flooring_Id</span>
+                                        }
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="top_info">
+                                <h3>Layout</h3>
+                                @*<a class="edit_link on-edit1 editbutton" href="@getallpath.getpath/property_layoutedit/" data-modal=''><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>*@
+                            </div>
+                            <div class="contact_info">
+                                <ul class="identi_list pull-left">
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Square Feet-
+                                        @if (Model.SqFt == null)
+                                        {
+                                            <span>
+
+                                                -Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.SqFt</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Bedrooms-
+                                        @if (Model.Bedroom == null)
+                                        {
+                                            <span>
+
+                                                - Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.Bedroom</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Bathrooms -
+                                        @if (Model.Bathroom == null)
+                                        {
+                                            <span>
+
+                                                - Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.Bathroom</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Toilets-
+                                        @if (Model.toilet == null)
+                                        {
+                                            <span>
+
+                                                -Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.toilet</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Study Room-
+                                        @if (Model.studyRoom == null)
+                                        {
+                                            <span>
+
+                                                -Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.studyRoom</span>
+                                        }
+                                    </li>
+                                </ul>
+                                <ul class="identi_list pull-right">
+
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Utility Room-
+                                        @if (Model.UtilityRoom == null)
+                                        {
+                                            <span>
+
+                                                -Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.UtilityRoom</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Kitchen-
+                                        @if (Model.Kitchen == null)
+                                        {
+                                            <span>
+
+                                                -Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.Kitchen</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Garage-
+                                        @if (Model.Garage == null)
+                                        {
+                                            <span>
+
+                                                -Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.Garage</span>
+                                        }
+                                    </li>
+
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Year Built -
+                                        @if (Model.YearBuilt == null)
+                                        {
+                                            <span>
+
+                                                -Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.YearBuilt</span>
+                                        }
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                        @*<div class="col-md-6 col-sm-6">
+                                <div class="top_info">
+                                    <h3>Features and Amenities</h3>
+                                    <a class="edit_link on-edit2 editbutton" href="@getallpath.getpath/property_featureedit/" data-modal=''>Edit</a>
+                                </div>
+                                <div class="contact_info">
+                                    <p>@Model.FeaturesAndAmenities</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="top_info">
+                                    <h3>Comments</h3>
+                                    <a class="edit_link on-edit1 editbutton" href="@getallpath.getpath/property_commentedit/" data-modal=''>Edit</a>
+                                </div>
+                                <div class="contact_info">
+                                    @if (Model.Comment== null)
+                                    {
+                                         <p>[ Not Entered ]</p>
+                                    }
+                                    else
+                                    {
+                                        <p>@Model.Comment</p>
+
+                                    }
+                                </div>
+                            </div>*@
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab-2">
+
+                    <div class="columns clear">
+                        <div class="top_info">
+                            <h3>Work Orders</h3>
+                        </div>
+                        @foreach (var wrk in ViewBag.workorders as List<Proptiwise.Models.Fault>)
+                        {
+                            if (wrk.JobStatus == 0)
+                            {
+                                <table width="100%" class="table_list" cellspacing="0">
+                                    <caption>
+                                        <h6 style="color: white; text-align: center"><b>Open Issues for this Property</b></h6>
+                                    </caption>
+                                    <thead>
+
+                                    <th>Work Order#</th>
+                                    <th>Due</th>
+                                    <th>Summery</th>
+
+                                    <th>Type</th>
+                                    <th>Priority</th>
+
+                                    <th>Opened</th>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayName(wrk.FaultDescription)
+                                            </td>
+                                            <td>
+                                                @if (wrk.MaintenanceCost != null)
+                                                {
+                                                    @Html.DisplayName(wrk.MaintenanceCost.ToString())}
+                                                else if (wrk.TenantMaintainanceCost != null)
+                                                { @Html.DisplayName(wrk.TenantMaintainanceCost.ToString())  }
+                                                else
+                                                { @Html.Display("-") }
+                                            </td>
+                                            <td>
+                                                @if (wrk.Notes != null)
+                                                {   @Html.DisplayName(wrk.Notes) }
+                                                else
+                                                {  @Html.Display("-") }
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayName(wrk.FaultType.FaultTypeName)
+                                            </td>
+                                            <td>
+                                                @if (wrk.Priority == 1)
+                                                {
+                                                    <span>Low</span>
+                                                }
+                                                else if (wrk.Priority == 2)
+                                                { <span>Medium</span>
+
+                                                }
+                                                else if (wrk.Priority == 3)
+                                                {
+                                                    <span>High</span>
+
+                                                }
+                                            </td>
+                                            <td>
+                                                Opened
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <table width="100%" class="table_list" cellspacing="0">
+                                    <caption>
+                                        <h6 style="color: white; text-align: center"><b>Open Issues for this Property</b></h6>
+                                    </caption>
+                                    <thead>
+
+                                    <th>Work Order#</th>
+                                    <th>Due</th>
+                                    <th>Summery</th>
+                                    <th>More</th>
+                                    <th>Type</th>
+                                    <th>Priority</th>
+
+                                    <th>Opened</th>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="7">
+                                                <hr />
+                                                <p style="text-align: center">No Open Issues</p>
+                                                <hr />
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            }
+                            if (wrk.JobStatus != 0 && wrk.JobStatus != 6)
+                            {
+                                <table width="100%" class="table_list" cellspacing="0">
+                                    <caption>
+                                        <h6 style="color: white; text-align: center"><b>Pending Issues for this Property</b></h6>
+                                    </caption>
+                                    <thead>
+
+                                    <th>Work Order#</th>
+                                    <th>Due</th>
+                                    <th>Summery</th>
+
+                                    <th>Type</th>
+                                    <th>Priority</th>
+
+                                    <th>Opened</th>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayName(wrk.FaultDescription)
+                                            </td>
+                                            <td>
+                                                @if (wrk.MaintenanceCost != null)
+                                                {
+                                                    @Html.DisplayName(wrk.MaintenanceCost.ToString())}
+                                                else if (wrk.TenantMaintainanceCost != null)
+                                                { @Html.DisplayName(wrk.TenantMaintainanceCost.ToString())  }
+                                                else
+                                                { @Html.Display("-") }
+                                            </td>
+                                            <td>
+                                                @if (wrk.Notes != null)
+                                                {   @Html.DisplayName(wrk.Notes) }
+                                                else
+                                                {  @Html.Display("-") }
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayName(wrk.FaultType.FaultTypeName)
+                                            </td>
+                                            <td>
+                                                @if (wrk.Priority == 1)
+                                                {
+                                                    <span>Low</span>
+                                                }
+                                                else if (wrk.Priority == 2)
+                                                { <span>Medium</span>
+
+                                                }
+                                                else if (wrk.Priority == 3)
+                                                {
+                                                    <span>High</span>
+
+                                                }
+                                            </td>
+                                            <td>
+                                                Pending
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <table width="100%" class="table_list" cellspacing="0">
+                                    <caption>
+                                        <h6 style="color: white; text-align: center"><b>Pending Issues for this Property</b></h6>
+                                    </caption>
+                                    <thead>
+
+                                    <th>Work Order#</th>
+                                    <th>Due</th>
+                                    <th>Summery</th>
+
+                                    <th>Type</th>
+                                    <th>Priority</th>
+
+                                    <th>Opened</th>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="7">
+                                                <hr />
+                                                <p style="text-align: center">Pending Issues</p>
+                                                <hr />
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            }
+                            if (wrk.JobStatus == 6)
+                            {
+                                <table width="100%" class="table_list" cellspacing="0">
+                                    <caption>
+                                        <h6 style="color: white; text-align: center"><b>Closed Issues for this Property</b></h6>
+                                    </caption>
+                                    <thead>
+                                    <th>Work Order#</th>
+                                    <th>Due</th>
+                                    <th>Summery</th>
+
+                                    <th>Type</th>
+                                    <th>Priority</th>
+
+                                    <th>Opened</th>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayName(wrk.FaultDescription)
+                                            </td>
+                                            <td>
+                                                @if (wrk.MaintenanceCost != null)
+                                                {
+                                                    @Html.DisplayName(wrk.MaintenanceCost.ToString())}
+                                                else if (wrk.TenantMaintainanceCost != null)
+                                                { @Html.DisplayName(wrk.TenantMaintainanceCost.ToString())  }
+                                                else
+                                                { @Html.Display("-") }
+                                            </td>
+                                            <td>
+                                                @if (wrk.Notes != null)
+                                                {   @Html.DisplayName(wrk.Notes) }
+                                                else
+                                                {  @Html.Display("-") }
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayName(wrk.FaultType.FaultTypeName)
+                                            </td>
+                                            <td>
+                                                @if (wrk.Priority == 1)
+                                                {
+                                                    <span>Low</span>
+                                                }
+                                                else if (wrk.Priority == 2)
+                                                { <span>Medium</span>
+
+                                                }
+                                                else if (wrk.Priority == 3)
+                                                {
+                                                    <span>High</span>
+
+                                                }
+                                            </td>
+                                            <td>
+                                                Closed
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <table width="100%" class="table_list" cellspacing="0">
+                                    <caption>
+                                        <h6 style="color: white; text-align: center"><b>Closed Issues for this Property</b></h6>
+                                    </caption>
+                                    <thead>
+                                    <th>Work Order#</th>
+                                    <th>Due</th>
+                                    <th>Summery</th>
+
+                                    <th>Type</th>
+                                    <th>Priority</th>
+
+                                    <th>Opened</th>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="7">
+                                                <hr />
+                                                <p style="text-align: center">No Closed Issues</p>
+                                                <hr />
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            }
+                        }
+                    </div>
+
+                </div>
+                <div class="tab-pane" id="tab-3">
+                    <div class="columns clear">
+                        <div class="top_info">
+                            <h3>Inventory</h3>
+                        </div>
+                        <table width="100%" class="table_list" cellspacing="0">
+                            <caption>
+                                <h6 style="color: white; text-align: center"><b>Add your inventory, electronics, furniture, or other capital equipment here.</b></h6>
+                            </caption>
+                            <thead>
+
+                            <th>Name</th>
+                            <th>Area/Room</th>
+                            <th>Type</th>
+                            <th>Quantity</th>
+                            <th>Model#</th>
+                            <th>Serial#</th>
+
+                            <th>Cost</th>
+
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.inventory != null)
+                                {
+                                    var invdata = ViewBag.inventory as List<tbl_inventory>;
+                                    if (invdata.Count > 0)
+                                    {
+                                        foreach (var inv in invdata)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayName(inv.Name)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayName(inv.tbl_area.AreaName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayName(inv.inventory_type.InventoryTypeName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayName(inv.Quantity.ToString())
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayName(inv.Modal.ToString())
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayName(inv.Serial.ToString())
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayName(inv.Cost.ToString())
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="7">
+                                            <hr>
+                                            <p style="text-align: center">No inventory items</p>
+                                            <hr>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+                @*<div class="tab-pane" id="tab-4">
+                        <div class="columns clear">
+                            <div class="top_info">
+                                <h3>Custom Fields</h3>
+                            </div>
+                            <table width="100%" class="table_list" cellspacing="0">
+                                <caption>
+                                    <h6 style="color:white;text-align:center"><b>Custom data for this property </b></h6>
+                                </caption>
+                                <thead>
+
+                                <th>Field Name</th>
+                                <th>Field Value</th>
+
+
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="7">
+                                            <hr />
+                                            <p style="text-align:center">No custom field entries for this property</p>
+                                            <hr />
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>*@
+                <div class="tab-pane" id="tab-5">
+                    <div class="columns prop_block clearfix">
+                        <div class="clearfix">
+                            @*<div class="col-md-6 col-sm-6">
+                                    <div class="top_info">
+                                        @if(Model.listtitle==null && Model.Description==null)
+                                        {
+                                        <h3>Listing Title</h3>
+                                        }
+                                        else
+                                        {
+                                           <h3>@Model.listtitle</h3>
+                                        }
+                                        <a class="edit_link on-edit1 editbutton" href="@getallpath.getpath/listing_title/" data-modal=''>Edit</a>
+                                        @if (Model.listtitle == null && Model.Description == null)
+                                        {
+                                            <p>A description of the listing for advertising purposes...</p>
+                                        }
+                                        else
+                                        {
+                                            <p>@Model.Description</p>
+                                        }
+
+                                    </div>
+
+                                </div>*@
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="top_info">
+                                <h3>Contact Info</h3>
+                                <a class="edit_link on-edit1 editbutton" href="@getallpath.getpath/Contact_info/" data-modal=''><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="contact_info">
+                                <ul class="identi_list">
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Contact Name
+                                        @if (Model.lsContactName == null)
+                                        {
+                                            <span>
+
+
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.lsContactName</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Contact Phone
+                                        @if (Model.lsContactPhone == null)
+                                        {
+                                            <span>
+
+
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.lsContactPhone</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Contact Email
+                                        @if (Model.lsContactEmail == null)
+                                        {
+                                            <span>
+
+
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.lsContactEmail</span>
+                                        }
+                                    </li>
+
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Virtual Tour URL
+                                        @if (Model.VirtualTourUrl == null)
+                                        {
+                                            <span>
+
+
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.VirtualTourUrl</span>
+                                        }
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="top_info">
+                                <h3>Rent & Terms</h3>
+                                @*<a class="edit_link on-edit2 editbutton" href="@getallpath.getpath/rentprop/" data-modal=''>Edit</a>*@
+                            </div>
+                            <div class="contact_info">
+                                <ul class="identi_list">
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>If Holding Fee
+                                        @if (Model.HoldingFee == null)
+                                        {
+                                            <span>
+
+                                                Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            if (Model.HoldingFee == 1)
+                                            {
+                                                <span> Yes  </span>
+                                            }
+                                            else
+                                            {
+                                                <span> No  </span>
+                                            }
+
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Holding Fee
+                                        @if (Model.IfHoldingFee == null)
+                                        {
+                                            <span>
+
+                                                Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span> $@Model.IfHoldingFee </span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Deposit Required
+                                        @if (Model.DepositReq == null)
+                                        {
+                                            <span>
+
+                                                Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>$@Model.DepositReq</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Price
+                                        @if (Model.Price == null)
+                                        {
+                                            <span>
+
+                                                Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>$@Model.Price</span>
+                                        }
+                                    </li>
+
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Vacant From
+                                        @if (Model.VacancyDate == null)
+                                        {
+                                            <span>
+
+                                                Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.VacancyDate.Value.ToShortDateString()</span>
+                                        }
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="tab-pane" id="tab-6">
+                        <div class="columns prop_block clearfix">
+
+                            <div class="col-md-12">
+                                <div class="top_info">
+                                    <h3>Add Images</h3>
+
+                                </div>
+                                <div class="top_info clearfix">
+                                    <div class="img_upbtn clearfix">
+                                        <form id="frm" name="formImages" method="post" enctype="multipart/form-data">
+                                            <input type="file" multiple="multiple" name="ImageName" />
+                                            <button type="submit" class="btn-primary" name="Command" value="SaveImage">Upload Images</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="slider_panel clearfix">
+                                <ul class="bxslider">
+                                    @if (ViewBag.prpimages != null)
+                                    {
+                                        var imagess = ViewBag.prpimages as List<PropertyImage>;
+                                        foreach (var data in imagess)
+                                        {
+                                            <li>
+                                                <img src="@getallpath.getpath//PropertyImages/@data.ImageName" alt="@data.ImageName" width="300" />
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Appjs/Phone.js"></script>
+
+
+@if (TempData["ImgMsg"] != null)
+{
+
+    <div id="myModal" class="modal hide fade modalErrorMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+
+        <div class="modal-body" style="">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p>@TempData["ImgMsg"]</p>
+
+        </div>
+
+    </div>
+
+}

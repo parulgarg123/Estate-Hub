@@ -1,0 +1,2808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbrealestateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Applicants">
+    <Key>
+      <PropertyRef Name="Applicant_Id" />
+    </Key>
+    <Property Name="Applicant_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="200" />
+    <Property Name="LastName" Type="varchar" MaxLength="200" />
+    <Property Name="Telephone" Type="varchar" MaxLength="20" />
+    <Property Name="Mobile" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="SSN" Type="varchar" MaxLength="50" />
+    <Property Name="Desired_Property" Type="varchar" MaxLength="500" />
+    <Property Name="Received_On" Type="date" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Created" Type="date" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="Address1" Type="varchar" MaxLength="50" />
+    <Property Name="Address2" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="PostCode" Type="varchar" MaxLength="50" />
+    <Property Name="Dateofbirth" Type="datetime" />
+    <Property Name="DriverLicense" Type="varchar" MaxLength="50" />
+    <Property Name="SocialSecurity" Type="varchar" MaxLength="50" />
+    <Property Name="Profile" Type="int" />
+    <Property Name="Smoker" Type="bit" />
+    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="Landlord_Id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="application_details">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="50" />
+    <Property Name="FormerName" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="Nationality" Type="int" />
+    <Property Name="MaritalStatus" Type="varchar" MaxLength="50" />
+    <Property Name="Children" Type="int" />
+    <Property Name="Notolive" Type="int" />
+    <Property Name="PeopleNames" Type="varchar(max)" />
+    <Property Name="Noage18" Type="int" />
+    <Property Name="Pets" Type="bit" />
+    <Property Name="Smoker" Type="bit" />
+    <Property Name="fullnames" Type="varchar(max)" />
+    <Property Name="HouseNumber" Type="varchar" MaxLength="50" />
+    <Property Name="StreetName" Type="varchar" MaxLength="50" />
+    <Property Name="Town" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="PostCode" Type="varchar" MaxLength="50" />
+    <Property Name="Moveindate" Type="datetime" />
+    <Property Name="Moveout" Type="datetime" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="ReferenceName" Type="varchar" MaxLength="50" />
+    <Property Name="ReferneceNumber" Type="varchar" MaxLength="50" />
+    <Property Name="ReferenceEmail" Type="varchar" MaxLength="50" />
+    <Property Name="Employmntstatus" Type="varchar" MaxLength="50" />
+    <Property Name="EmployerName" Type="varchar" MaxLength="50" />
+    <Property Name="Emphousenum" Type="varchar" MaxLength="50" />
+    <Property Name="Empstreetname" Type="varchar" MaxLength="50" />
+    <Property Name="Emptown" Type="varchar" MaxLength="50" />
+    <Property Name="EmpCity" Type="varchar" MaxLength="50" />
+    <Property Name="EmpCountry" Type="varchar" MaxLength="50" />
+    <Property Name="EmpPostCode" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="EmpEmail" Type="varchar" MaxLength="50" />
+    <Property Name="Position" Type="varchar" MaxLength="50" />
+    <Property Name="LengthEmp" Type="varchar" MaxLength="50" />
+    <Property Name="CPName" Type="varchar" MaxLength="50" />
+    <Property Name="CPNumber" Type="varchar" MaxLength="50" />
+    <Property Name="CPemail" Type="varchar" MaxLength="50" />
+    <Property Name="NetIncome" Type="float" />
+    <Property Name="AddIncome" Type="float" />
+    <Property Name="GrossIncome" Type="float" />
+    <Property Name="countryagainst" Type="bit" />
+    <Property Name="bankruptcy" Type="bit" />
+    <Property Name="criminalactivity" Type="bit" />
+    <Property Name="terroristactivity" Type="bit" />
+    <Property Name="netduration" Type="varchar" MaxLength="50" />
+    <Property Name="additionalduration" Type="varchar" MaxLength="50" />
+    <Property Name="grossduration" Type="varchar" MaxLength="50" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="Status" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="SentStatus" Type="int" />
+    <Property Name="FillStatus" Type="int" />
+    <Property Name="CmtRejected" Type="varchar(max)" />
+    <Property Name="CmtDeffered" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="ApprovalStatuses">
+    <Key>
+      <PropertyRef Name="ApprovalStatus_Id" />
+    </Key>
+    <Property Name="ApprovalStatus_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApprovalStatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogId" />
+    </Key>
+    <Property Name="BlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content_detail1" Type="varchar(max)" />
+    <Property Name="Content_detail2" Type="varchar(max)" />
+    <Property Name="Content_detail3" Type="varchar(max)" />
+    <Property Name="Content_detail4" Type="varchar(max)" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Buildings">
+    <Key>
+      <PropertyRef Name="Building_Id" />
+    </Key>
+    <Property Name="Building_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingName" Type="varchar" MaxLength="500" />
+    <Property Name="Address1" Type="varchar" MaxLength="500" />
+    <Property Name="Address2" Type="varchar" MaxLength="500" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="PostCode" Type="varchar" MaxLength="50" />
+    <Property Name="Telephone" Type="varchar" MaxLength="20" />
+    <Property Name="PurchaseDate" Type="date" />
+    <Property Name="ManagerName" Type="varchar" MaxLength="50" />
+    <Property Name="ManagerTelephone" Type="varchar" MaxLength="50" />
+    <Property Name="Created" Type="date" />
+    <Property Name="LandlordId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="City_Id" />
+    </Key>
+    <Property Name="City_Id" Type="int" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="100" />
+    <Property Name="StateId" Type="varchar" MaxLength="200" />
+    <Property Name="CountryId" Type="int" />
+  </EntityType>
+  <EntityType Name="CommonDocuments">
+    <Key>
+      <PropertyRef Name="CommonDocId" />
+    </Key>
+    <Property Name="CommonDocId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocName" Type="varchar" MaxLength="500" />
+    <Property Name="DocComments" Type="varchar(max)" />
+    <Property Name="LandLordId" Type="bigint" />
+    <Property Name="DateAdded" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Contact_Id" />
+    </Key>
+    <Property Name="Contact_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="contactEmail" Type="varchar" MaxLength="200" />
+    <Property Name="Message" Type="varchar(max)" />
+    <Property Name="ContactImg" Type="varchar" MaxLength="2000" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Replied" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="countryId" />
+    </Key>
+    <Property Name="countryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="countryName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="damage_intventory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inventory_Id" Type="varchar" MaxLength="50" />
+    <Property Name="TotalCost" Type="float" />
+    <Property Name="Balance" Type="float" />
+    <Property Name="DepositReq" Type="float" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Tenant_Id" Type="bigint" />
+    <Property Name="Property_Id" Type="bigint" />
+    <Property Name="Landlord_Id" Type="bigint" />
+    <Property Name="Building_Id" Type="int" />
+    <Property Name="LandlordComment" Type="varchar(max)" />
+    <Property Name="TenantComment" Type="varchar(max)" />
+    <Property Name="TenancyAgreementId" Type="int" />
+    <Property Name="Paymentstatus" Type="int" />
+  </EntityType>
+  <EntityType Name="deposit_transaction">
+    <Key>
+      <PropertyRef Name="TrasactionId" />
+    </Key>
+    <Property Name="TrasactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransId" Type="varchar" MaxLength="50" />
+    <Property Name="AmountPaid" Type="varchar" MaxLength="50" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="DateAdded" Type="date" />
+  </EntityType>
+  <EntityType Name="Deposits">
+    <Key>
+      <PropertyRef Name="DepositId" />
+    </Key>
+    <Property Name="DepositId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepositAmount" Type="float" />
+    <Property Name="DepositStatus" Type="int" />
+    <Property Name="DepositApproval" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DepositDate" Type="date" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="OfferId" Type="int" />
+    <Property Name="OfferProposalId" Type="int" />
+    <Property Name="ReqviewId" Type="int" />
+  </EntityType>
+  <EntityType Name="Description">
+    <Key>
+      <PropertyRef Name="DescriptionId" />
+    </Key>
+    <Property Name="DescriptionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="DocumentTypeId" />
+    </Key>
+    <Property Name="DocumentTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentTypeName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+    <Property Name="Details" Type="varchar(max)" />
+    <Property Name="dateAdded" Type="datetime" />
+    <Property Name="startDate" Type="datetime" />
+    <Property Name="enddate" Type="datetime" />
+    <Property Name="url" Type="varchar" MaxLength="200" />
+    <Property Name="alldays" Type="bit" />
+    <Property Name="Landlord_Id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Faults">
+    <Key>
+      <PropertyRef Name="FaultId" />
+    </Key>
+    <Property Name="FaultId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FaultDescription" Type="varchar(max)" />
+    <Property Name="FaultTypeId" Type="int" />
+    <Property Name="FaultDate" Type="datetime" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="Notes" Type="varchar(max)" />
+    <Property Name="ServiceId" Type="int" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="Status" Type="int" />
+    <Property Name="RepairStatus" Type="int" />
+    <Property Name="RepairAmount" Type="float" />
+    <Property Name="RepairPaymentStatus" Type="int" />
+    <Property Name="AgreeWithAmount" Type="int" />
+    <Property Name="VisitDate" Type="date" />
+    <Property Name="VisitTime" Type="varchar" MaxLength="50" />
+    <Property Name="MaintenanceCost" Type="float" />
+    <Property Name="AcceptCost" Type="smallint" />
+    <Property Name="AcceptTime" Type="smallint" />
+    <Property Name="SupplierNotes" Type="varchar(max)" />
+    <Property Name="JobStatus" Type="int" />
+    <Property Name="JobStatusReason" Type="varchar(max)" />
+    <Property Name="VisitDateOffer" Type="date" />
+    <Property Name="VisitTimeOffer" Type="varchar" MaxLength="50" />
+    <Property Name="AcceptOfferTime" Type="int" />
+    <Property Name="RejectCommentByProvider" Type="varchar(max)" />
+    <Property Name="RejectCommentByTenant" Type="varchar(max)" />
+    <Property Name="TenantMaintainanceCost" Type="float" />
+    <Property Name="ProposalComments" Type="varchar(max)" />
+    <Property Name="ProposalProviderComments" Type="varchar(max)" />
+    <Property Name="AcceptSchedule" Type="int" />
+    <Property Name="ServiceProviderId" Type="int" />
+    <Property Name="photos" Type="varchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="FaultTypes">
+    <Key>
+      <PropertyRef Name="FaultTypeId" />
+    </Key>
+    <Property Name="FaultTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FaultTypeName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Inspection">
+    <Key>
+      <PropertyRef Name="InspectionId" />
+    </Key>
+    <Property Name="InspectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="RoomType" Type="varchar" MaxLength="50" />
+    <Property Name="RoomNotes" Type="varchar(max)" />
+    <Property Name="Images" Type="varchar(max)" />
+    <Property Name="InspectionNotes" Type="varchar(max)" />
+    <Property Name="ActionRequired" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="InspectionStatus" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="inventory_type">
+    <Key>
+      <PropertyRef Name="InventoryTypeId" />
+    </Key>
+    <Property Name="InventoryTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InventoryTypeName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="InventoryImages">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageName" Type="varchar" MaxLength="50" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="LandlordId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Invites">
+    <Key>
+      <PropertyRef Name="Invite_Id" />
+    </Key>
+    <Property Name="Invite_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LandlordName" Type="varchar" MaxLength="50" />
+    <Property Name="LandlordEmail" Type="varchar" MaxLength="100" />
+    <Property Name="PropertyAddress" Type="varchar" MaxLength="500" />
+    <Property Name="PropertyType" Type="varchar" MaxLength="50" />
+    <Property Name="Tenant_id" Type="varchar" MaxLength="50" />
+    <Property Name="Message" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="MovingIn">
+    <Key>
+      <PropertyRef Name="MovingInId" />
+    </Key>
+    <Property Name="MovingInId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MoveInDate" Type="date" />
+    <Property Name="WelcomePack" Type="bit" />
+    <Property Name="Keys" Type="bit" />
+    <Property Name="SetsofKeys" Type="smallint" />
+    <Property Name="PropertyManual" Type="bit" />
+    <Property Name="WhiteGoodManual" Type="bit" />
+    <Property Name="BoilerManual" Type="bit" />
+    <Property Name="UtilitiesInformation" Type="bit" />
+    <Property Name="SubmitMeterReading" Type="bit" />
+    <Property Name="Others" Type="bit" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="ApprovalStatus" Type="smallint" />
+    <Property Name="Comments" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Mylists">
+    <Key>
+      <PropertyRef Name="ListId" />
+    </Key>
+    <Property Name="ListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ListName" Type="varchar" MaxLength="200" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="ListDetails" Type="varchar(max)" />
+    <Property Name="UpdatedOn" Type="date" />
+    <Property Name="PropertyId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="paymentHistory">
+    <Key>
+      <PropertyRef Name="Paymenthistoryid" />
+    </Key>
+    <Property Name="Paymenthistoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecievedOn" Type="datetime" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="Method" Type="varchar" MaxLength="50" />
+    <Property Name="CheckNo" Type="varchar" MaxLength="50" />
+    <Property Name="Tenant_Id" Type="bigint" />
+    <Property Name="Property_Id" Type="bigint" />
+    <Property Name="Building_Id" Type="int" />
+    <Property Name="Comment" Type="varchar" MaxLength="50" />
+    <Property Name="Archievestatus" Type="int" />
+    <Property Name="TransId" Type="varchar" MaxLength="50" />
+    <Property Name="Landlord_id" Type="bigint" />
+    <Property Name="paymentsection" Type="varchar" MaxLength="50" />
+    <Property Name="paymentsectionid" Type="int" />
+    <Property Name="ServiceProviderId" Type="int" />
+    <Property Name="ItemNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="Plans">
+    <Key>
+      <PropertyRef Name="PlanID" />
+    </Key>
+    <Property Name="PlanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlanName" Type="varchar" MaxLength="50" />
+    <Property Name="PlanDescription" Type="varchar" MaxLength="400" />
+    <Property Name="EffectiveDate" Type="date" />
+    <Property Name="ExpirationDate" Type="date" />
+    <Property Name="MaxZipCodes" Type="int" />
+    <Property Name="MaxCities" Type="int" />
+    <Property Name="MaxStates" Type="int" />
+    <Property Name="PriceMonthly" Type="money" />
+    <Property Name="PriceYearly" Type="money" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Properties">
+    <Key>
+      <PropertyRef Name="Property_Id" />
+    </Key>
+    <Property Name="Property_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropertyName" Type="varchar" MaxLength="50" />
+    <Property Name="PropertyStyleId" Type="int" />
+    <Property Name="Parking_Id" Type="bit" />
+    <Property Name="Heating_Id" Type="bit" />
+    <Property Name="AirConditioning_Id" Type="bit" />
+    <Property Name="Flooring_Id" Type="bit" />
+    <Property Name="BuildingId" Type="int" />
+    <Property Name="Size" Type="varchar" MaxLength="50" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="500" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="500" />
+    <Property Name="City" Type="varchar" MaxLength="200" />
+    <Property Name="State" Type="varchar" MaxLength="200" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="PostCode" Type="varchar" MaxLength="50" />
+    <Property Name="PropertyTypeId" Type="int" />
+    <Property Name="SqFt" Type="int" />
+    <Property Name="FeaturesAndAmenities" Type="varchar(max)" />
+    <Property Name="Created" Type="date" />
+    <Property Name="Apt_Suite_Unit" Type="varchar" MaxLength="50" />
+    <Property Name="Street" Type="varchar" MaxLength="50" />
+    <Property Name="street_name" Type="varchar" MaxLength="50" />
+    <Property Name="street_type" Type="varchar" MaxLength="50" />
+    <Property Name="street_direction" Type="varchar" MaxLength="50" />
+    <Property Name="YearBuilt" Type="smallint" />
+    <Property Name="DateAvailable" Type="date" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Bedroom" Type="smallint" />
+    <Property Name="Furnished" Type="varchar" MaxLength="50" />
+    <Property Name="DateAdded" Type="date" />
+    <Property Name="Bathroom" Type="smallint" />
+    <Property Name="toilet" Type="smallint" />
+    <Property Name="studyRoom" Type="smallint" />
+    <Property Name="UtilityRoom" Type="smallint" />
+    <Property Name="Kitchen" Type="smallint" />
+    <Property Name="Garage" Type="smallint" />
+    <Property Name="SmokersAllowed" Type="bit" />
+    <Property Name="PetsAllowed" Type="bit" />
+    <Property Name="Parking" Type="bit" />
+    <Property Name="Garden" Type="bit" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Latitude" Type="varchar" MaxLength="50" />
+    <Property Name="Longitude" Type="varchar" MaxLength="50" />
+    <Property Name="Landlord_Id" Type="bigint" />
+    <Property Name="leasestatus" Type="int" />
+    <Property Name="Archievestatus" Type="int" />
+    <Property Name="LeasedTo" Type="bigint" />
+    <Property Name="LeasedEnd" Type="date" />
+    <Property Name="Comment" Type="varchar" MaxLength="50" />
+    <Property Name="listtitle" Type="varchar" MaxLength="50" />
+    <Property Name="lsContactName" Type="varchar" MaxLength="50" />
+    <Property Name="lsContactPhone" Type="varchar" MaxLength="50" />
+    <Property Name="lsContactEmail" Type="varchar" MaxLength="50" />
+    <Property Name="VirtualTourUrl" Type="varchar" MaxLength="50" />
+    <Property Name="DepositReq" Type="float" />
+    <Property Name="ApplicationFee" Type="float" />
+    <Property Name="RentFreq" Type="smallint" />
+    <Property Name="AvailableOn" Type="date" />
+    <Property Name="VacancyDate" Type="date" />
+    <Property Name="LateFee" Type="float" />
+    <Property Name="Days" Type="int" />
+    <Property Name="HoldingFee" Type="int" />
+    <Property Name="IfHoldingFee" Type="float" />
+    <Property Name="MinimumRent" Type="float" />
+    <Property Name="PropertyPhotos" Type="varchar(max)" />
+    <Property Name="BuildingName" Type="varchar" MaxLength="50" />
+    <Property Name="Zip" Type="varchar" MaxLength="10" />
+    <Property Name="Town" Type="varchar" MaxLength="50" />
+    <Property Name="UnitNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Suberb" Type="varchar" MaxLength="50" />
+    <Property Name="Province" Type="varchar" MaxLength="50" />
+    <Property Name="StreetAddress" Type="varchar" MaxLength="500" />
+    <Property Name="County" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PropertyAirConditioning">
+    <Key>
+      <PropertyRef Name="AirConditioning_Id" />
+    </Key>
+    <Property Name="AirConditioning_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AirConditioningName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PropertyFeatures">
+    <Key>
+      <PropertyRef Name="PropertyFeature_Id" />
+    </Key>
+    <Property Name="PropertyFeature_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FeatureName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PropertyFlooring">
+    <Key>
+      <PropertyRef Name="PropertyFlooring_Id" />
+    </Key>
+    <Property Name="PropertyFlooring_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FlooringName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PropertyHeating">
+    <Key>
+      <PropertyRef Name="PropertyHeating_Id" />
+    </Key>
+    <Property Name="PropertyHeating_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HeatingName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PropertyImages">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageName" Type="varchar" MaxLength="50" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="LandlordId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="PropertyParking">
+    <Key>
+      <PropertyRef Name="Propertyparking_Id" />
+    </Key>
+    <Property Name="Propertyparking_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParkingName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PropertyStyles">
+    <Key>
+      <PropertyRef Name="Propertystyle_Id" />
+    </Key>
+    <Property Name="Propertystyle_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Style_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PropertyTypes">
+    <Key>
+      <PropertyRef Name="PropertyType_Id" />
+    </Key>
+    <Property Name="PropertyType_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropertyTypeName" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Purposal">
+    <Key>
+      <PropertyRef Name="PurposalId" />
+    </Key>
+    <Property Name="PurposalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="Offerprice" Type="float" />
+    <Property Name="purposal" Type="float" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Approval" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="offerid" Type="int" />
+  </EntityType>
+  <EntityType Name="reminderlist">
+    <Key>
+      <PropertyRef Name="ReminderId" />
+    </Key>
+    <Property Name="ReminderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="currentMoveout" Type="date" />
+  </EntityType>
+  <EntityType Name="RentDue">
+    <Key>
+      <PropertyRef Name="RentDueId" />
+    </Key>
+    <Property Name="RentDueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RentDueValue" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ReportRoles">
+    <Key>
+      <PropertyRef Name="ReportRoleId" />
+    </Key>
+    <Property Name="ReportRoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportRoleName" Type="varchar" MaxLength="500" />
+    <Property Name="ReportRoleUrl" Type="varchar" MaxLength="500" />
+    <Property Name="ReportDescription" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="RequestView">
+    <Key>
+      <PropertyRef Name="ReqviewId" />
+    </Key>
+    <Property Name="ReqviewId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="PreferredDate" Type="datetime" />
+    <Property Name="PreferredTime" Type="varchar" MaxLength="50" />
+    <Property Name="text" Type="varchar" MaxLength="50" />
+    <Property Name="Approve" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="RequestStatus" Type="tinyint" />
+    <Property Name="RequestParentId" Type="bigint" />
+    <Property Name="OfferId" Type="int" />
+  </EntityType>
+  <EntityType Name="Serviceprovider">
+    <Key>
+      <PropertyRef Name="ProviderId" />
+    </Key>
+    <Property Name="ProviderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProviderName" Type="varchar" MaxLength="50" />
+    <Property Name="ServiceId" Type="int" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Approval" Type="int" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="ProfilePhoto" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="services">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceName" Type="varchar" MaxLength="50" />
+    <Property Name="LandlordId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="settings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="slug" Type="varchar" MaxLength="200" />
+    <Property Name="keyId" Type="varchar" MaxLength="200" />
+    <Property Name="value" Type="varchar" MaxLength="200" />
+    <Property Name="flagimg" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="State_Id" />
+    </Key>
+    <Property Name="State_Id" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="100" />
+    <Property Name="StateCode" Type="varchar" MaxLength="10" />
+    <Property Name="CountryId" Type="int" />
+  </EntityType>
+  <EntityType Name="TabRoles">
+    <Key>
+      <PropertyRef Name="TabRolesId" />
+    </Key>
+    <Property Name="TabRolesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TabRolesName" Type="varchar" MaxLength="500" />
+    <Property Name="TabRoleUrl" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="tb_PropertyNotes">
+    <Key>
+      <PropertyRef Name="PrpNotesId" />
+    </Key>
+    <Property Name="PrpNotesId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="Notes" Type="varchar(max)" />
+    <Property Name="DateAdded" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_area">
+    <Key>
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Name="AreaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AreaName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_inventory">
+    <Key>
+      <PropertyRef Name="InventoryId" />
+    </Key>
+    <Property Name="InventoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="BuildingId" Type="int" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="AreaId" Type="int" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="InventoryTypeId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Modal" Type="varchar" MaxLength="50" />
+    <Property Name="Serial" Type="varchar" MaxLength="50" />
+    <Property Name="Cost" Type="float" />
+    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="Brand" Type="varchar" MaxLength="50" />
+    <Property Name="LandlordId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="tbl_invoice">
+    <Key>
+      <PropertyRef Name="InvoiceId" />
+    </Key>
+    <Property Name="InvoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="SendStatus" Type="int" />
+    <Property Name="PaymentStatus" Type="int" />
+    <Property Name="AgreementId" Type="int" />
+    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="Amountpay" Type="float" />
+  </EntityType>
+  <EntityType Name="tbl_lease">
+    <Key>
+      <PropertyRef Name="LeaseId" />
+    </Key>
+    <Property Name="LeaseId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Property_Id" Type="bigint" />
+    <Property Name="primaryTenant_Id" Type="bigint" />
+    <Property Name="Startdate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="sectenant_Id" Type="bigint" />
+    <Property Name="term" Type="int" />
+    <Property Name="duration" Type="varchar" MaxLength="50" />
+    <Property Name="Rent" Type="float" />
+    <Property Name="balance" Type="float" />
+    <Property Name="rentisdue" Type="int" />
+    <Property Name="firstrentalpay" Type="datetime" />
+    <Property Name="DescriptionId" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="Due" Type="varchar" MaxLength="500" />
+    <Property Name="ValidFrom" Type="date" />
+    <Property Name="ValidUntil" Type="date" />
+    <Property Name="Reason" Type="varchar(max)" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="CreditAmount" Type="float" />
+    <Property Name="CreditedOn" Type="date" />
+    <Property Name="LatefeeEnabled" Type="bit" />
+    <Property Name="DaysAfterDueDate" Type="int" />
+    <Property Name="FlatFeeOrBaseAmountOrPercentRent" Type="bit" />
+    <Property Name="FlatFee" Type="float" />
+    <Property Name="percentRent" Type="float" />
+    <Property Name="baseAmount" Type="float" />
+    <Property Name="ExcludeGracePeriod" Type="bit" />
+    <Property Name="MaxLateFee" Type="float" />
+    <Property Name="PaymentStatus" Type="int" />
+    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="paymentSchedule" Type="varchar(max)" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsClosed" Type="int" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="paymentmode" Type="varchar" MaxLength="50" />
+    <Property Name="createdOn" Type="datetime" />
+    <Property Name="updatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_LeaseCredits">
+    <Key>
+      <PropertyRef Name="credits_id" />
+    </Key>
+    <Property Name="credits_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lease_id" Type="bigint" />
+    <Property Name="Property_id" Type="bigint" />
+    <Property Name="tenant_id" Type="bigint" />
+    <Property Name="Reason" Type="varchar" MaxLength="100" />
+    <Property Name="amount" Type="float" />
+    <Property Name="Type" Type="varchar" MaxLength="100" />
+    <Property Name="CreditedOn" Type="datetime" />
+    <Property Name="PaymentMode" Type="varchar" MaxLength="200" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_offer">
+    <Key>
+      <PropertyRef Name="OfferId" />
+    </Key>
+    <Property Name="OfferId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="Askingprice" Type="float" />
+    <Property Name="offer" Type="float" />
+    <Property Name="OfferStatus" Type="int" />
+    <Property Name="PurposalStatus" Type="int" />
+    <Property Name="Approval" Type="int" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_othercharges">
+    <Key>
+      <PropertyRef Name="othercharges_id" />
+    </Key>
+    <Property Name="othercharges_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lease_id" Type="bigint" />
+    <Property Name="Property_id" Type="bigint" />
+    <Property Name="tenant_id" Type="bigint" />
+    <Property Name="description" Type="varchar" MaxLength="100" />
+    <Property Name="amount" Type="float" />
+    <Property Name="due" Type="varchar" MaxLength="100" />
+    <Property Name="validfrom" Type="datetime" />
+    <Property Name="validuntil" Type="datetime" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_owner">
+    <Key>
+      <PropertyRef Name="OwnerId" />
+    </Key>
+    <Property Name="OwnerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OwnerName" Type="varchar" MaxLength="50" />
+    <Property Name="Address1" Type="varchar" MaxLength="50" />
+    <Property Name="Address2" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="PostCode" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Telephone" Type="varchar" MaxLength="50" />
+    <Property Name="Cellular" Type="varchar" MaxLength="50" />
+    <Property Name="Fax" Type="varchar" MaxLength="50" />
+    <Property Name="Ownerreserveamt" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_vendor">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="ComName" Type="varchar" MaxLength="50" />
+    <Property Name="Address1" Type="varchar" MaxLength="50" />
+    <Property Name="Address2" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="PostCode" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Tel1" Type="varchar" MaxLength="50" />
+    <Property Name="Tel2" Type="varchar" MaxLength="50" />
+    <Property Name="TaxId" Type="varchar" MaxLength="50" />
+    <Property Name="Website" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblDocuments">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Name="DocumentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+    <Property Name="DocumentDetails" Type="varchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DocumentTypeId" Type="int" />
+    <Property Name="Country" Type="int" />
+  </EntityType>
+  <EntityType Name="tbMessage">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="emailfrom" Type="varchar" MaxLength="200" />
+    <Property Name="emailto" Type="varchar" MaxLength="200" />
+    <Property Name="Subject" Type="varchar" MaxLength="100" />
+    <Property Name="Message" Type="varchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="SentDate" Type="datetime" />
+    <Property Name="ReceivedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TenancyAgreement">
+    <Key>
+      <PropertyRef Name="TenancyAgreementId" />
+    </Key>
+    <Property Name="TenancyAgreementId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromAgreementDate" Type="date" />
+    <Property Name="ToAgreementDate" Type="date" />
+    <Property Name="Duration" Type="varchar" MaxLength="50" />
+    <Property Name="TenancyAgreementData" Type="varchar(max)" />
+    <Property Name="Signatures" Type="varchar" MaxLength="500" />
+    <Property Name="SignatureTenant" Type="varchar" MaxLength="500" />
+    <Property Name="RenewalDate" Type="date" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="Status" Type="int" />
+    <Property Name="ApprovalStatus" Type="int" />
+    <Property Name="DateAdded" Type="date" />
+    <Property Name="DateApproved" Type="date" />
+    <Property Name="lastmonthdate" Type="date" />
+    <Property Name="RenewStatus" Type="int" />
+    <Property Name="Checkoutdate" Type="date" />
+    <Property Name="Paymentstatus" Type="int" />
+    <Property Name="Sendstatus" Type="int" />
+    <Property Name="Cancelcomment" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="TenancyDetails">
+    <Key>
+      <PropertyRef Name="TenancyDetailId" />
+    </Key>
+    <Property Name="TenancyDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="RequestViewingId" Type="int" />
+    <Property Name="ProposalViewingId" Type="int" />
+    <Property Name="OfferId" Type="int" />
+    <Property Name="ProposalOfferId" Type="int" />
+    <Property Name="DepositId" Type="int" />
+    <Property Name="ApplicationId" Type="int" />
+    <Property Name="TenancyAgrrementId" Type="int" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="transactionId" Type="int" />
+    <Property Name="PaymentId" Type="int" />
+    <Property Name="LeaseId" Type="bigint" />
+    <Property Name="MovingInId" Type="int" />
+  </EntityType>
+  <EntityType Name="Tenants">
+    <Key>
+      <PropertyRef Name="Tenant_Id" />
+    </Key>
+    <Property Name="Tenant_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Telephone" Type="varchar" MaxLength="50" />
+    <Property Name="Cellular" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="Address1" Type="varchar" MaxLength="50" />
+    <Property Name="Address2" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="int" />
+    <Property Name="PostCode" Type="varchar" MaxLength="50" />
+    <Property Name="Dateofbirth" Type="datetime" />
+    <Property Name="DriverLicense" Type="varchar" MaxLength="50" />
+    <Property Name="PassportNo" Type="varchar" MaxLength="100" />
+    <Property Name="SocialSecurity" Type="varchar" MaxLength="50" />
+    <Property Name="Profile" Type="int" />
+    <Property Name="Smoker" Type="bit" />
+    <Property Name="Balance" Type="float" />
+    <Property Name="LastPmtOn" Type="datetime" />
+    <Property Name="Nextpmtdue" Type="datetime" />
+    <Property Name="LeaseEnds" Type="datetime" />
+    <Property Name="Property_Id" Type="bigint" />
+    <Property Name="leasestatus" Type="int" />
+    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="Signature" Type="varchar" MaxLength="500" />
+    <Property Name="Landlord_id" Type="bigint" />
+    <Property Name="ProfilePhoto" Type="varchar" MaxLength="200" />
+    <Property Name="MaritalStatus" Type="int" />
+    <Property Name="IfVisa" Type="varchar" MaxLength="50" />
+    <Property Name="Pets" Type="smallint" />
+    <Property Name="ifPets" Type="varchar" MaxLength="2000" />
+    <Property Name="Children" Type="smallint" />
+    <Property Name="IfChildren" Type="varchar" MaxLength="2000" />
+    <Property Name="BuildingName" Type="varchar" MaxLength="50" />
+    <Property Name="Town" Type="varchar" MaxLength="50" />
+    <Property Name="UnitNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Suberb" Type="varchar" MaxLength="50" />
+    <Property Name="Province" Type="varchar" MaxLength="50" />
+    <Property Name="StreetAddress" Type="varchar" MaxLength="500" />
+    <Property Name="Zip" Type="varchar" MaxLength="10" />
+    <Property Name="County" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="TrasactionId" />
+    </Key>
+    <Property Name="TrasactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransId" Type="varchar" MaxLength="50" />
+    <Property Name="AmountPaid" Type="varchar" MaxLength="50" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="DateAdded" Type="date" />
+  </EntityType>
+  <EntityType Name="UserDocuments">
+    <Key>
+      <PropertyRef Name="UserDocumentId" />
+    </Key>
+    <Property Name="UserDocumentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentId" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="ContentDetails" Type="varchar(max)" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DocumentTypeId" Type="int" />
+    <Property Name="DocTitle" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="int" />
+  </EntityType>
+  <EntityType Name="UserReportsPermissions">
+    <Key>
+      <PropertyRef Name="UserReportsPermissionsId" />
+    </Key>
+    <Property Name="UserReportsPermissionsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="ReportsRoleId" Type="int" />
+    <Property Name="ReportPermissionStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="200" />
+    <Property Name="DateAdded" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Address1" Type="varchar" MaxLength="200" />
+    <Property Name="City" Type="varchar" MaxLength="200" />
+    <Property Name="Country" Type="int" />
+    <Property Name="County" Type="varchar" MaxLength="100" />
+    <Property Name="Zip" Type="varchar" MaxLength="10" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="UserTypeID" Type="int" />
+    <Property Name="UserStatusID" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="TimeZone" Type="varchar" MaxLength="50" />
+    <Property Name="AgreedToTerms" Type="bit" />
+    <Property Name="Terms" Type="varchar(max)" />
+    <Property Name="CCType" Type="int" />
+    <Property Name="CCNo" Type="varchar" MaxLength="50" />
+    <Property Name="CCExpDate" Type="varchar" MaxLength="50" />
+    <Property Name="CCSecurityNo" Type="varchar" MaxLength="10" />
+    <Property Name="BillingAddressSameAsCase" Type="bit" />
+    <Property Name="BillingAddress" Type="varchar" MaxLength="200" />
+    <Property Name="BillingCity" Type="varchar" MaxLength="100" />
+    <Property Name="BillingState" Type="varchar" MaxLength="10" />
+    <Property Name="BillingZip" Type="varchar" MaxLength="10" />
+    <Property Name="NameOnAccount" Type="varchar" MaxLength="100" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Address2" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="200" />
+    <Property Name="UserRole" Type="int" />
+    <Property Name="Signature" Type="varchar" MaxLength="500" />
+    <Property Name="photo" Type="varchar" MaxLength="50" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="ProfilePhoto" Type="varchar" MaxLength="200" />
+    <Property Name="Town" Type="varchar" MaxLength="50" />
+    <Property Name="BuildingName" Type="varchar" MaxLength="50" />
+    <Property Name="UnitNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Suberb" Type="varchar" MaxLength="50" />
+    <Property Name="Province" Type="varchar" MaxLength="50" />
+    <Property Name="StreetAddress" Type="varchar" MaxLength="500" />
+    <Property Name="PostCode" Type="varchar" MaxLength="50" />
+    <Property Name="StripeCustomerId" Type="varchar" MaxLength="50" />
+    <Property Name="UserLandlordId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="UserTabPermissions">
+    <Key>
+      <PropertyRef Name="UserTabPermissionsId" />
+    </Key>
+    <Property Name="UserTabPermissionsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="TabRoleId" Type="int" />
+    <Property Name="PermissionStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="ViewingPurposal">
+    <Key>
+      <PropertyRef Name="ViewingPurposalid" />
+    </Key>
+    <Property Name="ViewingPurposalid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="PreferredDate" Type="datetime" />
+    <Property Name="PreferredTime" Type="varchar" MaxLength="50" />
+    <Property Name="text" Type="varchar" MaxLength="50" />
+    <Property Name="Approve" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="TenantId" Type="bigint" />
+    <Property Name="LandlordId" Type="bigint" />
+    <Property Name="PropertyId" Type="bigint" />
+    <Property Name="RequestViewid" Type="int" />
+  </EntityType>
+  <Association Name="FK_Applicants_ApprovalStatuses">
+    <End Role="ApprovalStatuses" Type="Self.ApprovalStatuses" Multiplicity="0..1" />
+    <End Role="Applicants" Type="Self.Applicants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApprovalStatuses">
+        <PropertyRef Name="ApprovalStatus_Id" />
+      </Principal>
+      <Dependent Role="Applicants">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_details_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="application_details" Type="Self.application_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="application_details">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_details_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="application_details" Type="Self.application_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="application_details">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_details_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="application_details" Type="Self.application_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="application_details">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cities_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cities_States">
+    <End Role="States" Type="Self.States" Multiplicity="0..1" />
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="State_Id" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommonDocuments_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="CommonDocuments" Type="Self.CommonDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CommonDocuments">
+        <PropertyRef Name="LandLordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_damage_intventory_Buildings">
+    <End Role="Buildings" Type="Self.Buildings" Multiplicity="0..1" />
+    <End Role="damage_intventory" Type="Self.damage_intventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Building_Id" />
+      </Principal>
+      <Dependent Role="damage_intventory">
+        <PropertyRef Name="Building_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_damage_intventory_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="damage_intventory" Type="Self.damage_intventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="damage_intventory">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_damage_intventory_TenancyAgreement">
+    <End Role="TenancyAgreement" Type="Self.TenancyAgreement" Multiplicity="0..1" />
+    <End Role="damage_intventory" Type="Self.damage_intventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TenancyAgreement">
+        <PropertyRef Name="TenancyAgreementId" />
+      </Principal>
+      <Dependent Role="damage_intventory">
+        <PropertyRef Name="TenancyAgreementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_damage_intventory_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="damage_intventory" Type="Self.damage_intventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="damage_intventory">
+        <PropertyRef Name="Tenant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_damage_intventory_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="damage_intventory" Type="Self.damage_intventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="damage_intventory">
+        <PropertyRef Name="Landlord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposits_Deposits">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Deposits" Type="Self.Deposits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Deposits">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposits_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="Deposits" Type="Self.Deposits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Deposits">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposits_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="Deposits" Type="Self.Deposits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Deposits">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_FaultTypes">
+    <End Role="FaultTypes" Type="Self.FaultTypes" Multiplicity="0..1" />
+    <End Role="Faults" Type="Self.Faults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FaultTypes">
+        <PropertyRef Name="FaultTypeId" />
+      </Principal>
+      <Dependent Role="Faults">
+        <PropertyRef Name="FaultTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="Faults" Type="Self.Faults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Faults">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_Serviceprovider">
+    <End Role="Serviceprovider" Type="Self.Serviceprovider" Multiplicity="0..1" />
+    <End Role="Faults" Type="Self.Faults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Serviceprovider">
+        <PropertyRef Name="ProviderId" />
+      </Principal>
+      <Dependent Role="Faults">
+        <PropertyRef Name="ServiceProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_services1">
+    <End Role="services" Type="Self.services" Multiplicity="0..1" />
+    <End Role="Faults" Type="Self.Faults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="ServiceId" />
+      </Principal>
+      <Dependent Role="Faults">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="Faults" Type="Self.Faults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Faults">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Faults" Type="Self.Faults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Faults">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inspection_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Inspection">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inspection_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Inspection">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inspection_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Inspection">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryImages_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="InventoryImages" Type="Self.InventoryImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="InventoryImages">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryImages_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="InventoryImages" Type="Self.InventoryImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="InventoryImages">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovingIn_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="MovingIn" Type="Self.MovingIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="MovingIn">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovingIn_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="MovingIn" Type="Self.MovingIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="MovingIn">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovingIn_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="MovingIn" Type="Self.MovingIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="MovingIn">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mylists_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="Mylists" Type="Self.Mylists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Mylists">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mylists_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="Mylists" Type="Self.Mylists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Mylists">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentHistory_Buildings">
+    <End Role="Buildings" Type="Self.Buildings" Multiplicity="0..1" />
+    <End Role="paymentHistory" Type="Self.paymentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Building_Id" />
+      </Principal>
+      <Dependent Role="paymentHistory">
+        <PropertyRef Name="Building_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentHistory_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="paymentHistory" Type="Self.paymentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="paymentHistory">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentHistory_Serviceprovider">
+    <End Role="Serviceprovider" Type="Self.Serviceprovider" Multiplicity="0..1" />
+    <End Role="paymentHistory" Type="Self.paymentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Serviceprovider">
+        <PropertyRef Name="ProviderId" />
+      </Principal>
+      <Dependent Role="paymentHistory">
+        <PropertyRef Name="ServiceProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentHistory_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="paymentHistory" Type="Self.paymentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="paymentHistory">
+        <PropertyRef Name="Tenant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentHistory_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="paymentHistory" Type="Self.paymentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="paymentHistory">
+        <PropertyRef Name="Landlord_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Properties_Buildings">
+    <End Role="Buildings" Type="Self.Buildings" Multiplicity="0..1" />
+    <End Role="Properties" Type="Self.Properties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Building_Id" />
+      </Principal>
+      <Dependent Role="Properties">
+        <PropertyRef Name="BuildingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Properties_PropertyStyles">
+    <End Role="PropertyStyles" Type="Self.PropertyStyles" Multiplicity="0..1" />
+    <End Role="Properties" Type="Self.Properties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyStyles">
+        <PropertyRef Name="Propertystyle_Id" />
+      </Principal>
+      <Dependent Role="Properties">
+        <PropertyRef Name="PropertyStyleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Properties_PropertyTypes1">
+    <End Role="PropertyTypes" Type="Self.PropertyTypes" Multiplicity="0..1" />
+    <End Role="Properties" Type="Self.Properties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyTypes">
+        <PropertyRef Name="PropertyType_Id" />
+      </Principal>
+      <Dependent Role="Properties">
+        <PropertyRef Name="PropertyTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Properties_Tenant">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="Properties" Type="Self.Properties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Properties">
+        <PropertyRef Name="LeasedTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Properties_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Properties" Type="Self.Properties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Properties">
+        <PropertyRef Name="Landlord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyImages_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="PropertyImages" Type="Self.PropertyImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="PropertyImages">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purposal_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="Purposal" Type="Self.Purposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Purposal">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purposal_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="Purposal" Type="Self.Purposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Purposal">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purposal_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Purposal" Type="Self.Purposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Purposal">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestView_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="RequestView" Type="Self.RequestView" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="RequestView">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestView_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="RequestView" Type="Self.RequestView" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="RequestView">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestView_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="RequestView" Type="Self.RequestView" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="RequestView">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Serviceprovider_services">
+    <End Role="services" Type="Self.services" Multiplicity="0..1" />
+    <End Role="Serviceprovider" Type="Self.Serviceprovider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="ServiceId" />
+      </Principal>
+      <Dependent Role="Serviceprovider">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Serviceprovider_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Serviceprovider" Type="Self.Serviceprovider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Serviceprovider">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_services_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="services" Type="Self.services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="services">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_States_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="States" Type="Self.States" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_PropertyNotes_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="tb_PropertyNotes" Type="Self.tb_PropertyNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tb_PropertyNotes">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_inventory_Buildings">
+    <End Role="Buildings" Type="Self.Buildings" Multiplicity="0..1" />
+    <End Role="tbl_inventory" Type="Self.tbl_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Building_Id" />
+      </Principal>
+      <Dependent Role="tbl_inventory">
+        <PropertyRef Name="BuildingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_inventory_inventory_type">
+    <End Role="inventory_type" Type="Self.inventory_type" Multiplicity="0..1" />
+    <End Role="tbl_inventory" Type="Self.tbl_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inventory_type">
+        <PropertyRef Name="InventoryTypeId" />
+      </Principal>
+      <Dependent Role="tbl_inventory">
+        <PropertyRef Name="InventoryTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_inventory_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="tbl_inventory" Type="Self.tbl_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_inventory">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_inventory_tbl_area">
+    <End Role="tbl_area" Type="Self.tbl_area" Multiplicity="0..1" />
+    <End Role="tbl_inventory" Type="Self.tbl_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_area">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="tbl_inventory">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_inventory_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="tbl_inventory" Type="Self.tbl_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tbl_inventory">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_invoice_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_invoice_TenancyAgreement">
+    <End Role="TenancyAgreement" Type="Self.TenancyAgreement" Multiplicity="0..1" />
+    <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TenancyAgreement">
+        <PropertyRef Name="TenancyAgreementId" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="AgreementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_invoice_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_invoice_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_lease_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="tbl_lease" Type="Self.tbl_lease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_lease">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_lease_RentDue">
+    <End Role="RentDue" Type="Self.RentDue" Multiplicity="0..1" />
+    <End Role="tbl_lease" Type="Self.tbl_lease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentDue">
+        <PropertyRef Name="RentDueId" />
+      </Principal>
+      <Dependent Role="tbl_lease">
+        <PropertyRef Name="rentisdue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_lease_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="tbl_lease" Type="Self.tbl_lease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_lease">
+        <PropertyRef Name="primaryTenant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_lease_Tenants1">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="tbl_lease" Type="Self.tbl_lease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_lease">
+        <PropertyRef Name="sectenant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_LeaseCredits_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="tbl_LeaseCredits" Type="Self.tbl_LeaseCredits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_LeaseCredits">
+        <PropertyRef Name="Property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_LeaseCredits_tbl_LeaseCredits">
+    <End Role="tbl_lease" Type="Self.tbl_lease" Multiplicity="0..1" />
+    <End Role="tbl_LeaseCredits" Type="Self.tbl_LeaseCredits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_lease">
+        <PropertyRef Name="LeaseId" />
+      </Principal>
+      <Dependent Role="tbl_LeaseCredits">
+        <PropertyRef Name="lease_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_LeaseCredits_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="tbl_LeaseCredits" Type="Self.tbl_LeaseCredits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_LeaseCredits">
+        <PropertyRef Name="tenant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_offer_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="tbl_offer" Type="Self.tbl_offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_offer">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_offer_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="tbl_offer" Type="Self.tbl_offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_offer">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_offer_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="tbl_offer" Type="Self.tbl_offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tbl_offer">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_othercharges_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="tbl_othercharges" Type="Self.tbl_othercharges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_othercharges">
+        <PropertyRef Name="Property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_othercharges_tbl_lease">
+    <End Role="tbl_lease" Type="Self.tbl_lease" Multiplicity="0..1" />
+    <End Role="tbl_othercharges" Type="Self.tbl_othercharges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_lease">
+        <PropertyRef Name="LeaseId" />
+      </Principal>
+      <Dependent Role="tbl_othercharges">
+        <PropertyRef Name="lease_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_othercharges_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="tbl_othercharges" Type="Self.tbl_othercharges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_othercharges">
+        <PropertyRef Name="tenant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDocuments_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="tblDocuments" Type="Self.tblDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="tblDocuments">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDocuments_DocumentType">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="0..1" />
+    <End Role="tblDocuments" Type="Self.tblDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentTypeId" />
+      </Principal>
+      <Dependent Role="tblDocuments">
+        <PropertyRef Name="DocumentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyAgreement_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="TenancyAgreement" Type="Self.TenancyAgreement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="TenancyAgreement">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyAgreement_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="TenancyAgreement" Type="Self.TenancyAgreement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="TenancyAgreement">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyAgreement_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="TenancyAgreement" Type="Self.TenancyAgreement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="TenancyAgreement">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_application_details">
+    <End Role="application_details" Type="Self.application_details" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="application_details">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_Deposits">
+    <End Role="Deposits" Type="Self.Deposits" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deposits">
+        <PropertyRef Name="DepositId" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="DepositId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_Purposal">
+    <End Role="Purposal" Type="Self.Purposal" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purposal">
+        <PropertyRef Name="PurposalId" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="ProposalOfferId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_RequestView">
+    <End Role="RequestView" Type="Self.RequestView" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestView">
+        <PropertyRef Name="ReqviewId" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="RequestViewingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_tbl_offer">
+    <End Role="tbl_offer" Type="Self.tbl_offer" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_offer">
+        <PropertyRef Name="OfferId" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="OfferId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_TenancyAgreement">
+    <End Role="TenancyAgreement" Type="Self.TenancyAgreement" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TenancyAgreement">
+        <PropertyRef Name="TenancyAgreementId" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="TenancyAgrrementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_ViewingPurposal">
+    <End Role="ViewingPurposal" Type="Self.ViewingPurposal" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ViewingPurposal">
+        <PropertyRef Name="ViewingPurposalid" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="ProposalViewingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tenants_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Tenants">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocuments_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="UserDocuments" Type="Self.UserDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="UserDocuments">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocuments_DocumentType">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="0..1" />
+    <End Role="UserDocuments" Type="Self.UserDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentTypeId" />
+      </Principal>
+      <Dependent Role="UserDocuments">
+        <PropertyRef Name="DocumentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocuments_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="UserDocuments" Type="Self.UserDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserDocuments">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserReportsPermissions_ReportRoles">
+    <End Role="ReportRoles" Type="Self.ReportRoles" Multiplicity="0..1" />
+    <End Role="UserReportsPermissions" Type="Self.UserReportsPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportRoles">
+        <PropertyRef Name="ReportRoleId" />
+      </Principal>
+      <Dependent Role="UserReportsPermissions">
+        <PropertyRef Name="ReportsRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserReportsPermissions_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="UserReportsPermissions" Type="Self.UserReportsPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserReportsPermissions">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserRoles">
+    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRoles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTabPermissions_TabRoles">
+    <End Role="TabRoles" Type="Self.TabRoles" Multiplicity="0..1" />
+    <End Role="UserTabPermissions" Type="Self.UserTabPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabRoles">
+        <PropertyRef Name="TabRolesId" />
+      </Principal>
+      <Dependent Role="UserTabPermissions">
+        <PropertyRef Name="TabRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTabPermissions_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="UserTabPermissions" Type="Self.UserTabPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserTabPermissions">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewingPurposal_Properties">
+    <End Role="Properties" Type="Self.Properties" Multiplicity="0..1" />
+    <End Role="ViewingPurposal" Type="Self.ViewingPurposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Properties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="ViewingPurposal">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewingPurposal_Tenants">
+    <End Role="Tenants" Type="Self.Tenants" Multiplicity="0..1" />
+    <End Role="ViewingPurposal" Type="Self.ViewingPurposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="ViewingPurposal">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewingPurposal_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="ViewingPurposal" Type="Self.ViewingPurposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ViewingPurposal">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="gettenantdetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="landlordid" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="dbrealestateModelStoreContainer">
+    <EntitySet Name="Applicants" EntityType="Self.Applicants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="application_details" EntityType="Self.application_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApprovalStatuses" EntityType="Self.ApprovalStatuses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Buildings" EntityType="Self.Buildings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommonDocuments" EntityType="Self.CommonDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="damage_intventory" EntityType="Self.damage_intventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="deposit_transaction" EntityType="Self.deposit_transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deposits" EntityType="Self.Deposits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Description" EntityType="Self.Description" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Faults" EntityType="Self.Faults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FaultTypes" EntityType="Self.FaultTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inspection" EntityType="Self.Inspection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inventory_type" EntityType="Self.inventory_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventoryImages" EntityType="Self.InventoryImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Invites" EntityType="Self.Invites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovingIn" EntityType="Self.MovingIn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mylists" EntityType="Self.Mylists" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="paymentHistory" EntityType="Self.paymentHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Plans" EntityType="Self.Plans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Properties" EntityType="Self.Properties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyAirConditioning" EntityType="Self.PropertyAirConditioning" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyFeatures" EntityType="Self.PropertyFeatures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyFlooring" EntityType="Self.PropertyFlooring" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyHeating" EntityType="Self.PropertyHeating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyImages" EntityType="Self.PropertyImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyParking" EntityType="Self.PropertyParking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyStyles" EntityType="Self.PropertyStyles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyTypes" EntityType="Self.PropertyTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purposal" EntityType="Self.Purposal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reminderlist" EntityType="Self.reminderlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentDue" EntityType="Self.RentDue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportRoles" EntityType="Self.ReportRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestView" EntityType="Self.RequestView" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Serviceprovider" EntityType="Self.Serviceprovider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="services" EntityType="Self.services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="settings" EntityType="Self.settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabRoles" EntityType="Self.TabRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_PropertyNotes" EntityType="Self.tb_PropertyNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_area" EntityType="Self.tbl_area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_inventory" EntityType="Self.tbl_inventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_invoice" EntityType="Self.tbl_invoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_lease" EntityType="Self.tbl_lease" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_LeaseCredits" EntityType="Self.tbl_LeaseCredits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_offer" EntityType="Self.tbl_offer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_othercharges" EntityType="Self.tbl_othercharges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_owner" EntityType="Self.tbl_owner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_vendor" EntityType="Self.tbl_vendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDocuments" EntityType="Self.tblDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbMessage" EntityType="Self.tbMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TenancyAgreement" EntityType="Self.TenancyAgreement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TenancyDetails" EntityType="Self.TenancyDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tenants" EntityType="Self.Tenants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserDocuments" EntityType="Self.UserDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserReportsPermissions" EntityType="Self.UserReportsPermissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTabPermissions" EntityType="Self.UserTabPermissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewingPurposal" EntityType="Self.ViewingPurposal" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Applicants_ApprovalStatuses" Association="Self.FK_Applicants_ApprovalStatuses">
+      <End Role="ApprovalStatuses" EntitySet="ApprovalStatuses" />
+      <End Role="Applicants" EntitySet="Applicants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_details_Properties" Association="Self.FK_application_details_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="application_details" EntitySet="application_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_details_Tenants" Association="Self.FK_application_details_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="application_details" EntitySet="application_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_details_Users" Association="Self.FK_application_details_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="application_details" EntitySet="application_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cities_Countries" Association="Self.FK_Cities_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cities_States" Association="Self.FK_Cities_States">
+      <End Role="States" EntitySet="States" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommonDocuments_Users" Association="Self.FK_CommonDocuments_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="CommonDocuments" EntitySet="CommonDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_damage_intventory_Buildings" Association="Self.FK_damage_intventory_Buildings">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="damage_intventory" EntitySet="damage_intventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_damage_intventory_Properties" Association="Self.FK_damage_intventory_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="damage_intventory" EntitySet="damage_intventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_damage_intventory_TenancyAgreement" Association="Self.FK_damage_intventory_TenancyAgreement">
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreement" />
+      <End Role="damage_intventory" EntitySet="damage_intventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_damage_intventory_Tenants" Association="Self.FK_damage_intventory_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="damage_intventory" EntitySet="damage_intventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_damage_intventory_Users" Association="Self.FK_damage_intventory_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="damage_intventory" EntitySet="damage_intventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposits_Deposits" Association="Self.FK_Deposits_Deposits">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Deposits" EntitySet="Deposits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposits_Properties" Association="Self.FK_Deposits_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="Deposits" EntitySet="Deposits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposits_Tenants" Association="Self.FK_Deposits_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Deposits" EntitySet="Deposits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_FaultTypes" Association="Self.FK_Faults_FaultTypes">
+      <End Role="FaultTypes" EntitySet="FaultTypes" />
+      <End Role="Faults" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_Properties" Association="Self.FK_Faults_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="Faults" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_Serviceprovider" Association="Self.FK_Faults_Serviceprovider">
+      <End Role="Serviceprovider" EntitySet="Serviceprovider" />
+      <End Role="Faults" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_services1" Association="Self.FK_Faults_services1">
+      <End Role="services" EntitySet="services" />
+      <End Role="Faults" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_Tenants" Association="Self.FK_Faults_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Faults" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_Users" Association="Self.FK_Faults_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Faults" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inspection_Properties" Association="Self.FK_Inspection_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="Inspection" EntitySet="Inspection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inspection_Tenants" Association="Self.FK_Inspection_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Inspection" EntitySet="Inspection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inspection_Users" Association="Self.FK_Inspection_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Inspection" EntitySet="Inspection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryImages_Properties" Association="Self.FK_InventoryImages_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="InventoryImages" EntitySet="InventoryImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryImages_Users" Association="Self.FK_InventoryImages_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="InventoryImages" EntitySet="InventoryImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovingIn_Properties" Association="Self.FK_MovingIn_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="MovingIn" EntitySet="MovingIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovingIn_Tenants" Association="Self.FK_MovingIn_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="MovingIn" EntitySet="MovingIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovingIn_Users" Association="Self.FK_MovingIn_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="MovingIn" EntitySet="MovingIn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mylists_Properties" Association="Self.FK_Mylists_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="Mylists" EntitySet="Mylists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mylists_Tenants" Association="Self.FK_Mylists_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Mylists" EntitySet="Mylists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentHistory_Buildings" Association="Self.FK_paymentHistory_Buildings">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="paymentHistory" EntitySet="paymentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentHistory_Properties" Association="Self.FK_paymentHistory_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="paymentHistory" EntitySet="paymentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentHistory_Serviceprovider" Association="Self.FK_paymentHistory_Serviceprovider">
+      <End Role="Serviceprovider" EntitySet="Serviceprovider" />
+      <End Role="paymentHistory" EntitySet="paymentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentHistory_Tenants" Association="Self.FK_paymentHistory_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="paymentHistory" EntitySet="paymentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentHistory_Users" Association="Self.FK_paymentHistory_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="paymentHistory" EntitySet="paymentHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Properties_Buildings" Association="Self.FK_Properties_Buildings">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="Properties" EntitySet="Properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Properties_PropertyStyles" Association="Self.FK_Properties_PropertyStyles">
+      <End Role="PropertyStyles" EntitySet="PropertyStyles" />
+      <End Role="Properties" EntitySet="Properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Properties_PropertyTypes1" Association="Self.FK_Properties_PropertyTypes1">
+      <End Role="PropertyTypes" EntitySet="PropertyTypes" />
+      <End Role="Properties" EntitySet="Properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Properties_Tenant" Association="Self.FK_Properties_Tenant">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Properties" EntitySet="Properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Properties_Users" Association="Self.FK_Properties_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Properties" EntitySet="Properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyImages_Users" Association="Self.FK_PropertyImages_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="PropertyImages" EntitySet="PropertyImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purposal_Properties" Association="Self.FK_Purposal_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="Purposal" EntitySet="Purposal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purposal_Tenants" Association="Self.FK_Purposal_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Purposal" EntitySet="Purposal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purposal_Users" Association="Self.FK_Purposal_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purposal" EntitySet="Purposal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestView_Properties" Association="Self.FK_RequestView_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="RequestView" EntitySet="RequestView" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestView_Tenants" Association="Self.FK_RequestView_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="RequestView" EntitySet="RequestView" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestView_Users" Association="Self.FK_RequestView_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RequestView" EntitySet="RequestView" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Serviceprovider_services" Association="Self.FK_Serviceprovider_services">
+      <End Role="services" EntitySet="services" />
+      <End Role="Serviceprovider" EntitySet="Serviceprovider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Serviceprovider_Users" Association="Self.FK_Serviceprovider_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Serviceprovider" EntitySet="Serviceprovider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_services_Users" Association="Self.FK_services_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="services" EntitySet="services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_States_Countries" Association="Self.FK_States_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_PropertyNotes_Properties" Association="Self.FK_tb_PropertyNotes_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="tb_PropertyNotes" EntitySet="tb_PropertyNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_inventory_Buildings" Association="Self.FK_tbl_inventory_Buildings">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="tbl_inventory" EntitySet="tbl_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_inventory_inventory_type" Association="Self.FK_tbl_inventory_inventory_type">
+      <End Role="inventory_type" EntitySet="inventory_type" />
+      <End Role="tbl_inventory" EntitySet="tbl_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_inventory_Properties" Association="Self.FK_tbl_inventory_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="tbl_inventory" EntitySet="tbl_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_inventory_tbl_area" Association="Self.FK_tbl_inventory_tbl_area">
+      <End Role="tbl_area" EntitySet="tbl_area" />
+      <End Role="tbl_inventory" EntitySet="tbl_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_inventory_Users" Association="Self.FK_tbl_inventory_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="tbl_inventory" EntitySet="tbl_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_invoice_Properties" Association="Self.FK_tbl_invoice_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_invoice_TenancyAgreement" Association="Self.FK_tbl_invoice_TenancyAgreement">
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreement" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_invoice_Tenants" Association="Self.FK_tbl_invoice_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_invoice_Users" Association="Self.FK_tbl_invoice_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_lease_Properties" Association="Self.FK_tbl_lease_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_lease_RentDue" Association="Self.FK_tbl_lease_RentDue">
+      <End Role="RentDue" EntitySet="RentDue" />
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_lease_Tenants" Association="Self.FK_tbl_lease_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_lease_Tenants1" Association="Self.FK_tbl_lease_Tenants1">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_LeaseCredits_Properties" Association="Self.FK_tbl_LeaseCredits_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="tbl_LeaseCredits" EntitySet="tbl_LeaseCredits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_LeaseCredits_tbl_LeaseCredits" Association="Self.FK_tbl_LeaseCredits_tbl_LeaseCredits">
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+      <End Role="tbl_LeaseCredits" EntitySet="tbl_LeaseCredits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_LeaseCredits_Tenants" Association="Self.FK_tbl_LeaseCredits_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="tbl_LeaseCredits" EntitySet="tbl_LeaseCredits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_offer_Properties" Association="Self.FK_tbl_offer_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="tbl_offer" EntitySet="tbl_offer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_offer_Tenants" Association="Self.FK_tbl_offer_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="tbl_offer" EntitySet="tbl_offer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_offer_Users" Association="Self.FK_tbl_offer_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="tbl_offer" EntitySet="tbl_offer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_othercharges_Properties" Association="Self.FK_tbl_othercharges_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="tbl_othercharges" EntitySet="tbl_othercharges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_othercharges_tbl_lease" Association="Self.FK_tbl_othercharges_tbl_lease">
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+      <End Role="tbl_othercharges" EntitySet="tbl_othercharges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_othercharges_Tenants" Association="Self.FK_tbl_othercharges_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="tbl_othercharges" EntitySet="tbl_othercharges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDocuments_Countries" Association="Self.FK_tblDocuments_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDocuments_DocumentType" Association="Self.FK_tblDocuments_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentType" />
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyAgreement_Properties" Association="Self.FK_TenancyAgreement_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyAgreement_Tenants" Association="Self.FK_TenancyAgreement_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyAgreement_Users" Association="Self.FK_TenancyAgreement_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_application_details" Association="Self.FK_TenancyDetails_application_details">
+      <End Role="application_details" EntitySet="application_details" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_Deposits" Association="Self.FK_TenancyDetails_Deposits">
+      <End Role="Deposits" EntitySet="Deposits" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_Properties" Association="Self.FK_TenancyDetails_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_Purposal" Association="Self.FK_TenancyDetails_Purposal">
+      <End Role="Purposal" EntitySet="Purposal" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_RequestView" Association="Self.FK_TenancyDetails_RequestView">
+      <End Role="RequestView" EntitySet="RequestView" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_tbl_offer" Association="Self.FK_TenancyDetails_tbl_offer">
+      <End Role="tbl_offer" EntitySet="tbl_offer" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_TenancyAgreement" Association="Self.FK_TenancyDetails_TenancyAgreement">
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreement" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_Tenants" Association="Self.FK_TenancyDetails_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_Users" Association="Self.FK_TenancyDetails_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_ViewingPurposal" Association="Self.FK_TenancyDetails_ViewingPurposal">
+      <End Role="ViewingPurposal" EntitySet="ViewingPurposal" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tenants_Properties" Association="Self.FK_Tenants_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="Tenants" EntitySet="Tenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocuments_Countries" Association="Self.FK_UserDocuments_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="UserDocuments" EntitySet="UserDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocuments_DocumentType" Association="Self.FK_UserDocuments_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentType" />
+      <End Role="UserDocuments" EntitySet="UserDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocuments_Users" Association="Self.FK_UserDocuments_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserDocuments" EntitySet="UserDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserReportsPermissions_ReportRoles" Association="Self.FK_UserReportsPermissions_ReportRoles">
+      <End Role="ReportRoles" EntitySet="ReportRoles" />
+      <End Role="UserReportsPermissions" EntitySet="UserReportsPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserReportsPermissions_Users" Association="Self.FK_UserReportsPermissions_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserReportsPermissions" EntitySet="UserReportsPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Countries" Association="Self.FK_Users_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserRoles" Association="Self.FK_Users_UserRoles">
+      <End Role="UserRoles" EntitySet="UserRoles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTabPermissions_TabRoles" Association="Self.FK_UserTabPermissions_TabRoles">
+      <End Role="TabRoles" EntitySet="TabRoles" />
+      <End Role="UserTabPermissions" EntitySet="UserTabPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTabPermissions_Users" Association="Self.FK_UserTabPermissions_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserTabPermissions" EntitySet="UserTabPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewingPurposal_Properties" Association="Self.FK_ViewingPurposal_Properties">
+      <End Role="Properties" EntitySet="Properties" />
+      <End Role="ViewingPurposal" EntitySet="ViewingPurposal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewingPurposal_Tenants" Association="Self.FK_ViewingPurposal_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="ViewingPurposal" EntitySet="ViewingPurposal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewingPurposal_Users" Association="Self.FK_ViewingPurposal_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ViewingPurposal" EntitySet="ViewingPurposal" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

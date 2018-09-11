@@ -1,0 +1,25 @@
+﻿@using ReportViewerForMvc;
+
+@{
+    ViewBag.Title = "ReportBuilding";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+<section class="report_page tab_page">
+    <h4>Building List</h4>
+    <div class="top_tab clearfix">
+        <form method="post">
+            <ul class="inner_list">
+                <li class="name_col">
+
+                    @Html.DropDownList("drpBuilding", ViewBag.building as SelectList, new { @class = "name_field form-control", @id = "building" })
+                    <button class="sortbtn" name="Command" value="Building"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                
+                </li>           
+                
+            </ul>
+        </form>
+    </div>
+
+    @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+</section>

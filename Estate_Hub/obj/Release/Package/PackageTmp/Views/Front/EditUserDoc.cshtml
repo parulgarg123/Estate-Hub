@@ -1,0 +1,92 @@
+﻿@model Proptiwise.Models.UserDocument
+
+@{
+    ViewBag.Title = "EditUserDoc";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+<h2>EditDoc</h2>
+<div class="col-md-9">
+     @using (Html.BeginForm()) { @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>UserDocument</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.UserDocumentId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DocumentTypeId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DocumentTypeId", ViewBag.DocumentType as SelectList)
+                @Html.ValidationMessageFor(model => model.DocumentTypeId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DocTitle, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DocTitle)
+                @Html.ValidationMessageFor(model => model.DocTitle)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContentDetails, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.TextAreaFor(model => model.ContentDetails, new { id = "elm1" })
+                @Html.ValidationMessageFor(model => model.ContentDetails)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+<div class="col-md-3 getdoc">
+    <h4>Insert Data Fields</h4>
+    <span><b>Tip:</b> Make sure your cursor is positioned where you want a field to be inserted before you click it.</span>    
+    <table border="1" rules="none">
+        @{
+            int i=0,l=0,p=0,ls=0;
+            foreach (string ct in ViewBag.columnTenants)
+            {
+                if ((i > 1 && i != 7 && i != 14 && i != 15 && i != 16 && i != 17 && i != 18 && i != 23 && i != 36 && i != 37 && i != 38) && (i < 25 || i > 34) && (i < 40 || i > 46))
+                { 
+                <tr> <td><a href="#" onclick="insertAtCaret('elm1', '{@string.Concat("Tenant",ct)}'); return false;">@string.Concat("Tenant", ct)</a></td></tr>
+                }
+                i++;
+            }
+            foreach (string ct in ViewBag.columnLandlord)
+            {
+                if (l > 1 && (l < 11 || l > 27) && (l < 32 || l >= 59))
+                {              
+                <tr> <td><a href="#" onclick="insertAtCaret('elm1', '{@string.Concat("Landlord",ct)}'); return false;">@string.Concat("Landlord", ct)</a></td></tr>
+                }
+            l++;
+            }
+            foreach (string ct in ViewBag.columnProperty)
+            {
+                if (p != 1 && p != 15 && (p < 3 || p >= 9) && (p < 19 || p >= 24) && (p < 36 || p >= 41) &&(p<44 ||p>=88))
+                {  
+                <tr> <td><a href="#" onclick="insertAtCaret('elm1', '{@string.Concat("Property",ct)}'); return false;">@string.Concat("Property", ct)</a></td></tr>
+        }
+                p++;
+        }
+            foreach (string ct in ViewBag.columnLease)
+            {
+                if (ls > 2 && ls != 12 && (ls < 32 || ls >= 36))
+                {  
+                <tr> <td><a href="#" onclick="insertAtCaret('elm1', '{@string.Concat("Lease",ct)}'); return false;">@string.Concat("Lease", ct)</a></td></tr>
+           }
+               ls++;
+        }
+        }
+    </table>
+</div>

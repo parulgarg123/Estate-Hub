@@ -1,0 +1,241 @@
+﻿@using Proptiwise.Models
+@{
+    ViewBag.Title = "AllReports";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+<div class="col-md-12 col-sm-12 clearfix">
+    <div class="col-md-4 col-sm-4">
+        <h4>Tenants</h4>
+        <div class="tenant_box clearfix">
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportTenants" target="@getallpath.getpath/ReportTenants"> All Tenants List </a></h4>
+                    <p>List of all tenants. Includes first/last name, address, telephone, cell, and email.</p>
+                </span>
+            </div>
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="TenantsWithLease" target="@getallpath.getpath/TenantsWithLease"> Leasing Tenant List </a></h4>
+                     <p>All tenants with a lease. Includes first/last name, address, telephone, cellular, building, property</p>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        <h4>Properties</h4>
+        <div class="tenant_box clearfix">
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    @*<h4><a href="@getallpath.getpath/ReportAllProperties">All Property List</a></h4>*@
+                    <h4><a href="ReportAllProperties" target="@getallpath.getpath/ReportAllProperties"> All Property List </a></h4>
+                    <p>List of all properties. Includes property name, building, address, city, state, and leased to.</p>
+                </span>
+            </div>
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportProperties" target="@getallpath.getpath/ReportProperties"> Vacant Property List </a></h4>
+                    @*<h4><a href="@getallpath.getpath/ReportProperties">Vacant Property List</a></h4>*@
+                    <p>All vacant properties. Includes property name, building, address, city, state, and size.</p>
+                </span>
+            </div>
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    ReportProperties
+                    <h4><a href="ReportPropertiesWithLease" target="@getallpath.getpath/ReportPropertiesWithLease">Leased Property List</a></h4>
+                    <p>All leased properties. Includes property name, building, address, city, state, leased to, and lease start/end date.</p>
+                </span>
+            </div>
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportInventory" target="@getallpath.getpath/ReportInventory">Inventory List</a></h4>
+                    <p>Displays current inventory list, sortable by property, building, etc.</p>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        <h4>Leases</h4>
+        <div class="tenant_box clearfix">
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportBuilding" target="@getallpath.getpath/ReportBuilding">Building List</a></h4>
+                    <p>List of all Building. Includes name, address, and post code.</p>
+                </span>
+            </div>
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportLease" target="@getallpath.getpath/ReportLease">Active Lease</a></h4>
+                    <p>List of all active leases. Includes lease dates, late fee & deposit info, rent rates, and leaseholder information.</p>
+                </span>
+            </div>
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportExpiringLease" target="@getallpath.getpath/ReportExpiringLease">Expiring Lease</a></h4>
+                    <p>
+                        <select title="Date Range" name="daterange" class="form-control">
+                            <option value="7">Next 7 days</option>
+                            <option value="14">Next 14 days</option>
+                            <option value="30">Next 30 days</option>
+                            <option value="60">Next 60 days</option>
+                            <option value="120">Next 120 days</option>
+                        </select>
+                    </p>
+                    <p>List of all active leases. Includes lease dates, late fee & deposit info, rent rates, and leaseholder information.</p>
+                </span>
+            </div>
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportExpiredLease" target="@getallpath.getpath/ReportExpiredLease">Expired Lease</a></h4>
+                    <p>List of all leases that are currently expired.</p>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+@*Second Part*@
+<div class="col-md-12 col-sm-12 clearfix">
+    <div class="col-md-4 col-sm-4">
+        <h4>Payment History</h4>
+        <div class="tenant_box clearfix">
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportPaymentHistories" target="@getallpath.getpath/ReportPaymentHistories">Payments History</a></h4>
+                    <p>
+                        <select name="paymentduration" id="paymentduration" class="payment_du form-control">
+                            <option value="0">All</option>
+                            <option value="1">Received This Month</option>
+                            <option value="2">Received This Week</option>
+                            <option value="3">Received Last Month</option>
+                            <option value="4">Received Last Week</option>
+                            <option value="5">Received Last 90 Days</option>
+                            <option value="6">Received Current Year To Date</option>
+                            <option value="7">Received Last Year</option>
+                            <option value="8">Received Anytime, But Due This Month</option>
+                            <option value="9">Received Anytime, But Due Last Month</option>
+                        </select>
+                    </p>
+                    <p>
+                        @Html.TextBox("datefrompayment", "", new { @id = "datepickerrequest", @class = "form-control", @autocomplete = "off", @placeholder = "Visit Date" })
+                    </p>
+                    <p>
+                        @Html.TextBox("datetopayment", "", new { @id = "datepickerrequest", @class = "form-control", @autocomplete = "off", @placeholder = "Visit Date" })
+                    </p>
+                    <p>Payment history, showing amount, type, method, check #, date received, lease period, tenant, property, and building.</p>
+                </span>
+            </div>
+        </div>
+        <h4>Work Orders</h4>
+        <div class="tenant_box clearfix">
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportWorkOrders" target="@getallpath.getpath/ReportWorkOrders">All Work Orders</a></h4>
+                    <p>All work orders, Fault type, comments, priority, labor & materials cost, tenant, property, and building.</p>
+                </span>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        <h4>Accounting</h4>
+        <div class="tenant_box clearfix">
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="accountingreport" target="@getallpath.getpath/accountingreport">Accounting Entries</a></h4>
+                    <p>All accounting entries, showing date, amount, tax, tenant, property, building.</p>
+                </span>
+            </div>
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportIncomeAccounting" target="@getallpath.getpath/ReportIncomeAccounting">Income Accounting Entries</a></h4>
+                    <p>All vacant properties. Includes property name, building, address, city, state, and size.</p>
+                </span>
+            </div>
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportExpenseAccounting" target="@getallpath.getpath/ReportExpenseAccounting">Expense Accounting Entries</a></h4>
+                    <p>All leased properties. Includes property name, building, address, city, state, leased to, and lease start/end date.</p>
+                </span>
+            </div>
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportProfitLoss" target="@getallpath.getpath/ReportProfitLoss">Profit Loss Details</a></h4>
+                    <p>Shows profit & loss details from income and expenses for each account code, by month.</p>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-4">
+        <h4>Rent Roll</h4>
+        <div class="tenant_box clearfix">
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportCurrentBalances" target="@getallpath.getpath/ReportCurrentBalances">Current Balances</a></h4>
+                    <p>Shows all outstanding payments, including due date, received owning. Shows tenant, property, and building.</p>
+                </span>
+            </div>
+            <div class="innerbox clearfix">
+                <span class="col-md-3 col-sm-3">
+                    <img src="@getallpath.getpath/images/man.png" />
+                </span>
+                <span class="col-md-9 col-sm-9">
+                    <h4><a href="ReportCollected" target="@getallpath.getpath/ReportCollected">Current Payments</a></h4>
+                    <p>Shows all outstanding payments (as above) plus any associated payment history posted on each receivable.</p>
+                </span>
+            </div>
+
+        </div>
+    </div>
+</div>

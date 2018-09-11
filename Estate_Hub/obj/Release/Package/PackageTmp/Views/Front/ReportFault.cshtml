@@ -1,0 +1,99 @@
+﻿@model Proptiwise.Models.Fault
+
+@{
+    ViewBag.Title = "ReportFault";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+
+
+@if (ViewBag.FaultMessage != null)
+{
+    <div id="myModal" class="modal hide fade modalErrorMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+        <div class="modal-body" style="">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p>@ViewBag.FaultMessage </p>
+        </div>
+    </div>
+}
+
+
+<section class="property_form_container property_bd_con ">
+
+    <div class="container-fluid">
+        <div class="Billing-form">
+            @*<form  method="post">*@
+            @using (Html.BeginForm("ReportFault", "Front", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="UNIT-ADDRESS pop_add_row">
+
+
+                    @*<div class="prop-form_rgt">
+                        <h1 class="form_heading">Property Details</h1>
+                        <div class="prop_detail_coll">
+                            <article class="prop_list">
+
+                            </article>
+                        </div>
+                    </div>*@
+
+
+                    <div class="prop-form_left">
+                        <h1 class="form_heading">Report A Fault</h1>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Fault Type</label>
+                            @Html.DropDownListFor(model => model.FaultTypeId, ViewBag.Faulttype as SelectList, new { @class = "form-control ", required = "true" })
+                            @Html.ValidationMessageFor(model => model.FaultTypeId)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Description</label>
+
+                            @Html.TextAreaFor(model => model.FaultDescription, new { @rows = "3", required = "true", @class = "form-control " })
+                            @Html.ValidationMessageFor(model => model.FaultDescription)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Date</label>
+                            <input type="text" id="datepickerrequest" placeholder="Select Date" autocomplete="off" class="form-control" name="FaultDate">
+                            @Html.ValidationMessageFor(model => model.FaultDate)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Priority</label>
+                            @Html.DropDownList("Priority", new List<SelectListItem>
+                            {
+                                new SelectListItem{ Text="Low", Value = "1" },
+                                new SelectListItem{ Text="Medium", Value = "2" },
+                                new SelectListItem{ Text="High", Value = "3" },
+                             }, new { @class = "form-control" })
+
+                            @Html.ValidationMessageFor(model => model.Priority)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Notes</label>
+                            @Html.TextAreaFor(model => model.Notes, new { @rows = "3", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Notes)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Photos</label>
+                            <input type="file" id="photos" multiple name="photos" />
+                            @Html.ValidationMessageFor(model => model.photos)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Services</label>
+                            @Html.DropDownList("Services", ViewBag.Services as SelectList, new { id = "services", @class = "others form-control" })
+                        </div>
+                        <div class="save_panel_btn">
+
+                            @*Save & Add Similar Unit*@
+                            <button type="submit" class="Save_btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Send Report</button>
+                        </div>
+                    </div>
+
+                  
+
+                </div>
+            }
+        </div>
+        </div>
+</section>
+

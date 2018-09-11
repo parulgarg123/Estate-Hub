@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>itextsharp.xtra</id>
+    <version>5.5.12</version>
+    <title>iTextSharp.xtra</title>
+    <authors>Bruno Lowagie, Paulo Soares, et al.</authors>
+    <owners>Bruno Lowagie, Paulo Soares, et al.</owners>
+    <licenseUrl>http://www.gnu.org/licenses/agpl.html</licenseUrl>
+    <projectUrl>http://itextpdf.com/</projectUrl>
+    <iconUrl>http://itextpdf.com/sites/default/files/ITSC-avatar.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds extra functionality for iTextSharp - support for PDF 2.</description>
+    <summary>Extra functionality for iTextSharp, a free port of the iText open source java library for PDF generation written entirely in C# for the .NET platform.</summary>
+    <releaseNotes>http://itextpdf.com/blog/release-notes-itext-5512</releaseNotes>
+    <copyright>Copyright (c) 1998-2017 iText Group NV</copyright>
+    <language>en-US</language>
+    <tags>itext itextsharp c# csharp .net pdf</tags>
+    <dependencies>
+      <dependency id="iTextSharp" version="5.5.12" />
+    </dependencies>
+  </metadata>
+</package>

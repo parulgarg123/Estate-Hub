@@ -1,0 +1,124 @@
+﻿@model Proptiwise.Models.Tenant
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "tenant_contactedit";
+    Layout = null;
+}
+<link href="~/Content/Site.css" rel="stylesheet">
+
+
+<style>
+    .modal-body dl dd {
+        margin: 0 !important;
+    }
+</style>
+
+
+<script type="text/javascript">
+    function Fill() {
+        document.getElementById("RemHidden").value = "";
+    }
+</script>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h2 class="model_title">Contact Information</h2>
+</div>
+            @using (Html.BeginForm("tenant_contactedit", "Front", FormMethod.Post ))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true)
+                        <div class="form-group clearfix">
+                            <div class="col-md-6 col-sm-6">
+
+                                @Html.LabelFor(model => model.FirstName, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = "FirstName", required = true, pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter valid Name')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.FirstName)
+
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.MiddleName, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control", placeholder = "MiddleName", required = true, pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter valid Name')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.MiddleName)
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.LastName, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "LastName", required = true, pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter valid Name')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.LastName)
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.Gender, new { @class = "control-label" })
+                                @Html.DropDownList("Gender", new List<SelectListItem>
+                                {
+                                    new SelectListItem{ Text="Male", Value="Male"},
+                                    new SelectListItem{ Text="Female", Value="Female"}
+                                }, "--- Select ---", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.Telephone, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control", placeholder = "Telephone Number", required = true, pattern = "^[0-9\\-\\+]{9,15}$", oninvalid = "setCustomValidity('Enter Valid Number')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Telephone)
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.Cellular, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.Cellular, new { @class = "form-control", placeholder = "Mobile Number", required = true, pattern = "^\\d{10}$", oninvalid = "setCustomValidity('Enter Valid Number')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Cellular)
+                            </div>
+                         
+
+                        </div>
+                        <div class="form-group clearfix">
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "EmailAddress", required = true, type = "email", oninvalid = "setCustomValidity('Enter Valid Email')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.Address1, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.Address1, new { @class = "form-control", placeholder = "Address1", required = true })
+                                @Html.ValidationMessageFor(model => model.Address1)
+                            </div>
+                           
+                        </div>
+                        <div class="form-group clearfix">
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.Address2, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.Address2, new { @class = "form-control", placeholder = "Address2", required = true })
+                                @Html.ValidationMessageFor(model => model.Address2)
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.City, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.City, new { @class = "form-control", placeholder = "City", required = true })
+                                @Html.ValidationMessageFor(model => model.City)
+                            </div>
+                          
+
+                        </div>
+                        <div class="form-group clearfix">
+                            <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.State, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.State, new { @class = "form-control", placeholder = "State" })
+                                @Html.ValidationMessageFor(model => model.State)
+                            </div>
+                                <div class="col-md-6 col-sm-6">
+                                @Html.LabelFor(model => model.PostCode, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.PostCode, new { @class = "form-control", placeholder = "PostCode", required = true })
+                                @Html.ValidationMessageFor(model => model.PostCode)
+                            </div>
+
+                        </div>
+                        <div class="footer_btn text-center"><input type="submit" value="Register" class="btn btn-info btn-block"></div>
+
+                    </div>                    
+                </div>
+            }
+
+       
+
+

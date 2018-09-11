@@ -1,0 +1,379 @@
+﻿@model Proptiwise.Models.tbl_invoice
+           @using Proptiwise.Models
+@{
+    ViewBag.Title = "createinvoice";
+    Layout = null;
+}
+
+<style>
+    .forget_page .contact-form {
+        background: #fff none repeat scroll 0 0;
+        margin: 50px auto;
+        max-width: 100%;
+        padding: 20px;
+        width: 56%;
+    }
+
+    .contact-form textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+</style>
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4>Generate Invoice</h4>
+</div>
+
+@{
+    double? period = 0;
+    double? finalamount = 0;
+}
+        @using (Html.BeginForm("createinvoice", "Front", FormMethod.Post))
+        {
+            <div class="modal-body">              
+            <section class="prop_column">
+@{
+            var item = Session["invoicedata"] as Proptiwise.Models.Property;
+                <article class="prop_list clearfix">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        @*<input type="hidden" name="pid" value="@p.PID" />*@
+                        <h3 class="propname">@item.Street @item.City @item.State @item.PostCode</h3>
+                      @*<h6>@item.PropertyType.PropertyTypeName|@item.Bedroom BD |@item.Bathroom BA |@item.SqFt SqFt</h6>*@
+                        
+                        <span class="price_content col-md-6 col-sm-6">
+                            @if (item.Price != null)
+                            {
+                                <p><font>Asking Price</font>@getallpath.currency@Math.Round(Convert.ToDouble(item.Price), 2)/m</p>
+                            }
+                            else
+                            {
+                                <p><font>Asking Price</font>--</p>
+                            }
+                            @if (item.DepositReq != null)
+                            {
+                                <p><font>Deposit</font>@getallpath.currency@Math.Round(Convert.ToDouble(item.DepositReq), 2)/m</p>
+                            }
+                            else
+                            {
+                                <p><font>Deposit</font>--</p>
+                            }
+                        </span>
+                        <span class="price_content col-md-6 col-sm-6">
+
+                            @if (item.Bedroom != null)
+                            {
+                                <p><font>Bedrooms</font>@item.Bedroom</p>
+                            }
+                            else
+                            {
+                                <p><font>Bedrooms</font>--</p>
+                            }
+                            @if (item.Bathroom != null)
+                            {
+                                <p><font>Bathrooms</font>@item.Bathroom</p>
+                            }
+                            else
+                            {
+                                <p><font>Bathrooms</font>--</p>
+                            }
+                            @if (item.Furnished != null)
+                            {
+                                if (item.Furnished == "Furnished")
+                                {
+                                    <p><font>Furnished</font>Yes</p>
+                                }
+                                else
+                                {
+                                    <p><font>Furnished</font>No</p>
+                                }
+                            }
+                            else
+                            {
+                                <p><font>Furnished</font>--</p>
+                            }
+                        </span>
+                      
+
+                    </div>
+                </article>
+         
+                }
+             
+           
+                <article class="prop_list clearfix">
+
+                    
+                </article>
+    
+         
+              
+                </section>
+                <form method="post">
+                    <div class="form-group clearfix">
+
+                        <span class="col-md-12">
+                            @*<input name="userName" type="text" class="form-control">*@
+                            <label>Comment</label>
+                            @Html.TextArea("Comment", new { @class = "form-control", placeholder = "Enter Your Message Here", required = true, oninvalid = "setCustomValidity('Enter Message')", oninput = "setCustomValidity('')" })
+                        </span>
+                    </div>
+                    <div class="form-group clearfix">
+                        <span class="col-md-6">
+                                                                        
+                            <label>Total Amount</label>
+                                   
+                        </span>
+                        <span class="col-md-6">
+                            <label>Pay Amount</label>
+                            @{
+            double? payable = finalamount / period;
+                                                      if(payable!=null && payable!=0)
+                                                      { 
+                            <input type="text" class="form-control" name="Amountpay" value="@Math.Round((double)payable,2)" />
+                            }
+                            else
+                                                      {
+                                                           <input type="text" class="form-control" name="Amountpay" />
+                                                      }
+                            }
+                        </span>
+                    </div>
+
+
+                    <div class="fixer">
+                        <div>
+                            <span><input type="submit" value="Send Message" class="myButton"></span>
+                        </div>
+                    </div>
+                </form>
+        
+        <div class="clear"></div>
+    </div>
+        }
+      
+
+<section class="property_form_container property_bd_con ">
+
+    <div class="container-fluid">
+        <div class="Billing-form">
+            @*<form  method="post">*@
+            @using (Html.BeginForm("CreateOffer", "Front", FormMethod.Post, new { @id = "CreateOffer" }))
+            {
+                double? price = 0.0, minimumprice = 0.0;
+                @*<input type="hidden" name="Country" id="Country" value="@ViewBag.country" />*@
+                <div class="UNIT-ADDRESS pop_add_row">
+
+
+                    <div class="prop-form_rgt">
+                        <h1 class="form_heading">Property Details</h1>
+                        <div class="prop_detail_coll">
+                            <article class="prop_list">
+                                @if (Session["propdata"] != null)
+                                {
+                                    var prp = Session["propdata"] as Property;
+                                    if (prp != null)
+                                    {
+                                        price = prp.Price;
+                                        minimumprice = prp.MinimumRent;
+                                        @*<input type="hidden" name="pid" value="@p.PID" />*@
+                                        <h3 class="propname">@prp.Street @prp.City @prp.State @prp.Country @prp.PostCode</h3>
+                                        <h6 class="prop_dtl">@prp.PropertyType.PropertyTypeName|@prp.Bedroom BD |@prp.Bathroom BA |@prp.SqFt SqFt</h6>
+                                        <h6 class="prop_dtl">@prp.PropertyStyle.Style_Name|@prp.Bedroom BD |@prp.Bathroom BA |@prp.SqFt SqFt</h6>
+                                        <div class="prop_cont_lst_con">
+                                            <span class="price_content">
+                                                @if (prp.Price != null)
+                                                {
+                                                    <p><font>Asking Price</font>@getallpath.currency@Math.Round(Convert.ToDouble(prp.Price), 2)/m</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Asking Price</font>--</p>
+                                                }
+                                                @if (prp.DepositReq != null)
+                                                {
+                                                    <p><font>Deposit</font>@getallpath.currency@Math.Round(Convert.ToDouble(prp.DepositReq), 2)/m</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Deposit</font>--</p>
+                                                }
+                                            </span>
+                                            <span class="price_content">
+
+                                                @if (prp.Bedroom != null)
+                                                {
+                                                    <p><font>Bedrooms</font>@prp.Bedroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Bedrooms</font>--</p>
+                                                }
+                                                @if (prp.Bathroom != null)
+                                                {
+                                                    <p><font>Bathrooms</font>@prp.Bathroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Bathrooms</font>--</p>
+                                                }
+                                                @if (prp.Furnished != null)
+                                                {
+                                                    if (prp.Furnished == "Furnished")
+                                                    {
+                                                        <p><font>Furnished</font>Yes</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p><font>Furnished</font>No</p>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Furnished</font>--</p>
+                                                }
+                                            </span>
+                                            <span class="price_desc">
+
+                                                @if (prp.Description != null)
+                                                {
+                                                    <p><font>Description</font>@prp.Description</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Description</font>--</p>
+                                                }
+                                                @*<p><font>Estimated Rent</font>$@p.RentIncome/m</p>*@
+                                            </span>
+                                        </div>
+                                        @*<span class="price_content col-md-6 col-sm-6">
+                                                        @{
+                                            double opexp = (p.TotalExpenses / 12);
+                                            double cashflow = (p.CashFlow / 12);
+                                                        }
+                                                        <p><font>OP Expenses</font>$@opexp/m</p>
+                                                        <p><font>Cash Flow</font>$@cashflow/m</p>
+
+                                                        <p><font>Cape Rat</font>$@Math.Round(p.CapRate, 2)%</p>
+                                                    </span>*@
+
+
+                                    }
+                                }
+                            </article>
+                        </div>
+                        <h1 class="form_heading">Property Details</h1>
+                        <div class="prop_detail_coll">
+                            <article class="prop_list">
+                             @{
+                                var item1 = Session["Tenantinvoicedata"] as Proptiwise.Models.Tenant;
+                                }
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                        @*<input type="hidden" name="pid" value="@p.PID" />*@
+                        <h3 class="propname">@item1.FirstName @item1.City @item1.State @item1.PostCode</h3>
+                        <h6>@item1.Address1|@item1.Address2 |@item1.Cellular</h6>
+                        <span class="price_content col-md-12 col-sm-12">
+                            @if (item1.Email != null)
+                            {
+                                <p><font>Email</font>@item1.Email</p>
+                            }
+                            else
+                            {
+                                <p><font>Email</font>--</p>
+                            }
+                         
+                        </span>
+                        <span class="clearfix"></span>
+                        @{
+                            var item2 = Session["agreedata"] as Proptiwise.Models.TenancyAgreement;
+                            //TimeSpan getdatediff = item2.ToAgreementDate.Value.Date.Subtract(item2.FromAgreementDate.Value.Date);
+                            period = item2.ToAgreementDate.Value.Subtract(item2.FromAgreementDate.Value).Days / (365.25 / 12);
+                        }
+                        <span class="price_content col-md-6 col-sm-6">
+                            @if (item2.FromAgreementDate != null)
+                            {
+                                <p><font>From Agreement Date</font>@item2.FromAgreementDate.Value.ToShortDateString()</p>
+                            }
+                            else
+                            {
+                                <p><font>From Agreement Date</font>--</p>
+                            }
+                            </span>
+                            <span class="price_content col-md-6 col-sm-6">
+                                @if (item2.ToAgreementDate != null)
+                                {
+                                    <p><font>To Agreement Date</font>@item2.ToAgreementDate.Value.ToShortDateString()</p>
+                                }
+                                else
+                                {
+                                    <p><font>To Agreement Date</font>--</p>
+                                }
+                            </span>
+
+                    </div>
+                             
+                            </article>
+                        </div>
+                    </div>
+
+
+                    <div class="prop-form_left">
+                        <h1 class="form_heading">Create Offer</h1>
+                        @{
+                                var proposaloffr = new Proptiwise.Models.Purposal();
+                                var offr = new Proptiwise.Models.tbl_offer();
+                                if (ViewBag.proposaldata != null)
+                                {
+                                    proposaloffr = ViewBag.proposaldata as Proptiwise.Models.Purposal;
+                                }
+                                else if (ViewBag.offerdata != null)
+                                {
+                                    offr = ViewBag.offerdata as Proptiwise.Models.tbl_offer;
+                                }
+                        }
+                        
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Total Amount</label>
+                            @if (item1.Balance == 0.0 && item1.Balance == null)
+                            {
+                                <input type="text" class="form-control" name="Amount" value="@item1.Balance" readonly>
+                            }
+                            else if (proposaloffr != null && proposaloffr.PurposalId != 0)
+                            {
+                                //double? totalamnt = proposaloffr.purposal1 + item.DepositReq;
+                                double? totalamnt = proposaloffr.purposal1 + item1.Deposits;
+                                finalamount = totalamnt;
+                                <input type="text" class="form-control" name="Amount" value="@totalamnt" readonly>
+                            }
+                            else if (offr != null && offr.OfferId != 0)
+                            {
+                                double? totalamnt1 = offr.offer + item1.Deposits;
+                                finalamount = totalamnt1;
+                                <input type="text" class="form-control" name="Amount" value="@totalamnt1" readonly>
+                            }              
+                            @Html.ValidationMessageFor(model => model.Amount)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Offer</label>
+
+                            @Html.TextBoxFor(model => model.offer, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.offer)
+                        </div>
+
+                        <div class="save_panel_btn">
+
+                            @*Save & Add Similar Unit*@
+                            <button type="submit" class="Save_btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                        </div>
+                        <input type="hidden" value="@minimumprice" id="minimumprice" />
+                    </div>
+
+                </div>
+
+            }
+        </div>
+    </div>
+
+
+
+</section>

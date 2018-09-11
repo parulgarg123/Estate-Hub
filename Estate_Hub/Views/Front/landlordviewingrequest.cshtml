@@ -1,0 +1,1375 @@
+﻿@model IEnumerable<Proptiwise.Models.RequestView>
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "Landlordviewingrequest";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+@*<div class="top_info">
+
+    </div>*@
+<div class="col-me-12"><h2>Viewing Requests</h2></div>
+<ul class="nav nav-tabs responsive" id="myTab">
+    <li class="active"><a href="#tab-1">Pending</a></li>
+    <li><a href="#tab-2">Accepted</a></li>
+    <li><a href="#tab-3">Rejected</a></li>
+    @*<li><a href="#tab-4">Pending Proposal</a></li>
+        <li><a href="#tab-5">Accepted Proposal</a></li>
+        <li><a href="#tab-6">Rejected Proposal</a></li>*@
+</ul>
+<div class="tab-content responsive">
+    <div class="tab-pane active" id="tab-1">
+        <h5>Pending Viewing Requests</h5>
+        <table width="100%" class="table_list" cellspacing="0">
+            <caption>
+                <h6 style="color: white; text-align: center"></h6>
+
+            </caption>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th></th>
+                    <th>Phone</th>
+                    <th>Preferred Date</th>
+                    <th>Preferred Time</th>
+                    <th>Comment</th>
+                    <th>Request Status</th>
+                    <th>Actions</th>
+                    @*<th>Reject</th>
+                    <th>Purposal</th>*@
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.Pending as List<Proptiwise.Models.RequestView>)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            <span class="up_down">
+                                <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </span>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @item.PreferredDate.Value.ToShortDateString()
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PreferredTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.text)
+                        </td>
+                        <td>
+                            @if (item.RequestStatus == 1)
+                            {
+                                <span>Request</span>
+                            }
+                            else if (item.RequestStatus == 2)
+                            {
+                                <span>Offer</span>
+                            }
+
+                        </td>
+
+                        <td data-label="detail-btn">
+                                            
+                           @if (item.OfferId == 1 && item.RequestStatus == 2)
+                           {
+                            <span>Proposal Sent</span>
+                           }
+                           else if(item.RequestStatus==1)
+                           {
+                            <a class="detail_link" id="lnkedit" href="@getallpath.getpath/Front/acceptrequest/@item.ReqviewId">Accept</a>
+                            <a class="detail_link" id="lnkedit" href="@getallpath.getpath/Front/rejectrequest/@item.ReqviewId">Reject</a>
+                            <a class="detail_link" id="lnkedit" href="@getallpath.getpath/Front/NewViewingPurposal/@item.ReqviewId">New Proposal</a>
+                           }
+                        </td>
+                    </tr>
+
+                    <tr class="toggle_info" style="display:none;">
+                        <td colspan="13">
+                            <div class="toggle_summery">
+                                <div class="col-md-4 col-sm-4">
+                                    @*    <div class="top_info">
+
+                                          </div>
+                                        <div class="contact_info">
+
+                                        <span class="txtinfo">*@
+                                    @{
+                                        var dimg = Proptiwise.Models.RandomFunctions.GetFirstImage(item.PropertyId);
+                                        if (dimg != null)
+                                        {
+                                            <img src="@getallpath.getpath/PropertyImages/@dimg.ImageName" alt="Property">
+                                        }
+                                        else
+                                        {
+                                            <img src="@getallpath.getpath/PropertyImages/No_image_available.png" alt="Property">
+                                        }
+                                    }
+
+                                    @*  </span>
+                                        </div>*@
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="top_info">
+
+                                    </div>
+                                    <div class="contact_info">
+
+                                        <span class="txtinfo">
+
+                                            @{
+                                                var data = Proptiwise.Models.RandomFunctions.getrequestpropdata(item.PropertyId);
+                                            }
+                                            @if (data.PropertyName != null)
+                                            {
+                                                <h4><b>@data.PropertyName</b></h4>
+                                            }
+                                            else
+                                            {
+                                                <h4>No Name</h4>
+                                            }
+                                            @if (data.AddressLine1 == null)
+                                            {
+                                                <p>No Location</p>
+                                            }
+                                            else
+                                            {
+                                                <p>@data.AddressLine1</p>
+
+                                            }
+                                            @if (data.PropertyTypeId == null)
+                                            {
+                                                <p>No Property Type</p>
+                                            }
+                                            else
+                                            {
+                                                @*<p>@data.PropertyType.PropertyTypeName</p>*@
+
+                                            }
+
+
+                                            @if (data.Bathroom == null)
+                                            {
+                                                <p>No Bathroom</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Bathroom: @data.Bathroom </p>
+                                            }
+                                            @if (data.Bedroom == null)
+                                            {
+                                                <p>No Bedroom</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Bedroom: @data.Bedroom</p>
+
+                                            }
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="top_info">
+
+                                    </div>
+                                    <div class="contact_info">
+                                        <span class="txtinfo">
+                                            @{
+                                                var data1 = Proptiwise.Models.RandomFunctions.getleasedata(item.PropertyId);
+                                            }
+                                            <h4><b>financial Information</b></h4>
+                                            @if (data.DepositReq != null)
+                                            {
+                                                <p>Deposit: @data.DepositReq</p>
+                                            }
+                                            else
+                                            {
+                                                <h4>No Deposit</h4>
+                                            }
+                                            @if (data.Price == null)
+                                            {
+                                                <p>No Price</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Total Price: @data.Price</p>
+
+                                            }
+
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+
+                                                }
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tab-pane" id="tab-2">
+        <h5>Accepted Viewing Requests</h5>
+        <table width="100%" class="table_list" cellspacing="0">
+            <caption>
+                <h6 style="color: white; text-align: center"></h6>
+
+            </caption>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th></th>
+                    <th>Phone</th>
+                    <th>Preferred Date</th>
+                    <th>Preferred Time</th>
+                    <th>Comment</th>
+                    <th>Request Status</th>
+                    @*<th>Accept</th>
+                        <th>Reject</th>*@
+                    <th>Deposit Request</th>
+
+
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.accepted as List<Proptiwise.Models.RequestView>)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            <span class="up_down">
+                                <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </span>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @item.PreferredDate.Value.ToShortDateString()
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PreferredTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.text)
+                        </td>
+                        <td>
+                            @if (item.RequestStatus == 1)
+                            {
+                                <span>Request</span>
+                            }
+                            else if (item.RequestStatus == 2)
+                            {
+                                <span>Offer</span>
+                            }
+
+                        </td>
+                        <td>
+                            @if (item.Status == 2)
+                            {
+                                <font>Deposit Request Sent</font>
+                            }
+
+                            else
+                            {
+                                @Html.ActionLink("Deposit Request", "DepositRequest", new { id = item.ReqviewId })
+                            }
+                        </td>
+                        @*<td>
+                                @if (item.Status == 1)
+                                {
+                                    <font>Deposit Request Sent</font>
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Deposit Request", "DepositRequest", new { id = item.ReqviewId })
+                                }
+                            </td>*@
+                        <td>
+
+                    </tr>
+
+                    <tr class="toggle_info" style="display:none;">
+                        <td colspan="13">
+                            <div class="toggle_summery">
+                                <div class="col-md-4 col-sm-4">
+
+                                    @{
+                                        var dimg = Proptiwise.Models.RandomFunctions.GetFirstImage(item.PropertyId);
+                                        if (dimg != null)
+                                        {
+                                            <img src="@getallpath.getpath/PropertyImages/@dimg.ImageName" alt="Property">
+                                        }
+                                        else
+                                        {
+                                            <img src="@getallpath.getpath/PropertyImages/No_image_available.png" alt="Property">
+                                        }
+                                    }
+
+                                    @*  </span>
+                                        </div>*@
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="top_info">
+
+                                    </div>
+                                    <div class="contact_info">
+
+                                        <span class="txtinfo">
+
+                                            @{
+                                                var data = Proptiwise.Models.RandomFunctions.getrequestpropdata(item.PropertyId);
+                                            }
+                                            @if (data.PropertyName != null)
+                                            {
+                                                <h4><b>@data.PropertyName</b></h4>
+                                            }
+                                            else
+                                            {
+                                                <h4>No Name</h4>
+                                            }
+                                            @if (data.AddressLine1 == null)
+                                            {
+                                                <p>No Location</p>
+                                            }
+                                            else
+                                            {
+                                                <p>@data.AddressLine1</p>
+
+                                            }
+                                            @if (data.PropertyTypeId == null)
+                                            {
+                                                <p>No Property Type</p>
+                                            }
+                                            else
+                                            {
+                                                @*<p>@data.PropertyType.PropertyTypeName</p>*@
+
+                                            }
+
+
+                                            @if (data.Bathroom == null)
+                                            {
+                                                <p>No Bathroom</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Bathroom: @data.Bathroom </p>
+                                            }
+                                            @if (data.Bedroom == null)
+                                            {
+                                                <p>No Bedroom</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Bedroom: @data.Bedroom</p>
+
+                                            }
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="top_info">
+
+                                    </div>
+                                    <div class="contact_info">
+                                        <span class="txtinfo">
+                                            @{
+                                                var data1 = Proptiwise.Models.RandomFunctions.getleasedata(item.PropertyId);
+                                            }
+                                            <h4><b>financial Information</b></h4>
+                                            @if (data.DepositReq != null)
+                                            {
+                                                <p>Deposit: @data.DepositReq</p>
+                                            }
+                                            else
+                                            {
+                                                <h4>No Deposit</h4>
+                                            }
+                                            @if (data.Price == null)
+                                            {
+                                                <p>No Price</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Total Price: @data.Price</p>
+                                            }
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                                                }
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane " id="tab-3">
+        <h5>Rejected Viewing Requests</h5>
+        <table width="100%" class="table_list" cellspacing="0">
+            <caption>
+                <h6 style="color: white; text-align: center"></h6>
+
+            </caption>
+            <thead>
+
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th></th>
+            <th>Phone</th>
+            <th>Preferred Date</th>
+            <th>Preferred Time</th>
+            <th>Comment</th>
+            <th>Request Status</th>
+            @*<th>Accept</th>
+                <th>Reject</th>*@
+            @*<th>Purposal</th>*@
+
+
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.rejected as List<Proptiwise.Models.RequestView>)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            <span class="up_down">
+                                <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </span>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @item.PreferredDate.Value.ToShortDateString()
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PreferredTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.text)
+                        </td>
+                        <td>
+                            @if (item.RequestStatus == 1)
+                            {
+                                <span>Request</span>
+                            }
+                            else if (item.RequestStatus == 2)
+                            {
+                                <span>Offer</span>
+                            }
+
+                        </td>
+                        @*<td data-label="detail-btn"><a class="detail_link" id="lnkedit" href="@getallpath.getpath/Front/NewViewingPurposal/@item.ReqviewId">New Purposal</a></td>*@
+
+                        <td>
+
+                    </tr>
+
+                    <tr class="toggle_info" style="display:none;">
+                        <td colspan="13">
+                            <div class="toggle_summery">
+                                <div class="col-md-4 col-sm-4">
+                                    @*    <div class="top_info">
+
+                                                                                    </div>
+                                                                                   <div class="contact_info">
+
+                                        <span class="txtinfo">*@
+                                    @{
+                                        var dimg = Proptiwise.Models.RandomFunctions.GetFirstImage(item.PropertyId);
+                                        if (dimg != null)
+                                        {
+                                            <img src="@getallpath.getpath/PropertyImages/@dimg.ImageName" alt="Property">
+                                        }
+                                        else
+                                        {
+                                            <img src="@getallpath.getpath/PropertyImages/No_image_available.png" alt="Property">
+                                        }
+                                    }
+
+                                    @*  </span>
+                                        </div>*@
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="top_info">
+
+                                    </div>
+                                    <div class="contact_info">
+
+                                        <span class="txtinfo">
+
+                                            @{
+                                                var data = Proptiwise.Models.RandomFunctions.getrequestpropdata(item.PropertyId);
+                                            }
+                                            @if (data.PropertyName != null)
+                                            {
+                                                <h4><b>@data.PropertyName</b></h4>
+                                            }
+                                            else
+                                            {
+                                                <h4>No Name</h4>
+                                            }
+                                            @if (data.AddressLine1 == null)
+                                            {
+                                                <p>No Location</p>
+                                            }
+                                            else
+                                            {
+                                                <p>@data.AddressLine1</p>
+
+                                            }
+                                            @if (data.PropertyTypeId == null)
+                                            {
+                                                <p>No Property Type</p>
+                                            }
+                                            else
+                                            {
+                                                @*<p>@data.PropertyType.PropertyTypeName</p>*@
+
+                                            }
+
+
+                                            @if (data.Bathroom == null)
+                                            {
+                                                <p>No Bathroom</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Bathroom: @data.Bathroom </p>
+                                            }
+                                            @if (data.Bedroom == null)
+                                            {
+                                                <p>No Bedroom</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Bedroom: @data.Bedroom</p>
+
+                                            }
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="top_info">
+
+                                    </div>
+                                    <div class="contact_info">
+                                        <span class="txtinfo">
+                                            @{
+                                                var data1 = Proptiwise.Models.RandomFunctions.getleasedata(item.PropertyId);
+                                            }
+                                            <h4><b>financial Information</b></h4>
+                                            @if (data.DepositReq != null)
+                                            {
+                                                <p>Deposit: @data.DepositReq</p>
+                                            }
+                                            else
+                                            {
+                                                <h4>No Deposit</h4>
+                                            }
+                                            @if (data.Price == null)
+                                            {
+                                                <p>No Price</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Total Price: @data.Price</p>
+
+                                            }
+
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                                                }
+
+            </tbody>
+        </table>
+    </div>
+
+    @*<div class="tab-pane" id="tab-4">
+            <h5>Pending Viewing Proposals</h5>
+            <table width="100%" class="table_list" cellspacing="0">
+                <caption>
+                    <h6 style="color: white; text-align: center"></h6>
+
+                </caption>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th></th>
+                        <th>Phone</th>
+                        <th>Preferred Date</th>
+                        <th>Preferred Time</th>
+                        <th>Comment</th>
+                        <th>Approval</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Pendingprop as List<Proptiwise.Models.ViewingPurposal>)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                <span class="up_down">
+                                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </span>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PreferredDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PreferredTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.text)
+                            </td>
+                            <td>
+                                @if (item.Approve == 0)
+                                {
+                                    <font>Pending</font>
+                                }
+                            </td>
+                            <td data-label="detail-btn"><a class="detail_link editbutton" id="lnkedit" href="@getallpath.getpath/EditViewingPurposal/@item.ViewingPurposalid">Edit</a></td>
+                        </tr>
+
+                        <tr class="toggle_info" style="display:none;">
+                            <td colspan="13">
+                                <div class="toggle_summery">
+                                    <div class="col-md-4 col-sm-4">
+                                        @*    <div class="top_info">
+
+                                                                                        </div>
+                                                                                       <div class="contact_info">
+
+                                            <span class="txtinfo">
+                                        @{
+                                            var dimg = Proptiwise.Models.RandomFunctions.GetFirstImage(item.PropertyId);
+                                            if (dimg != null)
+                                            {
+                                                <img src="@getallpath.getpath/PropertyImages/@dimg.ImageName" alt="Property">
+                                            }
+                                            else
+                                            {
+                                                <img src="@getallpath.getpath/PropertyImages/No_image_available.png" alt="Property">
+                                            }
+                                        }
+
+                                          </span>
+                                            </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="top_info">
+
+                                        </div>
+                                        <div class="contact_info">
+
+                                            <span class="txtinfo">
+
+                                                @{
+                                                    var data = Proptiwise.Models.RandomFunctions.getrequestpropdata(item.PropertyId);
+                                                }
+                                                @if (data.PropertyName != null)
+                                                {
+                                                    <h4><b>@data.PropertyName</b></h4>
+                                                }
+                                                else
+                                                {
+                                                    <h4>No Name</h4>
+                                                }
+                                                @if (data.AddressLine1 == null)
+                                                {
+                                                    <p>No Location</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>@data.AddressLine1</p>
+
+                                                }
+                                                @if (data.PropertyTypeId == null)
+                                                {
+                                                    <p>No Property Type</p>
+                                                }
+                                                else
+                                                {
+                                                    @*<p>@data.PropertyType.PropertyTypeName</p>
+
+                                                }
+
+
+                                                @if (data.Bathroom == null)
+                                                {
+                                                    <p>No Bathroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>Bathroom: @data.Bathroom </p>
+                                                }
+                                                @if (data.Bedroom == null)
+                                                {
+                                                    <p>No Bedroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>Bedroom: @data.Bedroom</p>
+
+                                                }
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="top_info">
+
+                                        </div>
+                                        <div class="contact_info">
+                                            <span class="txtinfo">
+                                                @{
+                                                    var data1 = Proptiwise.Models.RandomFunctions.getleasedata(item.PropertyId);
+                                                }
+                                                <h4><b>financial Information</b></h4>
+                                                @if (data.DepositReq != null)
+                                                {
+                                                    <p>Deposit: @data.DepositReq</p>
+                                                }
+                                                else
+                                                {
+                                                    <h4>No Deposit</h4>
+                                                }
+                                                @if (data.Price == null)
+                                                {
+                                                    <p>No Price</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>Total Price: @data.Price</p>
+
+                                                }
+
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                                                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="tab-5">
+            <h5>Accepted Viewing Proposals</h5>
+            <table width="100%" class="table_list" cellspacing="0">
+                <caption>
+                    <h6 style="color: white; text-align: center"></h6>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th></th>
+                        <th>Phone</th>
+                        <th>Preferred Date</th>
+                        <th>Preferred Time</th>
+                        <th>Comment</th>
+                        <th>Approval</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.acceptedprop as List<Proptiwise.Models.ViewingPurposal>)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                <span class="up_down">
+                                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </span>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PreferredDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PreferredTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.text)
+                            </td>
+                            <td>
+                                @if (item.Approve == 1)
+                                {
+                                    <font>Approved</font>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr class="toggle_info" style="display:none;">
+                            <td colspan="13">
+                                <div class="toggle_summery">
+                                    <div class="col-md-4 col-sm-4">
+                                        @*    <div class="top_info">
+
+                                                                                        </div>
+                                                                                       <div class="contact_info">
+
+                                            <span class="txtinfo">
+                                        @{
+                                            var dimg = Proptiwise.Models.RandomFunctions.GetFirstImage(item.PropertyId);
+                                            if (dimg != null)
+                                            {
+                                                <img src="@getallpath.getpath/PropertyImages/@dimg.ImageName" alt="Property">
+                                            }
+                                            else
+                                            {
+                                                <img src="@getallpath.getpath/PropertyImages/No_image_available.png" alt="Property">
+                                            }
+                                        }
+
+                                        @*  </span>
+                                            </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="top_info">
+
+                                        </div>
+                                        <div class="contact_info">
+
+                                            <span class="txtinfo">
+
+                                                @{
+                                                    var data = Proptiwise.Models.RandomFunctions.getrequestpropdata(item.PropertyId);
+                                                }
+                                                @if (data.PropertyName != null)
+                                                {
+                                                    <h4><b>@data.PropertyName</b></h4>
+                                                }
+                                                else
+                                                {
+                                                    <h4>No Name</h4>
+                                                }
+                                                @if (data.AddressLine1 == null)
+                                                {
+                                                    <p>No Location</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>@data.AddressLine1</p>
+
+                                                }
+                                                @if (data.PropertyTypeId == null)
+                                                {
+                                                    <p>No Property Type</p>
+                                                }
+                                                else
+                                                {
+                                                    @*<p>@data.PropertyType.PropertyTypeName</p>
+
+                                                }
+
+
+                                                @if (data.Bathroom == null)
+                                                {
+                                                    <p>No Bathroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>Bathroom: @data.Bathroom </p>
+                                                }
+                                                @if (data.Bedroom == null)
+                                                {
+                                                    <p>No Bedroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>Bedroom: @data.Bedroom</p>
+
+                                                }
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="top_info">
+
+                                        </div>
+                                        <div class="contact_info">
+                                            <span class="txtinfo">
+                                                @{
+                                                    var data1 = Proptiwise.Models.RandomFunctions.getleasedata(item.PropertyId);
+                                                }
+                                                <h4><b>financial Information</b></h4>
+                                                @if (data.DepositReq != null)
+                                                {
+                                                    <p>Deposit: @data.DepositReq</p>
+                                                }
+                                                else
+                                                {
+                                                    <h4>No Deposit</h4>
+                                                }
+                                                @if (data.Price == null)
+                                                {
+                                                    <p>No Price</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>Total Price: @data.Price</p>
+
+                                                }
+
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                                                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane " id="tab-6">
+            <h5>Rejected Viewing Proposals</h5>
+            <table width="100%" class="table_list" cellspacing="0">
+                <caption>
+                    <h6 style="color: white; text-align: center"></h6>
+
+                </caption>
+                <thead>
+
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th></th>
+                <th>Phone</th>
+                <th>Preferred Date</th>
+                <th>Preferred Time</th>
+                <th>Comment</th>
+                <th>Approval</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.rejectedprop as List<Proptiwise.Models.ViewingPurposal>)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                <span class="up_down">
+                                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </span>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PreferredDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PreferredTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.text)
+                            </td>
+                            <td>
+                                @if (item.Approve == 2)
+                                {
+                                    <font>Rejected</font>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr class="toggle_info" style="display:none;">
+                            <td colspan="13">
+                                <div class="toggle_summery">
+                                    <div class="col-md-4 col-sm-4">
+                                        @*    <div class="top_info">
+
+                                                                                        </div>
+                                                                                       <div class="contact_info">
+
+                                            <span class="txtinfo">
+                                        @{
+                                            var dimg = Proptiwise.Models.RandomFunctions.GetFirstImage(item.PropertyId);
+                                            if (dimg != null)
+                                            {
+                                                <img src="@getallpath.getpath/PropertyImages/@dimg.ImageName" alt="Property">
+                                            }
+                                            else
+                                            {
+                                                <img src="@getallpath.getpath/PropertyImages/No_image_available.png" alt="Property">
+                                            }
+                                        }
+
+                                        @*  </span>
+                                            </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="top_info">
+
+                                        </div>
+                                        <div class="contact_info">
+
+                                            <span class="txtinfo">
+
+                                                @{
+                                                    var data = Proptiwise.Models.RandomFunctions.getrequestpropdata(item.PropertyId);
+                                                }
+                                                @if (data.PropertyName != null)
+                                                {
+                                                    <h4><b>@data.PropertyName</b></h4>
+                                                }
+                                                else
+                                                {
+                                                    <h4>No Name</h4>
+                                                }
+                                                @if (data.AddressLine1 == null)
+                                                {
+                                                    <p>No Location</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>@data.AddressLine1</p>
+
+                                                }
+                                                @if (data.PropertyTypeId == null)
+                                                {
+                                                    <p>No Property Type</p>
+                                                }
+                                                else
+                                                {
+                                                    @*<p>@data.PropertyType.PropertyTypeName</p>
+
+                                                }
+
+
+                                                @if (data.Bathroom == null)
+                                                {
+                                                    <p>No Bathroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>Bathroom: @data.Bathroom </p>
+                                                }
+                                                @if (data.Bedroom == null)
+                                                {
+                                                    <p>No Bedroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>Bedroom: @data.Bedroom</p>
+
+                                                }
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <div class="top_info">
+
+                                        </div>
+                                        <div class="contact_info">
+                                            <span class="txtinfo">
+                                                @{
+                                                    var data1 = Proptiwise.Models.RandomFunctions.getleasedata(item.PropertyId);
+                                                }
+                                                <h4><b>financial Information</b></h4>
+                                                @if (data.DepositReq != null)
+                                                {
+                                                    <p>Deposit: @data.DepositReq</p>
+                                                }
+                                                else
+                                                {
+                                                    <h4>No Deposit</h4>
+                                                }
+                                                @if (data.Price == null)
+                                                {
+                                                    <p>No Price</p>
+                                                }
+                                                else
+                                                {
+                                                    <p>Total Price: @data.Price</p>
+
+                                                }
+
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+
+                                                    }
+
+                </tbody>
+            </table>
+        </div>*@
+
+    @*<div class="tab-pane" id="tab-4">
+                <h5>Proposed Viewing Proposals</h5>
+
+                    <table width="100%" class="table_list" cellspacing="0">
+                        <caption>
+                            <h6 style="color: white; text-align: center"></h6>
+
+                        </caption>
+                        <thead>
+
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th></th>
+                        <th>Phone</th>
+                        <th>Preferred Date</th>
+                        <th>Preferred Time</th>
+                        <th>Comment</th>
+                        <th>Proposal</th>
+
+
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.purposal as List<Proptiwise.Models.RequestView>)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FirstName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.LastName)
+                                    </td>
+                                    <td>
+                                        <span class="up_down">
+                                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Phone)
+                                    </td>
+                                    <td>
+                                        @item.PreferredDate.Value.ToShortDateString()
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PreferredTime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.text)
+                                    </td>
+                                    <td>
+                                        @if(item.Approve==3)
+                                        {
+                                            <font>Proposal Sent</font>
+                                        }
+                                        </td>
+                                </tr>
+
+                                <tr class="toggle_info" style="display:none;">
+                                            <td colspan="13">
+                                                <div class="toggle_summery">
+                                                    <div class="col-md-4 col-sm-4">
+                                                        @*    <div class="top_info">
+
+                                                                </div>
+                                                               <div class="contact_info">
+
+                    <span class="txtinfo">
+                                                        @{
+                        var dimg = Proptiwise.Models.RandomFunctions.GetFirstImage(item.PropertyId);
+                        if (dimg != null)
+                        {
+                                                <img src="@getallpath.getpath/PropertyImages/@dimg.ImageName" alt="Property">
+                        }
+                        else
+                        {
+                                                <img src="@getallpath.getpath/PropertyImages/No_image_available.png" alt="Property">
+                        }
+                                                        }
+
+                                                        @*  </span>
+                    </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4">
+                                                        <div class="top_info">
+
+                                                        </div>
+                                                        <div class="contact_info">
+
+                                                            <span class="txtinfo">
+
+                                                                @{
+                                                                var data = Proptiwise.Models.RandomFunctions.getrequestpropdata(item.PropertyId);
+                                                                }
+                                                                @if (data.PropertyName != null)
+                                                                {
+                                                                    <h4><b>@data.PropertyName</b></h4>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <h4>No Name</h4>
+                                                                }
+                                                                @if (data.AddressLine1 == null)
+                                                                {
+                                                                    <p>No Location</p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p>@data.AddressLine1</p>
+
+                                                                }
+                                                                @if (data.PropertyTypeId == null)
+                                                                {
+                                                                    <p>No Property Type</p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    @*<p>@data.PropertyType.PropertyTypeName</p>
+
+                                                                }
+
+
+                                                                @if (data.Bathroom == null)
+                                                                {
+                                                                    <p>No Bathroom</p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p>Bathroom: @data.Bathroom </p>
+                                                                }
+                                                                @if (data.Bedroom== null)
+                                                                {
+                                                                    <p>No Bedroom</p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p>Bedroom: @data.Bedroom</p>
+
+                                                                }
+
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4">
+                                                        <div class="top_info">
+
+                                                        </div>
+                                                        <div class="contact_info">
+                                                            <span class="txtinfo">
+                                                               @{
+                                                                    var data1 = Proptiwise.Models.RandomFunctions.getleasedata(item.PropertyId);
+                                                                    }
+        <h4><b>financial Information</b></h4>
+                                                                @if (data.DepositReq != null)
+                                                                {
+                                                                    <p>Deposit: @data.DepositReq</p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <h4>No Deposit</h4>
+                                                                }
+                                                                @if (data.Price == null)
+                                                                {
+                                                                    <p>No Price</p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p>Total Price: @data.Price</p>
+
+                                                                }
+
+                                                                </span>
+        </div>
+                                                    </div>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                            }
+                        </tbody>
+                    </table>
+
+            </div>*@
+
+</div>
+
+
+@if (TempData["AdminRequestMessage"] != null)
+{
+
+    <div id="myModal" class="modal hide fade modalErrorMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+
+        <div class="modal-body" style="">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p>@TempData["AdminRequestMessage"] </p>
+        </div>
+
+    </div>
+
+}
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Appjs/Phone.js"></script>

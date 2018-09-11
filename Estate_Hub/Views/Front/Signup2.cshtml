@@ -1,0 +1,102 @@
+﻿@using Proptiwise.ViewModels
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "Signup2";
+    Layout = "~/Views/Shared/BannerMaster.cshtml";
+    
+}
+<script>
+    function checkboxclick() {
+
+        if ($("#chkaddress").is(':checked')) {
+            $("#divadd").hide(500);
+            $("#divadd input[type='text']").removeAttr('required');
+            $("#divadd input[type='text']").removeAttr('oninvalid');
+            $("#divadd input[type='text']").removeAttr('oninput');
+        }
+        else {
+            $("#divadd").show(500);
+        }
+    }
+</script>
+
+<section class="login_panel sign_column">
+    <div class="container">
+        <div class="row">
+            <div class="signup_2 col-md-3">
+            </div>
+            <div class="signup_2 subscription col-md-6">
+                @{
+                    if (ViewBag.PlanData != null)
+                    {
+                        Proptiwise.Models.Plan data = ViewBag.PlanData;
+                        <form class="form-signin" role="form" method="post">
+                            <h3>Subscription</h3>
+                            <div class="clearfix">
+                                <p><strong>Plan : </strong><span>@data.PlanName</span></p>
+                                <p><strong>Term : </strong><span>Monthly</span></p>
+                            </div>
+                            <div class="form-group clearfix">
+                                <span class="clearfix">
+                                    <p><b>Amount : </b>@getallpath.currency@Math.Round(Convert.ToDouble(data.PriceMonthly), 2)</p>
+                                </span>
+                            </div>
+                        </form>
+
+
+                        <a class="col-md-4 col-sm-5  btn btn-default" href="@getallpath.getpath/Payment/Buy/@data.PlanID">Pay With Card</a>
+                    }
+                    else
+                    {
+                        <form class="form-signin" role="form" method="post">
+                            <h3>Subscription</h3>
+                            <div class="clearfix">
+                                <p><strong>Plan : </strong><span>Basic</span></p>
+                                <p><strong>Term : </strong><span>Monthly</span></p>
+                            </div>
+                            <div class="form-group clearfix">
+                                <span class="clearfix">
+                                    <p><b>Amount : </b>$30.00</p>
+                                </span>
+                            </div>
+                        </form>
+
+
+                        <a class="col-md-4 col-sm-5  btn btn-default" href="#">Pay With Card</a> <h2>OR</h2>
+                    }
+                }
+                <div id="paypalDiv" class="col-md-4 col-sm-5">
+                        <form id="paypalForm" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                            @{
+                                Proptiwise.Models.Plan data1 = ViewBag.PlanData;
+                                long id = Convert.ToInt64(Session["LandlordId"]);
+                               // long id = 32;
+
+                            }
+
+                            <fieldset>
+                                <input class="full-width" type="hidden" name="business" value="rajat_jain-facilitator-1@rvtechnologies.co.in">
+                                <input type="hidden" name="cmd" value="_xclick">
+                                <input type="hidden" name="item_name" value="@data1.PlanName" />
+                                <input type="hidden" name="item_number" value="@data1.PlanID" />
+                                <input type="hidden" name="amount" value="@Math.Round(Convert.ToDouble(data1.PriceMonthly), 2)" />
+                                <input type="hidden" name="quantity" value=1 />
+                                <input type="hidden" name="custom" id="customfield" value="@id">
+                                <input type="hidden" name="return" value="http://proptiwise.com/paypal_paid">
+                                <input type="hidden" name="notify_url" value="http://proptiwise.com/Front/Ipn2">
+                                <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" />
+
+                            </fieldset>
+
+                        </form>
+                    </div>
+            </div>
+            <div class="signup_2 col-md-3">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+

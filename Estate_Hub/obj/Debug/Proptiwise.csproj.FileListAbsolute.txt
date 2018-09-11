@@ -1,0 +1,626 @@
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Proptiwise.dll.config
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Proptiwise.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Proptiwise.pdb
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Antlr3.Runtime.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\EntityFramework.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\itextsharp.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\itextsharp.xmlworker.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\itextsharp.xtra.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Web.Infrastructure.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Newtonsoft.Json.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Owin.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\PagedList.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\PagedList.Mvc.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\ReportViewerForMvc.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Stripe.net.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.Helpers.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.Mvc.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.Optimization.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.Razor.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.WebPages.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\WebGrease.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\itextsharp.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Newtonsoft.Json.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\PagedList.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\PagedList.Mvc.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.Helpers.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.Mvc.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.Optimization.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.Razor.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.WebPages.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Antlr3.Runtime.pdb
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\EntityFramework.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\obj\Debug\Proptiwise.csprojResolveAssemblyReference.cache
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\obj\Debug\Proptiwise.dll
+D:\clients\Chidinma\Feb.07\Proptiwise\Proptiwise\obj\Debug\Proptiwise.pdb
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Proptiwise.dll.config
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Proptiwise.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Proptiwise.pdb
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Antlr3.Runtime.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\EntityFramework.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\itextsharp.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\itextsharp.xmlworker.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\itextsharp.xtra.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Web.Infrastructure.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Newtonsoft.Json.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Owin.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\PagedList.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\PagedList.Mvc.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\ReportViewerForMvc.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Stripe.net.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.Helpers.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.Mvc.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.Optimization.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.Razor.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.WebPages.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\WebGrease.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\itextsharp.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Newtonsoft.Json.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\PagedList.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\PagedList.Mvc.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.Helpers.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.Mvc.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.Optimization.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.Razor.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.WebPages.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Antlr3.Runtime.pdb
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\EntityFramework.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\obj\Debug\Proptiwise.csprojResolveAssemblyReference.cache
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\obj\Debug\Proptiwise.dll
+D:\clients\Chidinma\Feb.24\Proptiwise\Proptiwise\obj\Debug\Proptiwise.pdb
+D:\New folder\Feb.26\Proptiwise\Proptiwise\obj\Debug\RdlCompile.cache
+D:\New folder\Feb.26\Proptiwise\Proptiwise\obj\Debug\RdlCompile.compiled
+D:\New folder\Feb.26\Proptiwise\Proptiwise\obj\Debug\Proptiwise.csprojResolveAssemblyReference.cache
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Proptiwise.dll.config
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Proptiwise.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Proptiwise.pdb
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Antlr3.Runtime.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\EntityFramework.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\itextsharp.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\itextsharp.xmlworker.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\itextsharp.xtra.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Web.Infrastructure.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Newtonsoft.Json.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Owin.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\PagedList.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\PagedList.Mvc.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\ReportViewerForMvc.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Stripe.net.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.Helpers.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.Mvc.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.Optimization.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.Razor.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.WebPages.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\WebGrease.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\itextsharp.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Newtonsoft.Json.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\PagedList.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\PagedList.Mvc.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.Helpers.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.Mvc.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.Optimization.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.Razor.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.WebPages.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Antlr3.Runtime.pdb
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\EntityFramework.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\New folder\Feb.26\Proptiwise\Proptiwise\obj\Debug\Proptiwise.dll
+D:\New folder\Feb.26\Proptiwise\Proptiwise\obj\Debug\Proptiwise.pdb
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Proptiwise.dll.config
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Proptiwise.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Proptiwise.pdb
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Antlr3.Runtime.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\EntityFramework.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\itextsharp.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\itextsharp.xmlworker.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\itextsharp.xtra.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Web.Infrastructure.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Newtonsoft.Json.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Owin.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\PagedList.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\PagedList.Mvc.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\ReportViewerForMvc.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Stripe.net.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.Helpers.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.Mvc.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.Optimization.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.Razor.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.WebPages.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\WebGrease.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\itextsharp.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Newtonsoft.Json.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\PagedList.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\PagedList.Mvc.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.Helpers.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.Mvc.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.Optimization.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.Razor.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.WebPages.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Antlr3.Runtime.pdb
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\EntityFramework.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\obj\Debug\Proptiwise.csprojResolveAssemblyReference.cache
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\obj\Debug\Proptiwise.dll
+D:\clients\Chidinma\27 feb\Proptiwise\Proptiwise\obj\Debug\Proptiwise.pdb
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Proptiwise.dll.config
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Proptiwise.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Proptiwise.pdb
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Antlr3.Runtime.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\EntityFramework.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\itextsharp.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\itextsharp.xmlworker.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\itextsharp.xtra.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Web.Infrastructure.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Newtonsoft.Json.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Owin.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\PagedList.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\PagedList.Mvc.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\ReportViewerForMvc.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Stripe.net.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.Helpers.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.Mvc.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.Optimization.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.Razor.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\WebGrease.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\itextsharp.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Newtonsoft.Json.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\PagedList.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\PagedList.Mvc.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.Helpers.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.Mvc.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.Optimization.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.Razor.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Antlr3.Runtime.pdb
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\EntityFramework.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\obj\Debug\Proptiwise.csprojResolveAssemblyReference.cache
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\obj\Debug\Proptiwise.dll
+D:\clients\Chidinma\March.05\Proptiwise\Proptiwise\obj\Debug\Proptiwise.pdb
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Proptiwise.dll.config
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Proptiwise.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Proptiwise.pdb
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Antlr3.Runtime.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\EntityFramework.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\itextsharp.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\itextsharp.xmlworker.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\itextsharp.xtra.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Web.Infrastructure.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Newtonsoft.Json.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Owin.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\PagedList.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\PagedList.Mvc.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\ReportViewerForMvc.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Stripe.net.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.Helpers.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.Mvc.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.Optimization.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.Razor.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\WebGrease.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\itextsharp.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Newtonsoft.Json.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\PagedList.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\PagedList.Mvc.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.Helpers.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.Mvc.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.Optimization.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.Razor.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Antlr3.Runtime.pdb
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\EntityFramework.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\New folder\March.05\Proptiwise\Proptiwise\obj\Debug\Proptiwise.csprojResolveAssemblyReference.cache
+D:\New folder\March.05\Proptiwise\Proptiwise\obj\Debug\RdlCompile.cache
+D:\New folder\March.05\Proptiwise\Proptiwise\obj\Debug\RdlCompile.compiled
+D:\New folder\March.05\Proptiwise\Proptiwise\obj\Debug\Proptiwise.dll
+D:\New folder\March.05\Proptiwise\Proptiwise\obj\Debug\Proptiwise.pdb
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Proptiwise.dll.config
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Proptiwise.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Proptiwise.pdb
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Antlr3.Runtime.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\EntityFramework.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\itextsharp.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\itextsharp.xmlworker.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\itextsharp.xtra.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Web.Infrastructure.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Newtonsoft.Json.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Owin.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\PagedList.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\PagedList.Mvc.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\RazorEngine.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\ReportViewerForMvc.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Stripe.net.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.Helpers.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.Mvc.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.Optimization.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.Razor.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.WebPages.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\WebGrease.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\itextsharp.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Newtonsoft.Json.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\PagedList.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\PagedList.Mvc.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\RazorEngine.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.Razor.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.Helpers.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.Mvc.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.Optimization.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.WebPages.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Antlr3.Runtime.pdb
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\EntityFramework.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\clients\Chidinma\Proptiwise\Proptiwise\obj\Debug\RdlCompile.cache
+D:\clients\Chidinma\Proptiwise\Proptiwise\obj\Debug\RdlCompile.compiled
+D:\clients\Chidinma\Proptiwise\Proptiwise\obj\Debug\Proptiwise.dll
+D:\clients\Chidinma\Proptiwise\Proptiwise\obj\Debug\Proptiwise.pdb
+D:\clients\Chidinma\Proptiwise\Proptiwise\obj\Debug\Proptiwise.csprojResolveAssemblyReference.cache
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Proptiwise.dll.config
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Proptiwise.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Proptiwise.pdb
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Antlr3.Runtime.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\EntityFramework.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\itextsharp.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\itextsharp.xmlworker.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\itextsharp.xtra.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Newtonsoft.Json.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Owin.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\PagedList.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\PagedList.Mvc.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\RazorEngine.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\ReportViewerForMvc.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Stripe.net.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.Helpers.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.Mvc.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.Optimization.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.Razor.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.WebPages.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\WebGrease.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\itextsharp.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Newtonsoft.Json.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\PagedList.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\PagedList.Mvc.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\RazorEngine.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.Razor.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.Helpers.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.Mvc.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.Optimization.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.WebPages.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Antlr3.Runtime.pdb
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\EntityFramework.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\obj\Debug\Proptiwise.csprojResolveAssemblyReference.cache
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\obj\Debug\Proptiwise.csproj.CoreCompileInputs.cache
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\obj\Debug\Proptiwise.dll
+C:\Users\mirza garg\Desktop\march.22\Proptiwise\Proptiwise\obj\Debug\Proptiwise.pdb
+D:\Proptiwise\Proptiwise\bin\Proptiwise.dll.config
+D:\Proptiwise\Proptiwise\bin\Proptiwise.dll
+D:\Proptiwise\Proptiwise\bin\Proptiwise.pdb
+D:\Proptiwise\Proptiwise\bin\Antlr3.Runtime.dll
+D:\Proptiwise\Proptiwise\bin\EntityFramework.dll
+D:\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.dll
+D:\Proptiwise\Proptiwise\bin\itextsharp.dll
+D:\Proptiwise\Proptiwise\bin\itextsharp.xmlworker.dll
+D:\Proptiwise\Proptiwise\bin\itextsharp.xtra.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Proptiwise\Proptiwise\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\Proptiwise\Proptiwise\bin\Microsoft.Web.Infrastructure.dll
+D:\Proptiwise\Proptiwise\bin\Newtonsoft.Json.dll
+D:\Proptiwise\Proptiwise\bin\Owin.dll
+D:\Proptiwise\Proptiwise\bin\PagedList.dll
+D:\Proptiwise\Proptiwise\bin\PagedList.Mvc.dll
+D:\Proptiwise\Proptiwise\bin\RazorEngine.dll
+D:\Proptiwise\Proptiwise\bin\ReportViewerForMvc.dll
+D:\Proptiwise\Proptiwise\bin\Stripe.net.dll
+D:\Proptiwise\Proptiwise\bin\System.Web.Helpers.dll
+D:\Proptiwise\Proptiwise\bin\System.Web.Mvc.dll
+D:\Proptiwise\Proptiwise\bin\System.Web.Optimization.dll
+D:\Proptiwise\Proptiwise\bin\System.Web.Razor.dll
+D:\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.dll
+D:\Proptiwise\Proptiwise\bin\System.Web.WebPages.dll
+D:\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.dll
+D:\Proptiwise\Proptiwise\bin\WebGrease.dll
+D:\Proptiwise\Proptiwise\bin\itextsharp.xml
+D:\Proptiwise\Proptiwise\bin\Newtonsoft.Json.xml
+D:\Proptiwise\Proptiwise\bin\PagedList.xml
+D:\Proptiwise\Proptiwise\bin\PagedList.Mvc.xml
+D:\Proptiwise\Proptiwise\bin\RazorEngine.xml
+D:\Proptiwise\Proptiwise\bin\System.Web.Razor.xml
+D:\Proptiwise\Proptiwise\bin\System.Web.Helpers.xml
+D:\Proptiwise\Proptiwise\bin\System.Web.Mvc.xml
+D:\Proptiwise\Proptiwise\bin\System.Web.Optimization.xml
+D:\Proptiwise\Proptiwise\bin\System.Web.WebPages.xml
+D:\Proptiwise\Proptiwise\bin\System.Web.WebPages.Deployment.xml
+D:\Proptiwise\Proptiwise\bin\System.Web.WebPages.Razor.xml
+D:\Proptiwise\Proptiwise\bin\Antlr3.Runtime.pdb
+D:\Proptiwise\Proptiwise\bin\EntityFramework.xml
+D:\Proptiwise\Proptiwise\bin\EntityFramework.SqlServer.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Google.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Proptiwise\Proptiwise\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Proptiwise\Proptiwise\obj\Debug\Proptiwise.csprojResolveAssemblyReference.cache
+D:\Proptiwise\Proptiwise\obj\Debug\Proptiwise.csproj.CoreCompileInputs.cache
+D:\Proptiwise\Proptiwise\obj\Debug\Proptiwise.dll
+D:\Proptiwise\Proptiwise\obj\Debug\Proptiwise.pdb

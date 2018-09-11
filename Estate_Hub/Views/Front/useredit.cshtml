@@ -1,0 +1,229 @@
+﻿@model Proptiwise.Models.User
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "useredit";
+    Layout = null;
+}
+
+<link href="~/Content/Site.css" rel="stylesheet">
+
+
+<style>
+    .modal-body dl dd {
+        margin: 0 !important;
+    }
+</style>
+
+
+<script type="text/javascript">
+
+    function Fill() {
+        document.getElementById("RemHidden").value = "";
+    }
+</script>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h2 class="model_title">User Information</h2>
+</div>
+            <div class="modal-body">
+                @using (Html.BeginForm("useredit", "Front", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.UserID)
+                  
+                    <ul class="nav nav-tabs responsive" id="myTab">
+                        <li class="active"><a href="#tab-111">Users</a></li>
+                        <li><a href="#tab-222">Restrictions</a></li>
+                    </ul>
+                    <div class="tab-content responsive">
+
+                        <div class="tab-pane active" id="tab-111">
+
+                            <div class="form-horizontal">
+
+
+                                @Html.ValidationSummary(true)
+                                <div class="form-group clearfix">
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">User Name</label>
+
+                                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{2,}", oninvalid = "setCustomValidity('Enter valid Name')", oninput = "setCustomValidity('')" })
+                                        @Html.ValidationMessageFor(model => model.UserName)
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">Initial Password</label>
+                                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Password')", oninput = "setCustomValidity('')" })
+                                        @Html.ValidationMessageFor(model => model.Password)
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">Email Address</label>
+                                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Email')", oninput = "setCustomValidity('')" })
+                                        @Html.ValidationMessageFor(model => model.Email)
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group clearfix">
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">First Name</label>
+
+                                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{2,}", oninvalid = "setCustomValidity('Enter valid Name')", oninput = "setCustomValidity('')" })
+                                        @Html.ValidationMessageFor(model => model.FirstName)
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">Last Name</label>
+                                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{2,}", oninvalid = "setCustomValidity('Enter valid Name')", oninput = "setCustomValidity('')" })
+                                        @Html.ValidationMessageFor(model => model.LastName)
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">Address1</label>
+                                        @Html.TextBoxFor(model => model.Address1, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Address1)
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="form-group clearfix">
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">Address2</label>
+
+                                        @Html.TextBoxFor(model => model.Address2, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Address2)
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">City</label>
+                                        @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.City)
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">State</label>
+                                        @Html.TextBoxFor(model => model.State, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.State)
+                                    </div>
+
+                                </div>
+                                <div class="form-group clearfix">
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">Post Code</label>
+
+                                        @Html.TextBoxFor(model => model.Zip, new { @class = "form-control", pattern = "^\\d{6}$", oninvalid = "setCustomValidity('Enter valid PostCode')", oninput = "setCustomValidity('')" })
+                                        @Html.ValidationMessageFor(model => model.Zip)
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">Telephone</label>
+                                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", pattern = "^[0-9\\-\\+]{9,15}$", oninvalid = "setCustomValidity('Enter valid Telephone Number')", oninput = "setCustomValidity('')" })
+                                        @Html.ValidationMessageFor(model => model.Phone)
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">Cellular</label>
+                                        @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control", pattern = "^\\d{10}$", oninvalid = "setCustomValidity('Enter valid Mobile Number')", oninput = "setCustomValidity('')" })
+                                        @Html.ValidationMessageFor(model => model.Mobile)
+                                    </div>
+
+                                </div>
+                                <div class="form-group clearfix">
+                                    <div class="col-md-4 col-sm-4">
+                                        <label class="control-label">Role</label>
+
+                                        @Html.DropDownList("RoleId", ViewBag.UserRoles as SelectList, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.RoleId)
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="tab-pane" id="tab-222">
+
+                            <h4>Prevent User From Accessing/Viewing:</h4>
+
+                            <div class="form-group clearfix">
+                                @*<div class="col-md-02"></div>*@
+                                <div class="col-md-12">
+                                    @{   var tr = RealEstateSoftware.Models.RandomFunctions.GetTabs();
+                                         var trp = ViewBag.tabroles as List<UserTabPermission>;
+                                         int?[] rolearr = new int?[100];                                                                            
+                                           if (trp != null)
+                                           {
+                                               if (trp.Count > 0)
+                                               {      
+                                                   rolearr=trp.Select(p=>p.TabRoleId).ToArray();    
+                                                       }
+                                           }                                                                                                                                          
+                                                        foreach (var tb in tr)
+                                                        {
+                                                            if (rolearr.Contains(tb.TabRolesId))
+                                                            { 
+                                                                <input type="checkbox" value="@tb.TabRolesId" checked name="tabroles" />@tb.TabRolesName
+                                                            }
+                                                            else
+                                                            {
+                                                                <input type="checkbox" value="@tb.TabRolesId" name="tabroles" />@tb.TabRolesName  
+                                                            }                                      
+                                                        }                                                   
+                                                                                                                        
+                                    }
+                                </div>
+                                @*<div class="col-md-02"></div>*@
+                            </div>
+
+                            <h4>Hide Specific Reports:</h4>
+
+                            <div class="form-group clearfix">
+                                @*<div class="col-md-03"></div>*@
+                                <div class="col-md-12">
+                                    @{ 
+  var tr1 = RealEstateSoftware.Models.RandomFunctions.GetReportNames();
+  var rrp = ViewBag.reportroles as List<UserReportsPermission>;
+  int?[] reportarr=new int?[100];
+  if (rrp != null)
+  {
+      if (rrp.Count > 0)
+      {
+          reportarr = rrp.Select(p => p.ReportsRoleId).ToArray();
+      }
+  }
+          foreach (var tb in tr1)
+          {
+              if (reportarr.Contains(tb.ReportRoleId))
+              {
+                <input type="checkbox" value="@tb.ReportRoleId" checked name="reportroles" />@tb.ReportRoleName
+              }
+              else
+              {
+                <input type="checkbox" value="@tb.ReportRoleId" name="reportroles" />@tb.ReportRoleName
+              }
+          }
+
+ 
+}
+                                </div>
+                                @*<div class="col-md-02"></div>*@
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="footer_btn"><input type="submit" value="Submit" class="btn btn-info btn-block"></div>
+                    </div>
+                }
+        
+            </div>
+    
+<script>
+    $('ul.nav.nav-tabs  a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+</script>
+
+@if (ViewBag.Close != null)
+{
+  
+}

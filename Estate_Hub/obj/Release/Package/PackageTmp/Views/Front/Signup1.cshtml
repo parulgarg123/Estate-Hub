@@ -1,0 +1,279 @@
+﻿@model Proptiwise.ViewModels.UserModel
+@using Proptiwise.ViewModels
+
+@{
+    ViewBag.Title = "Signup1";
+    Layout = "~/Views/Shared/BannerMaster.cshtml";
+}
+
+<section class="login_panel sign_column">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-signin" role="form" method="post">
+                    <h3>Contact Info</h3>
+                    @if (ViewBag.UserValues != null)
+                    {
+                        var userdata = ViewBag.UserValues;
+                        {
+                            <input type="hidden" value="@userdata.Country" id="Country">
+                            <div class="form-group clearfix">
+                                <span class="col-md-6 col-sm-6">
+
+                                    <input type="text" class="form-control" placeholder="First Name*" pattern="[a-zA-Z][a-zA-Z ]{0,}" oninvalid="setCustomValidity('Enter FirstName')" oninput="setCustomValidity('')" value="@userdata.FirstName" name="FirstName" required autofocus>
+                                </span>
+                                <span class="col-md-6 col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Last Name*" pattern="[a-zA-Z][a-zA-Z ]{0,}" oninvalid="setCustomValidity('Enter LastName')" oninput="setCustomValidity('')" value="@userdata.LastName" name="LastName" required>
+                                </span>
+                            </div>
+                            <div class="form-group clearfix">
+                                <span class="col-md-6 col-sm-6">
+                                    @if (userdata.Email != null)
+                                    {
+                                        <input type="email" class="form-control" value="@userdata.Email" pattern="^\w+([-+.']\w+)*&#64;\w+([-.]\w+)*\.\w+([-.]\w+)*$" oninvalid="setCustomValidity('Enter Valid Email')" oninput="setCustomValidity('')" placeholder="Email*" name="Email" required>
+                                    }
+                                    else
+                                    {
+                                        <input type="email" class="form-control" pattern="^\w+([-+.']\w+)*&#64;\w+([-.]\w+)*\.\w+([-.]\w+)*$" oninvalid="setCustomValidity('Enter Valid Email')" oninput="setCustomValidity('')" placeholder="Email*" name="Email" required>
+                                    }
+                                    @*<input type="text" class="form-control" value="@userdata.Email" pattern="^\w+([-+.']\w+)*&#64;\w+([-.]\w+)*\.\w+([-.]\w+)*$" oninvalid="setCustomValidity('Enter Valid Email')" oninput="setCustomValidity('')" placeholder="Email*" name="Email" required>*@
+                                </span>
+                                <span class="col-md-6 col-sm-6">
+                                    <input type="text" class="form-control" value="@userdata.Phone" pattern="^\d+$" oninvalid="setCustomValidity('Enter Valid Number')" oninput="setCustomValidity('')" placeholder="Phone*" name="Phone" required>
+                                </span>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="form-group clearfix">
+                            <span class="col-md-6 col-sm-6">
+
+                                <input type="text" class="form-control" placeholder="First Name*" pattern="[a-zA-Z][a-zA-Z ]{0,}" oninvalid="setCustomValidity('Enter FirstName')" oninput="setCustomValidity('')" name="FirstName" required autofocus>
+                            </span>
+                            <span class="col-md-6 col-sm-6">
+                                <input type="text" class="form-control" pattern="[a-zA-Z][a-zA-Z ]{0,}" oninvalid="setCustomValidity('Enter LastName')" oninput="setCustomValidity('')" placeholder="Last Name*" name="LastName" required>
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-6 col-sm-6">
+                                <input type="email" class="form-control" pattern="^([a-zA-Z0-9_\.\-])+\&#64;(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" oninvalid="setCustomValidity('Enter Valid Email')" oninput="setCustomValidity('')" placeholder="Email*" name="Email" required>
+                            </span>
+                            <span class="col-md-6 col-sm-6">
+                                <input type="text" class="form-control" placeholder="Phone*" name="Phone" pattern="^\d+$" oninvalid="setCustomValidity('Enter Valid Number')" oninput="setCustomValidity('')">
+                            </span>
+                        </div>
+                    }
+
+                    <div class="form-group clearfix">
+                        <span class="col-md-6 col-sm-6">
+                            <input type="text" class="form-control" placeholder="Street Address" name="StreetAddress">
+                            @Html.ValidationMessageFor(model => model.StreetAddress)
+                        </span>
+
+                        <span class="col-md-6 col-sm-6">
+                            @Html.TextBoxFor(model => model.BuildingName, new
+                       {
+                           @class = "form-control",
+                           @placeholder = "BuildingName" @*, required = false, oninvalid = "setCustomValidity('Enter valid Building Name')", oninput = "setCustomValidity('')"*@ })
+                            @Html.ValidationMessageFor(model => model.BuildingName)
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+
+                        <span class="col-md-6 col-sm-6" id="ausCanadaUs1">
+                            @Html.TextBoxFor(model => model.UnitNumber, new
+                       {
+                           @class = "form-control",
+                           @placeholder = "Unit Number"@*, required = false, oninvalid = "setCustomValidity('Enter valid City')", oninput = "setCustomValidity('')"*@ })
+                            @Html.ValidationMessageFor(model => model.UnitNumber)
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="col-md-6 col-sm-6" id="uk1">
+                            @Html.TextBoxFor(model => model.Town, new
+                       {
+                           @class = "form-control",
+                           @placeholder = "Town" @*, required = false, oninvalid = "setCustomValidity('Enter valid City')", oninput = "setCustomValidity('')"*@ })
+                            @Html.ValidationMessageFor(model => model.Town)
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-md-6 col-sm-6" id="ukCanadaUSA1">
+                            @Html.TextBoxFor(model => model.City, new
+                       {
+                           @class = "form-control",
+                           @placeholder = "City" @*, required = false, oninvalid = "setCustomValidity('Enter valid Building Name')", oninput = "setCustomValidity('')"*@ })
+                            @Html.ValidationMessageFor(model => model.City)
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-md-6 col-sm-6" id="ukcnt1">
+                          
+                          @Html.DropDownListFor(model => model.County, new List<SelectListItem>
+                             {
+                        new SelectListItem() {Text = "Select County", Value="Select"},
+                        new SelectListItem() {Text = "Avon", Value="Avon"},
+                        new SelectListItem() {Text = "Bedfordshire", Value="Bedfordshire"},
+                        new SelectListItem() {Text = "Berkshire", Value="Berkshire"},
+                        new SelectListItem() {Text = "Borders", Value="Borders"},
+                        new SelectListItem() {Text = "Buckinghamshire", Value="Buckinghamshire"},
+                        new SelectListItem() {Text = "Cambridgeshire", Value="Cambridgeshire"},
+                        new SelectListItem() {Text = "Central", Value="Central"},
+                        new SelectListItem() {Text = "Cheshire", Value="Cheshire"},
+                        new SelectListItem() {Text = "Cleveland", Value="Cleveland"},
+                        new SelectListItem() {Text = "Clwyd", Value="Clwyd"},
+                        new SelectListItem() {Text = "Cornwall", Value="Cornwall"},
+                        new SelectListItem() {Text = "County Antrim", Value="County Antrim"},
+                        new SelectListItem() {Text = "County Armagh", Value="County Armagh"},
+                        new SelectListItem() {Text = "County Down", Value="County Down"},
+                        new SelectListItem() {Text = "County Fermanagh", Value="County Fermanagh"},
+                        new SelectListItem() {Text = "County Londonderry", Value="County Londonderry"},
+                        new SelectListItem() {Text = "County Tyrone", Value="County Tyrone"},
+                        new SelectListItem() {Text = "Cumbria", Value="Cumbria"},
+                        new SelectListItem() {Text = "Derbyshire", Value="Derbyshire"},
+                        new SelectListItem() {Text = "Devon", Value="Devon"},
+                        new SelectListItem() {Text = "Dorset", Value="Dorset"},
+                        
+                        new SelectListItem() {Text = "Dumfries and Galloway", Value="Dumfries and Galloway"},
+                        new SelectListItem() {Text = "Durham", Value="Durham"},
+                        new SelectListItem() {Text = "Dyfed", Value="Dyfed"},
+                        new SelectListItem() {Text = "East Sussex", Value="East Sussex"},
+                        new SelectListItem() {Text = "Essex", Value="Essex"},
+                        new SelectListItem() {Text = "Fife", Value="Fife"},
+                        new SelectListItem() {Text = "Gloucestershire", Value="Gloucestershire"},
+                        new SelectListItem() {Text = "Grampian", Value="Grampian"},
+                        new SelectListItem() {Text = "Greater Manchester", Value="Greater Manchester"},
+                        new SelectListItem() {Text = "Gwent", Value="Gwent"},
+                        new SelectListItem() {Text = "Gwynedd County", Value="Gwynedd County"},
+                        new SelectListItem() {Text = "Hampshire", Value="Hampshire"},
+                        new SelectListItem() {Text = "Herefordshire", Value="Herefordshire"},
+                        new SelectListItem() {Text = "Highlands and Islands", Value="Highlands and Islands"},
+                        new SelectListItem() {Text = "Humberside", Value="Humberside"},
+                        new SelectListItem() {Text = "Isle of Wight", Value="Isle of Wight"},
+                        new SelectListItem() {Text = "Kent", Value="Kent"},
+                        new SelectListItem() {Text = "Lancashire", Value="Lancashire"},
+                        new SelectListItem() {Text = "Leicestershire", Value="Leicestershire"},
+                        new SelectListItem() {Text = "Lincolnshire", Value="Lincolnshire"},
+                        new SelectListItem() {Text = "Lothian", Value="Lothian"},
+                        
+                         new SelectListItem() {Text = "Merseyside", Value="Merseyside"},
+                        new SelectListItem() {Text = "Mid Glamorgan", Value="Mid Glamorgan"},
+                        new SelectListItem() {Text = "Norfolk", Value="Norfolk"},
+                        new SelectListItem() {Text = "North Yorkshire", Value="North Yorkshire"},
+                        new SelectListItem() {Text = "Northamptonshire", Value="Northamptonshire"},
+                        new SelectListItem() {Text = "Northumberland", Value="Northumberland"},
+                        new SelectListItem() {Text = "Nottinghamshire", Value="Nottinghamshire"},
+                        new SelectListItem() {Text = "Oxfordshire", Value="Oxfordshire"},
+                        new SelectListItem() {Text = "Rutland", Value="Rutland"},
+                        new SelectListItem() {Text = "Shropshire", Value="Shropshire"},
+                        new SelectListItem() {Text = "Somerset", Value="Somerset"},
+                        
+                        new SelectListItem() {Text = "South Glamorgan", Value="South Glamorgan"},
+                        new SelectListItem() {Text = "South Yorkshire", Value="South Yorkshire"},
+                        new SelectListItem() {Text = "Staffordshire", Value="Staffordshire"},
+                        new SelectListItem() {Text = "Strathclyde", Value="Nottinghamshire"},
+                        new SelectListItem() {Text = "Suffolk", Value="Suffolk"},
+                        new SelectListItem() {Text = "Surrey", Value="Surrey"},
+                        new SelectListItem() {Text = "Tayside", Value="Tayside"},
+                        new SelectListItem() {Text = "Tyne and Wear", Value="Tyne and Wear"},
+                        
+                                                new SelectListItem() {Text = "Warwickshire", Value="Warwickshire"},
+                        new SelectListItem() {Text = "West Glamorgan", Value="West Glamorgan"},
+                        new SelectListItem() {Text = "West Midlands", Value="West Midlands"},
+                        new SelectListItem() {Text = "West Sussex", Value="West Sussex"},
+                        new SelectListItem() {Text = "West Yorkshire", Value="West Yorkshire"},
+                           new SelectListItem() {Text = "Wiltshire", Value="Wiltshire"},
+                        new SelectListItem() {Text = "Worcestershire", Value="Worcestershire"}
+                                 }, new { @class = "form-control" })
+                                                        
+                            @Html.ValidationMessageFor(model => model.County)
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-md-6 col-sm-6" id="canada1">
+                            @Html.TextBoxFor(model => model.Province, new
+                       {
+                           @class = "form-control",
+                           @placeholder = "Province" @*, required = false, oninvalid = "setCustomValidity('Enter valid Building Name')", oninput = "setCustomValidity('')"*@ })
+                            @Html.ValidationMessageFor(model => model.Province)
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="col-md-6 col-sm-6" id="aus1">
+                            @Html.TextBoxFor(model => model.Suberb, new
+                       {
+                           @class = "form-control",
+                           @placeholder = "Suburb"@*, required = false, oninvalid = "setCustomValidity('Enter valid City')", oninput = "setCustomValidity('')"*@ })
+                            @Html.ValidationMessageFor(model => model.Suberb)
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="col-md-6 col-sm-6" id="ausUs1">
+                            @Html.TextBoxFor(model => model.State, new
+                       {
+                           @class = "form-control",
+                           @placeholder = "State"@*, required = false, oninvalid = "setCustomValidity('Enter valid City')", oninput = "setCustomValidity('')"*@ })
+                            @Html.ValidationMessageFor(model => model.State)
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="col-md-6 col-sm-6" id="us1">
+                            @Html.TextBoxFor(model => model.Zip, new
+                       {
+                           @class = "form-control",
+                           @placeholder = "ZipCode" @*, required = false, oninvalid = "setCustomValidity('Enter valid Building Name')", oninput = "setCustomValidity('')"*@ })
+                            @Html.ValidationMessageFor(model => model.Zip)
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-md-6 col-sm-6" id="ukCanadaAus1">
+                            @Html.TextBoxFor(model => model.PostCode, new
+                       {
+                           @class = "form-control",
+                           @placeholder = "PostCode" @*, required = false, oninvalid = "setCustomValidity('Enter valid Building Name')", oninput = "setCustomValidity('')"*@ })
+                            @Html.ValidationMessageFor(model => model.PostCode)
+                        </span>
+
+                    </div>
+
+                    @*<div class="form-group clearfix">
+                            <span class="col-md-6 col-sm-6">
+                                @Html.DropDownList("State", new SelectList(string.Empty, "Value", "Text"), "Select State", new { @class = "form-control select2", @id = "State" })
+                            </span>
+                            <span class="col-md-6 col-sm-6">
+                                @Html.DropDownList("City", new SelectList(string.Empty, "Value", "Text"), "Select City", new { @class = "form-control select2", @id = "City" })
+                            </span>
+                        </div>*@
+                    @*<div class="form-group clearfix">
+                            <span class="col-md-6 col-sm-6">
+                                <input type="text" class="form-control" pattern="^\d+$" oninvalid="setCustomValidity('Enter Valid ZipCode')" oninput="setCustomValidity('')" placeholder="ZipCode" name="Zip" id="zip">
+                            </span>
+                        </div>*@
+                    <br />
+                    <button class="btn btn-primary pull-right" type="submit">Next</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    $("#ukcnt1").hide();
+    $("#ukCanadaAus1").hide();
+    $("#ausCanadaUs1").hide();
+    $("#ukCanadaUSA1").hide();
+    $("#ausUs1").hide();
+    $("#us1").hide();
+    $("#aus1").hide();
+    $("#canada1").hide();
+    $("#uk1").hide();
+</script>
+

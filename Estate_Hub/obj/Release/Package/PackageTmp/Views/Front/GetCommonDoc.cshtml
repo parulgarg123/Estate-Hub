@@ -1,0 +1,80 @@
+﻿@model Proptiwise.Models.CommonDocument
+@using Proptiwise.Models;
+@{
+    ViewBag.Title = "GetCommonDoc";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+
+<h4><b>Common Files And Documents</b></h4>
+<a class="pdf_btn pull-right " id="addcommon" href="javascript:void(0)">Add Documents and Files</a>
+
+<div id="commondoc" class="form-horizontal col-md-12" style="display:none;">
+    <form id="frm1" method="post" enctype="multipart/form-data">
+        <div class="form-group clearfix">
+            <div class="up_block">
+                <a class="cross_btn" id="closeaddcommon" href="#">x</a>
+                @Html.LabelFor(model => model.DocName, new { @class = "control-label" })
+                <input type="file" name="DocName" multiple/>
+                @Html.ValidationMessageFor(model => model.DocName)
+                <input type="submit" value="Upload" name="Command"  class="upload_btn" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@if(ViewBag.CommonDocuments!=null)
+{
+    var q = ViewBag.CommonDocuments as List<CommonDocument>;
+    if(q.Count>0)
+    { 
+<h4>Files Shared By All Account Users</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Document")
+        </th>      
+        <th>
+            @Html.DisplayName("DateCreated")
+        </th>
+        <th>
+            @Html.DisplayName("Comments")
+        </th>
+        <th>Edit Info</th>
+        <th>Delete</th>
+       
+    </tr>
+
+    @foreach (var item in ViewBag.CommonDocuments as List<CommonDocument>)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocName)
+            </td>          
+            <td>
+                @item.DateAdded.Value.ToShortDateString()
+            </td>   
+            <td>
+                @Html.DisplayFor(modelItem => item.DocComments)
+            </td>      
+            <td>
+                <a class="pdf_btn editbutton" href="@getallpath.getpath/EditCommonDoc/@item.CommonDocId" data-modal=''>Edit Info</a>
+            </td>
+            <td>
+                <a class="pdf_btn deletebutton"  href="@getallpath.getpath/DeleteCommonDoc/@item.CommonDocId" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+            </td>           
+        </tr>
+    }
+
+</table>
+}
+}
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Appjs/Phone.js"></script>

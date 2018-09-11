@@ -1,0 +1,73 @@
+﻿@using Proptiwise.Models;
+@{
+    ViewBag.Title = "tour_tenantportal";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+<section class="account_column">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><h1>Tenant Portal</h1></div>
+            <aside class="col-md-3 col-sm-4 col-xs-5">
+                <ul class="ac_list">
+                    <li><a href="tour_tenants">Tenants</a></li>
+                    <li><a href="tour_properties">Properties</a></li>
+                    <li><a href="tour_leases">Leases</a></li>
+                    <li><a href="tour_payments">Payments</a></li>
+                    <li><a href="tour_accounting">Accounting</a></li>
+                    <li><a href="tour_workorder">Work Orders</a></li>
+                    <li><a href="tour_form">Forms & Letters</a></li>
+                    <li><a href="tour_reports">Reports</a></li>
+                    <li><a href="tour_users">Users & Security</a></li>
+                    <li class="active_list"><a href="tour_tenantportal">Tenant Portal</a></li>
+                    <li><a href="tour_tenantscreening">Tenant Screening</a></li>
+                    <li><a href="tour_extras">Extras</a></li>
+                    <li><a href="tour_screenshots">Screenshots</a></li>
+                </ul>
+            </aside>
+            <div class="content col-md-9 col-sm-9">
+                <div>
+                    <h3>Tenant Portal</h3>
+                    <p><img alt="Tour" src="@getallpath.getpath/images/test.png" class="alignright"></p>
+                    <h4>Self Serve Options for Your Tenants</h4>
+                    <p>
+                        Proptiwise provides a tenant portal to allow your tenants the ability to log in and see their account information.  You have full control at all times, and can grant or revoke access at all times. The portal is co-branded with your logo and your contact info.
+                    </p>
+                    <ul class="clear">
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Secure Log In
+                            </h4>
+                            <p>You can activate the tenant portal for individual tenants with one click. Tenants are provided a link to log into the portal from any browser, using their email address and a unique PIN #.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Create Maintenance Requests
+                            </h4>
+                            <p>When tenants are logged in, they can send a request for maintenance directly to you - the maintenance item appears in your open work orders list.  You can also optionally receive email confirmation when this occurs.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Receive Payments From Tenants
+                            </h4>
+                            <p>From the tenant portal, you can receive online e-checks (ACH) and credit cards from tenants easily.<sup><small>1</small></sup> All payments received can be imported directly into proptiwise and applied towards any outstanding balance or charge type.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;View Payment History	&amp; Balance
+                            </h4>
+                            <p>Tenants can log in and see their complete payment history &amp; balance details, including rent outstanding, days late, and other charges.</p>
+                        </li>
+                    </ul>
+                </div>
+                <sup><small>1</small></sup>
+                <small>
+                    Online tenant payments are underwritten through our payment processor, and are subject to transaction fees. This is a completely optional service, and is only available when you apply for ACH services. All other tenant portal features are available whether you enable online payments or not. Fees: $9.00 monthly system access fee. 25 cents per transaction. $2.50 per returned check. There are no sign up fees, no card storage fees, and no hidden costs. Transaction fees are only charged
+                    for payments received from your tenants. Earnings are transferred directly to your bank account within 1-2 business days. <a href="ACHApply.aspx">More info and how to apply here.</a>
+                </small>
+                <small>Credit card payments require an easy to setup, free account with <a href="https://stripe.com/">Stripe</a>. </small>
+
+            </div>
+        </div>
+    </div>
+</section>
+

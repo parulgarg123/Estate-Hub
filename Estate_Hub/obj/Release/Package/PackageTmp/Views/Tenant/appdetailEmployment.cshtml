@@ -1,0 +1,176 @@
+﻿@model Proptiwise.Models.application_details
+@{
+    ViewBag.Title = "appdetailEmployment";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+
+
+<h4>Employment</h4>
+<form method="post">
+    <div class="form-horizontal">
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>Employment Status</label>
+                @Html.DropDownList("Employmntstatus", new List<SelectListItem>
+                                 {
+
+                                     new SelectListItem{ Text="Full Time", Value = "Full Time"},
+                                   new SelectListItem{ Text="Part Time", Value = "Part Time"},
+                                     new SelectListItem{ Text="Self Employed", Value = "Self Employed"},
+                                     new SelectListItem{ Text="Unemployed", Value = "Unemployed"},
+                                     new SelectListItem{ Text="Student", Value = "Student"},
+                                       new SelectListItem{ Text="Other", Value = "Other"}
+
+
+                                 }, new { id = "Employmntstatus", @class = "form-control" })
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Name of Employer</label>
+                @Html.TextBoxFor(model => model.EmployerName, null, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter Employer Name')", oninput = "setCustomValidity('')", placeholder = "Employer Name", required = true })
+                @Html.ValidationMessageFor(model => model.EmployerName)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Phone</label>
+                @Html.TextBoxFor(model => model.Phone, null, new { @class = "form-control", pattern = @"^\d+$", oninvalid = "setCustomValidity('Enter Phone Number')", oninput = "setCustomValidity('')", placeholder = "Phone", required = true })
+                @Html.ValidationMessageFor(model => model.Phone)
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>Email</label>
+                @Html.TextBoxFor(model => model.EmpEmail, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter Email')", oninput = "setCustomValidity('')", placeholder = "Email", required = true, autofocus = true })
+                @Html.ValidationMessageFor(model => model.EmpEmail)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Position</label>
+                @Html.TextBoxFor(model => model.Position, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter Position')", oninput = "setCustomValidity('')", placeholder = "Position", required = true })
+                @Html.ValidationMessageFor(model => model.Position)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Length of Employment</label>
+                @Html.TextBoxFor(model => model.LengthEmp, null, new { @class = "form-control", oninvalid = "setCustomValidity('Length of Employment')", oninput = "setCustomValidity('')", placeholder = "Length of Employment", required = true })
+                @Html.ValidationMessageFor(model => model.LengthEmp)
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-12 col-sm-12">
+                <h5>Employment Address</h5>
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>House Number</label>
+                @Html.TextBoxFor(model => model.Emphousenum, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter House Number')", oninput = "setCustomValidity('')", placeholder = "House Number", required = true, autofocus = true })
+                @Html.ValidationMessageFor(model => model.Emphousenum)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Street Name</label>
+                @Html.TextBoxFor(model => model.Empstreetname, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter Street Name')", oninput = "setCustomValidity('')", placeholder = "Street Name", required = true })
+                @Html.ValidationMessageFor(model => model.Empstreetname)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Town</label>
+                @Html.TextBoxFor(model => model.Emptown, null, new { @class = "form-control", oninvalid = "setCustomValidity('Town')", oninput = "setCustomValidity('')", placeholder = "Town", required = true })
+                @Html.ValidationMessageFor(model => model.Emptown)
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>City</label>
+                @Html.TextBoxFor(model => model.EmpCity, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter City')", oninput = "setCustomValidity('')", placeholder = "City", required = true, autofocus = true })
+                @Html.ValidationMessageFor(model => model.EmpCity)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Country</label>
+                @Html.TextBoxFor(model => model.EmpCountry, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter Country')", oninput = "setCustomValidity('')", placeholder = "Country", required = true })
+                @Html.ValidationMessageFor(model => model.EmpCountry)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Phone Number</label>
+                @Html.TextBoxFor(model => model.EmpPostCode, null, new { @class = "form-control", oninvalid = "setCustomValidity('PostCode')", oninput = "setCustomValidity('')", placeholder = "PostCode", required = true })
+                @Html.ValidationMessageFor(model => model.EmpPostCode)
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-12 col-sm-12">
+                <h5>Contact Person</h5>
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>Name</label>
+                @Html.TextBoxFor(model => model.CPName, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter Name')", oninput = "setCustomValidity('')", placeholder = "Name", required = true, autofocus = true })
+                @Html.ValidationMessageFor(model => model.CPName)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Contact Phone Number</label>
+                @Html.TextBoxFor(model => model.CPNumber, null, new { @class = "form-control", pattern = @"^\d+$", oninvalid = "setCustomValidity('Enter Contact Phone Number')", oninput = "setCustomValidity('')", placeholder = "Contact Phone Number", required = true })
+                @Html.ValidationMessageFor(model => model.CPNumber)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Contact Email</label>
+                @Html.TextBoxFor(model => model.CPemail, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter Contact Email Address')", oninput = "setCustomValidity('')", placeholder = "Contact Email", required = true })
+                @Html.ValidationMessageFor(model => model.CPemail)
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-2 col-sm-2">
+                <label>Net Income</label>
+                @Html.TextBoxFor(model => model.NetIncome, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter Net Income')", oninput = "setCustomValidity('')", placeholder = "Net Income", required = true, autofocus = true })
+                @Html.ValidationMessageFor(model => model.NetIncome)
+            </span>
+            <span class="col-md-2 col-sm-2">
+                <label>Duration</label>
+                @Html.DropDownList("netduration", new List<SelectListItem>
+                                 {
+
+                                     new SelectListItem{ Text="Per hour", Value = "Per Hour"},
+                                   new SelectListItem{ Text="Per Week", Value = "Per Week"},
+                                     new SelectListItem{ Text="Per Month", Value = "Per Month"},
+                                     new SelectListItem{ Text="Per Year", Value = "Per Year"},
+
+
+
+                                 }, new { id = "netduration", @class = "form-control" })
+            </span>
+            <span class="col-md-2 col-sm-2">
+                <label>Additional Income</label>
+                @Html.TextBoxFor(model => model.AddIncome, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter Additional Income')", oninput = "setCustomValidity('')", placeholder = "Additional Income", required = true })
+                @Html.ValidationMessageFor(model => model.AddIncome)
+            </span>
+            <span class="col-md-2 col-sm-2">
+                <label>Duration</label>
+                @Html.DropDownList("additionalduration", new List<SelectListItem>
+                                 {
+
+                                     new SelectListItem{ Text="Per hour", Value = "Per Hour"},
+                                   new SelectListItem{ Text="Per Week", Value = "Per Week"},
+                                     new SelectListItem{ Text="Per Month", Value = "Per Month"},
+                                     new SelectListItem{ Text="Per Year", Value = "Per Year"},
+
+
+
+                                 }, new { id = "additionalduration", @class = "form-control" })
+            </span>
+            <span class="col-md-2 col-sm-2">
+                <label>Gross Income</label>
+                @Html.TextBoxFor(model => model.GrossIncome, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter Gross Income')", oninput = "setCustomValidity('')", placeholder = "Gross Income", required = true })
+                @Html.ValidationMessageFor(model => model.GrossIncome)
+            </span>
+            <span class="col-md-2 col-sm-2">
+                <label>Duration</label>
+                @Html.DropDownList("grossduration", new List<SelectListItem>
+                                 {
+
+                                     new SelectListItem{ Text="Per hour", Value = "Per Hour"},
+                                   new SelectListItem{ Text="Per Week", Value = "Per Week"},
+                                     new SelectListItem{ Text="Per Month", Value = "Per Month"},
+                                     new SelectListItem{ Text="Per Year", Value = "Per Year"},
+
+
+
+                                 }, new { id = "grossduration", @class = "form-control" })
+            </span>
+        </div>
+        <span class="btn_area"><button class="submit_btn" id="btnSave" type="submit">Next</button></span>
+        </div></form>

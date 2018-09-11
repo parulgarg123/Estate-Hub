@@ -1,0 +1,41 @@
+﻿@using Proptiwise.Models
+@{
+    ViewBag.Title = "Onboarding";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+<div class="onboard_con2">
+    <h2>On Boarding</h2>
+
+    <div class='onboardwrap'>
+        @*<div class="onboardblocks">
+            @*class="sb_link submenu_1 @((ViewBag.Title == "TenantDepositRequests") ? "active" : "")"
+            <a href="@getallpath.getpath/Tenant/OffersTenant">Property offer</a>
+        </div>*@
+
+        <div class="onboardblocks">
+            <a href="@getallpath.getpath/Tenant/TenantDepositRequests">Deposit Requests</a>
+        </div>
+
+        <div class="onboardblocks">
+            <a href="@getallpath.getpath/Tenant/TenantApplicationRequests">Background Check</a>
+        </div>
+
+        <div class="onboardblocks">
+            <a href="@getallpath.getpath/Tenant/TenantTenancyAgreement">Tenancy Agreement</a>
+        </div>
+        <div class="onboardblocks">
+            <a href="@getallpath.getpath/Tenant/showreq">Renew Requests</a>
+        </div>
+
+        <div class="onboardblocks">
+            <a href="@getallpath.getpath/Tenant/showdamageinvent">Inventory Report</a>
+        </div>
+        <div class="onboardblocks">
+            <a href="@getallpath.getpath/Tenant/TenantMovingInRequests">Moving-in</a>
+        </div>
+
+        <div class="onboardblocks">
+            <a href="@getallpath.getpath/Tenant/TenantInvoiceRequests">Tenancy Bond</a>
+        </div>
+    </div>
+</div>

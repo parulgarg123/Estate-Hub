@@ -1,0 +1,84 @@
+﻿
+@model Proptiwise.ViewModels.UserModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/BannerMaster.cshtml";
+}
+
+<section class="login_panel Register_page">
+    <div class="login_wrapper clearfix">
+        <form class="form-signin" role="form" method="post">
+            <h2 class="form-signin-heading" style="color:black;">Please sign Up</h2>
+            <span>
+                <input type="radio" value="1" name="UserTypeID"><label style="color:black;">Landlord</label>
+                <input type="radio" value="2" name="UserTypeID"><label style="color:black;">Tenant</label>
+                <input type="radio" value="3" name="UserTypeID"><label style="color:black;">Service Provider</label>
+                <input type="radio" value="4" name="UserTypeID"><label style="color:black;">Free Account</label>
+            </span>
+            <div class="Register_form">
+                <div class="col-md-6 col-sm-12 form_fild">
+                    @Html.TextBoxFor(model => model.FirstName, null, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter FirstName')", oninput = "setCustomValidity('')", placeholder = "First Name", required = true, autofocus = true })
+                    @Html.ValidationMessage("FirstName", new { @class = "error" })
+                </div>
+
+                <div class="col-md-6 col-sm-12 form_fild">
+                    @Html.TextBoxFor(model => model.LastName, null, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter LastName')", oninput = "setCustomValidity('')", placeholder = "Last Name", required = true })
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </div>
+
+                <div class="col-md-6 col-sm-12 form_fild">
+                    @Html.TextBoxFor(model => model.Email, null, new { @class = "form-control", placeholder = "Email", type = "text", oninvalid = "setCustomValidity('Enter Valid Email')", oninput = "setCustomValidity('')" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                <div class="col-md-6 col-sm-12 form_fild">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", @id = "password", data_indicator = "pwindicator", oninvalid = "setCustomValidity('Enter atleast 6 characters with one capital letter,one alpha and one numeric value')", oninput = "setCustomValidity('')", placeholder = "Password", required = true })
+                    @Html.ValidationMessageFor(model => model.Password)
+                    <span id="result"></span>
+                </div>
+                <div class="col-md-6 col-sm-12 form_fild">
+                    @*, pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{6,}$"*@
+                    @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", oninvalid = "setCustomValidity('Enter atleast 6 characters with one capital letter,one alpha and one numeric value')", oninput = "setCustomValidity('')", placeholder = "ConfirmPassword", required = true })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                </div>
+                <div class="col-md-6 col-sm-12 form_fild">
+                    @Html.TextBoxFor(model => model.Phone, null, new { @class = "form-control", pattern = @"^\d+$", oninvalid = "setCustomValidity('Enter Valid Phone')", oninput = "setCustomValidity('')", placeholder = "Mobile", required = true })
+                    @Html.ValidationMessageFor(model => model.Phone)
+                </div>
+
+                <div class="col-md-6 col-sm-12 form_fild">
+                    @Html.TextBoxFor(model => model.Mobile, null, new { @class = "form-control", pattern = @"^\d+$", oninvalid = "setCustomValidity('Enter Valid Mobile')", oninput = "setCustomValidity('')", placeholder = "Phone", required = true })
+                    @Html.ValidationMessageFor(model => model.Mobile)
+                </div>
+
+                <div class="col-md-6 col-sm-12 form_fild">
+                    @*@Html.HiddenFor(Model => Model.Country , Session["Country"])*@
+                    @*<input type="hidden" value="@Session["Country"]" name="Country" />*@
+                    @*@Html.DropDownList("Country", ViewBag.country as SelectList, new { @class = "form-control select2 clscntry", @id = "Country" })
+                        @Html.ValidationMessageFor(model => model.Country)*@
+                </div>
+
+            </div>
+            <br />
+            <span class="btn_area"><button class="submit_btn" type="submit">Next</button></span>
+
+        </form>
+
+
+    </div>
+
+</section>
+
+@if (ViewBag.Register != null)
+{
+
+    <div id="myModal" class="modal hide fade modalErrorMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+        <div class="modal-body" style="">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p>@ViewBag.Register</p>
+        </div>
+
+    </div>
+
+}
+
+

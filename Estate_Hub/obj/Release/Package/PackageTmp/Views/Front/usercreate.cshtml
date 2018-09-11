@@ -1,0 +1,203 @@
+﻿@model Proptiwise.Models.User
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "usercreate";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+<link href="~/Content/Site.css" rel="stylesheet">
+<style>
+    .modal-body dl dd {
+        margin: 0 !important;
+    }
+</style>
+
+
+<script type="text/javascript">
+    function Fill() {
+        document.getElementById("RemHidden").value = "";
+    }
+</script>
+
+           
+<section class="dash_column property-back clearfix createuser" style="background: #fff;">
+
+    <div class="container">
+        <div class="row">
+            <div class="Billing-form">
+                @*<form  method="post">*@
+                @using (Html.BeginForm("usercreate", "Front", FormMethod.Post, new { @id = "usercreate", @class = "form-tag", @enctype = "multipart/form-data" }))
+                {
+                    if (Model != null)
+                    {
+                        @Html.HiddenFor(m => m.UserID)
+                    }
+                    <input type="hidden" name="Country" id="Country" value="@ViewBag.Country" />
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <section class="UNIT-ADDRESS">
+                            <h1 class="form_heading">Contact Information</h1>
+
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">FirstName</label>
+                                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid FirstName')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.FirstName)
+                            </div>
+                            @*<div class="form-group custom">
+                                    <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Building</label>
+                                    @Html.DropDownList("BuildingId", ViewBag.Building as SelectList, "None", new { id = "drp1", @class = "form-control" })
+                                </div>*@
+                          
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Last Name</label>
+                                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Last Name')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.LastName)
+                            </div>                                               
+
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Email</label>
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Email')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Username </label>
+                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Username')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.UserName)
+                            </div>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Initial Password</label>
+                                <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Password')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Password)
+                               
+                            </div>
+                           
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Role</label>                                
+                                @Html.DropDownList("RoleId", ViewBag.UserRoles as SelectList, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RoleId)
+                               
+                            </div>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Building</label>
+                                <span class="input-group-addon"><i class="fa fa-building-o" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.BuildingName, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Building')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.BuildingName)
+                              
+                            </div>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Street Address</label>
+                                <span class="input-group-addon"><i class="fa fa-street-view" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Street Address')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.StreetAddress)
+                            </div>
+                            <div class=" form-group custom ausCanadaUs11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Unit Number</label>
+
+                                @Html.TextBoxFor(model => model.UnitNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.UnitNumber)
+                            </div>
+                            <div class="form-group custom uk11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Town</label>
+
+                                @Html.TextBoxFor(model => model.Town, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Town')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Town)
+                            </div>
+                            <div class="form-group custom canada11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Province</label>
+                                @Html.TextBoxFor(model => model.Province, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Province)
+                            </div>
+                            <div class="form-group custom aus11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Suberb</label>
+                                @Html.TextBoxFor(model => model.Suberb, new { @class = "form-control", OnKeyUp = "return getlatlng();" })
+                                @Html.ValidationMessageFor(model => model.Suberb)
+                            </div>
+
+                            <div class="form-group custom ukCanadaUSA11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">City</label>
+
+                                @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.City)
+                            </div>
+                            <div class="form-group custom ausUs11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">State</label>
+                                @Html.TextBoxFor(model => model.State, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.State)
+                            </div>
+                            <div class="input-group form-group custom us11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Zip</label>
+                                <span class="input-group-addon"><i class="fa fa-map-pin" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.Zip, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Zip)
+                            </div>
+                            <div class="input-group form-group custom ukCanadaAus11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Post Code</label>
+                                <span class="input-group-addon"><i class="fa fa-map-pin" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.PostCode, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PostCode)
+                            </div>
+
+                        </section>
+
+                      
+
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <section class="UNIT-DETAILS">
+                            <h1 class="form_heading">Prevent User From Accessing/Viewing </h1>
+                            <div class="form-group custom">
+
+                                <div class="col-md-12">
+                                    @{   var tr = RealEstateSoftware.Models.RandomFunctions.GetTabs();
+                                       foreach (var tb in tr)
+                                       {
+                                        <input type="checkbox" value="@tb.TabRolesId" class="checkbox" name="tabroles" />@tb.TabRolesName
+                                       }
+                                    }
+                                </div>
+
+                            </div>
+
+                        </section>
+
+                        <section class="UNIT-DETAILS">
+                            <h1 class="form_heading">Hide Specific Reports</h1>
+                            <div class="form-group custom">
+                              
+                                <div class="form-group clearfix">
+
+                                    <div class="col-md-12">
+                                        @{  var tr1 = RealEstateSoftware.Models.RandomFunctions.GetReportNames();
+                                          foreach (var tb in tr1)
+                                          {
+                                            <input type="checkbox" value="@tb.ReportRoleId" class="checkbox" name="reportroles" />@tb.ReportRoleName
+                                          }
+                                        }
+                                    </div>
+
+                                </div>
+                             </div>    
+                                                                         
+                            <div class="save_panel">
+                                <div class="container">
+                                    <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                                </div>
+                            </div>
+
+                        </section>
+                    </div>
+
+
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $('ul.nav.nav-tabs  a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+</script>

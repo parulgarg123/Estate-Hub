@@ -1,0 +1,151 @@
+﻿@model Proptiwise.Models.TenancyAgreement
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "AcceptTenancyAgreement";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+
+<section class="property_form_container property_bd_con ">
+
+    <div class="container-fluid">
+        <div class="Billing-form">
+            @*<form  method="post">*@
+              @using (Html.BeginForm("AcceptTenancyAgreement", "Front", FormMethod.Post, new { @id = "AcceptTenancyAgreement", @name = "AcceptTenancyAgreement", @enctype = "multipart/form-data" }))
+            {                        
+                string taid = ViewBag.TAID ;                                      
+                @Html.ValidationSummary(true)
+            
+                @*<input type="hidden" name="Country" id="Country" value="@ViewBag.country" />*@
+                <div class="UNIT-ADDRESS pop_add_row">
+
+
+                    <div class="prop-form_rgt">
+                        <h1 class="form_heading">Property Details</h1>
+                        <div class="prop_detail_coll">
+                            <article class="prop_list">
+                                @if (Session["propdata"] != null)
+                                {
+                                    var prp = Session["propdata"] as Property;
+                                    if (prp != null)
+                                    {
+                                        @*<input type="hidden" name="pid" value="@p.PID" />*@
+                                        <h3 class="propname">@prp.Street @prp.City @prp.State @prp.Country @prp.PostCode</h3>
+                                        //<h6 class="prop_dtl">@prp.PropertyType.PropertyTypeName|@prp.Bedroom BD |@prp.Bathroom BA |@prp.SqFt SqFt</h6>
+                                        <h6 class="prop_dtl">@prp.PropertyStyle.Style_Name|@prp.Bedroom BD |@prp.Bathroom BA |@prp.SqFt SqFt</h6>
+                                        <div class="prop_cont_lst_con">
+                                            <span class="price_content">
+                                                @if (prp.Price != null)
+                                                {
+                                                    <p><font>Asking Price</font>@getallpath.currency@Math.Round(Convert.ToDouble(prp.Price), 2)/m</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Asking Price</font>--</p>
+                                                }
+                                                @if (prp.DepositReq != null)
+                                                {
+                                                    <p><font>Deposit</font>@getallpath.currency@Math.Round(Convert.ToDouble(prp.DepositReq), 2)/m</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Deposit</font>--</p>
+                                                }
+                                            </span>
+                                            <span class="price_content">
+
+                                                @if (prp.Bedroom != null)
+                                                {
+                                                    <p><font>Bedrooms</font>@prp.Bedroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Bedrooms</font>--</p>
+                                                }
+                                                @if (prp.Bathroom != null)
+                                                {
+                                                    <p><font>Bathrooms</font>@prp.Bathroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Bathrooms</font>--</p>
+                                                }
+                                                @if (prp.Furnished != null)
+                                                {
+                                                    if (prp.Furnished == "Furnished")
+                                                    {
+                                                        <p><font>Furnished</font>Yes</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p><font>Furnished</font>No</p>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Furnished</font>--</p>
+                                                }
+                                            </span>
+                                            <span class="price_desc">
+
+                                                @if (prp.Description != null)
+                                                {
+                                                    <p><font>Description</font>@prp.Description</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Description</font>--</p>
+                                                }
+                                                @*<p><font>Estimated Rent</font>$@p.RentIncome/m</p>*@
+                                            </span>
+                                        </div>
+                                        @*<span class="price_content col-md-6 col-sm-6">
+                                                        @{
+                                            double opexp = (p.TotalExpenses / 12);
+                                            double cashflow = (p.CashFlow / 12);
+                                                        }
+                                                        <p><font>OP Expenses</font>$@opexp/m</p>
+                                                        <p><font>Cash Flow</font>$@cashflow/m</p>
+
+                                                        <p><font>Cape Rat</font>$@Math.Round(p.CapRate, 2)%</p>
+                                                    </span>*@
+
+
+                                    }
+                                }
+                            </article>
+                        </div>
+                    </div>
+
+
+                    <div class="prop-form_left">
+                        <h1 class="form_heading">Tenancy Agreement</h1>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Tenancy Agreement Data</label>
+                            <iframe src="@getallpath.getpath/TenancyAgreementDoc/@taid" width="100%"></iframe>
+                        </div>
+                        <div class="form-group custom">
+                            @Html.CheckBox("IsAccepted") Is Agree With Agreement Terms.
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Signature</label>
+                            <input type="file" name="SignatureTenant" />
+                            @Html.ValidationMessageFor(model => model.Signatures)
+                        </div>
+
+                        <div class="save_panel_btn">
+
+                            @*Save & Add Similar Unit*@
+                            <button type="submit" class="Save_btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Accept Agreement</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            }
+        </div>
+    </div>
+
+
+
+</section>

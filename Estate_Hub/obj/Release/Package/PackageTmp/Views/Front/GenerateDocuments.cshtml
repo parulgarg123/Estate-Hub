@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div id='myModalContent'>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 style="color:black;">GenerateDocuments</h4>
+            </div>
+            <div class="modal-body">
+                <section class="clearfix">
+                    <div class="col-md-12">
+                        @using (Html.BeginForm("GenerateDocuments", "Front", FormMethod.Post))
+                        {
+                          <div class="form-group clearfix">
+                            <h4>Select Tenants</h4>
+                            <p>Choose which tenants should be added to this document. A separate document will be generated using the data stored for each tenant you specify here. <strong>Only tenants with leases are shown.</strong></p>
+                        </div>
+                        <div class="form-group clearfix">
+                            <h5>Tenants</h5>
+                            <span class="col-md-12">
+                                @Html.DropDownList("TenantId", ViewBag.TenantList as SelectList)
+                            </span>
+                        </div>
+                        <div class="form-group clearfix text-center">
+                            <button class="btn btn-primary" type="submit">Download</button>
+                        </div>
+                        }
+                    </div>
+
+                </section>
+            </div>
+</div>
+</div>
+</div>

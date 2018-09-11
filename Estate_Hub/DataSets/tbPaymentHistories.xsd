@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="tbPaymentHistories" targetNamespace="http://tempuri.org/tbPaymentHistories.xsd" xmlns:mstns="http://tempuri.org/tbPaymentHistories.xsd" xmlns="http://tempuri.org/tbPaymentHistories.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="tbPaymentHistories" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="tbPaymentHistories" msprop:Generator_UserDSName="tbPaymentHistories">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbPaymentHistories" msprop:Generator_TableClassName="tbPaymentHistoriesDataTable" msprop:Generator_TableVarName="tabletbPaymentHistories" msprop:Generator_TablePropName="_tbPaymentHistories" msprop:Generator_RowDeletingName="tbPaymentHistoriesRowDeleting" msprop:Generator_RowChangingName="tbPaymentHistoriesRowChanging" msprop:Generator_RowEvHandlerName="tbPaymentHistoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="tbPaymentHistoriesRowDeleted" msprop:Generator_UserTableName="tbPaymentHistories" msprop:Generator_RowChangedName="tbPaymentHistoriesRowChanged" msprop:Generator_RowEvArgName="tbPaymentHistoriesRowChangeEvent" msprop:Generator_RowClassName="tbPaymentHistoriesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Tenant" msprop:Generator_ColumnVarNameInTable="columnTenant" msprop:Generator_ColumnPropNameInRow="Tenant" msprop:Generator_ColumnPropNameInTable="TenantColumn" msprop:Generator_UserColumnName="Tenant" type="xs:string" minOccurs="0" />
+              <xs:element name="Property" msprop:Generator_ColumnVarNameInTable="columnProperty" msprop:Generator_ColumnPropNameInRow="Property" msprop:Generator_ColumnPropNameInTable="PropertyColumn" msprop:Generator_UserColumnName="Property" type="xs:string" minOccurs="0" />
+              <xs:element name="Building" msprop:Generator_ColumnVarNameInTable="columnBuilding" msprop:Generator_ColumnPropNameInRow="Building" msprop:Generator_ColumnPropNameInTable="BuildingColumn" msprop:Generator_UserColumnName="Building" type="xs:string" minOccurs="0" />
+              <xs:element name="RecievedOn" msprop:Generator_ColumnVarNameInTable="columnRecievedOn" msprop:Generator_ColumnPropNameInRow="RecievedOn" msprop:Generator_ColumnPropNameInTable="RecievedOnColumn" msprop:Generator_UserColumnName="RecievedOn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:double" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" type="xs:string" minOccurs="0" />
+              <xs:element name="DueDate" msprop:Generator_ColumnVarNameInTable="columnDueDate" msprop:Generator_ColumnPropNameInRow="DueDate" msprop:Generator_ColumnPropNameInTable="DueDateColumn" msprop:Generator_UserColumnName="DueDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BuildingId" msprop:Generator_ColumnVarNameInTable="columnBuildingId" msprop:Generator_ColumnPropNameInRow="BuildingId" msprop:Generator_ColumnPropNameInTable="BuildingIdColumn" msprop:Generator_UserColumnName="BuildingId" type="xs:int" minOccurs="0" />
+              <xs:element name="PropertyId" msprop:Generator_ColumnVarNameInTable="columnPropertyId" msprop:Generator_ColumnPropNameInRow="PropertyId" msprop:Generator_ColumnPropNameInTable="PropertyIdColumn" msprop:Generator_UserColumnName="PropertyId" type="xs:int" minOccurs="0" />
+              <xs:element name="TenantId" msprop:Generator_ColumnVarNameInTable="columnTenantId" msprop:Generator_ColumnPropNameInRow="TenantId" msprop:Generator_ColumnPropNameInTable="TenantIdColumn" msprop:Generator_UserColumnName="TenantId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

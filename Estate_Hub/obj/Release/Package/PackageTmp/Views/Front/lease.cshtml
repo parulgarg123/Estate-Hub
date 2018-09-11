@@ -1,0 +1,656 @@
+﻿@model Proptiwise.Models.tbl_lease
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "lease";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet">
+
+@using (Html.BeginForm("lease", "Front", FormMethod.Post))
+{
+    <section class="lease_column tab_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-me-12"><h1>Lease</h1></div>
+                <ul class="nav nav-tabs responsive" id="myTab">
+                    <li class="active"><a href="#tab-1">Leaseholders & Terms</a></li>
+                    <li><a href="#tab-2">Other Charges</a></li>
+                    <li><a href="#tab-3">Credits</a></li>
+                    <li><a href="#tab-4">Late Fee</a></li>
+                    <li class="pull-right"><input class="save_lease_btn" name="Command" type="submit" value="save lease"></li>
+                </ul>
+                <div class="tab-content responsive">
+                    <div class="tab-pane clearfix active" id="tab-1">
+                        <div class="col-md-8 col-sm-8">
+                            <article class="lease_summery clearfix">
+                                <h3>Property & Tenant</h3>
+                                <span class="col-md-6">
+                                    <div class="lease_box">
+                                        <h5>Property to Lease:</h5>
+
+                                        @if (Convert.ToInt32(Session["test"]) == 0)
+                                        {
+                                            <p>
+                                                <font>No Vacant Properties</font>There are no properties available to lease. <br>
+                                                <a class="new_btn" href="@getallpath.getpath/propertycreate" data-modal=''>Add a New Property</a> to create this lease.
+                                            </p>
+                                        }
+                                        else
+                                        {
+                                            @Html.DropDownList("Property_Id", ViewBag.lease as SelectList, new { id = "Property_Id", style = "width: 249px; height: 29px;" })
+                                            <input type="hidden" value="@ViewBag.propid" name="propid" />
+                                        }
+                                    </div>
+                                </span>
+                                <span class="col-md-6">
+                                    <div class="lease_box">
+                                        <div class="form-group clearfix">
+                                            <label>Primary Tenant:</label>
+                                            @if (ViewBag.tenant != null)
+                                            {
+                                                var q = ViewBag.tenant as SelectList;
+                                                if (q.Count() > 0)
+                                                {
+                                                    @Html.DropDownList("primaryTenant_Id", ViewBag.tenant as SelectList, new { id = "primaryTenant_Id", @class = "form-control" })
+                                                }
+                                            }
+                                            <a class="newbtn" href="@getallpath.getpath/CreateTenant?ReturnUrl=@Request.RawUrl">New</a>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <label>Secondary Tenants (optional):</label>
+                                            @if (ViewBag.Sectenant != null)
+                                            {
+                                                var q = ViewBag.Sectenant as SelectList;
+                                                if (q.Count() > 0)
+                                                {
+                                                    @Html.DropDownList("sectenant_Id", ViewBag.Sectenant as SelectList, "Select", new { id = "sectenant_Id", @class = "form-control" })
+                                                }
+                                            }
+                                            <a class="newbtn" href="@getallpath.getpath/CreateTenant?ReturnUrl=@Request.RawUrl">New</a>
+                                        </div>
+
+                                        <p><a class="add_lease_btn" href="#">Add To Lease</a></p>
+                                    </div>
+                                </span>
+                            </article>
+                            <article class="lease_summery clearfix">
+                                <h3>Lease Term & Rental Rate</h3>
+                                <span class="col-md-12">
+                                    <div class="lease_box">
+                                        <div class="form-group clearfix">
+                                            <div class="col-md-4 col-sm-6">
+                                                <label>Start Date</label>
+                                                @if (ViewBag.moveindt != null)
+                                                {
+                                                    DateTime st = ViewBag.moveindt;
+                                                    @*@Html.TextBoxFor(model=>model.Startdate, st.ToShortDateString(), new  { @id = "datepicker99", @placeholder = "Select Date", @class = "form-control" })*@
+                                                    <input type="text" id="datepicker99" placeholder="Select Date" value="@st.ToShortDateString()" class="form-control" name="StartDate">
+                                                }
+                                                else if (ViewBag.updatedstartdate != null)
+                                                {
+                                                    DateTime st = ViewBag.updatedstartdate;
+                                                    <input type="text" id="datepicker99" placeholder="Select Date" value="@st.ToShortDateString()" class="form-control" name="StartDate">
+                                                }
+                                                else
+                                                {
+                                                    @*@Html.TextBoxFor(model => model.Startdate, DateTime.UtcNow.ToShortDateString(), new { @id = "datepicker99", @placeholder = "Select Date", @class = "form-control" })*@
+                                                    <input type="text" id="datepicker99" placeholder="Select Date" value="@DateTime.UtcNow.ToShortDateString()" class="form-control" name="StartDate">
+                                                }
+                                            </div>
+                                            <div class="col-md-4 col-sm-6">
+                                                <label>Term</label>
+                                                <span class="col-md-5 col-sm-5 pad">
+                                                    @if (ViewBag.dur != null)
+                                                    {
+                                                        @Html.DropDownListFor(m => m.term, Enumerable.Range(1, 60).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString(), Selected = i == ViewBag.dur }), new { @class = "form-control" })
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.DropDownListFor(m => m.term, Enumerable.Range(1, 60).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control" })
+                                                    }
+                                                </span>
+                                                <span class="col-md-7 col-sm-7 pad">
+                                                    @*<select class="form-control" name="duration" id="duration">
+                                                <option value="0">Months</option>
+                                                <option value="1">Weeks</option>
+                                                <option value="2">Days</option>
+                                            </select>*@
+                                                    @Html.DropDownList("duration", new List<SelectListItem>
+                                                    {
+                                                        new SelectListItem{ Text="Months", Value = "0",Selected=true },
+                                                        new SelectListItem{ Text="Weeks", Value = "1"  },
+                                                        new SelectListItem{ Text="Days", Value = "2"  },
+                                                     }, new { @class = "form-control", @id = "duration" })
+                                                </span>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12">
+                                                <label>End Date</label>
+                                                @if (ViewBag.moveoutdt != null)
+                                                {
+                                                    DateTime st = ViewBag.moveoutdt;
+                                                    <input type="text" id="datepicker101" placeholder="Select Date" class="form-control" value="@st.ToShortDateString()" name="EndDate" />
+                                                }
+                                                else if (Model != null)
+                                                {
+                                                    if (Model.EndDate != null)
+                                                    {
+                                                        <input type="text" id="datepicker101" placeholder="Select Date" class="form-control" value="@Model.EndDate.Value.ToShortDateString()" name="EndDate" />
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <input type="text" id="datepicker101" placeholder="Select Date" class="form-control" value="@ViewBag.EndDateValue" name="EndDate" />
+                                                }
+
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <div class="col-md-4 col-sm-6">
+                                                <label>Rent Amount</label>
+                                                @if (ViewBag.actualrent != null)
+                                                {
+                                                    <input type="text" class="form-control" value="@ViewBag.actualrent" name="Rent" id="Rent">
+                                                }
+                                                else if (ViewBag.amount != null)
+                                                {
+                                                    <input type="text" class="form-control" value="@ViewBag.amount" name="Rent" id="Rent">
+                                                }
+                                                else if (ViewBag.RefreshRent != null)
+                                                {
+                                                    <input type="text" class="form-control" value="@ViewBag.RefreshRent" name="Rent" id="Rent">
+                                                }
+                                                else if (ViewBag.orgrentamount != null)
+                                                {
+                                                    <input type="text" class="form-control" value="@ViewBag.orgrentamount" name="Rent" id="Rent">
+                                                }
+                                                else
+                                                {
+                                                    @*<input type="text" class="form-control" value="0.0" name="Rent" id="Rent">*@
+                                                    @Html.TextBoxFor(model => model.Rent, new { @id = "Rent", @class = "form-control" })
+                                                }
+                                            </div>
+                                            <div class="col-md-4 col-sm-6">
+                                                <label>Rent Is Due</label>
+                                                @Html.DropDownList("rentisdue", ViewBag.rentisdue as SelectList, new { id = "rentisdue", @class = "form-control" })
+                                            </div>
+                                            <div class="col-md-4 col-sm-12">
+                                                <label>First Rental Payment Due On</label>
+                                                @if (Model != null)
+                                                {
+                                                    if (Model.firstrentalpay != null)
+                                                    {
+                                                        <input type="text" id="datepicker100" placeholder="Select Date" value="@Model.firstrentalpay.Value.ToShortDateString()" class="form-control" name="firstrentalpay">
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <input type="text" id="datepicker100" placeholder="Select Date" value="@DateTime.UtcNow.ToShortDateString()" class="form-control" name="firstrentalpay">
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <div class="col-md-4 col-sm-6">
+
+                                            </div>
+                                            <div class="col-md-4 col-sm-6">
+                                                <div id="Bi-Monthly" style="display:none;">
+                                                    <label>Bi-Monthly On</label>
+                                                    <select class="form-control col_1" name="Bi_firstdate">
+                                                        <option value="1">1st</option>
+                                                        <option value="2">2nd</option>
+                                                        <option value="3">3rd</option>
+                                                        @for (int i = 4; i <= 30; i++)
+                                                        {
+                                                            <option value="@i">@string.Concat(i, "th")</option>
+                                                        }
+                                                        <option value="31">31st</option>
+                                                    </select>
+                                                    <font>&amp;</font>
+                                                    <select class="form-control col_2" name="Bi_Lastdate">
+                                                        <option value="1">1st</option>
+                                                        <option value="2">2nd</option>
+                                                        <option value="3">3rd</option>
+                                                        @for (int i = 4; i <= 30; i++)
+                                                        {
+                                                            <option value="@i">@string.Concat(i, "th")</option>
+                                                        }
+                                                        <option value="31">31st</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12">
+                                                <p>
+                                                    All subsequent due dates will be derived
+                                                    from this date and your 'Rent is Due' setting.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </article>
+                            <article class="lease_summery clearfix">
+                                <h3>Payment Schedule</h3>
+                                <span class="col-md-12">
+                                    <div class="lease_box">
+                                        <p>Click an item to override or prorate a specific due date or amount due</p>
+
+                                        @if (ViewBag.Refresh != null)
+                                        {
+                                            var Refreshdata = ViewBag.Refresh as List<DateTime>;
+                                            int count = 0;
+                                            string savedata = "";
+                                            <p>
+                                                @foreach (var dtt in Refreshdata)
+                                                {
+
+                                                    string stdata = string.Concat(dtt.ToString("MMM/dd/yyyy"), "-");
+                                                    string stdata1 = string.Concat(getallpath.currency, ViewBag.RefreshRent);
+
+                                                    string stdata2 = string.Concat(stdata, stdata1);
+                                                    savedata = savedata + stdata2 + ",";
+                                                    <h6>@stdata2</h6>
+                                                    count++;
+
+                                                }
+                                                <input type="hidden" name="paymentSchedule" value="@savedata" />
+                                            </p>
+                                        }
+                                        else if (Model != null)
+                                        {
+                                            if (Model.paymentSchedule != null)
+                                            {
+                                                string[] payments = Model.paymentSchedule.Split(',');
+                                                foreach (var dtt in payments)
+                                                {
+                                                    <h6>@dtt</h6>
+                                                }
+                                            }
+                                        }
+                                        <p><button class="add_lease_btn pull-right" name="Command" value="Refresh" type="submit">Refresh</button></p>
+                                    </div>
+                                </span>
+                            </article>
+                        </div>
+                        <aside class="col-md-4 col-sm-4">
+                            <div class="lease_sidebar clearfix">
+                                <i class="fa fa-question" aria-hidden="true"></i>
+                                <span class="sidebar_txt">
+                                    <h6>Property & Tenant:</h6>
+                                    <p>Select the property and primary tenant on the lease. Only properties without a lease are available. You can also select any number of secondary tenants.</p>
+                                </span>
+                            </div>
+                            <div class="lease_sidebar clearfix">
+                                <i class="fa fa-question" aria-hidden="true"></i>
+                                <span class="sidebar_txt">
+                                    <h6>Lease Term & Rental Rate:</h6>
+                                    <p>Specify the terms of the lease, including start/end dates, rent amount, and how often rent is due. Lease payments are calculated from the date you select for the first rental payment. You can make changes to individual payment amounts and when they are due by selecting a due date in the Payment Schedule.</p>
+                                </span>
+                            </div>
+
+                        </aside>
+
+                    </div>
+                    <!-- tab 2 -->
+                    <div class="tab-pane clearfix" id="tab-2">
+                        <div class="col-md-8 col-sm-8">
+                            <article class="lease_summery clearfix">
+                                <h3>Other Charges</h3>
+                                <form class="Other_Charges">
+                                    <div class="form-group col-md-4 col-sm-4 clearfix">
+                                        <label>Description</label>
+
+                                        @*@if (ViewBag.DescriptionId != null)
+                                        {*@
+                                            @Html.TextBox("DescriptionId","", new { id = "DescriptionId", @class = "form-control" })
+                                        
+                                        @*<a class="newbtn" href="#"><small>or suggest charge type...</small></a>*@
+                                    </div>
+
+                                    <div class="form-group col-md-4 col-sm-4 clearfix">
+                                        <label>Amount</label>
+                                        <input type="text" name="Amount" id="Amount" class="form-control">
+                                    </div>
+
+                                    <div class="form-group col-md-4 col-sm-4 clearfix">
+                                        <label>Due</label>
+                                        <select class="form-control" name="Due" id="Due">
+                                            <option selected="selected" value="0">Each time rent is due</option>
+                                            <option value="1">Once only, when the lease starts</option>
+                                            <option value="2">Once only, when the lease ends</option>
+                                            <option value="3">Once only, on a specific date:</option>
+                                            <option value="4">Monthly, on a specific day:</option>
+                                        </select>
+                                    </div>
+                                    <div class="Variable">
+                                        <div class="form-group col-md-4 col-sm-12 clearfix">
+                                            <label>Valid From</label>
+                                            @if (ViewBag.updatedstartdate != null)
+                                            {
+                                                DateTime st = ViewBag.updatedstartdate;
+                                                <input type="text" name="ValidFrom" id="ValidFrom" value="@st.ToShortDateString()" class="form-control">
+                                            }
+                                            else
+                                            {
+                                            <input type="text" name="ValidFrom" id="ValidFrom" value="@DateTime.UtcNow.ToShortDateString()" class="form-control">
+                                            }
+                                        </div>
+                                        <div class="form-group col-md-4 col-sm-12 clearfix">
+                                            <label>Valid Until</label>
+                                            @if (ViewBag.EndDateValue != null)
+                                                    {                                                       
+                                                        <input type="text" name="ValidUntil" value="@ViewBag.EndDateValue" id="ValidUntil" class="form-control">
+                                            }
+                                            else
+                                            {
+                                            <input type="text" name="ValidUntil" id="ValidUntil" class="form-control">
+                                            }
+                                        </div>
+                                        @*<div class="form-group col-md-4 col-sm-12 clearfix">
+                                       
+                                            <span class="Add">
+                                                Add<br />
+                                                <a href="javascript:void(0);" class="othercharges_list"><img src="http://www.clker.com/cliparts/1/f/2/e/1349807634881568480Plus%20and%20Minus%20Buttons.svg.hi.png"></a>
+                                            </span>
+                                        </div>*@
+                                    </div>
+                                    @*<div class="charges">No other charges are on this lease</div>
+                                    <div>
+                                        <table class="table lstothercharges">
+                                            <tr>
+                                                <th>Description</th>
+                                                <th>Amount</th>
+                                                <th>Due</th>
+                                                <th>Valid From</th>
+                                                <th>Valid To</th>
+                                            </tr>
+                                            <tr class="data-template">
+                                                <td name="description" class="clsDescription"></td>
+                                                <td name="amount"  class="clsAmount"></td>
+                                                <td name="due"  class="clsDue"></td>
+                                                <td name="validfrom" class="clsValidFrom"></td>
+                                                <td name="validuntil" class="clsValidTo"></td>
+                                            </tr>
+                                        </table>
+                                    </div>*@
+                                </form>
+                            </article>
+                        </div>
+                        <aside class="col-md-4 col-sm-4">
+                            <div class="lease_sidebar clearfix">
+                                <i class="fa fa-question" aria-hidden="true"></i>
+                                <span class="sidebar_txt">
+                                    <h6>Property & Tenant:</h6>
+                                    <p>Select the property and primary tenant on the lease. Only properties without a lease are available. You can also select any number of secondary tenants.</p>
+                                </span>
+                            </div>
+                            <div class="lease_sidebar clearfix">
+                                <i class="fa fa-question" aria-hidden="true"></i>
+                                <span class="sidebar_txt">
+                                    <h6>Lease Term & Rental Rate:</h6>
+                                    <p>Specify the terms of the lease, including start/end dates, rent amount, and how often rent is due. Lease payments are calculated from the date you select for the first rental payment. You can make changes to individual payment amounts and when they are due by selecting a due date in the Payment Schedule.</p>
+                                </span>
+                            </div>
+                        </aside>
+                    </div>
+                    <!--Tab 3-->
+                    <div class="tab-pane clearfix" id="tab-3">
+                        <div class="col-md-8 col-sm-8">
+                            <article class="lease_summery clearfix">
+                                <h3>Credits</h3>
+                                <form class="Other_Charges">
+                                    <div class="form-group col-md-6 col-sm-6 clearfix">
+                                        <label>Reason / Comment</label>
+                                        <input type="text" name="Reason" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 clearfix">
+                                        <label>Type</label>
+                                        <select class="form-control" name="Type">
+                                            <option value="0">Each time rent is due</option>
+                                            <option value="1">Security Deposit</option>
+                                            <option value="2">Refund</option>
+                                            <option value="3">Correction</option>
+                                            <option value="3">Credit</option>
+                                        </select>
+                                    </div>
+                                    <div class="Variable">
+                                        <div class="form-group col-md-6 col-sm-6 clearfix">
+                                            <label>Amount</label>
+                                            <input type="text" name="CreditAmount" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 clearfix">
+                                            <label>Credited On</label>
+                                            <input type="text" name="CreditedOn" id="Creditedon" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 clearfix">
+                                            <label>Payment Mode</label>
+                                            <select class="form-control" name="Type">
+                                                <option value="0">Pay directly to Tenant</option>
+                                                <option value="1">Credit to ledger</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4 col-sm-12 clearfix">
+                                            <span class="Add">
+                                                Add<br />
+                                                <a href="javascript:void(0);"><img src="http://www.clker.com/cliparts/1/f/2/e/1349807634881568480Plus%20and%20Minus%20Buttons.svg.hi.png"></a>
+                                            </span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="charges">No credits on this lease</div>
+                                </form>
+                            </article>
+                        </div>
+                    </div>
+                                <!-- tab 4 -->
+                                <div class="tab-pane clearfix" id="tab-4">
+                                    <div class="col-md-8 col-sm-8">
+                                        <article class="lease_summery clearfix">
+                                            <h3>Late Fees Enabled <input type="checkbox" name="LatefeeEnabled"></h3>
+                                            <form class="Other_Charges">
+                                                <div class="form-group col-md-12 col-sm-12 clearfix">
+                                                    <label>days after the due date (grace period) </label>
+                                                    <input type="number" name="DaysAfterDueDate">
+                                                </div>
+                                                <form class="Other_Charges">
+                                                    <div class="form-group col-md-12 col-sm-12 clearfix">
+                                                        <input type="radio" name="FlatFeeOrBaseAmountOrPercentRent"> <span>Flat fee:</span>
+                                                        <input type="text" name="FlatFee">
+                                                    </div>
+                                                    <form class="Other_Charges">
+                                                        <div class="form-group col-md-12 col-sm-12 clearfix">
+                                                            <input type="radio" name="FlatFeeOrBaseAmountOrPercentRent">
+                                                            <input type="number" name="baseAmount"> <span>(base amount) +</span>
+                                                            <input type="number" name="perday"> <span>per day*</span>
+                                                        </div>
+                                                        <form class="Other_Charges">
+                                                            <div class="form-group col-md-12 col-sm-12 clearfix">
+                                                                <input type="radio" name="FlatFeeOrBaseAmountOrPercentRent">
+                                                                <input type="number" name="percentRent"> <span>percent (%) of rent per day* </span>
+
+                                                            </div>
+                                                        </form>
+                                                        <form class="Other_Charges">
+                                                            <div class="form-group col-md-12 col-sm-12 clearfix">
+                                                                <input type="checkbox" name=""><span>Stop calculating per day charges when rent has been paid in full for the period</span>
+                                                                <span>Maximum Late Fee </span><input type="number" name="MaxLateFee">
+
+                                                            </div>
+                                                        </form>
+                                        </article>
+                                    </div>
+                                    <aside class="col-md-4 col-sm-4">
+                                        <div class="lease_sidebar clearfix">
+                                            <i class="fa fa-question" aria-hidden="true"></i>
+                                            <span class="sidebar_txt">
+                                                <h6>Property & Tenant:</h6>
+                                                <p>Select the property and primary tenant on the lease. Only properties without a lease are available. You can also select any number of secondary tenants.</p>
+                                            </span>
+                                        </div>
+                                        <div class="lease_sidebar clearfix">
+                                            <i class="fa fa-question" aria-hidden="true"></i>
+                                            <span class="sidebar_txt">
+                                                <h6>Lease Term & Rental Rate:</h6>
+                                                <p>Specify the terms of the lease, including start/end dates, rent amount, and how often rent is due. Lease payments are calculated from the date you select for the first rental payment. You can make changes to individual payment amounts and when they are due by selecting a due date in the Payment Schedule.</p>
+                                            </span>
+                                        </div>
+                                    </aside>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+}
+
+<div id='myModal' class='modal fade in'>
+
+
+</div>
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
+
+<script>
+    //$(".lstothercharges").hide();
+    $(document).ready(function () {
+        $("#datepicker99").change(function () {            
+            $('#ValidFrom').val(this.value);
+            $('#datepicker100').val(this.value);
+            var term = $('#term').val();         
+            var duration = $('#duration').val();
+            var StartDate = new Date(this.value);
+            getenddate(duration, term, StartDate);
+        });
+       $("#datepicker99").datepicker({
+           changeMonth: true,
+           changeYear: true,
+           yearRange: "1930:2050"
+       });
+       $("#datepicker100").datepicker({
+           changeMonth: true,
+           changeYear: true,
+           yearRange: "1930:2050"
+       });
+       $("#datepicker101").datepicker({
+           changeMonth: true,
+           changeYear: true,
+           yearRange: "1930:2050"
+       });
+       $("#Creditedon").datepicker({
+           changeMonth: true,
+           changeYear: true,
+           yearRange: "1930:2050"
+       });
+       $("#validform").datepicker({
+           changeMonth: true,
+           changeYear: true,
+           yearRange: "1930:2050"
+       });
+       $("#validuntil").datepicker({
+           changeMonth: true,
+           changeYear: true,
+           yearRange: "1930:2050"
+       });
+       var rentamount=$('#Rent').val();
+       if (rentamount == null) {
+           var prpid = $('#Property_Id').val();
+           $.getJSON('@getallpath.getpath/GetPropertyDet/' + prpid, function (data) {
+               $('#Rent').val(data);
+           });
+       }
+           $('#Property_Id').change(function () {           
+           var pid = $(this).val();
+           $.getJSON('@getallpath.getpath/GetPropertyDet/'+pid, function (data) {
+                $('#Rent').val(data);
+               });
+       });
+        $('#duration').change(function () {            
+           var sd = $('#datepicker99').val();
+           var StartDate = new Date(sd);
+           var term = $('#term').val();
+           $('#ValidFrom').val(sd);
+           var duration = $(this).val();
+           getenddate(duration, term, StartDate);
+       });
+       $('#term').change(function () {
+           var sd = $('#datepicker99').val();
+           var StartDate = new Date(sd);
+           var duration = $('#duration').val();
+           var term = $(this).val();
+           getenddate(duration, term, StartDate);
+       });
+       function getenddate(duration, term, StartDate)
+       {           
+          term = parseInt(term);
+          var someFormattedDate = null;
+           var dd = null, mm = null, yy = null;
+
+           if (duration == 0) {
+               StartDate.setMonth(StartDate.getMonth() + term);
+               mm = StartDate.getMonth()+1;
+               dd = StartDate.getDate();
+               yy = StartDate.getFullYear();
+                someFormattedDate = mm + '/' + dd + '/' + yy;
+           }
+           else if (duration == 1) {
+
+               term = term * 7;
+               StartDate.setDate(StartDate.getDate() + term);
+               dd = StartDate.getDate();
+               mm = StartDate.getMonth() + 1;
+               yy = StartDate.getFullYear();
+               someFormattedDate = mm + '/' + dd + '/' + yy;
+           }
+           else if (duration == 2) {
+
+               StartDate.setDate(StartDate.getDate() + term);
+               dd = StartDate.getDate();
+               mm = StartDate.getMonth() + 1;
+               yy = StartDate.getFullYear();
+               someFormattedDate = mm + '/' + dd + '/' + yy;
+           }
+           $('#datepicker101').val(someFormattedDate);
+           $('#ValidUntil').val(someFormattedDate);
+       }
+       });
+       @*$("#Property_Id").change({
+
+           source: function (request, response) {
+               $.ajax({
+                   url: "@getallpath.getpath/GetPropertyDetails",
+                   type: "POST",
+                   dataType: "json",
+                   data: { PID: request.term },
+                   success: function (data) {
+                       console.log(data);
+                       response($.map(data, function (item) {
+                           return { label: item, value: item };
+                       }))
+                       /*setTimeout(function () {
+                           document.getElementById("ImageLoadingState").style.visibility = "hidden";
+                       }, 5000);*/
+
+                   }
+               })
+           }
+       });*@
+
+</script>
+
+<script>
+   
+    var $table = $('.lstothercharges');
+    var $templ = $table.find('.data-template');
+    $(".othercharges_list").click(function () {        
+        var data = { DescriptionId: $("#DescriptionId").val(), Amount: $("#Amount").val(), Due: $("#Due").val(), ValidFrom: $("#ValidFrom").val(), ValidUntill: $("#ValidUntil").val() };
+        var row = $templ.clone()
+                .removeClass('data-template')
+                .find('.clsDescription').text(data.DescriptionId).end()
+                .find('.clsAmount').text(data.Amount).end()
+                .find('.clsDue').text(data.Due).end()
+                .find('.clsValidFrom').text(data.ValidFrom).end()
+                .find('.clsValidTo').text(data.ValidUntill).end()
+        $templ.after(row);
+        $templ.clone().addClass('data-template')
+    });
+    //console.log(otherchargeslist);
+</script>

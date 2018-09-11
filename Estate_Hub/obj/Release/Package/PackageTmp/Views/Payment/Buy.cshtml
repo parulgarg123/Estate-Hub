@@ -1,0 +1,145 @@
+﻿
+@model Proptiwise.ViewModels.Stripe.BuyerViewModel
+@{
+    ViewBag.Title = "Online Payment :: Buy Now";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+
+
+}
+<h2>
+    Buy Now
+</h2>
+<p>
+    Use the form below to submit your credit card information.
+</p>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+<script type="text/javascript">
+
+    Stripe.setPublishableKey('pk_test_qFjMudiNUL7189UTazf4uA21');
+
+    function stripeResponseHandler(status, response) {
+        if (response.error) {
+
+            $('.submit-button').removeAttr("disabled");
+
+            $(".payment-errors").html(response.error.message);
+        } else {
+            var form$ = $("#payment-form");
+
+            var token = response['id'];
+            console.log(token);
+
+            form$.append("<input type='hidden' id='stripeToken' name='stripeToken' value='" + token + "' />");
+
+            form$.get(0).submit();
+        }
+    }
+
+    $(document).ready(function () {
+        $("#payment-form").submit(function (event) {
+            // disable the submit button to prevent repeated clicks
+            $('.submit-button').attr("disabled", true);
+            // createToken returns immediately - the supplied callback submits the form if there are no errors
+            Stripe.createToken({
+                number: $('#CardNumber').val(),
+                cvc: $('#CVC').val(),
+                exp_month: $('#ExpirationMonth').val(),
+                exp_year: $('#ExpirationYear').val()
+            }, stripeResponseHandler);
+            return false; // submit from callback
+        });
+    });
+</script>
+
+@*@using (Html.BeginForm(null, null, FormMethod.Post, new Dictionary<string, object> { { "id", "payment-form" }, { "enctype", "multipart/form-data" } }))
+    {
+        <span class="payment-errors"></span>
+        <div>
+            <fieldset>
+                <legend>Billing Information</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.CardNumber)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.CardNumber)
+                    @Html.ValidationMessageFor(m => m.CardNumber)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.CVC)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.CVC, new Dictionary<string, object> { { "maxlength", "4" }, { "style", "width:100px" } })
+                    @Html.ValidationMessageFor(m => m.CVC)
+                </div>
+                <div class="editor-label">
+                    @Html.Label("Expiration Date (mm yyyy)")
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.ExpirationMonth, new Dictionary<string, object> { { "maxlength", "2" }, { "style", "width:20px" } })
+                    @Html.ValidationMessageFor(m => m.ExpirationMonth)
+                    @Html.TextBoxFor(m => m.ExpirationYear, new Dictionary<string, object> { { "maxlength", "4" }, { "style", "width:40px" } })
+                    @Html.ValidationMessageFor(m => m.ExpirationYear)
+                </div>
+                <p style="margin-top:10px;">
+                    <input type="submit" value="Proceed" class="submit-button btn btn-default" />
+                </p>
+            </fieldset>
+        </div>
+    }*@
+<section class="dash_column property-back clearfix" style="background: #fff;">
+
+    <div class="container">
+        <div class="row">
+            <div class="Billing-form">
+                @*<form  method="post">*@
+                @using (Html.BeginForm(null, null, FormMethod.Post, new Dictionary<string, object> { { "id", "payment-form" }, { "enctype", "multipart/form-data" } }))
+                {
+                    <input type="hidden" value="@ViewBag.planid" name="id" />
+                    <span class="payment-errors"></span>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <section class="UNIT-ADDRESS">
+                            <h1 class="form_heading">Billing Information</h1>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Card Number</label>
+                                @Html.TextBoxFor(model => model.CardNumber, new { @class = "form-control" })
+
+                                @Html.ValidationMessageFor(model => model.CardNumber)
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">CVC</label>
+                                @Html.TextBoxFor(m => m.CVC, new Dictionary<string, object> { { "maxlength", "4" }, { "style", "width:150px" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CVC)
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f expdate" for="inlineFormCustomSelect">Expiration Date (mm yyyy)</label>
+                                @Html.TextBoxFor(m => m.ExpirationMonth, new Dictionary<string, object> { { "maxlength", "2" }, { "PlaceHolder", "MM" }, { "style", "width:60px" }, { "class", "form-control expmnth" } })
+                                @Html.ValidationMessageFor(m => m.ExpirationMonth)
+                                @Html.TextBoxFor(m => m.ExpirationYear, new Dictionary<string, object> { { "maxlength", "4" }, { "PlaceHolder", "YYYY" }, { "style", "width:80px" }, { "class", "form-control expmnth" } })
+                                @Html.ValidationMessageFor(m => m.ExpirationYear)
+                            </div>
+
+                        </section>
+
+                        <div class="save_panel">
+                            <div class="container">
+                                @*Save & Add Similar Unit*@
+                                <button type="submit" class="Save_btn submit-button"><i class="fa fa-floppy-o" aria-hidden="true"></i> Proceed</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+
+

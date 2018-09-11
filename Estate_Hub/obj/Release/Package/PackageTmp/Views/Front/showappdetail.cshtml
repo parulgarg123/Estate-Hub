@@ -1,0 +1,357 @@
+﻿@model Proptiwise.Models.application_details
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "showappdetail";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+@using (Html.BeginForm("showappdetail", "Front", FormMethod.Post))
+{
+    <section class="tab_page applicant_column">
+        <div class="container">
+            <div class="row">
+                <div class="col-me-12 top_block clearfix">
+                    <h1>Application Details</h1>
+                </div>
+                <form method="post">
+                    <div class="form-horizontal">
+
+
+                        @Html.ValidationSummary(true)
+                        <div class="form-group clearfix">
+                            <h4>General Information</h4>
+
+                            <span class="col-md-4 col-sm-4">
+                                <label>Full Name</label>
+                                   @Model.FullName
+                             
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Former Name</label>
+                                @Model.FormerName
+                             
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Phone Number</label>
+                                @Model.PhoneNumber
+                            </span>
+                        </div>
+
+
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>Mobile Number</label>
+                                @Model.MobileNumber
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Email Address</label>
+                                @Model.Email
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Date of Birth</label>
+                                @if(Model.DateCreated!=null) {
+                               @Model.DateCreated.Value.ToShortDateString()
+                                }
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>Marital Status</label>
+                               @Model.MaritalStatus
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Children</label>
+                             @Model.Children
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>No of who will be living at the property</label>
+                              @Model.Notolive
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>No of people aged 18+ living at the property</label>
+                             @Model.Noage18
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>  Do Tenant have pets?</label><br />
+                                @if(Model.Pets==true)
+                                { 
+                                <font>Yes</font>
+                                }
+                                else
+                               {
+                                    <font>No</font>
+                                }
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>  Do Tenant smoke?</label><br />
+                                @if (Model.Smoker == true)
+                                {
+                                    <font>Yes</font>
+                                }
+                                else
+                                {
+                                    <font>No</font>
+                                }
+                            </span>
+                        </div>
+                        <h4>Address Information</h4>
+                        <div class="form-group clearfix">
+                            <span class="col-md-12 col-sm-12">
+                                <h5>Current Address</h5>
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>House Number</label>
+                                @Model.HouseNumber
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Street Name</label>
+                                @Model.StreetName
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Town</label>
+                                @Model.Town
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>City</label>
+                                @Model.City
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Country</label>
+                                @Model.Country
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Post Code</label>
+                                @Model.PostCode
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-12 col-sm-12">
+                                <h5>Landlord Reference</h5>
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>Reference Name</label>
+                                @Model.ReferenceName
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Contact Number</label>
+                                @Model.ReferneceNumber
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Contact Email</label>
+                                @Model.ReferenceEmail
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>Move in date</label>
+@if (Model.Moveindate != null)
+{
+                               @Model.Moveindate.Value.ToShortDateString()
+}
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Move out</label>
+@if (Model.Moveout != null)
+{
+                                @Model.Moveout.Value.ToShortDateString()
+                                }
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Address</label>
+                                @Model.Address
+                            </span>
+                        </div>
+                        <h4>Employment</h4>
+
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>Employment Status</label>
+                              @Model.Employmntstatus
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Name of Employer</label>
+                                @Model.EmployerName
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Phone</label>
+                                @Model.Phone
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>Email</label>
+                                @Model.EmpEmail
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Position</label>
+                                @Model.Position
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Length of Employment</label>
+                                @Model.LengthEmp
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-12 col-sm-12">
+                                <h5>Employment Address</h5>
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>House Number</label>
+                                @Model.Emphousenum
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Street Name</label>
+                                @Model.Empstreetname
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Town</label>
+                                @Model.Emptown
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>City</label>
+                                @Model.EmpCity
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Country</label>
+                                @Model.EmpCountry
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Phone Number</label>
+                                @Model.EmpPostCode
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-12 col-sm-12">
+                                <h5>Contact Person</h5>
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-4 col-sm-4">
+                                <label>Name</label>
+                                @Model.CPName
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Contact Phone Number</label>
+                                @Model.CPNumber
+                            </span>
+                            <span class="col-md-4 col-sm-4">
+                                <label>Contact Email</label>
+                                @Model.CPemail
+                            </span>
+                        </div>
+                        <div class="form-group clearfix">
+                            <span class="col-md-2 col-sm-2">
+                                <label>Net Income</label>
+                                @Model.NetIncome
+                            </span>
+                            <span class="col-md-2 col-sm-2">
+                                <label>Duration</label>
+                                @Model.netduration
+                            </span>
+                            <span class="col-md-2 col-sm-2">
+                                <label>Additional Income</label>
+                                @Model.AddIncome
+                            </span>
+                            <span class="col-md-2 col-sm-2">
+                                <label>Duration</label>
+                                @Model.additionalduration
+                            </span>
+                            <span class="col-md-2 col-sm-2">
+                                <label>Gross Income</label>
+                                @Model.GrossIncome
+                            </span>
+                            <span class="col-md-2 col-sm-2">
+                                <label>Duration</label>
+                                @Model.grossduration
+                            </span>
+                        </div>
+                        <h4>Other Information</h4>
+
+                        <div class="form-group clearfix">
+                            <span class="col-md-3 col-sm-3">
+                                <label> Have Tenant ever had a county judgement against him? </label><br />
+                            
+                                @if (Model.countryagainst == true)
+                                {
+                                    <font>Yes</font>
+                                }
+                                else
+                                {
+                                    <font>No</font>
+                                }
+                            </span>
+                            <span class="col-md-3 col-sm-3">
+                                <label>Have Tenant ever declared bankruptcy? </label><br />
+
+                                @if (Model.bankruptcy == true)
+                                {
+                                    <font>Yes</font>
+                                }
+                                else
+                                {
+                                    <font>No</font>
+                                }
+                            </span>
+                            <span class="col-md-3 col-sm-3">
+                                <label>Have Tenant ever been convicted of criminal activity </label><br />
+
+                                @if (Model.criminalactivity == true)
+                                {
+                                    <font>Yes</font>
+                                }
+                                else
+                                {
+                                    <font>No</font>
+                                }
+                            </span>
+                            <span class="col-md-3 col-sm-3">
+                                <label>Have Tenant ever been involved in terrorist activity?</label><br />
+
+                                @if (Model.terroristactivity == true)
+                                {
+                                    <font>Yes</font>
+                                }
+                                else
+                                {
+                                    <font>No</font>
+                                }
+                            </span>
+                        </div>
+                        <br />
+                        <table>
+                            <tr>
+                                <td class="detail-btn"><a class="detail_link" id="lnkedit" href="@getallpath.getpath/Front/ApplicationAcceptedByLandlord/@Model.ApplicationId">Accept</a>                 </td>
+                                <td class="detail-btn"><a class="detail_link" id="lnkedit" href="@getallpath.getpath/Front/ApplicationRejectedByLandlord/@Model.ApplicationId" data-modal=''>Reject</a>                 </td>
+                                <td class="detail-btn"><a class="detail_link" id="lnkedit" href="@getallpath.getpath/Front/ApplicationDefferedByLandlord/@Model.ApplicationId" data-modal=''>Deffered</a>           </td>
+                            </tr>
+                        </table>
+                     
+                        
+                                                     
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+}
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Appjs/Phone.js"></script>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="tbAllProperties" targetNamespace="http://tempuri.org/tbAllProperties.xsd" xmlns:mstns="http://tempuri.org/tbAllProperties.xsd" xmlns="http://tempuri.org/tbAllProperties.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="tbAllProperties" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="tbAllProperties" msprop:Generator_UserDSName="tbAllProperties">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbAllProperties" msprop:Generator_TableClassName="tbAllPropertiesDataTable" msprop:Generator_TableVarName="tabletbAllProperties" msprop:Generator_TablePropName="_tbAllProperties" msprop:Generator_RowDeletingName="tbAllPropertiesRowDeleting" msprop:Generator_RowChangingName="tbAllPropertiesRowChanging" msprop:Generator_RowEvHandlerName="tbAllPropertiesRowChangeEventHandler" msprop:Generator_RowDeletedName="tbAllPropertiesRowDeleted" msprop:Generator_UserTableName="tbAllProperties" msprop:Generator_RowChangedName="tbAllPropertiesRowChanged" msprop:Generator_RowEvArgName="tbAllPropertiesRowChangeEvent" msprop:Generator_RowClassName="tbAllPropertiesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PropertyName" msprop:Generator_ColumnVarNameInTable="columnPropertyName" msprop:Generator_ColumnPropNameInRow="PropertyName" msprop:Generator_ColumnPropNameInTable="PropertyNameColumn" msprop:Generator_UserColumnName="PropertyName" type="xs:string" minOccurs="0" />
+              <xs:element name="BuildingName" msprop:Generator_ColumnVarNameInTable="columnBuildingName" msprop:Generator_ColumnPropNameInRow="BuildingName" msprop:Generator_ColumnPropNameInTable="BuildingNameColumn" msprop:Generator_UserColumnName="BuildingName" type="xs:string" minOccurs="0" />
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" type="xs:string" minOccurs="0" />
+              <xs:element name="City" msprop:Generator_ColumnVarNameInTable="columnCity" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnPropNameInTable="CityColumn" msprop:Generator_UserColumnName="City" type="xs:string" minOccurs="0" />
+              <xs:element name="State" msprop:Generator_ColumnVarNameInTable="columnState" msprop:Generator_ColumnPropNameInRow="State" msprop:Generator_ColumnPropNameInTable="StateColumn" msprop:Generator_UserColumnName="State" type="xs:string" minOccurs="0" />
+              <xs:element name="Zip" msprop:Generator_ColumnVarNameInTable="columnZip" msprop:Generator_ColumnPropNameInRow="Zip" msprop:Generator_ColumnPropNameInTable="ZipColumn" msprop:Generator_UserColumnName="Zip" type="xs:string" minOccurs="0" />
+              <xs:element name="LeasedTo" msprop:Generator_ColumnVarNameInTable="columnLeasedTo" msprop:Generator_ColumnPropNameInRow="LeasedTo" msprop:Generator_ColumnPropNameInTable="LeasedToColumn" msprop:Generator_UserColumnName="LeasedTo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

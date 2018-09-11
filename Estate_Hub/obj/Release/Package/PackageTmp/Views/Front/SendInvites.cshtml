@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "SendInvites";
+    Layout = "~/Views/Shared/BannerMaster.cshtml";
+}
+<section class="login_panel">
+    <div class="login_wrapper clearfix">
+        <form class="form-signin" role="form" method="post">
+            <h2 class="form-signin-heading">Send Invite to Landlord</h2>
+            <span>
+                <input type="text" class="form-control" oninvalid="setCustomValidity('Enter name')" oninput="setCustomValidity('')" placeholder="Landlord Name" name="LandlordName" required >
+            </span>
+            <span>
+                <input type="email" class="form-control" oninvalid="setCustomValidity('Enter valid Email')" oninput="setCustomValidity('')" placeholder="Email" name="LandlordEmail" required autofocus>
+            </span>
+            <span>
+                <input type="text" class="form-control" oninvalid="setCustomValidity('Enter property name')" oninput="setCustomValidity('')" placeholder="Property Address" name="PropertyAddress" required>
+            </span>
+            <span>
+                <input type="text" class="form-control" oninvalid="setCustomValidity('Enter property type')" oninput="    setCustomValidity('')" placeholder="Property Type" name="PropertyType" required>
+            </span>
+            <span>
+                <textarea class="form-control" placeholder="Message" rows="3" oninvalid="setCustomValidity('Enter Message')" oninput="setCustomValidity('')" name="Message" required></textarea>
+            </span>
+
+            <br />
+            <span class="btn_area"><button class="submit_btn" type="submit">Send</button></span>
+
+        </form>
+
+
+    </div>
+
+</section>
+
+@if (ViewBag.SendInvites != null)
+{
+
+    <div id="myModal" class="modal hide fade modalErrorMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+
+        <div class="modal-body" style="">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p>@ViewBag.SendInvites</p>
+        </div>
+
+    </div>
+
+}
+
+

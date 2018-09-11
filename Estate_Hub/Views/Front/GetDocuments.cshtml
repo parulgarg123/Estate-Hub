@@ -1,0 +1,155 @@
+﻿@model IEnumerable<Proptiwise.Models.tblDocument>
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "GetDocuments";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+<h3><b>Letters And Documents</b></h3>
+
+@if (ViewBag.UserDocuments != null)
+{
+    var q = ViewBag.UserDocuments as List<Proptiwise.Models.UserDocument>;
+    if (q.Count > 0)
+    {
+        <input type="hidden" name="userdocid" id="userdocid" />
+    <a class="pdf_btn" href="@getallpath.getpath/AddNewDoc">New Document</a>
+    <table class="table">
+    <tr>
+        <th>Generate Document</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayName("Type Of Data")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>Preview</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+@foreach (var item in ViewBag.UserDocuments as List<UserDocument>)
+{
+    <tr>
+        <td>
+            @*<input type="checkbox" name="getdocid" class="gendoc" data-id=@item.UserDocumentId />*@
+            <a class="pdf_btn" href="@getallpath.getpath/GenerateDocuments/@item.UserDocumentId" data-target="#myModalRequest12" data-toggle="modal">Generate Document</a> 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocTitle)
+            @*@Html.ActionLink(item.Title, "Details", new { id = item.DocumentId })*@         
+        </td>
+        <td>
+            @Html.Raw(item.DocumentType.DocumentTypeName)
+        </td>
+        <td>
+            @if(item.Status==1)
+            { 
+            @Html.DisplayName("Active")
+            }
+            else
+            {
+                  @Html.DisplayName("De-Active")
+            }
+            
+        </td>
+        <td>
+            @item.DateCreated.Value.ToShortDateString()
+        </td>
+        <td>
+            <a class="pdf_btn detail_link" href="@getallpath.getpath/UserDocDetails/@item.UserDocumentId" data-modal=''><i class="fa fa-file-o" aria-hidden="true"></i></a>
+        
+        </td>
+        <td>
+            <a class="pdf_btn editbutton detail_link" href="@getallpath.getpath/EditUserDoc/@item.UserDocumentId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
+        </td>
+        <td>
+            <a class="pdf_btn deletebutton detail_link" href="@getallpath.getpath/DeleteUserDoc/@item.UserDocumentId" onclick="return confirm('Are you sure you want to delete?')"><i class="fa fa-times" aria-hidden="true"></i></a>
+
+        </td>
+    </tr>
+}
+
+</table>
+}
+}
+
+<h3><b>Available Templates</b></h3>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayName("Type Of Data")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>Preview</th>
+        <th>Add</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+            @*@Html.ActionLink(item.Title, "Details", new { id = item.DocumentId })*@
+         
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentType.DocumentTypeName)
+        </td>
+        <td>
+            @if(item.Status==1)
+            { 
+            @Html.DisplayName("Active")
+            }
+            else
+            {
+                  @Html.DisplayName("De-Active")
+            }
+            
+        </td>
+        <td>
+            @item.DateCreated.Value.ToShortDateString()
+        </td>
+        <td>
+            <a class="pdf_btn" href="@getallpath.getpath/DocDetails/@item.DocumentId" data-modal=''>Preview</a>
+        
+        </td>
+        <td>
+            <a class="pdf_btn" href="@getallpath.getpath/AddDoc/@item.DocumentId">Add</a>
+
+        </td>
+        <td></td>
+    </tr>
+}
+
+</table>
+
+
+
+
+<div id='myModalRequest12' class='modal fade in'>
+
+</div>
+<div id='myModalRequest11' class='modal fade in'>
+
+</div><div id='myModalRequest15' class='modal fade in'>
+
+</div>

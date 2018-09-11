@@ -1,0 +1,3037 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbrealestateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Applicant">
+    <Key>
+      <PropertyRef Name="Applicant_Id" />
+    </Key>
+    <Property Name="Applicant_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SSN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Desired_Property" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Received_On" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Created" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dateofbirth" Type="DateTime" Precision="3" />
+    <Property Name="DriverLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SocialSecurity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Profile" Type="Int32" />
+    <Property Name="Smoker" Type="Boolean" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Landlord_Id" Type="Int64" />
+    <NavigationProperty Name="ApprovalStatus" Relationship="Self.FK_Applicants_ApprovalStatuses" FromRole="Applicants" ToRole="ApprovalStatuses" />
+  </EntityType>
+  <EntityType Name="ApprovalStatus">
+    <Key>
+      <PropertyRef Name="ApprovalStatus_Id" />
+    </Key>
+    <Property Name="ApprovalStatus_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApprovalStatus1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Applicants" Relationship="Self.FK_Applicants_ApprovalStatuses" FromRole="ApprovalStatuses" ToRole="Applicants" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogId" />
+    </Key>
+    <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Content_detail1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Content_detail2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Content_detail3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Content_detail4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Created" Type="DateTime" Precision="3" />
+    <Property Name="Updated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Building">
+    <Key>
+      <PropertyRef Name="Building_Id" />
+    </Key>
+    <Property Name="Building_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PurchaseDate" Type="DateTime" Precision="0" />
+    <Property Name="ManagerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ManagerTelephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Created" Type="DateTime" Precision="0" />
+    <Property Name="LandlordId" Type="Int64" />
+    <NavigationProperty Name="damage_intventory" Relationship="Self.FK_damage_intventory_Buildings" FromRole="Buildings" ToRole="damage_intventory" />
+    <NavigationProperty Name="paymentHistories" Relationship="Self.FK_paymentHistory_Buildings" FromRole="Buildings" ToRole="paymentHistory" />
+    <NavigationProperty Name="tbl_inventory" Relationship="Self.FK_tbl_inventory_Buildings" FromRole="Buildings" ToRole="tbl_inventory" />
+    <NavigationProperty Name="Properties" Relationship="dbrealestateModel.FK_Properties_Buildings" FromRole="Building" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="City_Id" />
+    </Key>
+    <Property Name="City_Id" Type="Int32" Nullable="false" />
+    <Property Name="CityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StateId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CountryId" Type="Int32" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Cities_Countries" FromRole="Cities" ToRole="Countries" />
+    <NavigationProperty Name="State" Relationship="Self.FK_Cities_States" FromRole="Cities" ToRole="States" />
+  </EntityType>
+  <EntityType Name="CommonDocument">
+    <Key>
+      <PropertyRef Name="CommonDocId" />
+    </Key>
+    <Property Name="CommonDocId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DocComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LandLordId" Type="Int64" />
+    <Property Name="DateAdded" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_CommonDocuments_Users" FromRole="CommonDocument" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Contact_Id" />
+    </Key>
+    <Property Name="Contact_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="contactEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ContactImg" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int16" />
+    <Property Name="Created" Type="DateTime" Precision="3" />
+    <Property Name="Replied" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="countryId" />
+    </Key>
+    <Property Name="countryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="countryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Cities_Countries" FromRole="Countries" ToRole="Cities" />
+    <NavigationProperty Name="States" Relationship="Self.FK_States_Countries" FromRole="Countries" ToRole="States" />
+    <NavigationProperty Name="tblDocuments" Relationship="Self.FK_tblDocuments_Countries" FromRole="Countries" ToRole="tblDocuments" />
+    <NavigationProperty Name="UserDocuments" Relationship="Self.FK_UserDocuments_Countries" FromRole="Countries" ToRole="UserDocuments" />
+    <NavigationProperty Name="Users" Relationship="dbrealestateModel.FK_Users_Countries" FromRole="Country" ToRole="User" />
+  </EntityType>
+  <EntityType Name="damage_intventory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Inventory_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalCost" Type="Double" />
+    <Property Name="Balance" Type="Double" />
+    <Property Name="DepositReq" Type="Double" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Tenant_Id" Type="Int64" />
+    <Property Name="Property_Id" Type="Int64" />
+    <Property Name="Landlord_Id" Type="Int64" />
+    <Property Name="Building_Id" Type="Int32" />
+    <Property Name="LandlordComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenantComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenancyAgreementId" Type="Int32" />
+    <Property Name="Paymentstatus" Type="Int32" />
+    <NavigationProperty Name="Building" Relationship="Self.FK_damage_intventory_Buildings" FromRole="damage_intventory" ToRole="Buildings" />
+    <NavigationProperty Name="TenancyAgreement" Relationship="Self.FK_damage_intventory_TenancyAgreement" FromRole="damage_intventory" ToRole="TenancyAgreement" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_damage_intventory_Tenants" FromRole="damage_intventory" ToRole="Tenants" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_damage_intventory_Users" FromRole="damage_intventory" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_damage_intventory_Properties" FromRole="damage_intventory" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="deposit_transaction">
+    <Key>
+      <PropertyRef Name="TrasactionId" />
+    </Key>
+    <Property Name="TrasactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AmountPaid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="DateAdded" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Deposit">
+    <Key>
+      <PropertyRef Name="DepositId" />
+    </Key>
+    <Property Name="DepositId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="DepositAmount" Type="Double" />
+    <Property Name="DepositStatus" Type="Int32" />
+    <Property Name="DepositApproval" Type="Int32" />
+    <Property Name="DateCreated" Precision="0" Type="DateTime" />
+    <Property Name="DepositDate" Precision="0" Type="DateTime" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="OfferId" Type="Int32" />
+    <Property Name="OfferProposalId" Type="Int32" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_Deposits_Tenants" FromRole="Deposits" ToRole="Tenants" />
+    <NavigationProperty Name="TenancyDetails" Relationship="Self.FK_TenancyDetails_Deposits" FromRole="Deposits" ToRole="TenancyDetails" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_Deposits_Deposits" FromRole="Deposit" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_Deposits_Properties" FromRole="Deposit" ToRole="Property" />
+    <Property Name="ReqviewId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Description">
+    <Key>
+      <PropertyRef Name="DescriptionId" />
+    </Key>
+    <Property Name="DescriptionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="DocumentTypeId" />
+    </Key>
+    <Property Name="DocumentTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblDocuments" Relationship="Self.FK_tblDocuments_DocumentType" FromRole="DocumentType" ToRole="tblDocuments" />
+    <NavigationProperty Name="UserDocuments" Relationship="Self.FK_UserDocuments_DocumentType" FromRole="DocumentType" ToRole="UserDocuments" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dateAdded" Type="DateTime" Precision="3" />
+    <Property Name="startDate" Type="DateTime" Precision="3" />
+    <Property Name="enddate" Type="DateTime" Precision="3" />
+    <Property Name="url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="alldays" Type="Boolean" />
+    <Property Name="Landlord_Id" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Fault">
+    <Key>
+      <PropertyRef Name="FaultId" />
+    </Key>
+    <Property Name="FaultId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FaultDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FaultTypeId" Type="Int32" />
+    <Property Name="FaultDate" Type="DateTime" Precision="3" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceId" Type="Int32" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="RepairStatus" Type="Int32" />
+    <Property Name="RepairAmount" Type="Double" />
+    <Property Name="RepairPaymentStatus" Type="Int32" />
+    <Property Name="AgreeWithAmount" Type="Int32" />
+    <Property Name="VisitDate" Type="DateTime" Precision="0" />
+    <Property Name="VisitTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaintenanceCost" Type="Double" />
+    <Property Name="AcceptCost" Type="Int16" />
+    <Property Name="AcceptTime" Type="Int16" />
+    <Property Name="SupplierNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="JobStatus" Type="Int32" />
+    <Property Name="JobStatusReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="VisitDateOffer" Type="DateTime" Precision="0" />
+    <Property Name="VisitTimeOffer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AcceptOfferTime" Type="Int32" />
+    <Property Name="RejectCommentByProvider" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RejectCommentByTenant" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TenantMaintainanceCost" Type="Double" />
+    <Property Name="ProposalComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProposalProviderComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AcceptSchedule" Type="Int32" />
+    <Property Name="ServiceProviderId" Type="Int32" />
+    <Property Name="photos" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FaultType" Relationship="Self.FK_Faults_FaultTypes" FromRole="Faults" ToRole="FaultTypes" />
+    <NavigationProperty Name="Serviceprovider" Relationship="Self.FK_Faults_Serviceprovider" FromRole="Faults" ToRole="Serviceprovider" />
+    <NavigationProperty Name="service" Relationship="Self.FK_Faults_services1" FromRole="Faults" ToRole="services" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_Faults_Tenants" FromRole="Faults" ToRole="Tenants" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_Faults_Users" FromRole="Fault" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_Faults_Properties" FromRole="Fault" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="FaultType">
+    <Key>
+      <PropertyRef Name="FaultTypeId" />
+    </Key>
+    <Property Name="FaultTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FaultTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Faults" Relationship="Self.FK_Faults_FaultTypes" FromRole="FaultTypes" ToRole="Faults" />
+  </EntityType>
+  <EntityType Name="Inspection">
+    <Key>
+      <PropertyRef Name="InspectionId" />
+    </Key>
+    <Property Name="InspectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="RoomType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoomNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="InspectionNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ActionRequired" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="InspectionStatus" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_Inspection_Tenants" FromRole="Inspection" ToRole="Tenants" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_Inspection_Users" FromRole="Inspection" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_Inspection_Properties" FromRole="Inspection" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="inventory_type">
+    <Key>
+      <PropertyRef Name="InventoryTypeId" />
+    </Key>
+    <Property Name="InventoryTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InventoryTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_inventory" Relationship="Self.FK_tbl_inventory_inventory_type" FromRole="inventory_type" ToRole="tbl_inventory" />
+  </EntityType>
+  <EntityType Name="InventoryImage">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="LandlordId" Type="Int64" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_InventoryImages_Users" FromRole="InventoryImage" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_InventoryImages_Properties" FromRole="InventoryImage" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="Invite">
+    <Key>
+      <PropertyRef Name="Invite_Id" />
+    </Key>
+    <Property Name="Invite_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LandlordName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LandlordEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PropertyAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PropertyType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tenant_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MovingIn">
+    <Key>
+      <PropertyRef Name="MovingInId" />
+    </Key>
+    <Property Name="MovingInId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MoveInDate" Type="DateTime" Precision="0" />
+    <Property Name="WelcomePack" Type="Boolean" />
+    <Property Name="Keys" Type="Boolean" />
+    <Property Name="SetsofKeys" Type="Int16" />
+    <Property Name="PropertyManual" Type="Boolean" />
+    <Property Name="WhiteGoodManual" Type="Boolean" />
+    <Property Name="BoilerManual" Type="Boolean" />
+    <Property Name="UtilitiesInformation" Type="Boolean" />
+    <Property Name="SubmitMeterReading" Type="Boolean" />
+    <Property Name="Others" Type="Boolean" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="Created" Type="DateTime" Precision="3" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="Status" Type="Int16" />
+    <Property Name="ApprovalStatus" Type="Int16" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_MovingIn_Tenants" FromRole="MovingIn" ToRole="Tenants" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_MovingIn_Users" FromRole="MovingIn" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_MovingIn_Properties" FromRole="MovingIn" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="Mylist">
+    <Key>
+      <PropertyRef Name="ListId" />
+    </Key>
+    <Property Name="ListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ListName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="ListDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="PropertyId" Type="Int64" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_Mylists_Tenants" FromRole="Mylists" ToRole="Tenants" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_Mylists_Properties" FromRole="Mylist" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="paymentHistory">
+    <Key>
+      <PropertyRef Name="Paymenthistoryid" />
+    </Key>
+    <Property Name="Paymenthistoryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RecievedOn" Type="DateTime" Precision="3" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="DueDate" Type="DateTime" Precision="3" />
+    <Property Name="Method" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CheckNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tenant_Id" Type="Int64" />
+    <Property Name="Property_Id" Type="Int64" />
+    <Property Name="Building_Id" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Archievestatus" Type="Int32" />
+    <Property Name="TransId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Landlord_id" Type="Int64" />
+    <Property Name="paymentsection" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="paymentsectionid" Type="Int32" />
+    <Property Name="ServiceProviderId" Type="Int32" />
+    <Property Name="ItemNumber" Type="Int32" />
+    <NavigationProperty Name="Building" Relationship="Self.FK_paymentHistory_Buildings" FromRole="paymentHistory" ToRole="Buildings" />
+    <NavigationProperty Name="Serviceprovider" Relationship="Self.FK_paymentHistory_Serviceprovider" FromRole="paymentHistory" ToRole="Serviceprovider" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_paymentHistory_Tenants" FromRole="paymentHistory" ToRole="Tenants" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_paymentHistory_Users" FromRole="paymentHistory" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_paymentHistory_Properties" FromRole="paymentHistory" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="Plan">
+    <Key>
+      <PropertyRef Name="PlanID" />
+    </Key>
+    <Property Name="PlanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlanName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PlanDescription" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="EffectiveDate" Type="DateTime" Precision="0" />
+    <Property Name="ExpirationDate" Type="DateTime" Precision="0" />
+    <Property Name="MaxZipCodes" Type="Int32" />
+    <Property Name="MaxCities" Type="Int32" />
+    <Property Name="MaxStates" Type="Int32" />
+    <Property Name="PriceMonthly" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PriceYearly" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PropertyAirConditioning">
+    <Key>
+      <PropertyRef Name="AirConditioning_Id" />
+    </Key>
+    <Property Name="AirConditioning_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AirConditioningName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PropertyFeature">
+    <Key>
+      <PropertyRef Name="PropertyFeature_Id" />
+    </Key>
+    <Property Name="PropertyFeature_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FeatureName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PropertyFlooring">
+    <Key>
+      <PropertyRef Name="PropertyFlooring_Id" />
+    </Key>
+    <Property Name="PropertyFlooring_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FlooringName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PropertyHeating">
+    <Key>
+      <PropertyRef Name="PropertyHeating_Id" />
+    </Key>
+    <Property Name="PropertyHeating_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HeatingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PropertyImage">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="LandlordId" Type="Int64" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_PropertyImages_Users" FromRole="PropertyImage" ToRole="User" />
+  </EntityType>
+  <EntityType Name="PropertyParking">
+    <Key>
+      <PropertyRef Name="Propertyparking_Id" />
+    </Key>
+    <Property Name="Propertyparking_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParkingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PropertyStyle">
+    <Key>
+      <PropertyRef Name="Propertystyle_Id" />
+    </Key>
+    <Property Name="Propertystyle_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Style_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Properties" Relationship="dbrealestateModel.FK_Properties_PropertyStyles" FromRole="PropertyStyle" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="PropertyType">
+    <Key>
+      <PropertyRef Name="PropertyType_Id" />
+    </Key>
+    <Property Name="PropertyType_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PropertyTypeName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Properties" Relationship="dbrealestateModel.FK_Properties_PropertyTypes1" FromRole="PropertyType" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="Purposal">
+    <Key>
+      <PropertyRef Name="PurposalId" />
+    </Key>
+    <Property Name="PurposalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="Offerprice" Type="Double" />
+    <Property Name="purposal1" Type="Double" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Approval" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="offerid" Type="Int32" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_Purposal_Tenants" FromRole="Purposal" ToRole="Tenants" />
+    <NavigationProperty Name="TenancyDetails" Relationship="Self.FK_TenancyDetails_Purposal" FromRole="Purposal" ToRole="TenancyDetails" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_Purposal_Users" FromRole="Purposal" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_Purposal_Properties" FromRole="Purposal" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="reminderlist">
+    <Key>
+      <PropertyRef Name="ReminderId" />
+    </Key>
+    <Property Name="ReminderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="currentMoveout" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="RentDue">
+    <Key>
+      <PropertyRef Name="RentDueId" />
+    </Key>
+    <Property Name="RentDueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RentDueValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_lease" Relationship="dbrealestateModel.FK_tbl_lease_RentDue" FromRole="RentDue" ToRole="tbl_lease" />
+  </EntityType>
+  <EntityType Name="ReportRole">
+    <Key>
+      <PropertyRef Name="ReportRoleId" />
+    </Key>
+    <Property Name="ReportRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportRoleName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ReportRoleUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ReportDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="UserReportsPermissions" Relationship="Self.FK_UserReportsPermissions_ReportRoles" FromRole="ReportRoles" ToRole="UserReportsPermissions" />
+  </EntityType>
+  <EntityType Name="Serviceprovider">
+    <Key>
+      <PropertyRef Name="ProviderId" />
+    </Key>
+    <Property Name="ProviderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProviderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceId" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Approval" Type="Int32" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="ProfilePhoto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Faults" Relationship="Self.FK_Faults_Serviceprovider" FromRole="Serviceprovider" ToRole="Faults" />
+    <NavigationProperty Name="paymentHistories" Relationship="Self.FK_paymentHistory_Serviceprovider" FromRole="Serviceprovider" ToRole="paymentHistory" />
+    <NavigationProperty Name="service" Relationship="Self.FK_Serviceprovider_services" FromRole="Serviceprovider" ToRole="services" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_Serviceprovider_Users" FromRole="Serviceprovider" ToRole="User" />
+  </EntityType>
+  <EntityType Name="service">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LandlordId" Type="Int64" />
+    <NavigationProperty Name="Faults" Relationship="Self.FK_Faults_services1" FromRole="services" ToRole="Faults" />
+    <NavigationProperty Name="Serviceproviders" Relationship="Self.FK_Serviceprovider_services" FromRole="services" ToRole="Serviceprovider" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_services_Users" FromRole="service" ToRole="User" />
+  </EntityType>
+  <EntityType Name="setting">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="slug" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="keyId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="value" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="flagimg" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="State_Id" />
+    </Key>
+    <Property Name="State_Id" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StateName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StateCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CountryId" Type="Int32" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Cities_States" FromRole="States" ToRole="Cities" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_States_Countries" FromRole="States" ToRole="Countries" />
+  </EntityType>
+  <EntityType Name="TabRole">
+    <Key>
+      <PropertyRef Name="TabRolesId" />
+    </Key>
+    <Property Name="TabRolesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TabRolesName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TabRoleUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="UserTabPermissions" Relationship="Self.FK_UserTabPermissions_TabRoles" FromRole="TabRoles" ToRole="UserTabPermissions" />
+  </EntityType>
+  <EntityType Name="tb_PropertyNotes">
+    <Key>
+      <PropertyRef Name="PrpNotesId" />
+    </Key>
+    <Property Name="PrpNotesId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdded" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_tb_PropertyNotes_Properties" FromRole="tb_PropertyNotes" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="tbl_area">
+    <Key>
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Name="AreaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_inventory" Relationship="Self.FK_tbl_inventory_tbl_area" FromRole="tbl_area" ToRole="tbl_inventory" />
+  </EntityType>
+  <EntityType Name="tbl_inventory">
+    <Key>
+      <PropertyRef Name="InventoryId" />
+    </Key>
+    <Property Name="InventoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BuildingId" Type="Int32" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="AreaId" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InventoryTypeId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Modal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Serial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cost" Type="Double" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LandlordId" Type="Int64" />
+    <NavigationProperty Name="Building" Relationship="Self.FK_tbl_inventory_Buildings" FromRole="tbl_inventory" ToRole="Buildings" />
+    <NavigationProperty Name="inventory_type" Relationship="Self.FK_tbl_inventory_inventory_type" FromRole="tbl_inventory" ToRole="inventory_type" />
+    <NavigationProperty Name="tbl_area" Relationship="Self.FK_tbl_inventory_tbl_area" FromRole="tbl_inventory" ToRole="tbl_area" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_tbl_inventory_Users" FromRole="tbl_inventory" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_tbl_inventory_Properties" FromRole="tbl_inventory" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="tbl_invoice">
+    <Key>
+      <PropertyRef Name="InvoiceId" />
+    </Key>
+    <Property Name="InvoiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="Created" Type="DateTime" Precision="3" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="SendStatus" Type="Int32" />
+    <Property Name="PaymentStatus" Type="Int32" />
+    <Property Name="AgreementId" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Amountpay" Type="Double" />
+    <NavigationProperty Name="TenancyAgreement" Relationship="Self.FK_tbl_invoice_TenancyAgreement" FromRole="tbl_invoice" ToRole="TenancyAgreement" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_tbl_invoice_Tenants" FromRole="tbl_invoice" ToRole="Tenants" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_tbl_invoice_Users" FromRole="tbl_invoice" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_tbl_invoice_Properties" FromRole="tbl_invoice" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="tbl_offer">
+    <Key>
+      <PropertyRef Name="OfferId" />
+    </Key>
+    <Property Name="OfferId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="Askingprice" Type="Double" />
+    <Property Name="offer" Type="Double" />
+    <Property Name="OfferStatus" Type="Int32" />
+    <Property Name="PurposalStatus" Type="Int32" />
+    <Property Name="Approval" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_tbl_offer_Tenants" FromRole="tbl_offer" ToRole="Tenants" />
+    <NavigationProperty Name="TenancyDetails" Relationship="Self.FK_TenancyDetails_tbl_offer" FromRole="tbl_offer" ToRole="TenancyDetails" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_tbl_offer_Users" FromRole="tbl_offer" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_tbl_offer_Properties" FromRole="tbl_offer" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="tbl_owner">
+    <Key>
+      <PropertyRef Name="OwnerId" />
+    </Key>
+    <Property Name="OwnerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cellular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ownerreserveamt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_vendor">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ComName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tel1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tel2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TaxId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblDocument">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Name="DocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DocumentDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DocumentTypeId" Type="Int32" />
+    <Property Name="Country" Type="Int32" />
+    <NavigationProperty Name="Country1" Relationship="Self.FK_tblDocuments_Countries" FromRole="tblDocuments" ToRole="Countries" />
+    <NavigationProperty Name="DocumentType" Relationship="Self.FK_tblDocuments_DocumentType" FromRole="tblDocuments" ToRole="DocumentType" />
+  </EntityType>
+  <EntityType Name="tbMessage">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="emailfrom" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="emailto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="SentDate" Type="DateTime" Precision="3" />
+    <Property Name="ReceivedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TenancyAgreement">
+    <Key>
+      <PropertyRef Name="TenancyAgreementId" />
+    </Key>
+    <Property Name="TenancyAgreementId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromAgreementDate" Type="DateTime" Precision="0" />
+    <Property Name="ToAgreementDate" Type="DateTime" Precision="0" />
+    <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TenancyAgreementData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Signatures" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SignatureTenant" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RenewalDate" Type="DateTime" Precision="0" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="ApprovalStatus" Type="Int32" />
+    <Property Name="DateAdded" Type="DateTime" Precision="0" />
+    <Property Name="DateApproved" Type="DateTime" Precision="0" />
+    <Property Name="lastmonthdate" Type="DateTime" Precision="0" />
+    <Property Name="RenewStatus" Type="Int32" />
+    <Property Name="Checkoutdate" Type="DateTime" Precision="0" />
+    <Property Name="Paymentstatus" Type="Int32" />
+    <Property Name="Sendstatus" Type="Int32" />
+    <Property Name="Cancelcomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="damage_intventory" Relationship="Self.FK_damage_intventory_TenancyAgreement" FromRole="TenancyAgreement" ToRole="damage_intventory" />
+    <NavigationProperty Name="tbl_invoice" Relationship="Self.FK_tbl_invoice_TenancyAgreement" FromRole="TenancyAgreement" ToRole="tbl_invoice" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_TenancyAgreement_Tenants" FromRole="TenancyAgreement" ToRole="Tenants" />
+    <NavigationProperty Name="TenancyDetails" Relationship="Self.FK_TenancyDetails_TenancyAgreement" FromRole="TenancyAgreement" ToRole="TenancyDetails" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_TenancyAgreement_Users" FromRole="TenancyAgreement" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_TenancyAgreement_Properties" FromRole="TenancyAgreement" ToRole="Property" />
+  </EntityType>
+  <EntityType Name="TenancyDetail">
+    <Key>
+      <PropertyRef Name="TenancyDetailId" />
+    </Key>
+    <Property Name="TenancyDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="RequestViewingId" Type="Int32" />
+    <Property Name="ProposalViewingId" Type="Int32" />
+    <Property Name="OfferId" Type="Int32" />
+    <Property Name="ProposalOfferId" Type="Int32" />
+    <Property Name="DepositId" Type="Int32" />
+    <Property Name="ApplicationId" Type="Int32" />
+    <Property Name="TenancyAgrrementId" Type="Int32" />
+    <Property Name="InvoiceId" Type="Int32" />
+    <Property Name="transactionId" Type="Int32" />
+    <Property Name="PaymentId" Type="Int32" />
+    <Property Name="LeaseId" Type="Int64" />
+    <Property Name="MovingInId" Type="Int32" />
+    <NavigationProperty Name="Deposit" Relationship="Self.FK_TenancyDetails_Deposits" FromRole="TenancyDetails" ToRole="Deposits" />
+    <NavigationProperty Name="Purposal" Relationship="Self.FK_TenancyDetails_Purposal" FromRole="TenancyDetails" ToRole="Purposal" />
+    <NavigationProperty Name="tbl_offer" Relationship="Self.FK_TenancyDetails_tbl_offer" FromRole="TenancyDetails" ToRole="tbl_offer" />
+    <NavigationProperty Name="TenancyAgreement" Relationship="Self.FK_TenancyDetails_TenancyAgreement" FromRole="TenancyDetails" ToRole="TenancyAgreement" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_TenancyDetails_Tenants" FromRole="TenancyDetails" ToRole="Tenants" />
+    <NavigationProperty Name="ViewingPurposal" Relationship="Self.FK_TenancyDetails_ViewingPurposal" FromRole="TenancyDetails" ToRole="ViewingPurposal" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_TenancyDetails_Users" FromRole="TenancyDetail" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_TenancyDetails_Properties" FromRole="TenancyDetail" ToRole="Property" />
+    <NavigationProperty Name="RequestView" Relationship="dbrealestateModel.FK_TenancyDetails_RequestView" FromRole="TenancyDetail" ToRole="RequestView" />
+    <NavigationProperty Name="application_details" Relationship="dbrealestateModel.FK_TenancyDetails_application_details" FromRole="TenancyDetail" ToRole="application_details" />
+  </EntityType>
+  <EntityType Name="Tenant">
+    <Key>
+      <PropertyRef Name="Tenant_Id" />
+    </Key>
+    <Property Name="Tenant_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cellular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dateofbirth" Type="DateTime" Precision="3" />
+    <Property Name="DriverLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PassportNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SocialSecurity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Profile" Type="Int32" />
+    <Property Name="Smoker" Type="Boolean" />
+    <Property Name="Balance" Type="Double" />
+    <Property Name="LastPmtOn" Type="DateTime" Precision="3" />
+    <Property Name="Nextpmtdue" Type="DateTime" Precision="3" />
+    <Property Name="LeaseEnds" Type="DateTime" Precision="3" />
+    <Property Name="Property_Id" Type="Int64" />
+    <Property Name="leasestatus" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Signature" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Landlord_id" Type="Int64" />
+    <Property Name="ProfilePhoto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MaritalStatus" Type="Int32" />
+    <Property Name="IfVisa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pets" Type="Int16" />
+    <Property Name="ifPets" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Children" Type="Int16" />
+    <Property Name="IfChildren" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="BuildingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Town" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UnitNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Suberb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StreetAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="County" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="damage_intventory" Relationship="Self.FK_damage_intventory_Tenants" FromRole="Tenants" ToRole="damage_intventory" />
+    <NavigationProperty Name="Deposits" Relationship="Self.FK_Deposits_Tenants" FromRole="Tenants" ToRole="Deposits" />
+    <NavigationProperty Name="Faults" Relationship="Self.FK_Faults_Tenants" FromRole="Tenants" ToRole="Faults" />
+    <NavigationProperty Name="Inspections" Relationship="Self.FK_Inspection_Tenants" FromRole="Tenants" ToRole="Inspection" />
+    <NavigationProperty Name="MovingIns" Relationship="Self.FK_MovingIn_Tenants" FromRole="Tenants" ToRole="MovingIn" />
+    <NavigationProperty Name="Mylists" Relationship="Self.FK_Mylists_Tenants" FromRole="Tenants" ToRole="Mylists" />
+    <NavigationProperty Name="paymentHistories" Relationship="Self.FK_paymentHistory_Tenants" FromRole="Tenants" ToRole="paymentHistory" />
+    <NavigationProperty Name="Purposals" Relationship="Self.FK_Purposal_Tenants" FromRole="Tenants" ToRole="Purposal" />
+    <NavigationProperty Name="tbl_invoice" Relationship="Self.FK_tbl_invoice_Tenants" FromRole="Tenants" ToRole="tbl_invoice" />
+    <NavigationProperty Name="tbl_offer" Relationship="Self.FK_tbl_offer_Tenants" FromRole="Tenants" ToRole="tbl_offer" />
+    <NavigationProperty Name="TenancyAgreements" Relationship="Self.FK_TenancyAgreement_Tenants" FromRole="Tenants" ToRole="TenancyAgreement" />
+    <NavigationProperty Name="TenancyDetails" Relationship="Self.FK_TenancyDetails_Tenants" FromRole="Tenants" ToRole="TenancyDetails" />
+    <NavigationProperty Name="ViewingPurposals" Relationship="Self.FK_ViewingPurposal_Tenants" FromRole="Tenants" ToRole="ViewingPurposal" />
+    <NavigationProperty Name="Properties" Relationship="dbrealestateModel.FK_Properties_Tenant" FromRole="Tenant" ToRole="Property" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_Tenants_Properties" FromRole="Tenant" ToRole="Property" />
+    <NavigationProperty Name="tbl_lease" Relationship="dbrealestateModel.FK_tbl_lease_Tenants" FromRole="Tenant" ToRole="tbl_lease" />
+    <NavigationProperty Name="tbl_lease1" Relationship="dbrealestateModel.FK_tbl_lease_Tenants1" FromRole="Tenant" ToRole="tbl_lease" />
+    <NavigationProperty Name="RequestViews" Relationship="dbrealestateModel.FK_RequestView_Tenants" FromRole="Tenant" ToRole="RequestView" />
+    <NavigationProperty Name="tbl_LeaseCredits" Relationship="dbrealestateModel.FK_tbl_LeaseCredits_Tenants" FromRole="Tenant" ToRole="tbl_LeaseCredits" />
+    <NavigationProperty Name="tbl_othercharges" Relationship="dbrealestateModel.FK_tbl_othercharges_Tenants" FromRole="Tenant" ToRole="tbl_othercharges" />
+    <NavigationProperty Name="application_details" Relationship="dbrealestateModel.FK_application_details_Tenants" FromRole="Tenant" ToRole="application_details" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="TrasactionId" />
+    </Key>
+    <Property Name="TrasactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AmountPaid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="DateAdded" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="UserDocument">
+    <Key>
+      <PropertyRef Name="UserDocumentId" />
+    </Key>
+    <Property Name="UserDocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="ContentDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DocumentTypeId" Type="Int32" />
+    <Property Name="DocTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="Int32" />
+    <NavigationProperty Name="Country1" Relationship="Self.FK_UserDocuments_Countries" FromRole="UserDocuments" ToRole="Countries" />
+    <NavigationProperty Name="DocumentType" Relationship="Self.FK_UserDocuments_DocumentType" FromRole="UserDocuments" ToRole="DocumentType" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_UserDocuments_Users" FromRole="UserDocument" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserReportsPermission">
+    <Key>
+      <PropertyRef Name="UserReportsPermissionsId" />
+    </Key>
+    <Property Name="UserReportsPermissionsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="ReportsRoleId" Type="Int32" />
+    <Property Name="ReportPermissionStatus" Type="Int32" />
+    <NavigationProperty Name="ReportRole" Relationship="Self.FK_UserReportsPermissions_ReportRoles" FromRole="UserReportsPermissions" ToRole="ReportRoles" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_UserReportsPermissions_Users" FromRole="UserReportsPermission" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdded" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Users" Relationship="dbrealestateModel.FK_Users_UserRoles" FromRole="UserRole" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserTabPermission">
+    <Key>
+      <PropertyRef Name="UserTabPermissionsId" />
+    </Key>
+    <Property Name="UserTabPermissionsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="TabRoleId" Type="Int32" />
+    <Property Name="PermissionStatus" Type="Int32" />
+    <NavigationProperty Name="TabRole" Relationship="Self.FK_UserTabPermissions_TabRoles" FromRole="UserTabPermissions" ToRole="TabRoles" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_UserTabPermissions_Users" FromRole="UserTabPermission" ToRole="User" />
+  </EntityType>
+  <EntityType Name="ViewingPurposal">
+    <Key>
+      <PropertyRef Name="ViewingPurposalid" />
+    </Key>
+    <Property Name="ViewingPurposalid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PreferredDate" Type="DateTime" Precision="3" />
+    <Property Name="PreferredTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Approve" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="RequestViewid" Type="Int32" />
+    <NavigationProperty Name="TenancyDetails" Relationship="Self.FK_TenancyDetails_ViewingPurposal" FromRole="ViewingPurposal" ToRole="TenancyDetails" />
+    <NavigationProperty Name="Tenant" Relationship="Self.FK_ViewingPurposal_Tenants" FromRole="ViewingPurposal" ToRole="Tenants" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_ViewingPurposal_Users" FromRole="ViewingPurposal" ToRole="User" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_ViewingPurposal_Properties" FromRole="ViewingPurposal" ToRole="Property" />
+  </EntityType>
+  <Association Name="FK_Applicants_ApprovalStatuses">
+    <End Role="ApprovalStatuses" Type="Self.ApprovalStatus" Multiplicity="0..1" />
+    <End Role="Applicants" Type="Self.Applicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApprovalStatuses">
+        <PropertyRef Name="ApprovalStatus_Id" />
+      </Principal>
+      <Dependent Role="Applicants">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_damage_intventory_Buildings">
+    <End Role="Buildings" Type="Self.Building" Multiplicity="0..1" />
+    <End Role="damage_intventory" Type="Self.damage_intventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Building_Id" />
+      </Principal>
+      <Dependent Role="damage_intventory">
+        <PropertyRef Name="Building_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentHistory_Buildings">
+    <End Role="Buildings" Type="Self.Building" Multiplicity="0..1" />
+    <End Role="paymentHistory" Type="Self.paymentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Building_Id" />
+      </Principal>
+      <Dependent Role="paymentHistory">
+        <PropertyRef Name="Building_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_inventory_Buildings">
+    <End Role="Buildings" Type="Self.Building" Multiplicity="0..1" />
+    <End Role="tbl_inventory" Type="Self.tbl_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Building_Id" />
+      </Principal>
+      <Dependent Role="tbl_inventory">
+        <PropertyRef Name="BuildingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cities_Countries">
+    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="Cities" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cities_States">
+    <End Role="States" Type="Self.State" Multiplicity="0..1" />
+    <End Role="Cities" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="State_Id" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_States_Countries">
+    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="States" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDocuments_Countries">
+    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="tblDocuments" Type="Self.tblDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="tblDocuments">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocuments_Countries">
+    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="UserDocuments" Type="Self.UserDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="UserDocuments">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_damage_intventory_TenancyAgreement">
+    <End Role="TenancyAgreement" Type="Self.TenancyAgreement" Multiplicity="0..1" />
+    <End Role="damage_intventory" Type="Self.damage_intventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TenancyAgreement">
+        <PropertyRef Name="TenancyAgreementId" />
+      </Principal>
+      <Dependent Role="damage_intventory">
+        <PropertyRef Name="TenancyAgreementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_damage_intventory_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="damage_intventory" Type="Self.damage_intventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="damage_intventory">
+        <PropertyRef Name="Tenant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposits_Tenants">
+    <End Type="Self.Tenant" Multiplicity="0..1" Role="Tenants" />
+    <End Type="Self.Deposit" Multiplicity="*" Role="Deposits" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Deposits">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_Deposits">
+    <End Type="Self.Deposit" Multiplicity="0..1" Role="Deposits" />
+    <End Type="Self.TenancyDetail" Multiplicity="*" Role="TenancyDetails" />
+    <ReferentialConstraint>
+      <Principal Role="Deposits">
+        <PropertyRef Name="DepositId" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="DepositId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDocuments_DocumentType">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="0..1" />
+    <End Role="tblDocuments" Type="Self.tblDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentTypeId" />
+      </Principal>
+      <Dependent Role="tblDocuments">
+        <PropertyRef Name="DocumentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocuments_DocumentType">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="0..1" />
+    <End Role="UserDocuments" Type="Self.UserDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentTypeId" />
+      </Principal>
+      <Dependent Role="UserDocuments">
+        <PropertyRef Name="DocumentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_FaultTypes">
+    <End Role="FaultTypes" Type="Self.FaultType" Multiplicity="0..1" />
+    <End Role="Faults" Type="Self.Fault" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FaultTypes">
+        <PropertyRef Name="FaultTypeId" />
+      </Principal>
+      <Dependent Role="Faults">
+        <PropertyRef Name="FaultTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_Serviceprovider">
+    <End Role="Serviceprovider" Type="Self.Serviceprovider" Multiplicity="0..1" />
+    <End Role="Faults" Type="Self.Fault" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Serviceprovider">
+        <PropertyRef Name="ProviderId" />
+      </Principal>
+      <Dependent Role="Faults">
+        <PropertyRef Name="ServiceProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_services1">
+    <End Role="services" Type="Self.service" Multiplicity="0..1" />
+    <End Role="Faults" Type="Self.Fault" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="ServiceId" />
+      </Principal>
+      <Dependent Role="Faults">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="Faults" Type="Self.Fault" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Faults">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inspection_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Inspection">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_inventory_inventory_type">
+    <End Role="inventory_type" Type="Self.inventory_type" Multiplicity="0..1" />
+    <End Role="tbl_inventory" Type="Self.tbl_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inventory_type">
+        <PropertyRef Name="InventoryTypeId" />
+      </Principal>
+      <Dependent Role="tbl_inventory">
+        <PropertyRef Name="InventoryTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovingIn_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="MovingIn" Type="Self.MovingIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="MovingIn">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mylists_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="Mylists" Type="Self.Mylist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Mylists">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentHistory_Serviceprovider">
+    <End Role="Serviceprovider" Type="Self.Serviceprovider" Multiplicity="0..1" />
+    <End Role="paymentHistory" Type="Self.paymentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Serviceprovider">
+        <PropertyRef Name="ProviderId" />
+      </Principal>
+      <Dependent Role="paymentHistory">
+        <PropertyRef Name="ServiceProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentHistory_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="paymentHistory" Type="Self.paymentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="paymentHistory">
+        <PropertyRef Name="Tenant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purposal_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="Purposal" Type="Self.Purposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Purposal">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_Purposal">
+    <End Role="Purposal" Type="Self.Purposal" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purposal">
+        <PropertyRef Name="PurposalId" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="ProposalOfferId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserReportsPermissions_ReportRoles">
+    <End Role="ReportRoles" Type="Self.ReportRole" Multiplicity="0..1" />
+    <End Role="UserReportsPermissions" Type="Self.UserReportsPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportRoles">
+        <PropertyRef Name="ReportRoleId" />
+      </Principal>
+      <Dependent Role="UserReportsPermissions">
+        <PropertyRef Name="ReportsRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Serviceprovider_services">
+    <End Role="services" Type="Self.service" Multiplicity="0..1" />
+    <End Role="Serviceprovider" Type="Self.Serviceprovider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="ServiceId" />
+      </Principal>
+      <Dependent Role="Serviceprovider">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTabPermissions_TabRoles">
+    <End Role="TabRoles" Type="Self.TabRole" Multiplicity="0..1" />
+    <End Role="UserTabPermissions" Type="Self.UserTabPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabRoles">
+        <PropertyRef Name="TabRolesId" />
+      </Principal>
+      <Dependent Role="UserTabPermissions">
+        <PropertyRef Name="TabRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_inventory_tbl_area">
+    <End Role="tbl_area" Type="Self.tbl_area" Multiplicity="0..1" />
+    <End Role="tbl_inventory" Type="Self.tbl_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_area">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="tbl_inventory">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_invoice_TenancyAgreement">
+    <End Role="TenancyAgreement" Type="Self.TenancyAgreement" Multiplicity="0..1" />
+    <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TenancyAgreement">
+        <PropertyRef Name="TenancyAgreementId" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="AgreementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_invoice_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_offer_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="tbl_offer" Type="Self.tbl_offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_offer">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_tbl_offer">
+    <End Role="tbl_offer" Type="Self.tbl_offer" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_offer">
+        <PropertyRef Name="OfferId" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="OfferId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyAgreement_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="TenancyAgreement" Type="Self.TenancyAgreement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="TenancyAgreement">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_TenancyAgreement">
+    <End Role="TenancyAgreement" Type="Self.TenancyAgreement" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TenancyAgreement">
+        <PropertyRef Name="TenancyAgreementId" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="TenancyAgrrementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_ViewingPurposal">
+    <End Role="ViewingPurposal" Type="Self.ViewingPurposal" Multiplicity="0..1" />
+    <End Role="TenancyDetails" Type="Self.TenancyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ViewingPurposal">
+        <PropertyRef Name="ViewingPurposalid" />
+      </Principal>
+      <Dependent Role="TenancyDetails">
+        <PropertyRef Name="ProposalViewingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewingPurposal_Tenants">
+    <End Role="Tenants" Type="Self.Tenant" Multiplicity="0..1" />
+    <End Role="ViewingPurposal" Type="Self.ViewingPurposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenants">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="ViewingPurposal">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbrealestateEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Applicants" EntityType="Self.Applicant" />
+    <EntitySet Name="ApprovalStatuses" EntityType="Self.ApprovalStatus" />
+    <EntitySet Name="Blogs" EntityType="Self.Blog" />
+    <EntitySet Name="Buildings" EntityType="Self.Building" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="CommonDocuments" EntityType="Self.CommonDocument" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="damage_intventory" EntityType="Self.damage_intventory" />
+    <EntitySet Name="deposit_transaction" EntityType="Self.deposit_transaction" />
+    <EntitySet Name="Deposits" EntityType="Self.Deposit" />
+    <EntitySet Name="Descriptions" EntityType="Self.Description" />
+    <EntitySet Name="DocumentTypes" EntityType="Self.DocumentType" />
+    <EntitySet Name="Events" EntityType="Self.Event" />
+    <EntitySet Name="Faults" EntityType="Self.Fault" />
+    <EntitySet Name="FaultTypes" EntityType="Self.FaultType" />
+    <EntitySet Name="Inspections" EntityType="Self.Inspection" />
+    <EntitySet Name="inventory_type" EntityType="Self.inventory_type" />
+    <EntitySet Name="InventoryImages" EntityType="Self.InventoryImage" />
+    <EntitySet Name="Invites" EntityType="Self.Invite" />
+    <EntitySet Name="MovingIns" EntityType="Self.MovingIn" />
+    <EntitySet Name="Mylists" EntityType="Self.Mylist" />
+    <EntitySet Name="paymentHistories" EntityType="Self.paymentHistory" />
+    <EntitySet Name="Plans" EntityType="Self.Plan" />
+    <EntitySet Name="PropertyAirConditionings" EntityType="Self.PropertyAirConditioning" />
+    <EntitySet Name="PropertyFeatures" EntityType="Self.PropertyFeature" />
+    <EntitySet Name="PropertyFloorings" EntityType="Self.PropertyFlooring" />
+    <EntitySet Name="PropertyHeatings" EntityType="Self.PropertyHeating" />
+    <EntitySet Name="PropertyImages" EntityType="Self.PropertyImage" />
+    <EntitySet Name="PropertyParkings" EntityType="Self.PropertyParking" />
+    <EntitySet Name="PropertyStyles" EntityType="Self.PropertyStyle" />
+    <EntitySet Name="PropertyTypes" EntityType="Self.PropertyType" />
+    <EntitySet Name="Purposals" EntityType="Self.Purposal" />
+    <EntitySet Name="reminderlists" EntityType="Self.reminderlist" />
+    <EntitySet Name="RentDues" EntityType="Self.RentDue" />
+    <EntitySet Name="ReportRoles" EntityType="Self.ReportRole" />
+    <EntitySet Name="Serviceproviders" EntityType="Self.Serviceprovider" />
+    <EntitySet Name="services" EntityType="Self.service" />
+    <EntitySet Name="settings" EntityType="Self.setting" />
+    <EntitySet Name="States" EntityType="Self.State" />
+    <EntitySet Name="TabRoles" EntityType="Self.TabRole" />
+    <EntitySet Name="tb_PropertyNotes" EntityType="Self.tb_PropertyNotes" />
+    <EntitySet Name="tbl_area" EntityType="Self.tbl_area" />
+    <EntitySet Name="tbl_inventory" EntityType="Self.tbl_inventory" />
+    <EntitySet Name="tbl_invoice" EntityType="Self.tbl_invoice" />
+    <EntitySet Name="tbl_offer" EntityType="Self.tbl_offer" />
+    <EntitySet Name="tbl_owner" EntityType="Self.tbl_owner" />
+    <EntitySet Name="tbl_vendor" EntityType="Self.tbl_vendor" />
+    <EntitySet Name="tblDocuments" EntityType="Self.tblDocument" />
+    <EntitySet Name="tbMessages" EntityType="Self.tbMessage" />
+    <EntitySet Name="TenancyAgreements" EntityType="Self.TenancyAgreement" />
+    <EntitySet Name="TenancyDetails" EntityType="Self.TenancyDetail" />
+    <EntitySet Name="Tenants" EntityType="Self.Tenant" />
+    <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+    <EntitySet Name="UserDocuments" EntityType="Self.UserDocument" />
+    <EntitySet Name="UserReportsPermissions" EntityType="Self.UserReportsPermission" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <EntitySet Name="UserTabPermissions" EntityType="Self.UserTabPermission" />
+    <EntitySet Name="ViewingPurposals" EntityType="Self.ViewingPurposal" />
+    <AssociationSet Name="FK_Applicants_ApprovalStatuses" Association="Self.FK_Applicants_ApprovalStatuses">
+      <End Role="ApprovalStatuses" EntitySet="ApprovalStatuses" />
+      <End Role="Applicants" EntitySet="Applicants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_damage_intventory_Buildings" Association="Self.FK_damage_intventory_Buildings">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="damage_intventory" EntitySet="damage_intventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentHistory_Buildings" Association="Self.FK_paymentHistory_Buildings">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="paymentHistory" EntitySet="paymentHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_inventory_Buildings" Association="Self.FK_tbl_inventory_Buildings">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="tbl_inventory" EntitySet="tbl_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cities_Countries" Association="Self.FK_Cities_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cities_States" Association="Self.FK_Cities_States">
+      <End Role="States" EntitySet="States" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_States_Countries" Association="Self.FK_States_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDocuments_Countries" Association="Self.FK_tblDocuments_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocuments_Countries" Association="Self.FK_UserDocuments_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="UserDocuments" EntitySet="UserDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_damage_intventory_TenancyAgreement" Association="Self.FK_damage_intventory_TenancyAgreement">
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreements" />
+      <End Role="damage_intventory" EntitySet="damage_intventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_damage_intventory_Tenants" Association="Self.FK_damage_intventory_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="damage_intventory" EntitySet="damage_intventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposits_Tenants" Association="Self.FK_Deposits_Tenants">
+      <End EntitySet="Tenants" Role="Tenants" />
+      <End EntitySet="Deposits" Role="Deposits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_Deposits" Association="Self.FK_TenancyDetails_Deposits">
+      <End EntitySet="Deposits" Role="Deposits" />
+      <End EntitySet="TenancyDetails" Role="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDocuments_DocumentType" Association="Self.FK_tblDocuments_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentTypes" />
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocuments_DocumentType" Association="Self.FK_UserDocuments_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentTypes" />
+      <End Role="UserDocuments" EntitySet="UserDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_FaultTypes" Association="Self.FK_Faults_FaultTypes">
+      <End Role="FaultTypes" EntitySet="FaultTypes" />
+      <End Role="Faults" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_Serviceprovider" Association="Self.FK_Faults_Serviceprovider">
+      <End Role="Serviceprovider" EntitySet="Serviceproviders" />
+      <End Role="Faults" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_services1" Association="Self.FK_Faults_services1">
+      <End Role="services" EntitySet="services" />
+      <End Role="Faults" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_Tenants" Association="Self.FK_Faults_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Faults" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inspection_Tenants" Association="Self.FK_Inspection_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Inspection" EntitySet="Inspections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_inventory_inventory_type" Association="Self.FK_tbl_inventory_inventory_type">
+      <End Role="inventory_type" EntitySet="inventory_type" />
+      <End Role="tbl_inventory" EntitySet="tbl_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovingIn_Tenants" Association="Self.FK_MovingIn_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="MovingIn" EntitySet="MovingIns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mylists_Tenants" Association="Self.FK_Mylists_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Mylists" EntitySet="Mylists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentHistory_Serviceprovider" Association="Self.FK_paymentHistory_Serviceprovider">
+      <End Role="Serviceprovider" EntitySet="Serviceproviders" />
+      <End Role="paymentHistory" EntitySet="paymentHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentHistory_Tenants" Association="Self.FK_paymentHistory_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="paymentHistory" EntitySet="paymentHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purposal_Tenants" Association="Self.FK_Purposal_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="Purposal" EntitySet="Purposals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_Purposal" Association="Self.FK_TenancyDetails_Purposal">
+      <End Role="Purposal" EntitySet="Purposals" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserReportsPermissions_ReportRoles" Association="Self.FK_UserReportsPermissions_ReportRoles">
+      <End Role="ReportRoles" EntitySet="ReportRoles" />
+      <End Role="UserReportsPermissions" EntitySet="UserReportsPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Serviceprovider_services" Association="Self.FK_Serviceprovider_services">
+      <End Role="services" EntitySet="services" />
+      <End Role="Serviceprovider" EntitySet="Serviceproviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTabPermissions_TabRoles" Association="Self.FK_UserTabPermissions_TabRoles">
+      <End Role="TabRoles" EntitySet="TabRoles" />
+      <End Role="UserTabPermissions" EntitySet="UserTabPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_inventory_tbl_area" Association="Self.FK_tbl_inventory_tbl_area">
+      <End Role="tbl_area" EntitySet="tbl_area" />
+      <End Role="tbl_inventory" EntitySet="tbl_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_invoice_TenancyAgreement" Association="Self.FK_tbl_invoice_TenancyAgreement">
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreements" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_invoice_Tenants" Association="Self.FK_tbl_invoice_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_offer_Tenants" Association="Self.FK_tbl_offer_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="tbl_offer" EntitySet="tbl_offer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_tbl_offer" Association="Self.FK_TenancyDetails_tbl_offer">
+      <End Role="tbl_offer" EntitySet="tbl_offer" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyAgreement_Tenants" Association="Self.FK_TenancyAgreement_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_TenancyAgreement" Association="Self.FK_TenancyDetails_TenancyAgreement">
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreements" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_Tenants" Association="Self.FK_TenancyDetails_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_ViewingPurposal" Association="Self.FK_TenancyDetails_ViewingPurposal">
+      <End Role="ViewingPurposal" EntitySet="ViewingPurposals" />
+      <End Role="TenancyDetails" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewingPurposal_Tenants" Association="Self.FK_ViewingPurposal_Tenants">
+      <End Role="Tenants" EntitySet="Tenants" />
+      <End Role="ViewingPurposal" EntitySet="ViewingPurposals" />
+    </AssociationSet>
+    <FunctionImport Name="gettenantdetails" ReturnType="Collection(dbrealestateModel.gettenantdetails_Result)">
+      <Parameter Name="landlordid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Users" EntityType="dbrealestateModel.User" />
+    <AssociationSet Name="FK_CommonDocuments_Users" Association="dbrealestateModel.FK_CommonDocuments_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CommonDocument" EntitySet="CommonDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Countries" Association="dbrealestateModel.FK_Users_Countries">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_damage_intventory_Users" Association="dbrealestateModel.FK_damage_intventory_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="damage_intventory" EntitySet="damage_intventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposits_Deposits" Association="dbrealestateModel.FK_Deposits_Deposits">
+      <End EntitySet="Users" Role="User" />
+      <End EntitySet="Deposits" Role="Deposit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_Users" Association="dbrealestateModel.FK_Faults_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Fault" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inspection_Users" Association="dbrealestateModel.FK_Inspection_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Inspection" EntitySet="Inspections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryImages_Users" Association="dbrealestateModel.FK_InventoryImages_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="InventoryImage" EntitySet="InventoryImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovingIn_Users" Association="dbrealestateModel.FK_MovingIn_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="MovingIn" EntitySet="MovingIns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentHistory_Users" Association="dbrealestateModel.FK_paymentHistory_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="paymentHistory" EntitySet="paymentHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PropertyImages_Users" Association="dbrealestateModel.FK_PropertyImages_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="PropertyImage" EntitySet="PropertyImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purposal_Users" Association="dbrealestateModel.FK_Purposal_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Purposal" EntitySet="Purposals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Serviceprovider_Users" Association="dbrealestateModel.FK_Serviceprovider_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Serviceprovider" EntitySet="Serviceproviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_services_Users" Association="dbrealestateModel.FK_services_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="service" EntitySet="services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_inventory_Users" Association="dbrealestateModel.FK_tbl_inventory_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="tbl_inventory" EntitySet="tbl_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_invoice_Users" Association="dbrealestateModel.FK_tbl_invoice_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_offer_Users" Association="dbrealestateModel.FK_tbl_offer_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="tbl_offer" EntitySet="tbl_offer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyAgreement_Users" Association="dbrealestateModel.FK_TenancyAgreement_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_Users" Association="dbrealestateModel.FK_TenancyDetails_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="TenancyDetail" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocuments_Users" Association="dbrealestateModel.FK_UserDocuments_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserDocument" EntitySet="UserDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserReportsPermissions_Users" Association="dbrealestateModel.FK_UserReportsPermissions_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserReportsPermission" EntitySet="UserReportsPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserRoles" Association="dbrealestateModel.FK_Users_UserRoles">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTabPermissions_Users" Association="dbrealestateModel.FK_UserTabPermissions_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserTabPermission" EntitySet="UserTabPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewingPurposal_Users" Association="dbrealestateModel.FK_ViewingPurposal_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ViewingPurposal" EntitySet="ViewingPurposals" />
+    </AssociationSet>
+    <EntitySet Name="Properties" EntityType="dbrealestateModel.Property" />
+    <AssociationSet Name="FK_Properties_Buildings" Association="dbrealestateModel.FK_Properties_Buildings">
+      <End Role="Building" EntitySet="Buildings" />
+      <End Role="Property" EntitySet="Properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_damage_intventory_Properties" Association="dbrealestateModel.FK_damage_intventory_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="damage_intventory" EntitySet="damage_intventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposits_Properties" Association="dbrealestateModel.FK_Deposits_Properties">
+      <End EntitySet="Properties" Role="Property" />
+      <End EntitySet="Deposits" Role="Deposit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faults_Properties" Association="dbrealestateModel.FK_Faults_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="Fault" EntitySet="Faults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inspection_Properties" Association="dbrealestateModel.FK_Inspection_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="Inspection" EntitySet="Inspections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryImages_Properties" Association="dbrealestateModel.FK_InventoryImages_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="InventoryImage" EntitySet="InventoryImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovingIn_Properties" Association="dbrealestateModel.FK_MovingIn_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="MovingIn" EntitySet="MovingIns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mylists_Properties" Association="dbrealestateModel.FK_Mylists_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="Mylist" EntitySet="Mylists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentHistory_Properties" Association="dbrealestateModel.FK_paymentHistory_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="paymentHistory" EntitySet="paymentHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Properties_PropertyStyles" Association="dbrealestateModel.FK_Properties_PropertyStyles">
+      <End Role="PropertyStyle" EntitySet="PropertyStyles" />
+      <End Role="Property" EntitySet="Properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Properties_PropertyTypes1" Association="dbrealestateModel.FK_Properties_PropertyTypes1">
+      <End Role="PropertyType" EntitySet="PropertyTypes" />
+      <End Role="Property" EntitySet="Properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Properties_Tenant" Association="dbrealestateModel.FK_Properties_Tenant">
+      <End Role="Tenant" EntitySet="Tenants" />
+      <End Role="Property" EntitySet="Properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Properties_Users" Association="dbrealestateModel.FK_Properties_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Property" EntitySet="Properties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purposal_Properties" Association="dbrealestateModel.FK_Purposal_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="Purposal" EntitySet="Purposals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_PropertyNotes_Properties" Association="dbrealestateModel.FK_tb_PropertyNotes_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="tb_PropertyNotes" EntitySet="tb_PropertyNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_inventory_Properties" Association="dbrealestateModel.FK_tbl_inventory_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="tbl_inventory" EntitySet="tbl_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_invoice_Properties" Association="dbrealestateModel.FK_tbl_invoice_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_offer_Properties" Association="dbrealestateModel.FK_tbl_offer_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="tbl_offer" EntitySet="tbl_offer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyAgreement_Properties" Association="dbrealestateModel.FK_TenancyAgreement_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="TenancyAgreement" EntitySet="TenancyAgreements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_Properties" Association="dbrealestateModel.FK_TenancyDetails_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="TenancyDetail" EntitySet="TenancyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tenants_Properties" Association="dbrealestateModel.FK_Tenants_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="Tenant" EntitySet="Tenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewingPurposal_Properties" Association="dbrealestateModel.FK_ViewingPurposal_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="ViewingPurposal" EntitySet="ViewingPurposals" />
+    </AssociationSet>
+    <EntitySet Name="tbl_lease" EntityType="dbrealestateModel.tbl_lease" />
+    <AssociationSet Name="FK_tbl_lease_Properties" Association="dbrealestateModel.FK_tbl_lease_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_lease_RentDue" Association="dbrealestateModel.FK_tbl_lease_RentDue">
+      <End Role="RentDue" EntitySet="RentDues" />
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_lease_Tenants" Association="dbrealestateModel.FK_tbl_lease_Tenants">
+      <End Role="Tenant" EntitySet="Tenants" />
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_lease_Tenants1" Association="dbrealestateModel.FK_tbl_lease_Tenants1">
+      <End Role="Tenant" EntitySet="Tenants" />
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+    </AssociationSet>
+    <EntitySet Name="RequestViews" EntityType="dbrealestateModel.RequestView" />
+    <AssociationSet Name="FK_RequestView_Properties" Association="dbrealestateModel.FK_RequestView_Properties">
+      <End EntitySet="Properties" Role="Property" />
+      <End EntitySet="RequestViews" Role="RequestView" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestView_Tenants" Association="dbrealestateModel.FK_RequestView_Tenants">
+      <End EntitySet="Tenants" Role="Tenant" />
+      <End EntitySet="RequestViews" Role="RequestView" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestView_Users" Association="dbrealestateModel.FK_RequestView_Users">
+      <End EntitySet="Users" Role="User" />
+      <End EntitySet="RequestViews" Role="RequestView" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_RequestView" Association="dbrealestateModel.FK_TenancyDetails_RequestView">
+      <End EntitySet="RequestViews" Role="RequestView" />
+      <End EntitySet="TenancyDetails" Role="TenancyDetail" />
+    </AssociationSet>
+    <EntitySet Name="tbl_LeaseCredits" EntityType="dbrealestateModel.tbl_LeaseCredits" />
+    <AssociationSet Name="FK_tbl_LeaseCredits_Properties" Association="dbrealestateModel.FK_tbl_LeaseCredits_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="tbl_LeaseCredits" EntitySet="tbl_LeaseCredits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_LeaseCredits_tbl_LeaseCredits" Association="dbrealestateModel.FK_tbl_LeaseCredits_tbl_LeaseCredits">
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+      <End Role="tbl_LeaseCredits" EntitySet="tbl_LeaseCredits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_LeaseCredits_Tenants" Association="dbrealestateModel.FK_tbl_LeaseCredits_Tenants">
+      <End Role="Tenant" EntitySet="Tenants" />
+      <End Role="tbl_LeaseCredits" EntitySet="tbl_LeaseCredits" />
+    </AssociationSet>
+    <EntitySet Name="tbl_othercharges" EntityType="dbrealestateModel.tbl_othercharges" />
+    <AssociationSet Name="FK_tbl_othercharges_Properties" Association="dbrealestateModel.FK_tbl_othercharges_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="tbl_othercharges" EntitySet="tbl_othercharges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_othercharges_tbl_lease" Association="dbrealestateModel.FK_tbl_othercharges_tbl_lease">
+      <End Role="tbl_lease" EntitySet="tbl_lease" />
+      <End Role="tbl_othercharges" EntitySet="tbl_othercharges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_othercharges_Tenants" Association="dbrealestateModel.FK_tbl_othercharges_Tenants">
+      <End Role="Tenant" EntitySet="Tenants" />
+      <End Role="tbl_othercharges" EntitySet="tbl_othercharges" />
+    </AssociationSet>
+    <EntitySet Name="application_details" EntityType="dbrealestateModel.application_details" />
+    <AssociationSet Name="FK_application_details_Properties" Association="dbrealestateModel.FK_application_details_Properties">
+      <End Role="Property" EntitySet="Properties" />
+      <End Role="application_details" EntitySet="application_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_details_Tenants" Association="dbrealestateModel.FK_application_details_Tenants">
+      <End Role="Tenant" EntitySet="Tenants" />
+      <End Role="application_details" EntitySet="application_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_application_details_Users" Association="dbrealestateModel.FK_application_details_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="application_details" EntitySet="application_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TenancyDetails_application_details" Association="dbrealestateModel.FK_TenancyDetails_application_details">
+      <End Role="application_details" EntitySet="application_details" />
+      <End Role="TenancyDetail" EntitySet="TenancyDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="gettenantdetails_Result">
+    <Property Type="Int32" Name="TenancyAgreementId" Nullable="false" />
+    <Property Type="DateTime" Name="FromAgreementDate" Nullable="true" />
+    <Property Type="DateTime" Name="ToAgreementDate" Nullable="true" />
+    <Property Type="String" Name="Duration" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TenancyAgreementData" Nullable="true" />
+    <Property Type="String" Name="Signatures" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SignatureTenant" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="RenewalDate" Nullable="true" />
+    <Property Type="Int64" Name="TenantId" Nullable="true" />
+    <Property Type="Int64" Name="LandlordId" Nullable="true" />
+    <Property Type="Int64" Name="PropertyId" Nullable="true" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+    <Property Type="Int32" Name="ApprovalStatus" Nullable="true" />
+    <Property Type="DateTime" Name="DateAdded" Nullable="true" />
+    <Property Type="DateTime" Name="DateApproved" Nullable="true" />
+    <Property Type="DateTime" Name="lastmonthdate" Nullable="true" />
+    <Property Type="Int32" Name="RenewStatus" Nullable="true" />
+    <Property Type="DateTime" Name="Checkoutdate" Nullable="true" />
+    <Property Type="Int32" Name="Paymentstatus" Nullable="true" />
+    <Property Type="Int32" Name="Sendstatus" Nullable="true" />
+    <Property Type="String" Name="Cancelcomment" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="County" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UserTypeID" Type="Int32" />
+    <Property Name="UserStatusID" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="TimeZone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AgreedToTerms" Type="Boolean" />
+    <Property Name="Terms" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CCType" Type="Int32" />
+    <Property Name="CCNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CCExpDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CCSecurityNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BillingAddressSameAsCase" Type="Boolean" />
+    <Property Name="BillingAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="BillingCity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BillingState" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BillingZip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NameOnAccount" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UserRole" Type="Int32" />
+    <Property Name="Signature" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="ProfilePhoto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Town" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BuildingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UnitNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Suberb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StreetAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StripeCustomerId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserLandlordId" Type="Int64" />
+    <NavigationProperty Name="CommonDocuments" Relationship="dbrealestateModel.FK_CommonDocuments_Users" FromRole="User" ToRole="CommonDocument" />
+    <NavigationProperty Name="Country1" Relationship="dbrealestateModel.FK_Users_Countries" FromRole="User" ToRole="Country" />
+    <NavigationProperty Name="damage_intventory" Relationship="dbrealestateModel.FK_damage_intventory_Users" FromRole="User" ToRole="damage_intventory" />
+    <NavigationProperty Name="Deposits" Relationship="dbrealestateModel.FK_Deposits_Deposits" FromRole="User" ToRole="Deposit" />
+    <NavigationProperty Name="Faults" Relationship="dbrealestateModel.FK_Faults_Users" FromRole="User" ToRole="Fault" />
+    <NavigationProperty Name="Inspections" Relationship="dbrealestateModel.FK_Inspection_Users" FromRole="User" ToRole="Inspection" />
+    <NavigationProperty Name="InventoryImages" Relationship="dbrealestateModel.FK_InventoryImages_Users" FromRole="User" ToRole="InventoryImage" />
+    <NavigationProperty Name="MovingIns" Relationship="dbrealestateModel.FK_MovingIn_Users" FromRole="User" ToRole="MovingIn" />
+    <NavigationProperty Name="paymentHistories" Relationship="dbrealestateModel.FK_paymentHistory_Users" FromRole="User" ToRole="paymentHistory" />
+    <NavigationProperty Name="PropertyImages" Relationship="dbrealestateModel.FK_PropertyImages_Users" FromRole="User" ToRole="PropertyImage" />
+    <NavigationProperty Name="Purposals" Relationship="dbrealestateModel.FK_Purposal_Users" FromRole="User" ToRole="Purposal" />
+    <NavigationProperty Name="Serviceproviders" Relationship="dbrealestateModel.FK_Serviceprovider_Users" FromRole="User" ToRole="Serviceprovider" />
+    <NavigationProperty Name="services" Relationship="dbrealestateModel.FK_services_Users" FromRole="User" ToRole="service" />
+    <NavigationProperty Name="tbl_inventory" Relationship="dbrealestateModel.FK_tbl_inventory_Users" FromRole="User" ToRole="tbl_inventory" />
+    <NavigationProperty Name="tbl_invoice" Relationship="dbrealestateModel.FK_tbl_invoice_Users" FromRole="User" ToRole="tbl_invoice" />
+    <NavigationProperty Name="tbl_offer" Relationship="dbrealestateModel.FK_tbl_offer_Users" FromRole="User" ToRole="tbl_offer" />
+    <NavigationProperty Name="TenancyAgreements" Relationship="dbrealestateModel.FK_TenancyAgreement_Users" FromRole="User" ToRole="TenancyAgreement" />
+    <NavigationProperty Name="TenancyDetails" Relationship="dbrealestateModel.FK_TenancyDetails_Users" FromRole="User" ToRole="TenancyDetail" />
+    <NavigationProperty Name="UserDocuments" Relationship="dbrealestateModel.FK_UserDocuments_Users" FromRole="User" ToRole="UserDocument" />
+    <NavigationProperty Name="UserReportsPermissions" Relationship="dbrealestateModel.FK_UserReportsPermissions_Users" FromRole="User" ToRole="UserReportsPermission" />
+    <NavigationProperty Name="UserRole1" Relationship="dbrealestateModel.FK_Users_UserRoles" FromRole="User" ToRole="UserRole" />
+    <NavigationProperty Name="UserTabPermissions" Relationship="dbrealestateModel.FK_UserTabPermissions_Users" FromRole="User" ToRole="UserTabPermission" />
+    <NavigationProperty Name="ViewingPurposals" Relationship="dbrealestateModel.FK_ViewingPurposal_Users" FromRole="User" ToRole="ViewingPurposal" />
+    <NavigationProperty Name="Properties" Relationship="dbrealestateModel.FK_Properties_Users" FromRole="User" ToRole="Property" />
+    <NavigationProperty Name="RequestViews" Relationship="dbrealestateModel.FK_RequestView_Users" FromRole="User" ToRole="RequestView" />
+    <NavigationProperty Name="application_details" Relationship="dbrealestateModel.FK_application_details_Users" FromRole="User" ToRole="application_details" />
+  </EntityType>
+  <Association Name="FK_CommonDocuments_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.CommonDocument" Role="CommonDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CommonDocument">
+        <PropertyRef Name="LandLordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Countries">
+    <End Type="dbrealestateModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="countryId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_damage_intventory_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.damage_intventory" Role="damage_intventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="damage_intventory">
+        <PropertyRef Name="Landlord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposits_Deposits">
+    <End Type="dbrealestateModel.User" Multiplicity="0..1" Role="User" />
+    <End Type="dbrealestateModel.Deposit" Multiplicity="*" Role="Deposit" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Deposit">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Fault" Role="Fault" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Fault">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inspection_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Inspection" Role="Inspection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Inspection">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryImages_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.InventoryImage" Role="InventoryImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="InventoryImage">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovingIn_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.MovingIn" Role="MovingIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="MovingIn">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentHistory_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.paymentHistory" Role="paymentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="paymentHistory">
+        <PropertyRef Name="Landlord_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PropertyImages_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.PropertyImage" Role="PropertyImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="PropertyImage">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purposal_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Purposal" Role="Purposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Purposal">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Serviceprovider_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Serviceprovider" Role="Serviceprovider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Serviceprovider">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_services_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.service" Role="service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="service">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_inventory_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_inventory" Role="tbl_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tbl_inventory">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_invoice_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_invoice" Role="tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_offer_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_offer" Role="tbl_offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tbl_offer">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyAgreement_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.TenancyAgreement" Role="TenancyAgreement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="TenancyAgreement">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.TenancyDetail" Role="TenancyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="TenancyDetail">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocuments_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.UserDocument" Role="UserDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserDocument">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserReportsPermissions_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.UserReportsPermission" Role="UserReportsPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserReportsPermission">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserRoles">
+    <End Type="dbrealestateModel.UserRole" Role="UserRole" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTabPermissions_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.UserTabPermission" Role="UserTabPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserTabPermission">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewingPurposal_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.ViewingPurposal" Role="ViewingPurposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ViewingPurposal">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Property">
+    <Key>
+      <PropertyRef Name="Property_Id" />
+    </Key>
+    <Property Name="Property_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PropertyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PropertyStyleId" Type="Int32" />
+    <Property Name="Parking_Id" Type="Boolean" />
+    <Property Name="Heating_Id" Type="Boolean" />
+    <Property Name="AirConditioning_Id" Type="Boolean" />
+    <Property Name="Flooring_Id" Type="Boolean" />
+    <Property Name="BuildingId" Type="Int32" />
+    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PropertyTypeId" Type="Int32" />
+    <Property Name="SqFt" Type="Int32" />
+    <Property Name="FeaturesAndAmenities" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Created" Type="DateTime" Precision="0" />
+    <Property Name="Apt_Suite_Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="street_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="street_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="street_direction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="YearBuilt" Type="Int16" />
+    <Property Name="DateAvailable" Type="DateTime" Precision="0" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Bedroom" Type="Int16" />
+    <Property Name="Furnished" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdded" Type="DateTime" Precision="0" />
+    <Property Name="Bathroom" Type="Int16" />
+    <Property Name="toilet" Type="Int16" />
+    <Property Name="studyRoom" Type="Int16" />
+    <Property Name="UtilityRoom" Type="Int16" />
+    <Property Name="Kitchen" Type="Int16" />
+    <Property Name="Garage" Type="Int16" />
+    <Property Name="SmokersAllowed" Type="Boolean" />
+    <Property Name="PetsAllowed" Type="Boolean" />
+    <Property Name="Parking" Type="Boolean" />
+    <Property Name="Garden" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Landlord_Id" Type="Int64" />
+    <Property Name="leasestatus" Type="Int32" />
+    <Property Name="Archievestatus" Type="Int32" />
+    <Property Name="LeasedTo" Type="Int64" />
+    <Property Name="LeasedEnd" Type="DateTime" Precision="0" />
+    <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="listtitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lsContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lsContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lsContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VirtualTourUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DepositReq" Type="Double" />
+    <Property Name="ApplicationFee" Type="Double" />
+    <Property Name="RentFreq" Type="Int16" />
+    <Property Name="AvailableOn" Type="DateTime" Precision="0" />
+    <Property Name="VacancyDate" Type="DateTime" Precision="0" />
+    <Property Name="LateFee" Type="Double" />
+    <Property Name="Days" Type="Int32" />
+    <Property Name="HoldingFee" Type="Int32" />
+    <Property Name="IfHoldingFee" Type="Double" />
+    <Property Name="MinimumRent" Type="Double" />
+    <Property Name="PropertyPhotos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BuildingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Town" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UnitNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Suberb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StreetAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="County" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Building" Relationship="dbrealestateModel.FK_Properties_Buildings" FromRole="Property" ToRole="Building" />
+    <NavigationProperty Name="damage_intventory" Relationship="dbrealestateModel.FK_damage_intventory_Properties" FromRole="Property" ToRole="damage_intventory" />
+    <NavigationProperty Name="Deposits" Relationship="dbrealestateModel.FK_Deposits_Properties" FromRole="Property" ToRole="Deposit" />
+    <NavigationProperty Name="Faults" Relationship="dbrealestateModel.FK_Faults_Properties" FromRole="Property" ToRole="Fault" />
+    <NavigationProperty Name="Inspections" Relationship="dbrealestateModel.FK_Inspection_Properties" FromRole="Property" ToRole="Inspection" />
+    <NavigationProperty Name="InventoryImages" Relationship="dbrealestateModel.FK_InventoryImages_Properties" FromRole="Property" ToRole="InventoryImage" />
+    <NavigationProperty Name="MovingIns" Relationship="dbrealestateModel.FK_MovingIn_Properties" FromRole="Property" ToRole="MovingIn" />
+    <NavigationProperty Name="Mylists" Relationship="dbrealestateModel.FK_Mylists_Properties" FromRole="Property" ToRole="Mylist" />
+    <NavigationProperty Name="paymentHistories" Relationship="dbrealestateModel.FK_paymentHistory_Properties" FromRole="Property" ToRole="paymentHistory" />
+    <NavigationProperty Name="PropertyStyle" Relationship="dbrealestateModel.FK_Properties_PropertyStyles" FromRole="Property" ToRole="PropertyStyle" />
+    <NavigationProperty Name="PropertyType" Relationship="dbrealestateModel.FK_Properties_PropertyTypes1" FromRole="Property" ToRole="PropertyType" />
+    <NavigationProperty Name="Tenant" Relationship="dbrealestateModel.FK_Properties_Tenant" FromRole="Property" ToRole="Tenant" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_Properties_Users" FromRole="Property" ToRole="User" />
+    <NavigationProperty Name="Purposals" Relationship="dbrealestateModel.FK_Purposal_Properties" FromRole="Property" ToRole="Purposal" />
+    <NavigationProperty Name="tb_PropertyNotes" Relationship="dbrealestateModel.FK_tb_PropertyNotes_Properties" FromRole="Property" ToRole="tb_PropertyNotes" />
+    <NavigationProperty Name="tbl_inventory" Relationship="dbrealestateModel.FK_tbl_inventory_Properties" FromRole="Property" ToRole="tbl_inventory" />
+    <NavigationProperty Name="tbl_invoice" Relationship="dbrealestateModel.FK_tbl_invoice_Properties" FromRole="Property" ToRole="tbl_invoice" />
+    <NavigationProperty Name="tbl_offer" Relationship="dbrealestateModel.FK_tbl_offer_Properties" FromRole="Property" ToRole="tbl_offer" />
+    <NavigationProperty Name="TenancyAgreements" Relationship="dbrealestateModel.FK_TenancyAgreement_Properties" FromRole="Property" ToRole="TenancyAgreement" />
+    <NavigationProperty Name="TenancyDetails" Relationship="dbrealestateModel.FK_TenancyDetails_Properties" FromRole="Property" ToRole="TenancyDetail" />
+    <NavigationProperty Name="Tenants" Relationship="dbrealestateModel.FK_Tenants_Properties" FromRole="Property" ToRole="Tenant" />
+    <NavigationProperty Name="ViewingPurposals" Relationship="dbrealestateModel.FK_ViewingPurposal_Properties" FromRole="Property" ToRole="ViewingPurposal" />
+    <NavigationProperty Name="tbl_lease" Relationship="dbrealestateModel.FK_tbl_lease_Properties" FromRole="Property" ToRole="tbl_lease" />
+    <NavigationProperty Name="RequestViews" Relationship="dbrealestateModel.FK_RequestView_Properties" FromRole="Property" ToRole="RequestView" />
+    <NavigationProperty Name="tbl_LeaseCredits" Relationship="dbrealestateModel.FK_tbl_LeaseCredits_Properties" FromRole="Property" ToRole="tbl_LeaseCredits" />
+    <NavigationProperty Name="tbl_othercharges" Relationship="dbrealestateModel.FK_tbl_othercharges_Properties" FromRole="Property" ToRole="tbl_othercharges" />
+    <NavigationProperty Name="application_details" Relationship="dbrealestateModel.FK_application_details_Properties" FromRole="Property" ToRole="application_details" />
+  </EntityType>
+  <Association Name="FK_Properties_Buildings">
+    <End Type="dbrealestateModel.Building" Role="Building" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Building">
+        <PropertyRef Name="Building_Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="BuildingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_damage_intventory_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.damage_intventory" Role="damage_intventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="damage_intventory">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposits_Properties">
+    <End Type="dbrealestateModel.Property" Multiplicity="0..1" Role="Property" />
+    <End Type="dbrealestateModel.Deposit" Multiplicity="*" Role="Deposit" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Deposit">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faults_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Fault" Role="Fault" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Fault">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inspection_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Inspection" Role="Inspection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Inspection">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryImages_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.InventoryImage" Role="InventoryImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="InventoryImage">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovingIn_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.MovingIn" Role="MovingIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="MovingIn">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mylists_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Mylist" Role="Mylist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Mylist">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentHistory_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.paymentHistory" Role="paymentHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="paymentHistory">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Properties_PropertyStyles">
+    <End Type="dbrealestateModel.PropertyStyle" Role="PropertyStyle" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyStyle">
+        <PropertyRef Name="Propertystyle_Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="PropertyStyleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Properties_PropertyTypes1">
+    <End Type="dbrealestateModel.PropertyType" Role="PropertyType" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PropertyType">
+        <PropertyRef Name="PropertyType_Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="PropertyTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Properties_Tenant">
+    <End Type="dbrealestateModel.Tenant" Role="Tenant" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenant">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="LeasedTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Properties_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Property">
+        <PropertyRef Name="Landlord_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purposal_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Purposal" Role="Purposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Purposal">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_PropertyNotes_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tb_PropertyNotes" Role="tb_PropertyNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tb_PropertyNotes">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_inventory_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_inventory" Role="tbl_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_inventory">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_invoice_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_invoice" Role="tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_offer_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_offer" Role="tbl_offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_offer">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyAgreement_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.TenancyAgreement" Role="TenancyAgreement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="TenancyAgreement">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.TenancyDetail" Role="TenancyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="TenancyDetail">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tenants_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.Tenant" Role="Tenant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="Tenant">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewingPurposal_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.ViewingPurposal" Role="ViewingPurposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="ViewingPurposal">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_lease">
+    <Key>
+      <PropertyRef Name="LeaseId" />
+    </Key>
+    <Property Name="LeaseId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Property_Id" Type="Int64" />
+    <Property Name="primaryTenant_Id" Type="Int64" />
+    <Property Name="Startdate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="sectenant_Id" Type="Int64" />
+    <Property Name="term" Type="Int32" />
+    <Property Name="duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rent" Type="Double" />
+    <Property Name="balance" Type="Double" />
+    <Property Name="rentisdue" Type="Int32" />
+    <Property Name="firstrentalpay" Type="DateTime" Precision="3" />
+    <Property Name="DescriptionId" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="Due" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ValidFrom" Type="DateTime" Precision="0" />
+    <Property Name="ValidUntil" Type="DateTime" Precision="0" />
+    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreditAmount" Type="Double" />
+    <Property Name="CreditedOn" Type="DateTime" Precision="0" />
+    <Property Name="LatefeeEnabled" Type="Boolean" />
+    <Property Name="DaysAfterDueDate" Type="Int32" />
+    <Property Name="FlatFeeOrBaseAmountOrPercentRent" Type="Boolean" />
+    <Property Name="FlatFee" Type="Double" />
+    <Property Name="percentRent" Type="Double" />
+    <Property Name="baseAmount" Type="Double" />
+    <Property Name="ExcludeGracePeriod" Type="Boolean" />
+    <Property Name="MaxLateFee" Type="Double" />
+    <Property Name="PaymentStatus" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="paymentSchedule" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsClosed" Type="Int32" />
+    <Property Name="DueDate" Type="DateTime" Precision="3" />
+    <Property Name="paymentmode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_tbl_lease_Properties" FromRole="tbl_lease" ToRole="Property" />
+    <NavigationProperty Name="RentDue" Relationship="dbrealestateModel.FK_tbl_lease_RentDue" FromRole="tbl_lease" ToRole="RentDue" />
+    <NavigationProperty Name="Tenant" Relationship="dbrealestateModel.FK_tbl_lease_Tenants" FromRole="tbl_lease" ToRole="Tenant" />
+    <NavigationProperty Name="Tenant1" Relationship="dbrealestateModel.FK_tbl_lease_Tenants1" FromRole="tbl_lease" ToRole="Tenant" />
+    <Property Name="createdOn" Type="DateTime" Precision="3" />
+    <Property Name="updatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tbl_LeaseCredits" Relationship="dbrealestateModel.FK_tbl_LeaseCredits_tbl_LeaseCredits" FromRole="tbl_lease" ToRole="tbl_LeaseCredits" />
+    <NavigationProperty Name="tbl_othercharges" Relationship="dbrealestateModel.FK_tbl_othercharges_tbl_lease" FromRole="tbl_lease" ToRole="tbl_othercharges" />
+  </EntityType>
+  <Association Name="FK_tbl_lease_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_lease" Role="tbl_lease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_lease">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_lease_RentDue">
+    <End Type="dbrealestateModel.RentDue" Role="RentDue" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_lease" Role="tbl_lease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentDue">
+        <PropertyRef Name="RentDueId" />
+      </Principal>
+      <Dependent Role="tbl_lease">
+        <PropertyRef Name="rentisdue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_lease_Tenants">
+    <End Type="dbrealestateModel.Tenant" Role="Tenant" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_lease" Role="tbl_lease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenant">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_lease">
+        <PropertyRef Name="primaryTenant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_lease_Tenants1">
+    <End Type="dbrealestateModel.Tenant" Role="Tenant" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_lease" Role="tbl_lease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenant">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_lease">
+        <PropertyRef Name="sectenant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RequestView">
+    <Key>
+      <PropertyRef Name="ReqviewId" />
+    </Key>
+    <Property Name="ReqviewId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="FirstName" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="PreferredDate" Precision="3" Type="DateTime" />
+    <Property Name="PreferredTime" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="text" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Approve" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="RequestStatus" Type="Byte" />
+    <Property Name="RequestParentId" Type="Int64" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_RequestView_Properties" FromRole="RequestView" ToRole="Property" />
+    <NavigationProperty Name="Tenant" Relationship="dbrealestateModel.FK_RequestView_Tenants" FromRole="RequestView" ToRole="Tenant" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_RequestView_Users" FromRole="RequestView" ToRole="User" />
+    <NavigationProperty Name="TenancyDetails" Relationship="dbrealestateModel.FK_TenancyDetails_RequestView" FromRole="RequestView" ToRole="TenancyDetail" />
+    <Property Name="OfferId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_RequestView_Properties">
+    <End Type="dbrealestateModel.Property" Multiplicity="0..1" Role="Property" />
+    <End Type="dbrealestateModel.RequestView" Multiplicity="*" Role="RequestView" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="RequestView">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestView_Tenants">
+    <End Type="dbrealestateModel.Tenant" Multiplicity="0..1" Role="Tenant" />
+    <End Type="dbrealestateModel.RequestView" Multiplicity="*" Role="RequestView" />
+    <ReferentialConstraint>
+      <Principal Role="Tenant">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="RequestView">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestView_Users">
+    <End Type="dbrealestateModel.User" Multiplicity="0..1" Role="User" />
+    <End Type="dbrealestateModel.RequestView" Multiplicity="*" Role="RequestView" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="RequestView">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_RequestView">
+    <End Type="dbrealestateModel.RequestView" Multiplicity="0..1" Role="RequestView" />
+    <End Type="dbrealestateModel.TenancyDetail" Multiplicity="*" Role="TenancyDetail" />
+    <ReferentialConstraint>
+      <Principal Role="RequestView">
+        <PropertyRef Name="ReqviewId" />
+      </Principal>
+      <Dependent Role="TenancyDetail">
+        <PropertyRef Name="RequestViewingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_LeaseCredits">
+    <Key>
+      <PropertyRef Name="credits_id" />
+    </Key>
+    <Property Name="credits_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lease_id" Type="Int64" />
+    <Property Name="Property_id" Type="Int64" />
+    <Property Name="tenant_id" Type="Int64" />
+    <Property Name="Reason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Double" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreditedOn" Type="DateTime" Precision="3" />
+    <Property Name="PaymentMode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_tbl_LeaseCredits_Properties" FromRole="tbl_LeaseCredits" ToRole="Property" />
+    <NavigationProperty Name="tbl_lease" Relationship="dbrealestateModel.FK_tbl_LeaseCredits_tbl_LeaseCredits" FromRole="tbl_LeaseCredits" ToRole="tbl_lease" />
+    <NavigationProperty Name="Tenant" Relationship="dbrealestateModel.FK_tbl_LeaseCredits_Tenants" FromRole="tbl_LeaseCredits" ToRole="Tenant" />
+  </EntityType>
+  <Association Name="FK_tbl_LeaseCredits_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_LeaseCredits" Role="tbl_LeaseCredits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_LeaseCredits">
+        <PropertyRef Name="Property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_LeaseCredits_tbl_LeaseCredits">
+    <End Type="dbrealestateModel.tbl_lease" Role="tbl_lease" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_LeaseCredits" Role="tbl_LeaseCredits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_lease">
+        <PropertyRef Name="LeaseId" />
+      </Principal>
+      <Dependent Role="tbl_LeaseCredits">
+        <PropertyRef Name="lease_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_LeaseCredits_Tenants">
+    <End Type="dbrealestateModel.Tenant" Role="Tenant" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_LeaseCredits" Role="tbl_LeaseCredits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenant">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_LeaseCredits">
+        <PropertyRef Name="tenant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_othercharges">
+    <Key>
+      <PropertyRef Name="othercharges_id" />
+    </Key>
+    <Property Name="othercharges_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lease_id" Type="Int64" />
+    <Property Name="Property_id" Type="Int64" />
+    <Property Name="tenant_id" Type="Int64" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Double" />
+    <Property Name="due" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="validfrom" Type="DateTime" Precision="3" />
+    <Property Name="validuntil" Type="DateTime" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_tbl_othercharges_Properties" FromRole="tbl_othercharges" ToRole="Property" />
+    <NavigationProperty Name="tbl_lease" Relationship="dbrealestateModel.FK_tbl_othercharges_tbl_lease" FromRole="tbl_othercharges" ToRole="tbl_lease" />
+    <NavigationProperty Name="Tenant" Relationship="dbrealestateModel.FK_tbl_othercharges_Tenants" FromRole="tbl_othercharges" ToRole="Tenant" />
+  </EntityType>
+  <Association Name="FK_tbl_othercharges_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_othercharges" Role="tbl_othercharges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tbl_othercharges">
+        <PropertyRef Name="Property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_othercharges_tbl_lease">
+    <End Type="dbrealestateModel.tbl_lease" Role="tbl_lease" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_othercharges" Role="tbl_othercharges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_lease">
+        <PropertyRef Name="LeaseId" />
+      </Principal>
+      <Dependent Role="tbl_othercharges">
+        <PropertyRef Name="lease_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_othercharges_Tenants">
+    <End Type="dbrealestateModel.Tenant" Role="Tenant" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.tbl_othercharges" Role="tbl_othercharges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenant">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="tbl_othercharges">
+        <PropertyRef Name="tenant_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="application_details">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FormerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Children" Type="Int32" />
+    <Property Name="Notolive" Type="Int32" />
+    <Property Name="PeopleNames" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Noage18" Type="Int32" />
+    <Property Name="Pets" Type="Boolean" />
+    <Property Name="Smoker" Type="Boolean" />
+    <Property Name="fullnames" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HouseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Town" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Moveindate" Type="DateTime" Precision="3" />
+    <Property Name="Moveout" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferenceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferneceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferenceEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Employmntstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmployerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Emphousenum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Empstreetname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Emptown" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmpCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmpCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmpPostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmpEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LengthEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CPName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CPNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CPemail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NetIncome" Type="Double" />
+    <Property Name="AddIncome" Type="Double" />
+    <Property Name="GrossIncome" Type="Double" />
+    <Property Name="countryagainst" Type="Boolean" />
+    <Property Name="bankruptcy" Type="Boolean" />
+    <Property Name="criminalactivity" Type="Boolean" />
+    <Property Name="terroristactivity" Type="Boolean" />
+    <Property Name="netduration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="additionalduration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="grossduration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PropertyId" Type="Int64" />
+    <Property Name="TenantId" Type="Int64" />
+    <Property Name="LandlordId" Type="Int64" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="SentStatus" Type="Int32" />
+    <Property Name="FillStatus" Type="Int32" />
+    <Property Name="CmtRejected" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CmtDeffered" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Property" Relationship="dbrealestateModel.FK_application_details_Properties" FromRole="application_details" ToRole="Property" />
+    <NavigationProperty Name="Tenant" Relationship="dbrealestateModel.FK_application_details_Tenants" FromRole="application_details" ToRole="Tenant" />
+    <NavigationProperty Name="User" Relationship="dbrealestateModel.FK_application_details_Users" FromRole="application_details" ToRole="User" />
+    <NavigationProperty Name="TenancyDetails" Relationship="dbrealestateModel.FK_TenancyDetails_application_details" FromRole="application_details" ToRole="TenancyDetail" />
+  </EntityType>
+  <Association Name="FK_application_details_Properties">
+    <End Type="dbrealestateModel.Property" Role="Property" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.application_details" Role="application_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="application_details">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_details_Tenants">
+    <End Type="dbrealestateModel.Tenant" Role="Tenant" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.application_details" Role="application_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tenant">
+        <PropertyRef Name="Tenant_Id" />
+      </Principal>
+      <Dependent Role="application_details">
+        <PropertyRef Name="TenantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_application_details_Users">
+    <End Type="dbrealestateModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.application_details" Role="application_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="application_details">
+        <PropertyRef Name="LandlordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TenancyDetails_application_details">
+    <End Type="dbrealestateModel.application_details" Role="application_details" Multiplicity="0..1" />
+    <End Type="dbrealestateModel.TenancyDetail" Role="TenancyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="application_details">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="TenancyDetail">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

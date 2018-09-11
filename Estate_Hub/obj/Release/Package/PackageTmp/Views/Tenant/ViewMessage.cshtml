@@ -1,0 +1,26 @@
+﻿@model Proptiwise.Models.tbMessage
+@{
+    ViewBag.Title = "ViewMessage";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+
+<section class="property_form_container property_bd_con ">
+
+    <div class="container-fluid">
+        <div class="Billing-form">
+
+            <div class="UNIT-ADDRESS pop_add_row">
+
+                <div class="prop-form_rgt pull-left">
+                    <a href="@Request.UrlReferrer" class="btn btn-default">Back To Inbox</a>
+                    <h1 class="form_heading">@Model.Subject <span class="pull-right">@Model.SentDate.Value.ToShortDateString()  </span></h1>
+
+                    <span class="price_desc">  @Html.DisplayFor(model => model.Message) </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+

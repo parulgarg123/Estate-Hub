@@ -1,0 +1,166 @@
+﻿@model Proptiwise.Models.Tenant
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "MyAccountTenant";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+@*@if (Session["MyAccountMessage"] != null)
+    {
+        <script>
+        alert('@Session["MyAccountMessage"].ToString()')
+        </script>
+    }*@
+<form id="frm" method="post" enctype="multipart/form-data">
+    <div class="columns clear">
+        <div class="form-group clearfix">
+            <div class="col-md-6 col-sm-6">
+                <div class="top_info">
+                    <h3>Contact Information</h3>
+                    <a class="edit_link on-edit1 editbutton" id="clspopup" href="@getallpath.getpath/Tenant/EditProfileTenant/">Edit</a>
+                </div>
+                <div class="contact_info">
+                    <span class="user_img">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                    <span class="txtinfo">
+                        @if (Model.FirstName != null)
+                        {
+                            <h4>@Model.FirstName @Model.MiddleName @Model.LastName</h4>
+                        }
+                        else
+                        {
+                            <h4>No Name</h4>
+                        }
+                        @*@if (Model.StreetAddress == null)
+                            {
+                                <p>No Address</p>
+                            }
+                            else
+                            {*@
+                        <p><b>Address</b> - @Model.StreetAddress @Model.BuildingName @Model.UnitNumber @Model.Town @Model.City @Model.Suberb @Model.State</p>
+
+                        @*  }*@
+                        @if (Model.PostCode == null && Model.Zip == null)
+                        {
+                            <p>[No Post Code]</p>
+                        }
+                        else if (Model.PostCode != null)
+                        {
+                            <p><b>Postcode</b> - @Model.PostCode</p>
+                        }
+                        else if (Model.Zip != null)
+                        {
+                            <p><b>Zip</b> - @Model.Zip</p>
+                        }
+
+                        @if (Model.Email == null)
+                        {
+                            <p>[ No Email Address ]</p>
+                        }
+                        else
+                        {
+                            <p><b>Email</b> - @Model.Email</p>
+
+                        }
+
+                        @if (Model.Cellular == null)
+                        {
+                            <p><font>Mob : ##########</font></p>
+                        }
+                        else
+                        {
+                            <p><b>Contact</b> - @Model.Cellular</p>
+
+                        }
+
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <div class="top_info">
+                    <h3>Change Password</h3>
+
+                </div>
+                <div class="contact_info">
+                    @*<span class="user_img">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>*@
+                    <span class="txtinfo">
+                        @Html.HiddenFor(model=>model.Email)
+                        <p>New Password</p>
+                        <p>@Html.Password("Password", "")</p>
+                        <p>@Html.ValidationMessage("Password", new { @class = "validation-position" })</p>
+                        <p>Confirm Password</p>
+                        <p>@Html.Password("ConfirmPassword", "")</p>
+                        <p>@Html.ValidationMessage("ConfirmPassword", new {@class="validation-position" })</p>
+                        <button type="submit" class="btn btn-info btn-block" name="Command" value="ChangePassword" style="background-color: #4F14AC;">Change</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="top_info">
+                    <h3>Upload Signature</h3>
+
+                </div>
+                <div class="contact_info">
+                    <ul class="identi_list">
+                        <li>
+                            Signature
+
+
+                        </li>
+                        <li>
+                            <p>
+                                <input type="file" name="Signature" />
+                                @if (Model.Signature != null)
+                                {
+                                    <img src="@getallpath.getpath/Folders/TenancyAgreementDoc/@Model.Signature" style="width:200px;height:100px" />
+                                }
+                            </p>
+                        </li>
+                        <li>
+                            <button type="submit" class="btn btn-info" name="Command" value="uploadsign" style="background-color: #4F14AC;">Upload Signature</button>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <div class="col-md-6 col-sm-6">
+
+            </div>
+        </div>
+    </div>
+</form>
+@if (TempData["MyAccountMessage"] != null)
+{
+    <div id="myModal" class="modal hide fade modalErrorMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+        <div class="modal-body" style="">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p>@TempData["MyAccountMessage"]</p>
+        </div>
+    </div>
+}
+    @*<div id='myModal1' class='modal fade in'>
+
+        </div>
+        <div id='myModal2' class='modal fade in'>
+
+        </div>*@
+    <div id='myModal' class='modal fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/Appjs/Phone.js"></script>
+
+
+
+
+

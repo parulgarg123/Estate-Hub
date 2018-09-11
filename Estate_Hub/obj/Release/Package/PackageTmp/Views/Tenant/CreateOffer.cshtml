@@ -1,0 +1,195 @@
+﻿@model Proptiwise.Models.tbl_offer
+@using Proptiwise.Models
+
+@{
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+
+<section class="property_form_container property_bd_con ">
+
+    <div class="container-fluid">
+        <div class="Billing-form">
+            @*<form  method="post">*@
+            @using (Html.BeginForm("CreateOffer", "Tenant", FormMethod.Post, new { @id = "CreateOffer" }))
+            {
+                double? price = 0.0, minimumprice=0.0;
+                @*<input type="hidden" name="Country" id="Country" value="@ViewBag.country" />*@
+                <div class="UNIT-ADDRESS pop_add_row">
+
+
+                    <div class="prop-form_rgt">
+                        <h1 class="form_heading">Property Details</h1>
+                        <div class="prop_detail_coll">
+                            <article class="prop_list">
+                                @if (Session["propdata"] != null)
+                                {
+                                    var prp = Session["propdata"] as Property;
+                                    if (prp != null)
+                                    {
+                                        price = prp.Price;
+                                        minimumprice = prp.MinimumRent;
+                                        @*<input type="hidden" name="pid" value="@p.PID" />*@
+                                        <h3 class="propname">@prp.Street @prp.City @prp.State @prp.Country @prp.PostCode</h3>
+                                        <h6 class="prop_dtl">@prp.PropertyType.PropertyTypeName|@prp.Bedroom BD |@prp.Bathroom BA |@prp.SqFt SqFt</h6>
+
+                                        <div class="prop_cont_lst_con">
+                                            <span class="price_content">
+                                                @if (prp.Price != null)
+                                                {
+                                                    <p><font>Asking Price</font>@getallpath.currency@Math.Round(Convert.ToDouble(prp.Price), 2)/m</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Asking Price</font>--</p>
+                                                }
+                                                @if (prp.DepositReq != null)
+                                                {
+                                                    <p><font>Deposit</font>@getallpath.currency@Math.Round(Convert.ToDouble(prp.DepositReq), 2)/m</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Deposit</font>--</p>
+                                                }
+                                            </span>
+                                            <span class="price_content">
+
+                                                @if (prp.Bedroom != null)
+                                                {
+                                                    <p><font>Bedrooms</font>@prp.Bedroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Bedrooms</font>--</p>
+                                                }
+                                                @if (prp.Bathroom != null)
+                                                {
+                                                    <p><font>Bathrooms</font>@prp.Bathroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Bathrooms</font>--</p>
+                                                }
+                                                @if (prp.Furnished != null)
+                                                {
+                                                    if (prp.Furnished == "Furnished")
+                                                    {
+                                                        <p><font>Furnished</font>Yes</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p><font>Furnished</font>No</p>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Furnished</font>--</p>
+                                                }
+                                            </span>
+                                            <span class="price_desc">
+
+                                                @if (prp.Description != null)
+                                                {
+                                                    <p><font>Description</font>@prp.Description</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Description</font>--</p>
+                                                }
+                                                @*<p><font>Estimated Rent</font>$@p.RentIncome/m</p>*@
+                                            </span>
+                                        </div>
+                                        @*<span class="price_content col-md-6 col-sm-6">
+                                                        @{
+                                            double opexp = (p.TotalExpenses / 12);
+                                            double cashflow = (p.CashFlow / 12);
+                                                        }
+                                                        <p><font>OP Expenses</font>$@opexp/m</p>
+                                                        <p><font>Cash Flow</font>$@cashflow/m</p>
+
+                                                        <p><font>Cape Rat</font>$@Math.Round(p.CapRate, 2)%</p>
+                                                    </span>*@
+
+
+                                    }
+                                }
+                            </article>
+                        </div>
+                    </div>
+
+
+                    <div class="prop-form_left">
+                        <h1 class="form_heading">Create Offer</h1>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Asking Price</label>                         
+                            @Html.TextBox("Askingprice", price, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Askingprice)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Offer</label>
+
+                            @Html.TextBoxFor(model => model.offer, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.offer)
+                        </div>
+            
+                        <div class="save_panel_btn">
+
+                            @*Save & Add Similar Unit*@
+                            <button type="submit" class="Save_btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                        </div>
+                        <input type="hidden" value="@minimumprice" id="minimumprice" />
+                    </div>
+
+                </div>
+
+            }
+        </div>
+    </div>
+
+
+
+</section>
+
+
+<script>
+    $(document).ready(function () {
+       
+        $.validator.addMethod(
+                    "CompareValue",
+                    function (value, element) {
+                        if (parseInt(value) <= parseInt($("#Askingprice").val())) {
+
+                            return true;
+                        }
+                        return false;
+
+                    },
+                    "Offer Must Be LessThan or Equal to Askingprice"
+                );
+        $.validator.addMethod(
+            "CompareMinValue",
+            function (value, element) {
+                if (parseInt(value) > parseInt($("#minimumprice").val())) {
+
+                    return true;
+                }
+                return false;
+
+            },
+            "This does not meet the minimum rent required by the landlord. Please increase your offer"
+        );
+        $("#CreateOffer").validate({
+            rules: {
+                Askingprice: { required: true, number: true },
+                offer: { required: true, number: true, CompareValue: true,CompareMinValue:true },
+            }, messages: {
+                Askingprice: "Enter Only Numeric Or Decimal Number",
+                offer: {
+                    required: "Enter Only Numeric Or Decimal Number",
+                    CompareValue: "Offer Must Be LessThan or Equal to Askingprice",
+                    CompareMinValue: "This does not meet the minimum rent required by the landlord. Please increase your offer"
+                }
+            }
+        });
+    });
+
+</script>

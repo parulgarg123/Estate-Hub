@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="tbTenantWithLease" targetNamespace="http://tempuri.org/tbTenantWithLease.xsd" xmlns:mstns="http://tempuri.org/tbTenantWithLease.xsd" xmlns="http://tempuri.org/tbTenantWithLease.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="tbTenantWithLease" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="tbTenantWithLease" msprop:Generator_UserDSName="tbTenantWithLease">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbTenantWithLease" msprop:Generator_TableClassName="tbTenantWithLeaseDataTable" msprop:Generator_TableVarName="tabletbTenantWithLease" msprop:Generator_TablePropName="_tbTenantWithLease" msprop:Generator_RowDeletingName="tbTenantWithLeaseRowDeleting" msprop:Generator_RowChangingName="tbTenantWithLeaseRowChanging" msprop:Generator_RowEvHandlerName="tbTenantWithLeaseRowChangeEventHandler" msprop:Generator_RowDeletedName="tbTenantWithLeaseRowDeleted" msprop:Generator_UserTableName="tbTenantWithLease" msprop:Generator_RowChangedName="tbTenantWithLeaseRowChanged" msprop:Generator_RowEvArgName="tbTenantWithLeaseRowChangeEvent" msprop:Generator_RowClassName="tbTenantWithLeaseRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Telephone" msprop:Generator_ColumnVarNameInTable="columnTelephone" msprop:Generator_ColumnPropNameInRow="Telephone" msprop:Generator_ColumnPropNameInTable="TelephoneColumn" msprop:Generator_UserColumnName="Telephone" type="xs:string" minOccurs="0" />
+              <xs:element name="Cellular" msprop:Generator_ColumnVarNameInTable="columnCellular" msprop:Generator_ColumnPropNameInRow="Cellular" msprop:Generator_ColumnPropNameInTable="CellularColumn" msprop:Generator_UserColumnName="Cellular" type="xs:string" minOccurs="0" />
+              <xs:element name="Address1" msprop:Generator_ColumnVarNameInTable="columnAddress1" msprop:Generator_ColumnPropNameInRow="Address1" msprop:Generator_ColumnPropNameInTable="Address1Column" msprop:Generator_UserColumnName="Address1" type="xs:string" minOccurs="0" />
+              <xs:element name="Address2" msprop:Generator_ColumnVarNameInTable="columnAddress2" msprop:Generator_ColumnPropNameInRow="Address2" msprop:Generator_ColumnPropNameInTable="Address2Column" msprop:Generator_UserColumnName="Address2" type="xs:string" minOccurs="0" />
+              <xs:element name="PropertyName" msprop:Generator_ColumnVarNameInTable="columnPropertyName" msprop:Generator_ColumnPropNameInRow="PropertyName" msprop:Generator_ColumnPropNameInTable="PropertyNameColumn" msprop:Generator_UserColumnName="PropertyName" type="xs:string" minOccurs="0" />
+              <xs:element name="BuildingName" msprop:Generator_ColumnVarNameInTable="columnBuildingName" msprop:Generator_ColumnPropNameInRow="BuildingName" msprop:Generator_ColumnPropNameInTable="BuildingNameColumn" msprop:Generator_UserColumnName="BuildingName" type="xs:string" minOccurs="0" />
+              <xs:element name="Balance" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" msprop:Generator_UserColumnName="Balance" type="xs:double" minOccurs="0" />
+              <xs:element name="LastPmtOn" msprop:Generator_ColumnVarNameInTable="columnLastPmtOn" msprop:Generator_ColumnPropNameInRow="LastPmtOn" msprop:Generator_ColumnPropNameInTable="LastPmtOnColumn" msprop:Generator_UserColumnName="LastPmtOn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Nextpmtdue" msprop:Generator_ColumnVarNameInTable="columnNextpmtdue" msprop:Generator_ColumnPropNameInRow="Nextpmtdue" msprop:Generator_ColumnPropNameInTable="NextpmtdueColumn" msprop:Generator_UserColumnName="Nextpmtdue" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

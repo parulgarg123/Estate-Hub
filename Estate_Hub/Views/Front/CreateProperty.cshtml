@@ -1,0 +1,633 @@
+﻿@model Proptiwise.Models.Property
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "CreateProperty";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+<section class="dash_column property-back clearfix" style="background: #fff;">
+
+    <div class="container">
+        <div class="row">
+            <div class="Billing-form">
+                @*<form  method="post">*@
+                @using (Html.BeginForm("CreateProperty", "Front", FormMethod.Post, new { @id = "propertycreate", @class = "form-tag", @enctype = "multipart/form-data" }))
+                {
+                    if (Model != null)
+                    {
+                        @Html.HiddenFor(p => p.Property_Id)
+                    }
+                    <input type="hidden" name="Country" id="Country" value="@ViewBag.country" />
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <section class="UNIT-ADDRESS">
+                            <h1 class="form_heading">PROPERTY ADDRESS</h1>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Property Name</label>
+                                @Html.TextBoxFor(model => model.PropertyName, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid PropertyName')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.PropertyName)
+                            </div>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Building</label>
+                                <span class="input-group-addon"><i class="fa fa-building-o" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.BuildingName, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Building')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.BuildingName)
+                                @*@Html.DropDownList("BuildingId", ViewBag.Building as SelectList, "None", new { id = "drp1", @class = "form-control" })*@
+                            </div>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Street Address</label>
+                                <span class="input-group-addon"><i class="fa fa-street-view" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.AddressLine1, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid AddressLine')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.AddressLine1)
+                            </div>
+                            @*<div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Street Address</label>
+                                <span class="input-group-addon"><i class="fa fa-street-view" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Street Address')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.StreetAddress)
+                            </div>*@
+                            <div class="form-group custom ausCanadaUs11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Unit Number</label>
+
+                                @Html.TextBoxFor(model => model.UnitNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.UnitNumber)
+                            </div>
+                            <div class="form-group custom uk11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Town</label>
+
+                                @Html.TextBoxFor(model => model.Town, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Town')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Town)
+                            </div>
+                            <div class="form-group custom canada11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Province</label>
+                                @Html.TextBoxFor(model => model.Province, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Province)
+                            </div>
+                            <div class="form-group custom aus11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Suberb</label>
+                                @Html.TextBoxFor(model => model.Suberb, new { @class = "form-control", OnKeyUp = "return getlatlng();" })
+                                @Html.ValidationMessageFor(model => model.Suberb)
+                            </div>
+
+                            <div class="form-group custom ukCanadaUSA11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">City</label>
+
+                                @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.City)
+                            </div>
+                            <div class="form-group custom ukcounty">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">County</label>
+                                @Html.DropDownListFor(model => model.County, new List<SelectListItem>
+                             {
+                                new SelectListItem() {Text = "Select County", Value="Select"},
+                                new SelectListItem() {Text = "Avon", Value="Avon"},
+                                new SelectListItem() {Text = "Bedfordshire", Value="Bedfordshire"},
+                                new SelectListItem() {Text = "Berkshire", Value="Berkshire"},
+                                new SelectListItem() {Text = "Borders", Value="Borders"},
+                                new SelectListItem() {Text = "Buckinghamshire", Value="Buckinghamshire"},
+                                new SelectListItem() {Text = "Cambridgeshire", Value="Cambridgeshire"},
+                                new SelectListItem() {Text = "Central", Value="Central"},
+                                new SelectListItem() {Text = "Cheshire", Value="Cheshire"},
+                                new SelectListItem() {Text = "Cleveland", Value="Cleveland"},
+                                new SelectListItem() {Text = "Clwyd", Value="Clwyd"},
+                                new SelectListItem() {Text = "Cornwall", Value="Cornwall"},
+                                new SelectListItem() {Text = "County Antrim", Value="County Antrim"},
+                                new SelectListItem() {Text = "County Armagh", Value="County Armagh"},
+                                new SelectListItem() {Text = "County Down", Value="County Down"},
+                                new SelectListItem() {Text = "County Fermanagh", Value="County Fermanagh"},
+                                new SelectListItem() {Text = "County Londonderry", Value="County Londonderry"},
+                                new SelectListItem() {Text = "County Tyrone", Value="County Tyrone"},
+                                new SelectListItem() {Text = "Cumbria", Value="Cumbria"},
+                                new SelectListItem() {Text = "Derbyshire", Value="Derbyshire"},
+                                new SelectListItem() {Text = "Devon", Value="Devon"},
+                                new SelectListItem() {Text = "Dorset", Value="Dorset"},
+
+                                new SelectListItem() {Text = "Dumfries and Galloway", Value="Dumfries and Galloway"},
+                                new SelectListItem() {Text = "Durham", Value="Durham"},
+                                new SelectListItem() {Text = "Dyfed", Value="Dyfed"},
+                                new SelectListItem() {Text = "East Sussex", Value="East Sussex"},
+                                new SelectListItem() {Text = "Essex", Value="Essex"},
+                                new SelectListItem() {Text = "Fife", Value="Fife"},
+                                new SelectListItem() {Text = "Gloucestershire", Value="Gloucestershire"},
+                                new SelectListItem() {Text = "Grampian", Value="Grampian"},
+                                new SelectListItem() {Text = "Greater Manchester", Value="Greater Manchester"},
+                                new SelectListItem() {Text = "Gwent", Value="Gwent"},
+                                new SelectListItem() {Text = "Gwynedd County", Value="Gwynedd County"},
+                                new SelectListItem() {Text = "Hampshire", Value="Hampshire"},
+                                new SelectListItem() {Text = "Herefordshire", Value="Herefordshire"},
+                                new SelectListItem() {Text = "Highlands and Islands", Value="Highlands and Islands"},
+                                new SelectListItem() {Text = "Humberside", Value="Humberside"},
+                                new SelectListItem() {Text = "Isle of Wight", Value="Isle of Wight"},
+                                new SelectListItem() {Text = "Kent", Value="Kent"},
+                                new SelectListItem() {Text = "Lancashire", Value="Lancashire"},
+                                new SelectListItem() {Text = "Leicestershire", Value="Leicestershire"},
+                                new SelectListItem() {Text = "Lincolnshire", Value="Lincolnshire"},
+                                new SelectListItem() {Text = "Lothian", Value="Lothian"},
+
+                                 new SelectListItem() {Text = "Merseyside", Value="Merseyside"},
+                                new SelectListItem() {Text = "Mid Glamorgan", Value="Mid Glamorgan"},
+                                new SelectListItem() {Text = "Norfolk", Value="Norfolk"},
+                                new SelectListItem() {Text = "North Yorkshire", Value="North Yorkshire"},
+                                new SelectListItem() {Text = "Northamptonshire", Value="Northamptonshire"},
+                                new SelectListItem() {Text = "Northumberland", Value="Northumberland"},
+                                new SelectListItem() {Text = "Nottinghamshire", Value="Nottinghamshire"},
+                                new SelectListItem() {Text = "Oxfordshire", Value="Oxfordshire"},
+                                new SelectListItem() {Text = "Rutland", Value="Rutland"},
+                                new SelectListItem() {Text = "Shropshire", Value="Shropshire"},
+                                new SelectListItem() {Text = "Somerset", Value="Somerset"},
+
+                                new SelectListItem() {Text = "South Glamorgan", Value="South Glamorgan"},
+                                new SelectListItem() {Text = "South Yorkshire", Value="South Yorkshire"},
+                                new SelectListItem() {Text = "Staffordshire", Value="Staffordshire"},
+                                new SelectListItem() {Text = "Strathclyde", Value="Nottinghamshire"},
+                                new SelectListItem() {Text = "Suffolk", Value="Suffolk"},
+                                new SelectListItem() {Text = "Surrey", Value="Surrey"},
+                                new SelectListItem() {Text = "Tayside", Value="Tayside"},
+                                new SelectListItem() {Text = "Tyne and Wear", Value="Tyne and Wear"},
+
+                                                        new SelectListItem() {Text = "Warwickshire", Value="Warwickshire"},
+                                new SelectListItem() {Text = "West Glamorgan", Value="West Glamorgan"},
+                                new SelectListItem() {Text = "West Midlands", Value="West Midlands"},
+                                new SelectListItem() {Text = "West Sussex", Value="West Sussex"},
+                                new SelectListItem() {Text = "West Yorkshire", Value="West Yorkshire"},
+                                   new SelectListItem() {Text = "Wiltshire", Value="Wiltshire"},
+                                new SelectListItem() {Text = "Worcestershire", Value="Worcestershire"}
+                                 }, new { @class = "form-control" })
+
+                                @Html.ValidationMessageFor(model => model.County)
+                            </div>
+                            <div class="form-group custom ausUs11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">State</label>
+                                @Html.TextBoxFor(model => model.State, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.State)
+                            </div>
+                            <div class="input-group  form-group custom us11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Zip</label>
+                                <span class="input-group-addon"><i class="fa fa-map-pin" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.Zip, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Zip)
+                            </div>
+                            <div class="input-group form-group custom ukCanadaAus11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Post Code</label>
+                                <span class="input-group-addon"><i class="fa fa-map-pin" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.PostCode, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PostCode)
+                            </div>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Pin Location</label>
+                                @*<span class="input-group-addon"><i class="fa fa-map-pin" aria-hidden="true"></i></span>*@
+                                <div id="googleMap" style="width:394px;height:200px;"></div>
+                                @Html.HiddenFor(model => model.Latitude, new { @id = "Latitude" })
+                                @Html.HiddenFor(model => model.Longitude, new { @id = "Longitude" })
+                                <div id="results"></div>
+                            </div>
+                        </section>
+
+                        <section class="UNIT-DETAILS">
+                            <h1 class="form_heading">PROPERTY DETAILS</h1>
+                            @*<div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Property Type *</label>
+                                @Html.DropDownList("PropertyTypeId", ViewBag.PropertyTypeId as SelectList, "Not Entered", new { id = "PropertyTypeId", @class = "form-control Property-Type" })
+                                @Html.ValidationMessageFor(model => model.PropertyTypeId)
+                            </div>*@
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Square Feet</label>
+                                @Html.TextBoxFor(model => model.SqFt, new { @class = "form-control Emergency-Contact", pattern = "^[0-9]*$", oninvalid = "setCustomValidity('Enter Number only')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.SqFt)
+                            </div>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Bedrooms</label>
+                                <span class="input-group-addon"><i class="fa fa-bed" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.Bedroom, new { type = "number",@min="0", @class = "form-control Bedrooms", oninvalid = "setCustomValidity('Enter Number of Bedrooms')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Bedroom)
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Bathrooms</label>
+                                @Html.TextBoxFor(model => model.Bathroom, new { type = "number",@min="0",  @class = "form-control Bathrooms", pattern = "^[0-9]*$", oninvalid = "setCustomValidity('Enter Number only')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Bathroom)
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Toilet</label>
+                                @Html.TextBoxFor(model => model.toilet, new { type = "number", @min = "0", @class = "form-control Bathrooms",  pattern = "^[0-9]*$", oninvalid = "setCustomValidity('Enter Number only')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.toilet)
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Study Room</label>
+                                @Html.TextBoxFor(model => model.studyRoom, new { type = "number", @min = "0", @class = "form-control Bathrooms",  pattern = "^[0-9]*$", oninvalid = "setCustomValidity('Enter Number only')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.studyRoom)
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Utility Room</label>
+                                @Html.TextBoxFor(model => model.UtilityRoom, new { type = "number", @min = "0", @class = "form-control Bathrooms", pattern = "^[0-9]*$", oninvalid = "setCustomValidity('Enter Number only')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.UtilityRoom)
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Kitchen</label>
+                                @Html.TextBoxFor(model => model.Kitchen, new { type = "number", @min = "0", @class = "form-control Bathrooms", pattern = "^[0-9]*$", oninvalid = "setCustomValidity('Enter Number only')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Kitchen)
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Garage</label>
+                                @Html.TextBoxFor(model => model.Garage, new { type = "number", @min = "0", @class = "form-control Bathrooms",  pattern = "^[0-9]*$", oninvalid = "setCustomValidity('Enter Number only')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Garage)
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Year Built</label>
+                                @Html.TextBoxFor(model => model.YearBuilt, new { @class = "form-control Square-Footage", pattern = "^[0-9]*$", oninvalid = "setCustomValidity('Enter Number only')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.YearBuilt)
+                            </div>
+                        </section>
+
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <section class="SETTLEMENT-BANK-ACCOUNTS">
+                            <h1 class="form_heading">CLASSIFICATIONS</h1>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Property Style</label>
+                                @Html.DropDownList("PropertyStyleId", ViewBag.PropertyStyle as SelectList, "Select Style", @*Model.PropertyStyle.Style_Name,*@ new { id = "PropertyStyleId", @class = "form-control" , oninvalid = "setCustomValidity('Enter valid PRoperty syle')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.PropertyStyleId)
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Parking</label>
+                                @Html.CheckBox("Parking_Id")
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Heating</label>
+                                @Html.CheckBox("Heating_Id")
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Air Conditioning</label>
+                                @Html.CheckBox("AirConditioning_Id")
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Flooring</label>
+                                @Html.CheckBox("Flooring_Id")
+                            </div>
+                            @*<div class="panel">
+                                    <p>You've chosen an Operating and Deposit bank accounts that are not setup for online rent collection. Please note that online payments will be disabled for this unit.</p>
+                                </div>
+                                <div class="input-group form-group custom">
+                                    <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Unit Owner *</label>
+                                    <select class="form-control Property-Type" name="msg">
+                                        <option>--- Unit Owner ---</option>
+                                        <option>--- Unit Owner ---</option>
+                                        <option>--- Unit Owner ---</option>
+                                        <option>--- Unit Owner ---</option>
+                                    </select>
+                                </div>
+                                <div class="input-group form-group custom">
+                                    <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Management Fees</label>
+                                    <select class="form-control Property-Type" name="msg">
+                                        <option>--- Not Mgt Fee ---</option>
+                                        <option>--- Not Mgt Fee ---</option>
+                                        <option>--- Not Mgt Fee ---</option>
+                                        <option>--- Not Mgt Fee ---</option>
+                                    </select>
+                                </div>*@
+                        </section>
+
+                        <section class="SETTLEMENT-BANK-ACCOUNTS ADVANCED-SETTINGS">
+                            <h1 class="form_heading">COST SETTINGS</h1>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Price</label>
+                                @Html.TextBoxFor(model => model.Price, new { @class = "form-control Occupancy", required = true, type = "number", OnKeyUp = "return getdeposit();" })
+                                @Html.ValidationMessageFor(model => model.Price)
+                            </div>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Minimum Rent</label>
+                                @Html.TextBoxFor(model => model.MinimumRent, new { @class = "form-control Occupancy", required = true , type = "number" })
+                                @Html.ValidationMessageFor(model => model.MinimumRent)
+                            </div>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Deposit Request</label>
+                                @Html.TextBoxFor(model => model.DepositReq, new { @class = "form-control Occupancy", required = true , type = "number" })
+                                @Html.ValidationMessageFor(model => model.DepositReq)
+                            </div>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">If Holding Fee </label>
+                                @Html.DropDownList("HoldingFee", new List<SelectListItem>
+                                {
+                                    new SelectListItem{ Text="Yes", Value = "1" },
+                                    new SelectListItem{ Text="No", Value = "0" ,Selected=true },
+                                 }, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.HoldingFee)
+                            </div>
+                            <div class="input-group form-group custom holdingfee">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">HoldingFee</label>
+                                @Html.TextBoxFor(model => model.IfHoldingFee, new { @class = "form-control Occupancy" })
+                                @Html.ValidationMessageFor(model => model.IfHoldingFee)
+                            </div>
+                        </section>
+
+                        <section class="SETTLEMENT-BANK-ACCOUNTS ADVANCED-SETTINGS">
+                            <h1 class="form_heading">PROPERTY DESCRIPTION</h1>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Description</label>
+                                @Html.TextAreaFor(model => model.Description, new {@rows="3" ,@class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </div>
+                         
+                        </section>
+
+
+                        <section class="UNIT-PHOTOS">
+                            <h1 class="form_heading">PROPERTY PHOTOS</h1>
+                            <div class="form-group select_images">
+                                <label>You can select multiple images by using control button 
+                                </label>
+                                <span>
+                                    <input type="file" multiple="multiple" name="ImageName" />
+                                    
+                                    @*<form id="frm" name="formImages" method="post" enctype="multipart/form-data">*@
+
+                                    @*  <button type="submit" class="btn-primary" name="Command" value="SaveImage">Upload Images</button>
+                                        </form>*@
+
+                                </span>
+                            </div>
+                            <br /><br /><br /><br /><br /><br />
+                            <br /><br /><br />
+                            @if (Model != null)
+                            {
+                                if (Model.PropertyPhotos != null)
+                                {
+                                    <div class="slider_panel clearfix">
+                                        <ul class="bxslider">
+                                            @{
+                                    string[] imagess = Model.PropertyPhotos.Split(',');
+                                    foreach (var data in imagess)
+                                    {
+                                        <li>
+                                            <img src="@getallpath.getpath/Folders/PropertyImages/@data" alt="@data" width="300" />
+                                        </li>
+                                    }
+                                            }
+
+                                        </ul>
+                                    </div>
+                                }
+                            }
+
+                            @*<ul>
+                                    <li><a href="#"><img src="http://via.placeholder.com/120x120"></a></li>
+                                    <li><a href="#"><img src="http://via.placeholder.com/120x120"></a></li>
+                                    <li><a href="#"><img src="http://via.placeholder.com/120x120"></a></li>
+                                    <li><a href="#"><img src="http://via.placeholder.com/120x120"></a></li>
+                                    <li><a href="#"><img src="http://via.placeholder.com/120x120"></a></li>
+                                    <li><a href="#"><img src="http://via.placeholder.com/120x120"></a></li>
+                                    <li><a href="#"><img src="http://via.placeholder.com/120x120"></a></li>
+                                    <li><a href="#"><img src="http://via.placeholder.com/120x120"></a></li>
+                                </ul>*@
+
+                        </section>
+                        <div class="save_panel">
+                            <div class="container">
+                                @*Save & Add Similar Unit*@
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                                <a class="btn btn-primary" href="PropertyIndex">Back To Property</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+
+
+<script>
+    if ($("#HoldingFee") == 1) {
+
+    }
+    else {
+        $(".holdingfee").hide();
+    }
+
+    function getdeposit() {
+        debugger
+        var price = document.getElementById('Price').value;
+        var deposit = parseFloat(price) + parseFloat(parseFloat(price) * 0.2);
+        document.getElementById('DepositReq').value = deposit;
+    }
+
+    $("#HoldingFee").change(function () {
+        var q = $(this).val();
+        if (q == "1") {
+            $(".holdingfee").show();
+        }
+        else {
+            $(".holdingfee").hide();
+        }
+    });
+
+    $(document).ready(function () {
+        $.validator.addMethod(
+                    "CompareValue",
+                    function (value, element) {
+                        var price = document.getElementById('Price').value;
+                        var q = (parseFloat(price) * 0.2);
+                        if (parseInt(value) <= parseInt(q)) {
+
+                            return true;
+                        }
+                        return false;
+
+                    },
+                    "Offer Must Be LessThan or Equal to Askingprice"
+                );
+        $.validator.addMethod(
+            "CompareMinValue",
+            function (value, element) {
+                var price = document.getElementById('Price').value;
+                var minPrice = document.getElementById('MinimumRent').value;
+                if (parseInt(minPrice) <= parseInt(price)) {
+                    return true;
+                }
+                return false;
+
+            },
+            "Minimum Rent Must Be LessThan or Equal to Price"
+        );
+        $("#propertycreate").validate({
+            rules: {
+                Price: { required: true, number: true },
+                IfHoldingFee: { required: true, number: true, CompareValue: true },
+                Bedroom:{required:true},
+                MinimumRent: { required: true, number: true,CompareMinValue:true },
+                DepositReq: { required: true, number: true },
+                Bathroom: { required: true },
+                toilet: { required: true },
+                studyRoom: { required: true },
+                UtilityRoom: { required: true },
+                Kitchen: { required: true },
+                Garage: { required: true },
+                AddressLine1: { required: true },
+                PropertyStyleId: { required: true }
+               
+
+            }, messages: {
+                Price: "Enter Only Numeric Or Decimal Number",
+                IfHoldingFee: {
+                    required:"Enter Holding Fee",
+                    number: "Enter Only Numeric Or Decimal Number",
+                    CompareValue: "Holding Fee Must Be LessThan or Equal to 20% of Total Rent"
+                },
+                Bedroom: "Enter Number of Bedroom",
+                MinimumRent: {
+                    required: "Enter Minimum Rent",
+                    number: "Enter Only Numeric Or Decimal Number",
+                    CompareMinValue: "Minimum Rent Must Be LessThan or Equal to Price"
+                },
+                DepositReq:{ 
+                    required: "Enter Request Amount",
+                    number: "Enter Only Numeric Or Decimal Number"
+                },
+                Bathroom: "Enter Number of Bathroom",
+                toilet: "Enter Number of toilet",
+                studyRoom: "Enter Number of studyRoom",
+                UtilityRoom: "Enter Number of UtilityRoom",
+                Kitchen: "Enter Number of Kitchens",
+                Garage: "Enter Number of Garage",
+                AddressLine1: "Enter Address",
+                PropertyStyleId: "Enter Property Style"
+            }
+        });
+    });
+
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBylNa1W2qT0E8KFu_bAKCIOSpnfSxEos"></script>
+<script>
+
+    var tryAPIGeolocation = function () {
+        jQuery.post("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDfkSGK5oAUdIT5xmFTd7GjJ3fpkM5YLas", function (success) {
+            initialize({ coords: { latitude: success.location.lat, longitude: success.location.lng } });
+        })
+        .fail(function (err) {
+            console.log("err message ");
+            console.log(err);
+        });
+    };
+    function initialize(position) {
+        
+        var latt = $('#Latitude').val();
+        var lngg = $('#Longitude').val();
+        var myLatlng;
+        if (latt == "" && lngg == "") {
+            myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        }
+        else {
+            myLatlng = new google.maps.LatLng(latt, lngg);
+        }
+        var myOptions = {
+            zoom: 10,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
+        addMarker(myLatlng, 'Default Marker', map);
+        map.addListener('click', function (event) {
+            addMarker(event.latLng, 'Click Generated Marker', map);
+        });
+    }
+    function addMarker(latlng, title, map) {
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: title,
+            draggable: true
+        });
+        marker.addListener('drag', function (event) {
+            
+            $('#Latitude').val(event.latLng.lat());
+            $('#Longitude').val(event.latLng.lng());
+        });
+        marker.addListener('dragend', function (event) {
+            $('#Latitude').val(event.latLng.lat());
+            $('#Longitude').val(event.latLng.lng());
+            var x = event.latLng.lat();
+            var y = event.latLng.lng();
+            GetAddress(x, y);
+            //$("#results").append($('<div>').text(event.latLng.toUrlValue()).data('latlng', event.latLng).click(function () { marker.setPosition($(this).data('latlng')); }));
+        });
+    };
+    function GetAddress(lat,lng) {     
+        var postal_town="",street_number = "", city = "", state = "", premise_building = "", country = "", route = "", neighborhood = "", sublocality_level_1_sector = "", administrative_area_level_2_dist = "", postal_code = "";
+        var latlng = new google.maps.LatLng(lat, lng);
+        var geocoder = geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    console.log("address", results[0]);
+                    for (var i = 0; i < results[0].address_components.length; i++) {
+                        for (var b = 0; b < results[0].address_components[i].types.length; b++) {                            
+                            if (results[0].address_components[i].types[b] == "route") {
+                                route = results[0].address_components[i];
+                                break;
+                            }
+                            if (results[0].address_components[i].types[b] == "neighborhood") {
+                                neighborhood = results[0].address_components[i];
+                                break;
+                            }
+                            if (results[0].address_components[i].types[b] == "sublocality_level_1") {
+                                sublocality_level_1_sector = results[0].address_components[i];
+                                break;
+                            }
+                            if (results[0].address_components[i].types[b] == "administrative_area_level_2") {
+                                administrative_area_level_2_dist = results[0].address_components[i];
+                                break;
+                            }
+                            if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+                                state = results[0].address_components[i];
+                                break;
+                            }
+                            if (results[0].address_components[i].types[b] == "locality") {
+                                city = results[0].address_components[i];
+                                break;
+                            }
+                            if (results[0].address_components[i].types[b] == "country") {
+                                country = results[0].address_components[i];
+                                break;
+                            }
+                            if (results[0].address_components[i].types[b] == "postal_code") {
+                                postal_code = results[0].address_components[i];
+                                break;
+                            }
+                            if (results[0].address_components[i].types[b] == "premise") {
+                                premise_building = results[0].address_components[i];
+                                break;
+                            }
+                            if (results[0].address_components[i].types[b] == "street_number") {
+                                street_number = results[0].address_components[i];
+                                break;
+                            }
+                            if (results[0].address_components[i].types[b] == "postal_town") {
+                                postal_town = results[0].address_components[i];
+                                break;
+                            }
+                        }
+                    }
+                    console.log("premise:" + premise_building.long_name + "route:" + route.long_name + ",neighborhood:" + neighborhood.long_name + ",sublocality_level_1_sector:" + sublocality_level_1_sector.long_name + ",administrative_area_level_2_dist:" + administrative_area_level_2_dist.long_name + ",administrative_area_level_1:" + state.long_name + ",city:" + city.long_name + ",country:" + country.long_name + ",post_code:" + postal_code.long_name);
+                    //$('#AddressLine1').val(street_number.long_name + " " + route.long_name + " " + neighborhood.long_name + " " + sublocality_level_1_sector.long_name);
+                    //$('#City').val(city);
+                    //$('#County').val(event.latLng.lat());
+                    //$('#State').val(state);
+                    //$('#Zip').val(postal_code);
+                    //$('#Suberb').val(city);
+                    //$('#Province').val(event.latLng.lat());
+                    //$('#Town').val(postal_town);                  
+                }
+            }
+        });
+    }
+    $('.recenter').click(function () {
+        var a = $(this).text();
+        alert(a);
+    });
+
+    tryAPIGeolocation();
+</script>
+
+
+

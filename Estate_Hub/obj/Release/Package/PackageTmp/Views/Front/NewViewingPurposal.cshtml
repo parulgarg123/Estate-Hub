@@ -1,0 +1,165 @@
+﻿@model Proptiwise.Models.ViewingPurposal
+           @using Proptiwise.Models
+@{
+    ViewBag.Title = "NewViewingPurposal";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+    <div class="container">
+        <div class="row">
+            <div class="Billing-form">
+                <section class="UNIT-ADDRESS pop_add_row">
+                    <div class="prop-form_rgt">
+                        <h1 class="form_heading">Property Details</h1>
+
+                        @{
+                            var item = Session["propdataviewprop"] as Proptiwise.Models.Property;
+
+                            <section class="prop_detail_coll">
+                                <article class="prop_list">
+                                    @*<input type="hidden" name="pid" value="@p.PID" />*@
+                                    <h3 class="propname">@item.Street @item.City @item.State @item.PostCode</h3>
+                                    <h6>@item.PropertyStyle.Style_Name|@item.Bedroom BD |@item.Bathroom BA |@item.SqFt SqFt</h6>
+                                    @*<h6>@item.PropertyType.PropertyTypeName|@item.Bedroom BD |@item.Bathroom BA |@item.SqFt SqFt</h6>*@                                    
+                                    <div class="prop_cont_lst_con">
+                                        <span class="price_content">
+                                            @if (item.Price != null)
+                                        {
+                                        <p><font>Asking Price</font>@getallpath.currency@Math.Round(Convert.ToDouble(item.Price), 2)/m</p>
+                                        }
+                                        else
+                                        {
+                                        <p><font>Asking Price</font>--</p>
+                                        }
+                                            @if (item.DepositReq != null)
+                                        {
+                                        <p><font>Deposit</font>@getallpath.currency@Math.Round(Convert.ToDouble(item.DepositReq), 2)/m</p>
+                                        }
+                                        else
+                                        {
+                                        <p><font>Deposit</font>--</p>
+                                        }
+                                        </span>
+                                        <span class="price_content6">
+
+                                            @if (item.Bedroom != null)
+                                        {
+                                        <p><font>Bedrooms</font>@item.Bedroom</p>
+                                        }
+                                        else
+                                        {
+                                        <p><font>Bedrooms</font>--</p>
+                                        }
+                                            @if (item.Bathroom != null)
+                                        {
+                                        <p><font>Bathrooms</font>@item.Bathroom</p>
+                                        }
+                                        else
+                                        {
+                                        <p><font>Bathrooms</font>--</p>
+                                        }
+                                            @if (item.Furnished != null)
+                                        {
+                                            if (item.Furnished == "Furnished")
+                                            {
+                                        <p><font>Furnished</font>True</p>
+                                            }
+                                            else
+                                            {
+                                        <p><font>Furnished</font>false</p>
+                                            }
+                                        }
+                                        else
+                                        {
+                                        <p><font>Furnished</font>--</p>
+                                        }
+                                        </span>
+                                        <span class="price_desc">
+                                            @if (item.Description != null)
+                                        {
+                                        <p><font>Description</font>@item.Description</p>
+                                        }
+                                        else
+                                        {
+                                        <p><font>Description</font>--</p>
+                                        }
+                                        </span>
+                                    </div>
+                                </article>
+                            </section>
+                        }
+
+                    </div>
+                    <div class="prop-form_left">
+                        @using (Html.BeginForm())
+                    {
+                            if(Model!=null)
+                            {
+                                @Html.HiddenFor(modl => Model.ViewingPurposalid)
+                            }
+                    @Html.AntiForgeryToken()
+                    <h2 class="form_heading">Purposal Form</h2>
+
+                    @Html.ValidationSummary(true)
+
+                        <div class="form-group custom">
+                            @Html.LabelFor(model => model.PreferredDate, new { @class = "control-label" })
+                            @Html.TextBoxFor(model => model.PreferredDate, new { id = "datepickerrequest", placeholder = "Select Date", autocomplete = "off", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.PreferredDate)
+                        </div>
+                        <div class="form-group custom">
+                            @Html.LabelFor(model => model.PreferredTime, new { @class = "control-label" })
+                            @Html.DropDownList("PreferredTime", new List<SelectListItem>
+                            {
+                                new SelectListItem{ Text="9:00 AM", Value ="9:00 AM"},
+                                new SelectListItem{ Text="9:30 AM", Value = "9:30 AM"},
+                                new SelectListItem{ Text="10:00 AM", Value = "10:00 AM"},
+                                new SelectListItem{ Text="10:30 AM", Value ="10:30 AM"},
+                                new SelectListItem{Text="11:00 AM", Value = "11:00 AM"},
+                                new SelectListItem{ Text="11:30 AM", Value ="11:30 AM"},
+                                new SelectListItem{Text="12:00 PM", Value ="12:00 PM"},
+                                new SelectListItem{Text="12:30 PM", Value = "12:30 PM"},
+                                new SelectListItem{ Text="1:00 PM", Value ="1:00 PM"},
+                                new SelectListItem{Text="1:30 PM", Value ="1:30 PM"},
+                                new SelectListItem{Text="2:00 PM", Value ="2:00 PM"},
+                                new SelectListItem{Text="2:30 PM", Value ="2:30 PM"},
+                                new SelectListItem{Text="3:00 PM", Value ="3:00 PM"},
+                                new SelectListItem{Text="3:30 PM", Value ="3:30 PM"},
+                                new SelectListItem{Text="4:00 PM", Value ="4:00 PM"},
+                                new SelectListItem{Text="4:30 PM", Value ="4:30 PM"},
+                                new SelectListItem{Text="5:00 PM", Value ="5:00 PM"},
+                                new SelectListItem{Text="5:30 PM", Value ="5:30 PM"},
+                                new SelectListItem{Text="6:00 PM", Value ="6:00 PM"},
+                                }, new { id = "PreferredTime", @class = "select form-control" })
+                                @Html.ValidationMessageFor(model => model.PreferredTime)
+                            </div>
+
+                            <div class="form-group custom">
+                                @Html.LabelFor(model => model.text, new { @class = "control-label" })
+                                @Html.TextBoxFor(model => model.text, new { @class = "form-control", @id = "cfvbcv", placeholder = "Other Information" })
+                                @Html.ValidationMessageFor(model => model.text)
+                            </div>
+
+                            <div class="save_panel_btn">
+                                <button class="Save_btn" type="submit"> <i class="fa fa-paper-plane"></i> Submit</button>
+                                <h4 style="color:black;">@ViewBag.RequestMessage</h4>
+                            </div>
+                            }
+                    </div>
+                </section>
+
+            </div>
+        </div>
+   </div> 
+
+            <script>
+                $(function () {
+
+                    $("#datepickerrequest").datepicker({
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: "1930:2050"
+                    });
+                });
+
+            </script>

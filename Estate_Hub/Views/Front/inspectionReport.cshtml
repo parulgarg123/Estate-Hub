@@ -1,0 +1,158 @@
+﻿@model Proptiwise.Models.Inspection
+@{
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+<section class="dash_column property-back clearfix" style="background: #fff;">
+
+    <div class="container">
+        <div class="row">
+            <div class="Billing-form">
+                @using (Html.BeginForm("inspectionReport", "Front", FormMethod.Post, new { @id = "inspectionReport", @class = "form-tag" }))
+                {
+                    if (Model != null)
+                    {
+                        @Html.HiddenFor(m => m.InspectionId)
+                    }
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <section class="UNIT-ADDRESS">
+                            <h1 class="form_heading">Property Details For Inspection</h1>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Room Type </label>
+                                @Html.TextBoxFor(model => model.RoomType, new { @id = "RoomType", @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Type')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.RoomType)
+                            </div>
+
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">RoomNotes</label>
+                                @Html.TextBoxFor(model => model.RoomNotes, new { @id = "RoomNotes", @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter Notes')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.RoomNotes)
+                            </div>
+
+                            <div class="form-group custom">
+                                @*<label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Address2</label>*@
+                                <input type="button" id="btnrooms" name="Command" value="Add" class="btn btn-default" />
+                                <input type="hidden" name="checkstatus" id="checkstatus" />
+                            </div>
+
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Inspection Notes</label>
+                                @Html.TextBoxFor(model => model.InspectionNotes, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter Inspection Notes')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.InspectionNotes)
+                            </div>
+
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Action Required</label>
+                                @Html.TextBoxFor(model => model.ActionRequired, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter Required Action')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.ActionRequired)
+                            </div>
+                            <div class="roomdata1"></div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                            </div>
+
+                        </section>
+                    </div>
+
+                }
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+@*<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Inspection</h2>
+    </div>
+            <div class="modal-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true)
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.RoomType, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.RoomType, new {@id="RoomType" })
+                                @Html.ValidationMessageFor(model => model.RoomType)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.RoomNotes, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.RoomNotes, new { @id = "RoomNotes" })
+                                @Html.ValidationMessageFor(model => model.RoomNotes)
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.Images, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="file" name="Images" id="Images" multiple/>
+                                       @Html.ValidationMessageFor(model => model.Images)></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="button" id="btnrooms" name="Command" value="Add" class="btn btn-default" />
+                                <input type="hidden" name="checkstatus" id="checkstatus" />                        </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.InspectionNotes, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.InspectionNotes)
+                                @Html.ValidationMessageFor(model => model.InspectionNotes)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ActionRequired, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ActionRequired)
+                                @Html.ValidationMessageFor(model => model.ActionRequired)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Submit" class="btn btn-default" />
+                            </div>
+                        </div>
+                        <div class="roomdata1"></div>
+                    </div>
+                }
+    </div>*@
+
+<script>
+
+    $(function () {
+        var i = 0;
+        $('#btnrooms').click(function () {
+            $('#checkstatus').val("1");
+            var rd = $('#RoomType').val();
+            var rn = $('#RoomNotes').val();
+            var ri = $('#Images').val();
+
+            var gethtml = piecesHtml(rd, rn, ri, i);
+            $('.roomdata1').after(gethtml);
+            i++;
+        })
+    });
+    function piecesHtml(rd, rn, ri, i) {
+        var pieceHtml = '<span class="select_column"><input type="hidden" class="roomdata" value="' + rd + '" id="roomname[' + i + ']" name="roomname[' + i + ']"/> <input type="hidden" class="roomdata" value="' + rn + '" id="rnotes[' + i + ']"  name="rnotes[' + i + ']"/> <input type="hidden" class="roomdata" value="' + ri + '" id="roomimages[' + i + ']"  name="roomimages[' + i + ']"/></span>';
+        return pieceHtml;
+    }
+</script>

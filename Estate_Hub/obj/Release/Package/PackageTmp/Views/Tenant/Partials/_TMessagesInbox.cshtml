@@ -1,0 +1,76 @@
+﻿@model PagedList.IPagedList<Proptiwise.Models.tbMessage>
+@using Proptiwise.Models
+@using PagedList.Mvc;
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("From")
+        </th>
+        <th>
+            @Html.DisplayName("Subject")
+        </th>
+        <th>
+            @Html.DisplayName("Message")
+        </th>
+
+        <th>
+            @Html.DisplayName("Date")
+        </th>
+        <th>
+            @Html.DisplayName("Reply")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Status == 1)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailfrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    <a href="@getallpath.getpath/Tenant/ViewMessage/@item.MessageId">View</a>
+                </td>
+
+                <td>
+                    @item.SentDate.Value.ToShortDateString()
+                </td>
+                <td>
+                    <a href="@getallpath.getpath / Tenant/ReplyMessage/@item.MessageId">Reply</a>
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr style="background-color:#E1E1E1">
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailfrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    <a href="@getallpath.getpath/Tenant/ViewMessage/@item.MessageId">View</a>
+                </td>
+
+                <td>
+                    @item.SentDate.Value.ToShortDateString()
+                </td>
+                <td>
+                    <a href="@getallpath.getpath/Tenant/ReplyMessage/@item.MessageId">Reply</a>
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+
+<br />
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("TMessages", new { page, tab = "tab-1" }))

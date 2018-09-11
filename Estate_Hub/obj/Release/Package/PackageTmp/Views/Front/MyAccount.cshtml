@@ -1,0 +1,286 @@
+﻿@model Proptiwise.Models.User
+@using Proptiwise.Models
+
+@{
+    ViewBag.Title = "MyAccount";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+
+<section class="dash_column property-back clearfix" style="background: #fff;">
+
+    <div class="container">
+        <div class="row">
+            <div class="Billing-form">
+                @*<form  method="post">*@
+                @using (Html.BeginForm("MyAccount", "Front", FormMethod.Post, new { @id = "myaccount", @class = "form-tag", @enctype = "multipart/form-data" }))
+                {
+                    if (Model != null)
+                    {
+                        @Html.HiddenFor(m => m.UserID)
+                    }
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <section class="UNIT-ADDRESS">
+                            <h1 class="form_heading">Contact Information</h1>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">FirstName</label>
+                                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid FirstName')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.FirstName)
+                            </div>
+
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Last Name</label>
+                                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Last Name')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.LastName)
+                            </div>
+
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Mobile</label>
+                                @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Telephone')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Mobile)
+                            </div>
+
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Email</label>
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Email')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+
+                        </section>
+
+                        <section class="UNIT-DETAILS">
+                            <h1 class="form_heading">Upload Signature </h1>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Signature</label>
+                                <span>
+                                    <input type="file" multiple="multiple" name="Signature" />
+                                </span>
+                            </div>
+                            @if (Model != null)
+                            {
+                                if (Model.Signature != null)
+                                {
+                                    <img src="@getallpath.getpath/Folders/ProfileImages/@Model.Signature" height="150" width="180" />
+                                }
+                                else
+                                {
+                                    <img src="@getallpath.getpath/images/NoImage.png" height="150" width="180" />
+                                }
+                            }
+                            <br /><br />
+                        </section>
+
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <section class="UNIT-DETAILS">
+                            <h1 class="form_heading">Address Info</h1>
+                            <div class="input-group form-group custom">
+                                <input type="hidden" value="@Model.Country" id="Country">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Building</label>
+                                <span class="input-group-addon"><i class="fa fa-building-o" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.BuildingName, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Building')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.BuildingName)
+                                @*@Html.DropDownList("BuildingId", ViewBag.Building as SelectList, "None", new { id = "drp1", @class = "form-control" })*@
+                            </div>
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Street Address</label>
+                                <span class="input-group-addon"><i class="fa fa-street-view" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Street Address')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.StreetAddress)
+                            </div>
+                            <div class="form-group custom ausCanadaUs11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Unit Number</label>
+
+                                @Html.TextBoxFor(model => model.UnitNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.UnitNumber)
+                            </div>
+                            <div class="form-group custom uk11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Town</label>
+
+                                @Html.TextBoxFor(model => model.Town, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Town')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Town)
+                            </div>
+                            <div class="form-group custom canada11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Province</label>
+                                @Html.TextBoxFor(model => model.Province, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Province)
+                            </div>
+                            <div class="form-group custom aus11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Suberb</label>
+                                @Html.TextBoxFor(model => model.Suberb, new { @class = "form-control", OnKeyUp = "return getlatlng();" })
+                                @Html.ValidationMessageFor(model => model.Suberb)
+                            </div>
+
+                            <div class="form-group custom ukCanadaUSA11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">City</label>
+                                @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.City)
+                            </div>
+                            <div class="form-group custom ukcnt1">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">County</label>
+                                @Html.DropDownListFor(model => model.County, new List<SelectListItem>
+                                {
+                                new SelectListItem() {Text = "Select County", Value="Select"},
+                                new SelectListItem() {Text = "Avon", Value="Avon"},
+                                new SelectListItem() {Text = "Bedfordshire", Value="Bedfordshire"},
+                                new SelectListItem() {Text = "Berkshire", Value="Berkshire"},
+                                new SelectListItem() {Text = "Borders", Value="Borders"},
+                                new SelectListItem() {Text = "Buckinghamshire", Value="Buckinghamshire"},
+                                new SelectListItem() {Text = "Cambridgeshire", Value="Cambridgeshire"},
+                                new SelectListItem() {Text = "Central", Value="Central"},
+                                new SelectListItem() {Text = "Cheshire", Value="Cheshire"},
+                                new SelectListItem() {Text = "Cleveland", Value="Cleveland"},
+                                new SelectListItem() {Text = "Clwyd", Value="Clwyd"},
+                                new SelectListItem() {Text = "Cornwall", Value="Cornwall"},
+                                new SelectListItem() {Text = "County Antrim", Value="County Antrim"},
+                                new SelectListItem() {Text = "County Armagh", Value="County Armagh"},
+                                new SelectListItem() {Text = "County Down", Value="County Down"},
+                                new SelectListItem() {Text = "County Fermanagh", Value="County Fermanagh"},
+                                new SelectListItem() {Text = "County Londonderry", Value="County Londonderry"},
+                                new SelectListItem() {Text = "County Tyrone", Value="County Tyrone"},
+                                new SelectListItem() {Text = "Cumbria", Value="Cumbria"},
+                                new SelectListItem() {Text = "Derbyshire", Value="Derbyshire"},
+                                new SelectListItem() {Text = "Devon", Value="Devon"},
+                                new SelectListItem() {Text = "Dorset", Value="Dorset"},
+                                new SelectListItem() {Text = "Dumfries and Galloway", Value="Dumfries and Galloway"},
+                                new SelectListItem() {Text = "Durham", Value="Durham"},
+                                new SelectListItem() {Text = "Dyfed", Value="Dyfed"},
+                                new SelectListItem() {Text = "East Sussex", Value="East Sussex"},
+                                new SelectListItem() {Text = "Essex", Value="Essex"},
+                                new SelectListItem() {Text = "Fife", Value="Fife"},
+                                new SelectListItem() {Text = "Gloucestershire", Value="Gloucestershire"},
+                                new SelectListItem() {Text = "Grampian", Value="Grampian"},
+                                new SelectListItem() {Text = "Greater Manchester", Value="Greater Manchester"},
+                                new SelectListItem() {Text = "Gwent", Value="Gwent"},
+                                new SelectListItem() {Text = "Gwynedd County", Value="Gwynedd County"},
+                                new SelectListItem() {Text = "Hampshire", Value="Hampshire"},
+                                new SelectListItem() {Text = "Herefordshire", Value="Herefordshire"},
+                                new SelectListItem() {Text = "Highlands and Islands", Value="Highlands and Islands"},
+                                new SelectListItem() {Text = "Humberside", Value="Humberside"},
+                                new SelectListItem() {Text = "Isle of Wight", Value="Isle of Wight"},
+                                new SelectListItem() {Text = "Kent", Value="Kent"},
+                                new SelectListItem() {Text = "Lancashire", Value="Lancashire"},
+                                new SelectListItem() {Text = "Leicestershire", Value="Leicestershire"},
+                                new SelectListItem() {Text = "Lincolnshire", Value="Lincolnshire"},
+                                new SelectListItem() {Text = "Lothian", Value="Lothian"},
+                                new SelectListItem() {Text = "Merseyside", Value="Merseyside"},
+                                new SelectListItem() {Text = "Mid Glamorgan", Value="Mid Glamorgan"},
+                                new SelectListItem() {Text = "Norfolk", Value="Norfolk"},
+                                new SelectListItem() {Text = "North Yorkshire", Value="North Yorkshire"},
+                                new SelectListItem() {Text = "Northamptonshire", Value="Northamptonshire"},
+                                new SelectListItem() {Text = "Northumberland", Value="Northumberland"},
+                                new SelectListItem() {Text = "Nottinghamshire", Value="Nottinghamshire"},
+                                new SelectListItem() {Text = "Oxfordshire", Value="Oxfordshire"},
+                                new SelectListItem() {Text = "Rutland", Value="Rutland"},
+                                new SelectListItem() {Text = "Shropshire", Value="Shropshire"},
+                                new SelectListItem() {Text = "Somerset", Value="Somerset"},
+                                new SelectListItem() {Text = "South Glamorgan", Value="South Glamorgan"},
+                                new SelectListItem() {Text = "South Yorkshire", Value="South Yorkshire"},
+                                new SelectListItem() {Text = "Staffordshire", Value="Staffordshire"},
+                                new SelectListItem() {Text = "Strathclyde", Value="Nottinghamshire"},
+                                new SelectListItem() {Text = "Suffolk", Value="Suffolk"},
+                                new SelectListItem() {Text = "Surrey", Value="Surrey"},
+                                new SelectListItem() {Text = "Tayside", Value="Tayside"},
+                                new SelectListItem() {Text = "Tyne and Wear", Value="Tyne and Wear"},
+                                new SelectListItem() {Text = "Warwickshire", Value="Warwickshire"},
+                                new SelectListItem() {Text = "West Glamorgan", Value="West Glamorgan"},
+                                new SelectListItem() {Text = "West Midlands", Value="West Midlands"},
+                                new SelectListItem() {Text = "West Sussex", Value="West Sussex"},
+                                new SelectListItem() {Text = "West Yorkshire", Value="West Yorkshire"},
+                                new SelectListItem() {Text = "Wiltshire", Value="Wiltshire"},
+                                new SelectListItem() {Text = "Worcestershire", Value="Worcestershire"}
+                                }, new { @class = "form-control" })
+
+                                @Html.ValidationMessageFor(model => model.County)
+                            </div>
+                            <div class="form-group custom ausUs11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">State</label>
+                                @Html.TextBoxFor(model => model.State, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.State)
+                            </div>
+                            <div class="input-group  form-group custom us11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Zip</label>
+                                <span class="input-group-addon"><i class="fa fa-map-pin" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.Zip, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Zip)
+                            </div>
+                            <div class="input-group form-group custom ukCanadaAus11">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Post Code</label>
+                                <span class="input-group-addon"><i class="fa fa-map-pin" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.PostCode, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PostCode)
+                            </div>
+                            </section>
+                            <section class="UNIT-DETAILS">
+                                <h1 class="form_heading">Upload Photo</h1>
+                                <div class="form-group custom">
+                                    <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">  Profile</label>
+                                    <span>
+                                        <input type="file" name="ImageName" />
+                                    </span>
+                                </div>
+                                @if (Model != null)
+                                {
+                                    if (Model.ProfilePhoto != null)
+                                    {
+                                        <img src="@getallpath.getpath/Folders/ProfileImages/@Model.ProfilePhoto" height="150" width="180" />
+                                    }
+                                    else
+                                    {
+                                        <img src="@getallpath.getpath/images/NoImage.png" height="150" width="180" />
+                                    }
+                                }
+                                <br /><br />
+
+                               
+
+
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                                </div>
+
+                            </section>
+
+
+</div>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

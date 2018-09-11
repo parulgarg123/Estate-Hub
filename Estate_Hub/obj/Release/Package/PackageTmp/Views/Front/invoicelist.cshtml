@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Proptiwise.Models.tbl_invoice>
+           @using Proptiwise.Models
+@{
+    ViewBag.Title = "invoicelist";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+
+<section class="tab_page applicant_column">
+    <div class="container">
+        <div class="row">
+            <div class="col-me-12 top_block clearfix">
+                <h1>Invoice List</h1>
+              
+            </div>
+            <div class="tab-content responsive">
+                <div class="tab-pane active">
+                 
+                    <table width="100%" class="table_list" cellspacing="0">
+                       
+                        <thead>
+                       
+                        <th>Invoice Number</th>
+                        <th>Property</th>
+                        <th>Tenant</th>
+                        <th>Total Amount</th>
+                        <th>Amount Pay</th>
+                        <th>Landlord</th>
+                        <th>Comment</th>
+                     
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                   
+                                    <td data-label="name">
+
+                                        @Html.DisplayFor(modelItem => item.InvoiceId) 
+                                           </td>
+                                  
+                                    <td data-label="address">
+                                        @Html.DisplayFor(modelItem => item.Property.PropertyName)
+                                    </td>
+                                    <td data-label="phone">
+                                        @Html.DisplayFor(modelItem => item.Tenant.FirstName)
+                                    </td>
+                                    <td data-label="phone">
+                                        @Html.DisplayFor(modelItem => item.Amount)
+                                    </td>
+                                    <td data-label="phone">
+                                        @Html.DisplayFor(modelItem => item.Amountpay)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.User.FirstName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comment)
+                                    </td>
+                                  <td>
+                                      @if(item.PaymentStatus==0)
+                                      { 
+                                      <a class="col-md-4 col-sm-5" href="@getallpath.getpath/Payment/Buy2/@item.InvoiceId">Pay With Card</a>
+                                      }
+                                      else
+                                      {
+                                          @Html.Display("Paid")
+                                      }
+<td>
+    <td>
+@if(item.PaymentStatus==0)
+                                      {
+                                      <div id="paypalDiv" class="col-md-4 col-sm-5">
+                                          <form id="paypalForm" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+
+                                              <fieldset>
+                                                  <input class="full-width" type="hidden" name="business" value="sampath-facilitator@inexisconsulting.com">
+                                                  <input type="hidden" name="cmd" value="_xclick">
+                                                  <input type="hidden" name="item_name" value="@item.Property.PropertyName" />
+                                                  <input type="hidden" name="item_number" value="@item.InvoiceId" />
+                                                  <input type="hidden" name="amount" value=@item.Amountpay />
+                                                  <input type="hidden" name="quantity" value=1 />
+                                                  <input type="hidden" name="return" value="http://www.proptiwise.com/Proptiwise/Front/invoicelist">
+                                                  <input type="hidden" name="notify_url" value="http://www.proptiwise.com/Proptiwise/Front/Ipn2/@item.InvoiceId">
+                                                  <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" />
+
+                                              </fieldset>
+
+                                          </form>
+                                      </div>
+                                      }
+else
+{
+    @Html.Display("Paid")
+}
+                                  </td>
+                                
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

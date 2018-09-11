@@ -1,0 +1,68 @@
+﻿@using Proptiwise.Models;
+@{
+    ViewBag.Title = "tour_form";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+<section class="account_column">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><h1>Forms &amp; Letters</h1></div>
+            <aside class="col-md-3 col-sm-4 col-xs-5">
+                <ul class="ac_list">
+                    <li><a href="tour_tenants">Tenants</a></li>
+                    <li><a href="tour_properties">Properties</a></li>
+                    <li><a href="tour_leases">Leases</a></li>
+                    <li><a href="tour_payments">Payments</a></li>
+                    <li><a href="tour_accounting">Accounting</a></li>
+                    <li><a href="tour_workorder">Work Orders</a></li>
+                    <li class="active_list"><a href="tour_form">Forms & Letters</a></li>
+                    <li><a href="tour_reports">Reports</a></li>
+                    <li><a href="tour_users">Users & Security</a></li>
+                    <li><a href="tour_tenantportal">Tenant Portal</a></li>
+                    <li><a href="tour_tenantscreening">Tenant Screening</a></li>
+                    <li><a href="tour_extras">Extras</a></li>
+                    <li><a href="tour_screenshots">Screenshots</a></li>
+                </ul>
+            </aside>
+            <div class="content col-md-9 col-sm-9">
+                <div>
+                    <h3>Forms &amp; Letters</h3>
+                    <p><img alt="Tour" src="@getallpath.getpath/images/test.png" class="alignright"></p>
+                    <h4>Personalized forms in minutes</h4>
+                    <p>
+                        Proptiwise allows you to create any number of forms and letters and combine them with your data to email or print highly personalized documents. Create custom letters, application forms, and lease agreements from scratch, or choose from the templates included. All documents can be exported to PDF, sent as file attachments, or printed.
+                    </p>
+                    <ul class="clear">
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Rich Document Designer
+                            </h4>
+                            <p>The full featured document designer supports highly customizable letters and forms - copy and paste from Word documents and PDFs, or edit directly with numerous styles, fonts, and editing capabilities.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Auto-Fill Your PDFs
+                            </h4>
+                            <p>Upload PDFs with form fields, map them to proptiwise data fields, and you can magically auto-populate them with your tenant, property and lease data - in seconds. No more typing, or worse - hand editing with pen &amp; paper!</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Bulk Print
+                            </h4>
+                            <p>Save time by bulk printing your documents for any number of tenants and properties, or all of them at once! proptiwise will generate a customized copy of your document for each tenant or property you specify - you can generate letters for hundreds of tenants in less than 10 seconds!</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Database Fields
+                            </h4>
+                            <p>The document designer will allow you to insert just about every piece of data related to your leases, tenants, properties, buildings, and work orders and vendors. Similar to Word's mail merge, you can add information from the database precisely in the document where you want it to appear!</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+

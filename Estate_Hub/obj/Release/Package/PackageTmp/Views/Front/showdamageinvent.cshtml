@@ -1,0 +1,293 @@
+﻿
+
+@using Proptiwise.Models
+
+@{
+    ViewBag.Title = "showdamageinvent";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+<div class="container-fluid">
+    <ul class="nav nav-tabs responsive" id="myTab">
+        <li class="active"><a href="#tab-1">Pending</a></li>
+        <li><a href="#tab-2">Accepted</a></li>
+        <li><a href="#tab-3">Rejected</a></li>
+
+    </ul>
+
+
+    <div class="tab-content responsive">
+        <div class="tab-pane active" id="tab-1">
+            <h5>Damaged Inventory proposal</h5>
+            <table width="100%" class="table_list" cellspacing="0">
+                <caption>
+                    <h6 style="color: white; text-align: center"></h6>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Damage Inventory items</th>
+                        <th>Total Deposit Amount</th>
+                        <th>Total Damaged Cost</th>
+                        <th>Balance</th>
+                        <th>Tenant</th>
+                        <th>Property</th>
+                        <th>Landlord</th>
+                        <th>Buiding</th>
+                        <th>Landlord Comment</th>
+                        <th>Tenant Comment</th>
+                        <th>Accept</th>
+                        <th>Reject</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in TempData["pendinginvent"] as List<Proptiwise.Models.damage_intventory>)
+                {
+                <tr>
+
+                    <td>
+                        @{
+                    string[] arr = item.Inventory_Id.Split(',');
+                    string name = "";
+                    foreach (string item1 in arr)
+                    {
+                        name = name + "," + RandomFunctions.getinventname(item1);
+                        //name = ;
+
+                    }
+                            <label>@name.Trim(',')</label>
+                        }
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.DepositReq)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.TotalCost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Balance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Tenant.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Property.PropertyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.User.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Building.BuildingName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.LandlordComment)
+                    </td>
+                    @if(item.TenantComment!=null)
+                        {
+                        <td>
+                            @Html.DisplayFor(modelitem => item.TenantComment)
+                        </td>
+                        }
+                        else
+                        {
+                        <td>
+                            <label>No Comment</label>
+                        </td>
+                        }
+
+                    <td data-label="detail-btn"><a class="detail_link" id="lnkedit" href="@getallpath.getpath/acceptinvent/@item.Id">Accept</a></td>
+
+                    <td data-label="detail-btn"><a class="detail_link" id="lnkedit" href="@getallpath.getpath/rejectinvent/@item.Id" data-modal=''>Reject</a></td>
+
+                </tr>
+               }
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="tab-2">
+            <h5>Accepted Viewing Proposals</h5>
+            <table width="100%" class="table_list" cellspacing="0">
+                <caption>
+                    <h6 style="color: white; text-align: center"></h6>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Damage Inventory items</th>
+                        <th>Total Deposit Amount</th>
+                        <th>Total Damaged Cost</th>
+                        <th>Balance</th>
+                        <th>Tenant</th>
+                        <th>Property</th>
+                        <th>Landlord</th>
+                        <th>Buiding</th>
+                        <th>Landlord Comment</th>
+                        <th>Tenant Comment</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in TempData["acceptinvent"] as List<Proptiwise.Models.damage_intventory>)
+                {
+                <tr>
+
+                    <td>
+                        @{
+                    string[] arr = item.Inventory_Id.Split(',');
+                    string name = "";
+                    foreach (string item1 in arr)
+                    {
+                        name = name + "," + RandomFunctions.getinventname(item1);
+                        //name = ;
+
+                    }
+                            <label>@name.Trim(',')</label>
+                        }
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.DepositReq)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.TotalCost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Balance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Tenant.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Property.PropertyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.User.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Building.BuildingName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.LandlordComment)
+                    </td>
+                    @if (item.TenantComment != null)
+                                {
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.TenantComment)
+                                </td>
+                                }
+                                else
+                                {
+                                <td>
+                                    <label>No Comment</label>
+                                </td>
+                                }
+                </tr>
+
+
+
+                }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane " id="tab-3">
+            <h5>Rejected Viewing Proposals</h5>
+            <table width="100%" class="table_list" cellspacing="0">
+                <caption>
+                    <h6 style="color: white; text-align: center"></h6>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Damage Inventory items</th>
+                        <th>Total Deposit Amount</th>
+                        <th>Total Damaged Cost</th>
+                        <th>Balance</th>
+                        <th>Tenant</th>
+                        <th>Property</th>
+                        <th>Landlord</th>
+                        <th>Buiding</th>
+                        <th>Landlord Comment</th>
+                        <th>Tenant Comment</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in TempData["rejectinvent"] as List<Proptiwise.Models.damage_intventory>)
+                {
+                <tr>
+
+                    <td>
+                        @{
+                    string[] arr = item.Inventory_Id.Split(',');
+                    string name = "";
+                    foreach (string item1 in arr)
+                    {
+                        name = name + "," + RandomFunctions.getinventname(item1);
+                        //name = ;
+
+                    }
+                            <label>@name.Trim(',')</label>
+                        }
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.DepositReq)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelitem => item.TotalCost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Balance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Tenant.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Property.PropertyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.User.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.Building.BuildingName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.LandlordComment)
+                    </td>
+                    @if (item.TenantComment != null)
+                        {
+                        <td>
+                            @Html.DisplayFor(modelitem => item.TenantComment)
+                        </td>
+                        }
+                        else
+                        {
+                        <td>
+                            <label>No Comment</label>
+                        </td>
+                        }
+                </tr>
+
+
+
+                }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+

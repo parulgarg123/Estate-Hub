@@ -1,0 +1,46 @@
+﻿@model PagedList.IPagedList<Proptiwise.Models.tbMessage>
+@using Proptiwise.Models
+@using PagedList.Mvc;
+
+
+<table class="table_list vp_custom_table">
+    <tr>
+        <th>
+            @Html.DisplayName("From")
+        </th>
+        <th>
+            @Html.DisplayName("Subject")
+        </th>
+        <th>
+            @Html.DisplayName("Message")
+        </th>
+        <th>
+            @Html.DisplayName("Date")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailfrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                <a href="@getallpath.getpath/Tenant/ViewMessage1/@item.MessageId">View</a>
+            </td>
+            <td>
+                @item.SentDate.Value.ToShortDateString()
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<br />
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("TMessages", new { page, tab = "tab-2" }))

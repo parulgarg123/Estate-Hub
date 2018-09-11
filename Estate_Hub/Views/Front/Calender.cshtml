@@ -1,0 +1,33 @@
+﻿@using Proptiwise.Models
+@{
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Calender</title>
+
+
+</head>
+<body>
+    <a class="edit_link on-edit2" href="@getallpath.getpath/AddEvents">New Calender Item</a>
+    <br /><br /><br /><br />
+    <div id="calendar">
+    </div>
+
+
+
+
+    @*<div id='myModalevents' class='modal fade in'>
+        </div>*@
+    @*<div id='myModal' class='modal fade in'>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div id='myModalContent'></div>
+                </div>
+            </div>
+        </div>*@
+    <script src="~/Scripts/Appjs/Phone.js"></script>
+</body>
+</html>

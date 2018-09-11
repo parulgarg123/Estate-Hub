@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="tbProperties" targetNamespace="http://tempuri.org/tbProperties.xsd" xmlns:mstns="http://tempuri.org/tbProperties.xsd" xmlns="http://tempuri.org/tbProperties.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="dbrealestateConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dbrealestateConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.dbrealestateConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="tbProperties" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="tbProperties" msprop:Generator_UserDSName="tbProperties">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Properties" msprop:Generator_TableClassName="PropertiesDataTable" msprop:Generator_TableVarName="tableProperties" msprop:Generator_TablePropName="Properties" msprop:Generator_RowDeletingName="PropertiesRowDeleting" msprop:Generator_RowChangingName="PropertiesRowChanging" msprop:Generator_RowEvHandlerName="PropertiesRowChangeEventHandler" msprop:Generator_RowDeletedName="PropertiesRowDeleted" msprop:Generator_UserTableName="Properties" msprop:Generator_RowChangedName="PropertiesRowChanged" msprop:Generator_RowEvArgName="PropertiesRowChangeEvent" msprop:Generator_RowClassName="PropertiesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PropertyName" msprop:Generator_ColumnVarNameInTable="columnPropertyName" msprop:Generator_ColumnPropNameInRow="PropertyName" msprop:Generator_ColumnPropNameInTable="PropertyNameColumn" msprop:Generator_UserColumnName="PropertyName" type="xs:string" minOccurs="0" />
+              <xs:element name="Address1" msprop:Generator_ColumnVarNameInTable="columnAddress1" msprop:Generator_ColumnPropNameInRow="Address1" msprop:Generator_ColumnPropNameInTable="Address1Column" msprop:Generator_UserColumnName="Address1" type="xs:string" minOccurs="0" />
+              <xs:element name="Address2" msprop:Generator_ColumnVarNameInTable="columnAddress2" msprop:Generator_ColumnPropNameInRow="Address2" msprop:Generator_ColumnPropNameInTable="Address2Column" msprop:Generator_UserColumnName="Address2" type="xs:string" minOccurs="0" />
+              <xs:element name="Size" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" type="xs:string" minOccurs="0" />
+              <xs:element name="PropertyType" msprop:Generator_ColumnVarNameInTable="columnPropertyType" msprop:Generator_ColumnPropNameInRow="PropertyType" msprop:Generator_ColumnPropNameInTable="PropertyTypeColumn" msprop:Generator_UserColumnName="PropertyType" type="xs:string" minOccurs="0" />
+              <xs:element name="PropertyStyle" msprop:Generator_ColumnVarNameInTable="columnPropertyStyle" msprop:Generator_ColumnPropNameInRow="PropertyStyle" msprop:Generator_ColumnPropNameInTable="PropertyStyleColumn" msprop:Generator_UserColumnName="PropertyStyle" type="xs:string" minOccurs="0" />
+              <xs:element name="Bedroom" msprop:Generator_ColumnVarNameInTable="columnBedroom" msprop:Generator_ColumnPropNameInRow="Bedroom" msprop:Generator_ColumnPropNameInTable="BedroomColumn" msprop:Generator_UserColumnName="Bedroom" type="xs:short" minOccurs="0" />
+              <xs:element name="Bathroom" msprop:Generator_ColumnVarNameInTable="columnBathroom" msprop:Generator_ColumnPropNameInRow="Bathroom" msprop:Generator_ColumnPropNameInTable="BathroomColumn" msprop:Generator_UserColumnName="Bathroom" type="xs:short" minOccurs="0" />
+              <xs:element name="BuildingName" msprop:Generator_ColumnVarNameInTable="columnBuildingName" msprop:Generator_ColumnPropNameInRow="BuildingName" msprop:Generator_ColumnPropNameInTable="BuildingNameColumn" msprop:Generator_UserColumnName="BuildingName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

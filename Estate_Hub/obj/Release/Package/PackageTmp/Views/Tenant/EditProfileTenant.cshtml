@@ -1,0 +1,272 @@
+﻿@model Proptiwise.Models.Tenant
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "EditProfileTenant";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+<section class="property_form_container property_bd_con ">
+    <div class="container-fluid">
+        <div class="Billing-form">
+            <div class="UNIT-ADDRESS pop_add_row">
+                @using (Html.BeginForm("EditProfileTenant", "Front", FormMethod.Post, new { @id = "edttenantcreate", @class = "form-tag", @enctype = "multipart/form-data" }))
+                {
+                    if (Model != null)
+                    {
+                        @Html.HiddenFor(m => m.Tenant_Id)
+                    }
+                    <input type="hidden" name="Country" id="Country" value="@ViewBag.country" />
+
+                    <div class="prop-form_left">
+                        <h1 class="form_heading">Contact Information</h1>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Gender </label>
+                            @Html.DropDownList("gender", new List<SelectListItem>
+                                 {
+                                     new SelectListItem{ Text="Select",  Value = "0"},
+                                     new SelectListItem{ Text="Male", Value = "1"},
+                                   new SelectListItem{ Text="Female", Value = "2"},
+
+                                 }, new { id = "gender", @class = "form-control" })
+                        </div>
+
+
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Telephone</label>
+                            @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Telephone')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.Telephone)
+                        </div>
+
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Cellular</label>
+                            @Html.TextBoxFor(model => model.Cellular, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Cellular')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.Cellular)
+                        </div>
+
+                        <div class="input-group form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Building</label>
+                            <span class="input-group-addon"><i class="fa fa-building-o" aria-hidden="true"></i></span>
+                            @Html.TextBoxFor(model => model.BuildingName, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Building')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.BuildingName)
+                            @*@Html.DropDownList("BuildingId", ViewBag.Building as SelectList, "None", new { id = "drp1", @class = "form-control" })*@
+                        </div>
+                        <div class="input-group form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Street Address</label>
+                            <span class="input-group-addon"><i class="fa fa-street-view" aria-hidden="true"></i></span>
+                            @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Street Address')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.StreetAddress)
+                        </div>
+                        <div class=" form-group custom ausCanadaUs11">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Unit Number</label>
+
+                            @Html.TextBoxFor(model => model.UnitNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.UnitNumber)
+                        </div>
+                        <div class="form-group custom uk11">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Town</label>
+
+                            @Html.TextBoxFor(model => model.Town, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Town')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.Town)
+                        </div>
+                        <div class="form-group custom canada11">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Province</label>
+                            @Html.TextBoxFor(model => model.Province, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Province)
+                        </div>
+                        <div class="form-group custom aus11">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Suburb</label>
+                            @Html.TextBoxFor(model => model.Suberb, new { @class = "form-control", OnKeyUp = "return getlatlng();" })
+                            @Html.ValidationMessageFor(model => model.Suberb)
+                        </div>
+
+                        <div class="form-group custom ukCanadaUSA11">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">City</label>
+
+                            @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.City)
+                        </div>
+                        <div class="form-group custom ausUs11">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">State</label>
+                            @Html.TextBoxFor(model => model.State, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.State)
+                        </div>
+                        <div class="input-group form-group custom us11">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Zip</label>
+                            <span class="input-group-addon"><i class="fa fa-map-pin" aria-hidden="true"></i></span>
+                            @Html.TextBoxFor(model => model.Zip, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Zip)
+                        </div>
+                        <div class="input-group form-group custom ukCanadaAus11">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Post Code</label>
+                            <span class="input-group-addon"><i class="fa fa-map-pin" aria-hidden="true"></i></span>
+                            @Html.TextBoxFor(model => model.PostCode, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.PostCode)
+                        </div>
+                        <h1 class="form_heading">Other Information </h1>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Marital Status </label>
+                            @Html.DropDownList("MaritalStatus", new List<SelectListItem>
+                                 {
+                                     new SelectListItem{ Text="Married", Value = "1"},
+                                   new SelectListItem{ Text="Unmarried", Value = "0"},
+
+                                 }, new { id = "maritalstatus", @class = "form-control" })
+                        </div>
+
+
+
+                        <div class="form-group custom visa">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> If Visa</label>
+                            @Html.TextBoxFor(model => model.IfVisa, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Visa number')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.IfVisa)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Pets </label>
+                            @Html.DropDownList("pets", new List<SelectListItem>
+                                 {
+                                     new SelectListItem{ Text="Yes", Value = "1"},
+                                   new SelectListItem{ Text="No", Value = "0",Selected=true},
+
+                                 }, new { id = "pets", @class = "form-control" })
+                        </div>
+
+                        <div class="form-group custom pets">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> If Pets</label>
+                            @Html.TextBoxFor(model => model.ifPets, new { id = "ifpets", @class = "form-control", type = "number", oninvalid = "setCustomValidity('Enter valid Pets')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.ifPets)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Children </label>
+                            @Html.DropDownList("children", new List<SelectListItem>
+                                 {
+                                     new SelectListItem{ Text="Yes", Value = "1"},
+                                   new SelectListItem{ Text="No", Value = "0",Selected=true},
+
+                                 }, new { id = "children", @class = "form-control" })
+                        </div>
+                        <div class="form-group custom children">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> If Children</label>
+
+                            @Html.TextBoxFor(model => model.IfChildren, new { @class = "form-control", type = "number", oninvalid = "setCustomValidity('Enter valid Children')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.IfChildren)
+
+
+                        </div>
+                    </div>
+
+                    <div class="prop-form_rgt">
+                        <h1 class="form_heading">Identification</h1>
+
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Driving Licence</label>
+                            @Html.TextBoxFor(model => model.DriverLicense, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Licence number')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.PostCode)
+                        </div>
+
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Passport No.</label>
+                            @Html.TextBoxFor(model => model.PassportNo, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Passport number')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.PostCode)
+                        </div>
+                        <div class="input-group form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Date Of Birth</label>
+                            <div class="col-md-10">
+
+                                @if (Model != null)
+                                {
+                                    if (Model.Dateofbirth.HasValue)
+                                    {
+                                        @Html.TextBoxFor(m => m.Dateofbirth, Model.Dateofbirth.Value.ToShortDateString(), new { id = "datepicker", @class = "form-control" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(m => m.Dateofbirth, new { id = "datepicker", @class = "form-control" })
+                                    }
+                                }
+                                else
+                                {
+                                    @Html.TextBoxFor(m => m.Dateofbirth, new { id = "datepicker", @class = "form-control" })
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Social Security</label>
+                            @Html.TextBoxFor(model => model.SocialSecurity, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid State')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.SocialSecurity)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Tenant Profile</label>
+                            <span>
+                                <input type="file" multiple="multiple" name="ImageName" />
+                            </span>
+                        </div>
+                        @if (Model != null)
+                        {
+                            if (Model.ProfilePhoto != null && Model.ProfilePhoto != "")
+                            {
+                                <img src="@getallpath.getpath/Folders/ProfileImages/@Model.ProfilePhoto" height="150" width="180" />
+                            }
+                            else
+                            {
+                                <img src="@getallpath.getpath/images/NoImage.png" height="150" width="180" />
+                            }
+                        }
+                        <div class="save_panel">
+                            <div class="container">
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    $(".children").hide();
+    $(".pets").hide();
+
+    $(function () {
+
+        $("#datepicker").datepicker(
+             {
+                 changeMonth: true,
+                 changeYear: true,
+                 yearRange: "1930:2050"
+             }
+            );
+    });
+    var pets = $("#pets").val();
+    var pets = $("#pets").val();
+    $("#pets").change(function () {
+        var q = $(this).val();
+        if (q == "1") {
+            $(".pets").show();
+            $("#ifpets").attr("required", true);
+        }
+        else {
+            $("#ifpets").attr("required", false);
+            $(".pets").hide();
+
+        }
+    });
+    $("#children").change(function () {
+        var q = $(this).val();
+        if (q == "1") {
+            $(".children").show();
+            $("#IfChildren").attr("required", true);
+        }
+        else {
+            $("#IfChildren").attr("required", false);
+            $(".children").hide();
+
+        }
+    });
+
+
+</script>
+
+
+

@@ -1,0 +1,66 @@
+﻿@model Proptiwise.ViewModels.LoginModel
+@using Proptiwise.Models;
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/BannerMaster.cshtml";
+}
+
+<section class="login_panel login_page">
+    <div class="login_wrapper clearfix">
+        <form class="form-signin" role="form" method="post">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <span>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                @if (Model != null)
+                {
+                    if (Model != null)
+                    {
+                        <input type="email" class="form-control" value="@Model.Email" placeholder="Email address" pattern="^\w+([-+.']\w+)*&#64;\w+([-.]\w+)*\.\w+([-.]\w+)*$" oninvalid="setCustomValidity('Enter Valid Email')" oninput="setCustomValidity('')" name="Email" required autofocus>
+                    }
+
+                }
+                else
+                {
+                    <input type="email" class="form-control" placeholder="Email address" pattern="^\w+([-+.']\w+)*&#64;\w+([-.]\w+)*\.\w+([-.]\w+)*$" oninvalid="setCustomValidity('Enter Valid Email')" oninput="setCustomValidity('')" name="Email" required autofocus>
+                }
+            </span>
+            <span>
+                @*  *@
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            @if (Model != null)
+            {
+                if (Model.Password != null)
+                {
+                    <input type="password" class="form-control" value="@Model.Password" placeholder="Password" oninvalid="setCustomValidity('Enter Password')" oninput="setCustomValidity('')" name="Password" required>
+                }
+            }
+            else
+            {
+                <input type="password" class="form-control" placeholder="Password" oninvalid="setCustomValidity('Enter Password')" oninput="setCustomValidity('')" name="Password" required>
+            }
+
+        </span>
+        <label class="checkbox">
+            <input type="checkbox" value="1" checked name="rememberme">Remember me
+        </label>
+        <span class="btn_area"><button class="submit_btn" type="submit">Sign in</button></span>
+
+    </form>
+    <p class="forg_txt"><a href="@getallpath.getpath/ForgetPassword">Forgot Your Password?</a></p>
+    <p class="forg_txt"><a href="@getallpath.getpath/Register">Not a member yet? Sign up here</a></p>
+</div>
+
+</section>
+@if (ViewBag.LoginMessage != null)
+{
+
+    <div id="myModal" class="modal hide fade modalErrorMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+
+        <div class="modal-body" style="">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p>@ViewBag.LoginMessage</p>
+        </div>
+
+    </div>
+
+}

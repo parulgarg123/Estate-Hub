@@ -1,0 +1,106 @@
+﻿@using Proptiwise.Models
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN2xlOhDmhEBs0CPprsLuY0Lr9bPGEIZo&libraries=places"></script>
+<section class="search_column clearfix">
+    <div class="col-md-12">
+        <h1 class="search_title">Find your next home to buy or rent in the UK</h1>
+        <div class="search_block clearfix">
+            <form role="form" method="post">
+                <div class="form-group clearfix">
+                    <span class="col-md-4 col-sm-5">
+                        <span class="select_box">
+                            <select class="form-control no_pd" name="PropertyFor">
+                                <option value="1">All</option>
+                                <option value="2">Rent</option>
+                                <option value="3">Lease</option>
+
+                            </select>
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </span>
+                    </span>
+                    <span class="col-md-8 col-sm-7 search_box">
+                        <span class="select_box">
+                            
+                            <input type="text" id="srchlocation" name="srchlocation" required class="form-control no_pd" placeholder="Search Here....">
+                            @*<button class="serchbtn" type="submit"><i class="fa fa-search"></i></button>*@
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group clearfix">
+                    <span class="col-md-3 col-sm-6">
+                        <label>Min price</label>
+                        <span class="select_box">
+                            <select class="form-control" name="MinPrice">
+                                @{
+                                    <option value="0" selected>No Min</option>
+                                    for (int i = 300; i < 10000; i = i + 100)
+                                    {
+                                        <option value="@i">@getallpath.currency@i /m</option>
+                                    }
+
+                                }
+                            </select>
+                            <i class="fa fa-euro l-side" aria-hidden="true"></i>
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </span>
+                    </span>
+                    <span class="col-md-3 col-sm-6">
+                        <label>Max price</label>
+                        <span class="select_box">
+                            <select class="form-control" name="MaxPrice">
+                                @{
+                                    <option value="0" selected>No Max</option>
+                                    for (int i = 300; i < 10000; i = i + 100)
+                                    {
+                                        <option value="@i">@getallpath.currency@i /m</option>
+                                    }
+
+                                }
+                            </select>
+                            <i class="fa fa-euro l-side" aria-hidden="true"></i>
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </span>
+                    </span>
+                    <span class="col-md-3 col-sm-6">
+                        <label>Property Style</label>
+                        <span class="select_box">
+                            @Html.DropDownList("PropertyStyle", ViewBag.PropertyStyle as SelectList, "All", new { id = "PropertyStyle", @class = "form-control" })
+                            <i class="fa fa-home l-side" aria-hidden="true"></i>
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </span>
+                    </span>
+                    <span class="col-md-3 col-sm-6">
+                        <label>Bedrooms</label>
+                        <span class="select_box">
+                            <select class="form-control" name="bedroom">
+                                <option value="0">Select</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                                <option value="3">3+</option>
+                                <option value="4">4+</option>
+                                <option value="5">5+</option>
+                                <option value="6">6+</option>
+                                <option value="7">7+</option>
+                                <option value="8">8+</option>
+                                <option value="9">9+</option>
+                                <option value="10">10+</option>
+
+                            </select>
+                            <i class="fa fa-hotel l-side" aria-hidden="true"></i>
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </span>
+                    </span>
+
+                </div>
+                <div class="form-group text-center clearfix">
+                    <button class="search_submit" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+

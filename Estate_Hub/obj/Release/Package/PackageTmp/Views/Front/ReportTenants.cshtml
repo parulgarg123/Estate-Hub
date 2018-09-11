@@ -1,0 +1,42 @@
+﻿@using ReportViewerForMvc;
+
+@{
+    ViewBag.Title = "ReportTenants";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+<section class="report_page tab_page">
+    <h4>Tenant Details</h4>
+    <div class="top_tab clearfix">
+        <form id="tntfilters" method="post">
+            <ul class="inner_list">
+                <li class="name_col">
+                    @*<label>Select Tenant</label>*@
+                    @Html.DropDownList("drpTenant", ViewBag.tenants as SelectList, "All",
+                        new { onchange = "onChangeId();", @id = "drpTenant" })
+                    
+
+                    <button class="sortbtn" name="Command" value="Tenant"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                </li>
+                
+
+            </ul>
+        </form>
+    </div>
+    @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer, new { @class = "txt-table" })
+</section>
+
+<script type="text/javascript">
+ 
+    function onChangeId() {
+        
+        var Tid = $("#tntfilters").serialize();      
+      jQuery.ajax({
+            url: '@Url.Action("ReportTenants", "Front")',
+            type: 'POST',
+            data: Tid,
+            success: function (result) {
+                console.log("test");
+            }
+            });
+            }
+</script>

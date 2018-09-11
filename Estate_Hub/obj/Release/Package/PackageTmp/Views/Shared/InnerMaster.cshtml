@@ -1,0 +1,869 @@
+﻿
+@using Proptiwise.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proptiwise</title>
+    <link href="@getallpath.getpath/Content/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="@getallpath.getpath/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="@getallpath.getpath/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="~/Scripts/jquery.flexslider-min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <link href="~/Content/flexslider.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $('.flexslider').flexslider({
+                animation: "slide"
+            });
+        });
+    </script>
+
+</head>
+<body class="pushmenu-push">
+    <div class="pushmenu pushmenu-left">
+        <span class="user-detail">
+            <span>Welcome<font>Rvtech</font></span>
+            <span><strong>rvtech</strong></span>
+@if (@Session["UserRoleId"]!=null)
+            {
+            <p>Currently logged in as an <a href="#" id="clsuserrole1" data-id="@Session["UserRoleId"]" data-toggle="modal" data-target="#myModalRoles">@Session["UserRole"].ToString()</a></p>
+}
+     </span>
+        <ul class="nav navbar-nav">
+            @if (Convert.ToInt32(Session["UserRoleId"]) == 1)
+            {
+                <li class="active"><a href="@getallpath.getpath/manageadmin">Admin</a></li>
+            }
+            <li><a href="@getallpath.getpath/MyAccount">My Account</a></li>
+            <li><a href="@getallpath.getpath/Messages">Messages</a></li>
+            <li><a href="@getallpath.getpath/ManageServices">Services</a></li>
+            <li><a href="@getallpath.getpath/Calender">Calender</a></li>
+            <li><a href="@getallpath.getpath/landlordviewingrequest">View Requests</a></li>
+            @*<li><a href="@getallpath.getpath/AdminViewingProposal">Viewing Proposals</a></li>*@
+            <li><a href="@getallpath.getpath/offerrequest">View Offers</a></li>
+            @*<li><a href="@getallpath.getpath/ViewPurposals">View Purposals</a></li>*@
+            <li><a href="@getallpath.getpath/AdminDepositRequests">Deposit Requests</a></li>
+            <li><a href="@getallpath.getpath/AdminApplicationRequests">Application Requests</a></li>
+            <li><a href="@getallpath.getpath/AdminTenancyAgreement">Tenancy Agreement</a></li>
+            <li><a href="@getallpath.getpath/showrenew">Renew Agreement Request</a></li>
+            <li><a href="@getallpath.getpath/AdminInvoiceRequests">Invoice Requests</a></li>
+            <li><a href="@getallpath.getpath/AdminMovingInRequests">Moving In Requests</a></li>
+            <li><a href="@getallpath.getpath/AdminReportFault1">Fault Requests</a></li>
+            <li><a href="@getallpath.getpath/AdminReportFault">Fault Reports</a></li>
+            <li><a href="@getallpath.getpath/LandlordProposedSchedule">Fault Proposed Schedule</a></li>  
+            <li><a href="@getallpath.getpath/Help" data-modal='' data-target="#myModal">Help</a></li>            
+            @*<li><a href="#">Occupancy Calendar</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Mileage</a></li>*@
+            <li><a href="@getallpath.getpath/Logout">Log Out</a></li>
+        </ul>
+        <form role="form">
+            <div class="form-group">
+                <input type="text" class="form-control">
+                <button class="form-submit" type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </form>
+        <button class="close_btn"><i class="fa fa-times" aria-hidden="true"></i></button>
+    </div>
+    <!-- Top Header -->
+    <!-- Header carousel -->
+    <div class="header_main">
+        <header data-spy="affix" data-offset-top="100" style="background-color: #4F14AC;" class="inner_header">
+            <div class="container">
+                <div class="navbar-brand">
+                    <button data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="logo" href="@getallpath.getpath/Home"><img src="@getallpath.getpath/images/logo.png" alt="" /></a>
+                </div>
+                <div id="navbar" class="pull-right header-right navbar-collapse collapse">
+                    <nav>
+                        @{
+                            var gettabs = Proptiwise.Models.RandomFunctions.GetTabs();
+                            int? lid=Convert.ToInt32(Session["LandlordId"]);
+                            var gettabspermissions = Proptiwise.Models.RandomFunctions.GetTabPermissions(lid);
+                            int?[] tabidarray=new int?[gettabspermissions.Count];
+                            tabidarray=gettabspermissions.Where(p=>p.PermissionStatus==1).Select(p=>p.TabRoleId).ToArray();
+                        }
+                        <ul class="login_nav">
+                          
+                            @if (gettabs.Count() > 0)
+{
+    foreach (var gt in gettabs)
+    {
+        if (tabidarray.Contains(gt.TabRolesId))
+        {
+
+        }
+        else
+        {
+            if (gt.TabRolesId <= 10)
+            {
+                if (gt.TabRolesId == 6)
+                {
+                    <li class="dropdown @gt.TabRolesName">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">@gt.TabRolesName</a>
+                        <ul class="dropdown-menu" id="menu1">
+                            <li><a href="@getallpath.getpath/paymentop1">Payments Due</a></li>
+                            <li><a id="paymnthistory" href="@getallpath.getpath/paymentop1#paymenthistorytab">Payment History</a></li>
+                            <li><a href="@getallpath.getpath/paymentop3">Archieved Payments</a></li>
+                            <li><a href="@getallpath.getpath/Creditspayable">Credits Payable</a></li>
+                            <li><a href="#">Manual Payment</a></li>
+                            <li><a href="@getallpath.getpath/paymentop6">Recieved from tenant Portal</a></li>
+                        </ul>
+                    </li>
+                }
+                else if (gt.TabRolesId == 10)
+                {
+                    <li class="dropdown @gt.TabRolesName">
+                        <a href="#" data-toggle="dropdown" class="dropdown-tog gle">@gt.TabRolesName</a>
+                        <ul class="dropdown-menu" id="menu1">
+                            <li><a href="@getallpath.getpath/GetDocuments">Letters & Form Templates</a></li>
+                            <li><a href="@getallpath.getpath/GetCommonDoc">Common Files & Documents</a></li>
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li class="@gt.TabRolesName"><a href="@getallpath.getpath/@gt.TabRoleUrl" class="active">@gt.TabRolesName</a></li>
+
+                }
+            }
+        }
+   }
+}
+                      
+                        </ul>
+                    </nav>
+                    <button type="button" id="nav_list">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+    </div>
+        <div class="clearfix"></div>
+    <div class="container body-content tab_page" style="margin-bottom: 10px; margin-top:20px;">
+        @RenderBody()
+    </div>
+  
+    @RenderSection("scripts", required: false)
+
+
+    <!-- Footer section -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h4 class="foooter_title">Quick Links</h4>
+                    <ul class="footer_links">
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Property</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Property</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Rent</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Rent</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Clients</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Clients</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Cities</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Cities</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>To Buy</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>To Buy</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Contractors</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Contractors</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <h4 class="foooter_title">Subscribe Us</h4>
+                    <form class="form_subscribe">
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Email" />
+                            <input class="btn btn-primary" type="submit" value="Send" />
+                        </div>
+                    </form>
+                    <h4 class="foooter_title">Want to know More</h4>
+                    <form class="footer_search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" />
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <h4 class="foooter_title">Get in Touch</h4>
+                    <div class="address">
+                        <span class="contact-icons"><i class="fa fa-phone"></i> 123 251 2548</span>
+                        <span class="conatac_email"><i class="fa fa-envelope"></i><a href="info@websitename.com">info@websitename.com</a></span>
+                        <span class="conatac_email">
+                            <i class="fa fa-map-marker"></i>17 new street , NSW 2904
+                            waligton PO 4481
+                        </span>
+                    </div>
+
+                    <div class="footer_social_media">
+                        <h4 class="foooter_title">Follow Us</h4>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <div class="footer2_wrapper">
+        <div class="container-fluid">
+            <p class="text-center">© 2016 Reales - Real Estate  |  Term &amp; Condition</p>
+        </div>
+    </div>
+    <!-- Footer section -->
+
+    
+    <script src="@getallpath.getpath/Scripts/responsive-tabs.js"></script>
+    
+    <script src="~/Scripts/bxslider.js"></script>
+    <script src="@getallpath.getpath/Scripts/fancybox.js"></script>
+  @*  <script src="~/scripts/tinymce/tinymce.min.js"></script>*@
+   <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    @*@Scripts.Render("~/bundles/fullcalendarjs")
+    @Styles.Render("~/Content/fullcalendarcss")*@
+    <script src="~/Scripts/fullcalendar.min.js"></script>
+    <script src="~/Scripts/jquery.colorbox-min.js"></script>
+    <link href="~/Content/fullcalendar.css" rel="stylesheet" />
+    <link href="~/Content/colorbox.css" rel="stylesheet" />
+    <script src="~/Scripts/select2/select2.min.js"></script>
+    <link href="~/Scripts/select2/select2.min.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
+                },
+                //  theme: true,
+                defaultDate: new Date(),
+                nextDayThreshold: '00:00:00',
+                //defaultView: 'agendaDay',
+                editable: true,
+                events: "/getevents/",
+                eventClick: function (calEvent, jsEvent, view) {
+                    window.location.href = "/AddEvents/" + calEvent.id;
+                    //$.colorbox({ href: "/EditEvents/" + calEvent.id });
+
+                }
+            });
+            $('.fancybox').fancybox();
+        });
+    </script>
+ 
+    @*<script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            theme: "modern",
+            plugins: [
+                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen",
+                "insertdatetime media nonbreaking save table contextmenu directionality",
+                "emoticons template paste textcolor colorpicker textpattern imagetools"
+            ],
+            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            toolbar2: "print preview media | forecolor backcolor emoticons",
+            image_advtab: true,
+            setup: function (ed) {
+                ed.on('keyup', function (e) {
+
+                    var count1 = CountCharacters1();              
+                    document.getElementById("character_count1").innerHTML = "Characters: " + count1 + "&nbsp;&nbsp;&nbsp;&nbsp; Maximum Character Limit :2000";
+                });
+
+            }
+        });
+        console.log(tinymce.EditorManager.editors);
+        function CountCharacters1() {
+            var body = tinymce.get("elm1").getBody();
+
+            var content = tinymce.trim(body.innerText || body.textContent);
+            return content.length;
+        };
+        function ValidateCharacterLength1() {
+            var max = 2000;
+            var count = CountCharacters1();
+            if (count > max) {
+                alert("Maximum " + max + " characters allowed.")
+                return false;
+            }
+            return;
+        }
+
+        function allvalidation() {
+            var max = 2000;
+            var count1 = CountCharacters1();
+
+            if (count1 > max) {
+                alert("Maximum " + max + " characters allowed.")
+                return false;
+            }
+            return;
+        }
+
+    </script>*@
+    <script type="text/javascript">
+        $('.bxslider').bxSlider({
+            minSlides: 4,
+            maxSlides: 4,
+            slideWidth: 300,
+            slideMargin: 10,
+            moveSlides: 1,
+        });
+
+        $('ul.nav.nav-tabs  a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+
+        (function ($) {
+            // Test for making sure event are maintained
+            $('.js-alert-test').click(function () {
+                alert('Button Clicked: Event was maintained');
+            });
+            fakewaffle.responsiveTabs(['xs', 'sm']);
+        })(jQuery);
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $menuLeft = $('.pushmenu-left');
+            $nav_list = $('#nav_list');
+
+            $nav_list.click(function () {
+                $(this).toggleClass('active');
+                $('.pushmenu-push').toggleClass('pushmenu-push-toright');
+                $menuLeft.toggleClass('pushmenu-open');
+            });
+
+            $('.close_btn').click(function (e) {
+                $('.pushmenu-push').removeClass('pushmenu-push-toright');
+                $('.pushmenu').removeClass('pushmenu-open');
+            });
+
+            $('.toggle_info').hide();
+            $('.up_down').click(function (e) {
+                e.stopPropagation();
+                $(this).parents('tr').next('.toggle_info').toggle('slow');
+            });
+
+            $('.up_downmsg').click(function (e) {
+                e.stopPropagation();
+                $('.toggle_infomsg').toggle('slow');
+            });
+
+
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(document).on("click", ".lnkto", function () {
+                var nId = $(this).attr("data-id");
+                var pId = $("#disto").val();
+                if (pId != "") {
+                    pId += "," + nId;
+                }
+                else {
+                    pId = nId;
+                }
+                $("#disto").val(pId);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#rentisdue").change(function () {
+                if ($(this).val() == "2") {
+                    $("#Bi-Monthly").show();
+                } else {
+                    $("#Bi-Monthly").hide();
+                }
+
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnSubmit12').click(function () {
+                var r = confirm('Are You Sure You want to move to Archieve Properties?')
+                if (r == true) {
+                    var slvals = []
+                    $('input:checkbox[name=cid]:checked').each(function () {
+                        slvals.push($(this).val())
+                    })
+
+                    document.getElementById("getid").value = slvals;
+                }
+                else {
+
+                }
+            })
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnSubmit11').click(function () {
+                var r = confirm('Are You Sure You want to move Back from Archieve properties to Active Properties?')
+                if (r == true) {
+                    var slvals = []
+                    $('input:checkbox[name=cid]:checked').each(function () {
+                        slvals.push($(this).val())
+                    })
+
+                    document.getElementById("getid").value = slvals;
+                }
+                else {
+
+                }
+            })
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnSubmit').click(function () {
+                var r = confirm('Are You Sure You want to move to Archieve Payments?')
+                if (r == true) {
+                    var slvals = []
+                    $('input:checkbox[name=cid]:checked').each(function () {
+                        slvals.push($(this).val())
+                    })
+
+                    document.getElementById("getid").value = slvals;
+                }
+                else {
+
+                }
+            })
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnSubmit1').click(function () {
+                var r = confirm('Are You Sure You want to move Back from Archieve Payments to Payment History?')
+                if (r == true) {
+                    var slvals = []
+                    $('input:checkbox[name=cid]:checked').each(function () {
+                        slvals.push($(this).val())
+                    })
+
+                    document.getElementById("getid").value = slvals;
+                }
+                else {
+
+                }
+            })
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#deletesubmit').click(function () {
+                var r = confirm('Are You Sure You want to Delete that Record')
+                if (r == true) {
+                    var slvals = []
+                    $('input:checkbox[name=cid]:checked').each(function () {
+                        slvals.push($(this).val())
+                    })
+
+                    document.getElementById("getid1").value = slvals;
+                }
+                else {
+
+                }
+            })
+
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#lnkto").on("click", function () {
+                var pId = $("#EmailAddress").val();
+                $("#disto").text(pId);
+                $("#lnkto1").val(pId);
+                $("#toicon").css("display", "block");
+            });
+            $("#lnkcc").on("click", function () {
+                var pId = $("#EmailAddress").val();
+                $("#dispcc").text(pId);
+                $("#lnkcc1").val(pId);
+                $("#ccicon").css("display", "block");
+            });
+            $("#lnkBcc").on("click", function () {
+                var pId = $("#EmailAddress").val();
+                $("#dispbcc").text(pId);
+                $("#lnkBcc1").val(pId);
+                $("#bccicon").css("display", "block");
+            });
+            $("#toicon").on("click", function () {
+                var pId = "None";
+                $("#disto").text(pId);
+                $("#toicon").css("display", "none");
+            });
+            $("#ccicon").on("click", function () {
+                var pId = "None";
+                $("#dispcc").text(pId);
+                $("#ccicon").css("display", "none");
+            });
+            $("#bccicon").on("click", function () {
+                var pId = "None";
+                $("#dispbcc").text(pId);
+                $("#bccicon").css("display", "none");
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#EmailAddress").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "@getallpath.getpath/AutocompleteSuggestions",
+                        type: "GET",
+                        dataType: "json",
+                        data: { EmailAddress: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item, value: item };
+                            }))
+                            /*setTimeout(function () {
+                                document.getElementById("ImageLoadingState").style.visibility = "hidden";
+                            }, 5000);*/
+
+                        }
+                    })
+                }
+            });
+
+        });
+
+    </script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            if ($('#myModal').hasClass('modalErrorMsg')) {
+                $('#myModal').removeClass('hide');
+                $('#myModal').modal('show');
+            }
+
+        });
+
+    </script>
+
+    <script src="~/Scripts/Appjs/Phone.js"></script>
+    <div id='myModal' class='modal fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+ 
+    <script type="text/jscript">
+        @*$(function () {
+            $('#building').change(function () {
+
+                $.getJSON('@getallpath.getpath/PropertyList/' + $('#building').val(), function (data) {
+                    var items = '<option>Select Properties</option>';
+                    $.each(data, function (i, Properties) {
+                        console.log(data);
+                        items += "<option value='" + Properties.Value + "'>" + Properties.Text + "</option>";
+                    });
+                    $('#property').html(items);
+                });
+            });
+        });*@
+    </script>
+
+    @* For Tenant Selection , auto Property By Shivani (JAn.30) *@
+    <script type="text/jscript">
+        $(function () {
+            $('#drpTenant').change(function () {
+
+                $.getJSON('@getallpath.getpath/PropertyList/' + $('#drpTenant').val(), function (data) {
+                    var items = '<option>Select Properties</option>';
+                    $.each(data, function (i, Properties) {
+                        console.log(data);
+                        items += "<option value='" + Properties.Value + "'>" + Properties.Text + "</option>";
+                    });
+                    $('#property').html(items);
+                });
+            });
+        });
+    </script>
+
+    <script type="text/jscript">
+        $(function () {
+            $('#property').change(function () {
+
+                $.getJSON('@getallpath.getpath/TenantList/' + $('#property').val(), function (data) {
+                    var items = '<option>Select Tenant</option>';
+                    $.each(data, function (i, Tenant) {
+                        console.log(data);
+                        items += "<option value='" + Tenant.Value + "'>" + Tenant.Text + "</option>";
+                    });
+                    $('#tenant').html(items);
+                });
+
+            });
+
+        });
+        $(document).ready(function () {
+            $("#fromdate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1930:2050",
+                onSelect: function (selected) {
+                    var dt = new Date(selected);
+                    dt.setDate(dt.getDate());
+                    $("#todate").datepicker("option", "minDate", dt);
+                }
+            });
+            $("#todate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1930:2050",
+                onSelect: function (selected) {
+                    var dt = new Date(selected);
+                    dt.setDate(dt.getDate());
+                    $("#fromdate").datepicker("option", "maxDate", dt);
+                }
+            });
+        });
+        $('#addcommon').click(function () {
+            $('#commondoc').show();
+        });
+        $('#closeaddcommon').click(function () {
+            $('#commondoc').hide();
+        });
+
+        $('.gendoc').click(function () {
+            var docid = $(this).attr("data-id");
+            $('#userdocid').attr("value", docid);
+        });
+
+        $(document).ready(function () {
+            var qq = $('#clsuserrole1').attr("data-id");          
+            if (qq == 2) {               
+                $('.deletebutton').hide();
+            }
+         else if (qq == 3) {
+             $('.deletebutton').hide();
+             $('.editbutton').hide();
+            }
+        });
+
+    </script>
+    <script>
+    function insertAtCaret(areaId, text) {
+        var txtarea = document.getElementById(areaId);
+        var scrollPos = txtarea.scrollTop;
+        var strPos = 0;
+        var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
+            "ff" : (document.selection ? "ie" : false));
+        if (br == "ie") {
+            txtarea.focus();
+            var range = document.selection.createRange();
+            range.moveStart('character', -txtarea.value.length);
+            strPos = range.text.length;
+        }
+        else if (br == "ff") strPos = txtarea.selectionStart;
+
+        var front = (txtarea.value).substring(0, strPos);
+        var back = (txtarea.value).substring(strPos, txtarea.value.length);
+        txtarea.value = front + text + back;
+        strPos = strPos + text.length;
+        if (br == "ie") {
+            txtarea.focus();
+            var range = document.selection.createRange();
+            range.moveStart('character', -txtarea.value.length);
+            range.moveStart('character', strPos);
+            range.moveEnd('character', 0);
+            range.select();
+        }
+        else if (br == "ff") {
+            txtarea.selectionStart = strPos;
+            txtarea.selectionEnd = strPos;
+            txtarea.focus();
+        }
+        txtarea.scrollTop = scrollPos;
+        tinymce.get('elm1').getBody().innerHTML = txtarea.value;
+    }
+    $(document).ready(function () {
+        $(document).on('click', '#map-tab', function () {
+            google.maps.event.trigger(map, 'resize');
+            initialize();
+        });
+      
+    });
+  
+    </script>
+    <script>
+        $(document).ready(function () {
+            var selectedtext = getCookie("SelectedText");
+            $(".dropdown1 dt a span").html(selectedtext);
+            $(".dropdown1 img.flag").addClass("flagvisibility");
+            $(".dropdown1 dt a").click(function () {
+                $(".dropdown1 dd ul").toggle();
+            });
+            $(".dropdown1 dd ul li a").click(function () {
+                var text = $(this).html();
+                $(".dropdown1 dt a span").html(text);
+                $(".dropdown1 dd ul").hide();
+                var value = $(this).attr("data-val");
+                $("#country").val(value);
+                setCookie("SelectedText", text);
+            //    $("#frmcnt").submit();
+            });
+            function setCookie(cname, cvalue) {
+                document.cookie = cname + "=" + cvalue + ";";
+            }
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+            $(document).bind('click', function (e) {
+                var $clicked = $(e.target);
+                if (!$clicked.parents().hasClass("dropdown1"))
+                    $(".dropdown1 dd ul").hide();
+            });
+            $(".dropdown1 img.flag").toggleClass("flagvisibility");
+
+        });
+    
+        var optionValue = $('#Country').val();
+        if (optionValue == 1) {
+            $('.uk11').show();
+            $('.ukCanadaUSA11').show();
+            $('.ukCanadaAus11').show();
+            $('.ukcounty').show();
+            $(".ausCanadaUs11").hide();
+            $(".ukcnt1").show();
+            $(".ausUs11").hide();
+            $(".us11").hide();
+            $(".aus11").hide();
+            $(".canada11").hide();
+
+        }
+        else if (optionValue == '2') {
+            $('.aus11').show();
+            $('.ausUs11').show();
+            $('.ausCanadaUs11').show();
+            $('.ukCanadaAus11').show();
+
+            $('.ukcounty').hide();
+            $(".ukCanadaUSA11").hide();
+
+            $(".us11").hide();
+            $(".ukcnt1").hide();
+            $(".canada11").hide();
+            $(".uk11").hide();
+        }
+        else if (optionValue == '3') {
+            $('.us11').show();
+            $('.ausUs11').show();
+            $('.ukCanadaUSA11').show();
+            $('.ausCanadaUs11').show();
+            $(".ukCanadaAus11").hide();
+            $(".aus11").hide();
+            $(".canada11").hide();
+            $(".uk11").hide();
+            $(".ukcnt1").hide();
+            $('.ukcounty').hide();
+        }
+        else if (optionValue == '4') {
+            $('.canada11').show();
+            $('.ukCanadaUSA11').show();
+            $('.ausCanadaUs11').show();
+            $('.ukCanadaAus11').show();
+            $(".ausUs11").hide();
+            $(".us11").hide();
+            $(".aus11").hide();
+            $(".uk11").hide();
+            $(".ukcnt1").hide();
+            $('.ukcounty').hide();
+        }
+
+    </script>
+    @RenderSection("scripts", required: false)
+    <div id='myModalRoles' class='modal fade in' >
+        <div class="modal-dialog" style="width:250px;">
+            <div class="modal-content">
+                <div id='myModalContent'>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mark_blue add-category">
+                            <h4>About User Roles</h4>
+                            <div class="rule"></div>
+                            <div class="mark icon-links" style="width:220px;">
+                                <ul>
+                                    <li class="clear">
+                                        <a href="#"><img src="@getallpath.getpath/images/user_sec_img.png" height="48" width="48" class="icon" alt=""><span>Normal User</span></a>
+                                        <p><small>Normal users can view, edit, and delete all data - no admin access.</small></p>
+                                    </li>
+                                    <li class="clear">
+                                        <a href="#"><img src="@getallpath.getpath/images/user_sec_img.png" height="48" width="48" class="icon" alt=""><span>Editor User</span></a>
+                                        <p><small>All data is viewable and editable, but no deletes allowed &amp; no admin access.</small></p>
+                                    </li>
+                                    <li class="clear">
+                                        <a href="#"><img src="@getallpath.getpath/images/user_sec_img.png" height="48" width="48" class="icon" alt=""><span>Viewer User</span></a>
+                                        <p><small>All data is visible, with no changes or deletes allowed, &amp; no admin access.</small></p>
+                                    </li>
+                                    <li class="lastlnk clear">
+                                        <a href="#"><img src="@getallpath.getpath/images/user_sec_img.png" height="48" width="48" class="icon" alt=""><span>Admin User</span></a>
+                                        <p><small>Admin users can do everything normal users can do, plus add &amp; edit other users in the system, and access everything else on the Admin tab.</small></p>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  
+</body>
+
+</html>

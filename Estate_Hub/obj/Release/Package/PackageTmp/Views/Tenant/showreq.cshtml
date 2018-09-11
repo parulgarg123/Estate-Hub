@@ -1,0 +1,132 @@
+﻿@model Proptiwise.Models.TenancyAgreement
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "showreq";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+
+<form id="frm" method="post">
+    <div class="columns clear">
+        <div class="form-group clearfix">
+            <div class="col-md-12">
+               @if (Model != null)
+               { 
+                <div class="top_info">
+                    <h3>Property Details to Renew</h3>
+                 
+                 
+                    @if(Model.RenewalDate!=null && Model.Checkoutdate==null)
+                    { 
+                           <p class="edit_link" > Request Sent</p>
+                   
+                    }
+                    else if(Model.Checkoutdate!=null && Model.RenewalDate==null)
+                    {
+                       <p class="edit_link" > Request Cancelled</p>
+                    }
+                  else
+                    { 
+                         <a class="edit_link on-edit2" href="@getallpath.getpath/renewrequest/@Model.TenancyAgreementId" data-modal=''>Accept</a>
+    <a class="edit_link on-edit2" href="@getallpath.getpath/cancelrequest/@Model.TenancyAgreementId" data-modal=''>Reject</a>
+                    }
+                   
+                </div>
+                <div class="contact_info">
+                    <ul class="identi_list">
+                        <li>
+                            <i class="fa fa-check" aria-hidden="true"></i>Tenant Name-
+                            @if (Model.Tenant.FirstName == null)
+                            {
+                                <span>
+                                    Not Entered
+                                </span>
+
+                            }
+                            else
+                            {
+                                <span>@Model.Tenant.FirstName</span>
+                            }
+                        </li>
+                        <li>
+                            <i class="fa fa-check" aria-hidden="true"></i>Property on lease-
+                            @if (Model.Property.PropertyName == null)
+                            {
+                                <span>
+                                    Not Entered
+                                </span>
+
+                            }
+                            else
+                            {
+                                <span>@Model.Property.PropertyName</span>
+                            }
+                        </li>
+                        <li>
+                            <i class="fa fa-check" aria-hidden="true"></i>Lease Ends -
+                            @if (Model.Property.LeasedEnd == null)
+                            {
+                                <span>
+
+                                    Not Entered
+                                </span>
+
+                            }
+                            else
+                            {
+                                <span>@Model.Property.LeasedEnd.Value.ToShortDateString()</span>
+                            }
+                        </li>
+                        <li>
+                            <i class="fa fa-check" aria-hidden="true"></i>Renew Date -
+                            @if (Session["renewdate"] == null)
+                            {
+                                <span>
+
+                                    Not Entered
+                                </span>
+
+                            }
+                            else
+                            {
+                                string dt = Convert.ToDateTime(Session["renewdate"]).ToShortDateString();
+                                <span>@dt</span>
+                            }
+                        </li>
+
+                    </ul>
+                </div>
+               }
+               else
+               {
+                   <h3>No New Requests</h3>
+               }
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+@if (TempData["message"] != null)
+{
+
+    <div id="myModal" class="modal hide fade modalErrorMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+
+        <div class="modal-body" style="">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p>@TempData["message"]</p>
+        </div>
+
+    </div>
+
+}
+
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Appjs/Phone.js"></script>

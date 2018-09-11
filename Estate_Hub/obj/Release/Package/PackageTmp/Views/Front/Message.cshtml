@@ -1,0 +1,50 @@
+﻿@model Proptiwise.Models.tbMessage
+@using Proptiwise.Models
+
+@{
+    ViewBag.Title = "Compose Message";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+<section class="dash_column property-back clearfix" style="background: #fff;">
+
+    <div class="container">
+        <div class="row">
+            <div class="Billing-form">
+                @using (Html.BeginForm("Message", "Front", FormMethod.Post, new { @id = "message", @class = "form-tag" }))
+                {
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <section class="UNIT-ADDRESS">
+                            <h1 class="form_heading">Compose Message</h1>
+
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">To </label>
+                                @Html.TextBoxFor(model => model.emailto, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Email Address')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.emailto)
+                            </div>
+
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Subject</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.Subject, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Subject')", oninput = "setCustomValidity('')" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Subject)
+                            </div>
+
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Message</label>
+                                @Html.TextBoxFor(model => model.Message, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Message Text')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Message)
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit"> Send</button>
+                            </div>
+
+                        </section>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

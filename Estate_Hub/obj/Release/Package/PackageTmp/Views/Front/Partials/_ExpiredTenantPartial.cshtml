@@ -1,0 +1,272 @@
+﻿@model PagedList.IPagedList<Proptiwise.Models.Tenant>
+@using PagedList.Mvc
+@using Proptiwise.Models
+
+<div class="top_tab clearfix">
+    <ul class="inner_list">
+        <li class="name_col">
+            @Html.DropDownList("SearchBy2", ViewBag.SearchBy as SelectList, new { @class = "name_field form-control" })
+            <button class="sortbtn" name="Command" title="Sort" value="Sort2">
+                <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i>
+            </button>
+        </li>
+        <li class="search_col">
+            <input type="search" class="form-control" value="@ViewBag.searchdata" name="searchdata2" placeholder="Search Here..">
+            <button type="submit" name="Command" value="Search2" title="Filter by search criteria" class="ser_btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <button type="submit" name="Command" value="RemoveFilter2" title="Remove filter and show all records" class="ser_btn"><i class="fa fa-filter" aria-hidden="true"></i></button>
+        </li>
+        <li class="days_col">
+
+        </li>
+        <li class="btns_col pull-right">
+            @*<a class="st_btn" href="#">Statement</a>*@
+            <a class="new_btn" href="@getallpath.getpath/CreateTenant">New Tenant</a>
+            @*<a class="st_btn" href="#">Email Tenant</a>*@
+            <button class="print" title="Print Current List" name="Command" value="Pdf2"><i class="fa fa-print" aria-hidden="true"></i></button>
+            <button class="email_list" title="Email this list as an attachment" data-toggle="modal" data-target="#myModalEmailtenant2"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+        </li>
+    </ul>
+</div>
+<table width="100%" class="table_list vp_custom_table" cellspacing="0">
+    <caption>
+        @*<span>@Expiredlistcount.Count Tenants With Expired Lease</span>*@
+        <ul class="pagination">
+            <li><a href="#"><i class="fa fa-caret-left" aria-hidden="true"></i></a></li>
+            <li>
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+                @Html.PagedListPager(Model, page => Url.Action("tenant_Index", new { page, currentFilter = ViewBag.CurrentFilter, tab = "tab-2" }))
+            </li>
+            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+        </ul>
+    </caption>
+    <thead>
+    <th>
+        <input type="checkbox" name="c" id="c" onclick="SetAllCheckBoxes(this)" />
+    </th>
+    <th></th>
+    <th>Name</th>
+    <th></th>
+    <th>Address</th>
+
+
+    <th>Tel/Cell</th>
+
+    <th>Balance</th>
+    <th>Last Pmt On</th>
+    <th>Next Pmt Due</th>
+    <th>Lease Ends</th>
+    <th></th>
+    <th></th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="cid" id="cid" value="@item.Tenant_Id" />
+                </td>
+                <td></td>
+                <td data-label="name">
+                    <span class="mobile_th"> Name </span>
+                    @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    <span class="up_down">
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </span>
+                </td>
+                <td data-label="address">
+                    <span class="mobile_th"> Address </span>
+                    @Html.DisplayFor(modelItem => item.Address1) @Html.DisplayFor(modelItem => item.City)  @Html.DisplayFor(modelItem => item.State) @Html.DisplayFor(modelItem => item.Province)  @Html.DisplayFor(modelItem => item.Country)
+                </td>
+
+                <td data-label="phone">
+                    <span class="mobile_th"> Tel/Cell </span>
+                    @Html.DisplayFor(modelItem => item.Telephone)<br>
+                    @Html.DisplayFor(modelItem => item.Cellular)
+                </td>
+                <td data-label="address">
+                    <span class="mobile_th"> Balance </span>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td data-label="address">
+                    <span class="mobile_th"> Last Pmt On </span>
+                    @if (item.LastPmtOn != null)
+                    { @item.LastPmtOn.Value.ToShortDateString() }
+                    else
+                    {
+                        <span>-</span>
+                    }
+                </td>
+                <td data-label="address">
+                    <span class="mobile_th"> Next Pmt Due </span>
+                    @if (item.Nextpmtdue != null)
+                    { @item.Nextpmtdue.Value.ToShortDateString() }
+                    else
+                    {
+                        <span>-</span>
+                    }
+
+                </td>
+                <td data-label="address">
+                    <span class="mobile_th"> Lease Ends </span>
+                    @if (item.LeaseEnds != null)
+                    { @item.LeaseEnds.Value.ToShortDateString() }
+                    else
+                    {
+                        <span>-</span>
+                    }
+                </td>
+                <td data-label="detail-btn"></td>
+                <td data-label="detail-btn"></td>
+                <td data-label="delete"></td>
+                <td class="btn_block">
+                    <a class="detail_link" href="@getallpath.getpath/tenant_details/@item.Tenant_Id" title="Details"><i class="fa fa-info" aria-hidden="true"></i></a>
+                    <a class="detail_link" href="@getallpath.getpath/CreateTenant/@item.Tenant_Id" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="@Url.Action("TenantDelete", "Front", new { @id = item.Tenant_Id})" title="Delete" onclick="return confirm('are you sure you wish to delete this Record?');" class="detail_link delete deletebutton">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr class="toggle_info" style="display:none;">
+                <td colspan="13">
+                    <div class="toggle_summery">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="top_info">
+
+                            </div>
+                            <div class="contact_info">
+
+                                <span class="txtinfo">
+                                    @if (item.FirstName != null)
+                                    {
+                                        <h4><b>@item.FirstName</b></h4>
+                                    }
+                                    else
+                                    {
+                                        <h4>No Name</h4>
+                                    }
+                                    @if (item.Address1 == null || item.Address2 == null || item.PostCode == null)
+                                    {
+                                        <p>No Address ([No Post Code])</p>
+                                    }
+                                    else
+                                    {
+                                        <p>@item.Address1</p>
+                                        <p>@item.Address2 (@item.PostCode)</p>
+                                    }
+
+
+                                    @if (item.Telephone == null)
+                                    {
+                                        <p><font>Tel : ##########</font> </p>
+                                    }
+                                    else
+                                    {
+                                        <p><font>Tel : @item.Telephone</font> </p>
+                                    }
+                                    @if (item.Cellular == null)
+                                    {
+                                        <p><font>Mobile : ##########</font></p>
+                                    }
+                                    else
+                                    {
+                                        <p><font>Mobile : @item.Cellular</font></p>
+
+                                    }
+
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="top_info">
+                                @*<h3>Identification</h3>
+                                    <a class="edit_link on-edit2" href="@getallpath.getpath/applicant_infoedit/" data-toggle="modal" data-target="#myModal2">Edit</a>*@
+                            </div>
+                            <div class="contact_info">
+                                <span class="txtinfo">
+                                    @if (item.leasestatus == 0)
+                                    {
+                                        <h4><b>This Tenant Doesn't have Property On lease</b></h4>
+                                        <p>
+                                            This Tenant doesn't not take property on lease,<br />
+                                            but you can do so by <a href="#">creating a new lease.</a><br />You can also add a new tenant on the <a href="@getallpath.getpath/tenant_index">Manage Tenants page </a>
+                                        </p>
+                                    }
+                                    else
+                                    {
+
+                                        var data = Proptiwise.Models.RandomFunctions.getleasedata(item.Property_Id);
+
+                                        if (item.Property.PropertyName != null)
+                                        {
+                                            <p><b>@item.Property.PropertyName</b></p>
+                                        }
+                                        else
+                                        {
+                                            <h4>No Property Name</h4>
+                                        }
+                                        if (item.FirstName != null)
+                                        {
+                                            <p>@item.FirstName</p>
+                                        }
+                                        else
+                                        {
+                                            <p><font>[No Tenant]</font> </p>
+                                        }
+                                        if (item.Address1 == null || item.Address2 == null || item.PostCode == null)
+                                        {
+                                            <p>No Address ([No Post Code])</p>
+                                        }
+                                        else
+                                        {
+                                            <p>@item.Address1</p>
+                                            <p>@item.Address2 (@item.PostCode)</p>
+                                        }
+                                        @*if (data.primaryTenant_Id != null)
+                                            {
+                                                <p>@item.Tenant.Cellular</p>
+                                            }
+                                            else
+                                            {
+                                                <p><font>Cell : ##########</font> </p>
+                                            }*@
+                                        @*<p><a href="@getallpath.getpath/editlease/@data.LeaseId">edit Lease</a> | <a href="@getallpath.getpath/property_details/@item.Property_Id">Property Details</a></p>*@
+                                        <p>Rent:@data.Rent &nbsp;&nbsp; Balance:@data.balance</p>
+                                        <p>Start:@data.Startdate.Value.ToShortDateString() End:@data.EndDate.Value.ToShortDateString()</p>
+
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="top_info">
+                                @*<h3>Identification</h3>
+                                    <a class="edit_link on-edit2" href="@getallpath.getpath/applicant_infoedit/" data-toggle="modal" data-target="#myModal2">Edit</a>*@
+                            </div>
+                            <div class="contact_info">
+                                <ul style="text-decoration:none;">
+                                    <li>
+                                        <a href="@getallpath.getpath/tenant_details/@item.Tenant_Id"> Tenant Details</a>
+                                    </li>
+                                    <hr style=" margin-bottom: 5px;" />
+                                    <li><a href="@getallpath.getpath/paymentop2/@item.Tenant_Id">Payment History</a></li>
+                                    <hr style=" margin-bottom: 5px;" />
+                                    <li><a href="@getallpath.getpath/paymentop11/@item.Tenant_Id">Payment Due</a></li>
+                                    <hr style=" margin-bottom :5px;" />
+                                    @if (item.leasestatus == 0)
+                                    {
+                                        <li><a href="@getallpath.getpath/applicantstatuspending/@item.Tenant_Id">Lease a Property</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,131 @@
+﻿@model Proptiwise.Models.tbl_inventory
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="witdh=device-witdh" />
+    <title>inventory</title>
+</head>
+<body>
+    <div>
+        <h4>Inventory Details</h4>
+    	<hr />
+        <table class="table">
+            <tr>
+                <td>
+                    <label>Name</label>
+                </td>
+
+                <td>
+                    @Model.Name
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Address</label>
+                </td>
+
+                <td>
+                    @Model.Address
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Quantity</label>
+                </td>
+
+                <td>
+                    @Model.Quantity
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Modal</label>
+                </td>
+
+                <td>
+                    @Model.Modal
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Serial</label>
+                </td>
+
+                <td>
+                    @Model.Serial
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Cost</label>
+                </td>
+
+                <td>
+                    @Model.Cost
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Comment</label>
+                </td>
+
+                <td>
+                    @Model.Comment
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Brand</label>
+                </td>
+
+                <td>
+                    @Model.Brand
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Building Name</label>
+                </td>
+
+                <td>
+                    @Model.Building.BuildingName
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Inventory Type Name</label>
+                </td>
+
+                <td>
+                    @Model.inventory_type.InventoryTypeName
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Property Name</label>
+                </td>
+
+                <td>
+                    @Model.Property.PropertyName
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Area Name</label>
+                </td>
+
+                <td>
+                    @Model.tbl_area.AreaName
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

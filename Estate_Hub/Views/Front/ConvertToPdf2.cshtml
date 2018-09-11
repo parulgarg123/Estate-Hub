@@ -1,0 +1,20 @@
+﻿@model Proptiwise.Models.DocumentPdfModel
+@using System.Web.Helpers
+@using System.Web.Mvc.Html
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ConvertToPdf2</title>
+</head>
+<body>
+    <h3>@Model.userdocument.DocTitle</h3>
+    <div>@Html.Raw(Model.userdocument.ContentDetails) </div>
+   
+</body>
+</html>

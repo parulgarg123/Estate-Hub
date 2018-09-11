@@ -1,0 +1,17 @@
+﻿@model Proptiwise.Models.UserDocument
+
+@{
+    ViewBag.Title = "UserDocDetails";
+    Layout = null;
+}
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4><b>@Model.DocTitle</b></h4>
+            </div>
+       
+            <div class="modal-body">
+                @Html.Raw(Model.ContentDetails)
+            </div>
+        

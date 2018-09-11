@@ -1,0 +1,89 @@
+﻿@model Proptiwise.Models.application_details
+@{
+    ViewBag.Title = "appdetailaddress";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+
+
+<h4>Address Information</h4>
+<form method="post">
+    <div class="form-horizontal">
+        <div class="form-group clearfix">
+            <span class="col-md-12 col-sm-12">
+                <h5>Current Address</h5>
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>House Number</label>
+                @Html.TextBoxFor(model => model.HouseNumber, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter House Number')", oninput = "setCustomValidity('')", placeholder = "House Number", required = true, autofocus = true })
+                @Html.ValidationMessageFor(model => model.HouseNumber)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Street Name</label>
+                @Html.TextBoxFor(model => model.StreetName, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter Street Name')", oninput = "setCustomValidity('')", placeholder = "Street Name", required = true })
+                @Html.ValidationMessageFor(model => model.StreetName)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Town</label>
+                @Html.TextBoxFor(model => model.Town, null, new { @class = "form-control", oninvalid = "setCustomValidity('Town')", oninput = "setCustomValidity('')", placeholder = "Town", required = true })
+                @Html.ValidationMessageFor(model => model.Town)
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>City</label>
+                @Html.TextBoxFor(model => model.City, null, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter City')", oninput = "setCustomValidity('')", placeholder = "City", required = true, autofocus = true })
+                @Html.ValidationMessageFor(model => model.City)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Country</label>
+                @Html.TextBoxFor(model => model.Country, null, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter Country')", oninput = "setCustomValidity('')", placeholder = "Country", required = true })
+                @Html.ValidationMessageFor(model => model.Country)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Post Code</label>
+                @Html.TextBoxFor(model => model.PostCode, null, new { @class = "form-control", pattern = @"^\d+$", oninvalid = "setCustomValidity('PostCode')", oninput = "setCustomValidity('')", placeholder = "PostCode", required = true })
+                @Html.ValidationMessageFor(model => model.PostCode)
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-12 col-sm-12">
+                <h5>Landlord Reference</h5>
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>Reference Name</label>
+                @Html.TextBoxFor(model => model.ReferenceName, null, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter Reference Name')", oninput = "setCustomValidity('')", placeholder = "Reference Name", required = true, autofocus = true })
+                @Html.ValidationMessageFor(model => model.ReferenceName)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Contact Number</label>
+                @Html.TextBoxFor(model => model.ReferneceNumber, null, new { @class = "form-control", pattern = @"^\d+$", oninvalid = "setCustomValidity('Enter Contact Number')", oninput = "setCustomValidity('')", placeholder = "Contact Number", required = true })
+                @Html.ValidationMessageFor(model => model.ReferneceNumber)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Contact Email</label>
+                @Html.TextBoxFor(model => model.ReferenceEmail, null, new { @class = "form-control", oninvalid = "setCustomValidity('Enter Contact Email')", oninput = "setCustomValidity('')", placeholder = "Contact Email", required = true })
+                @Html.ValidationMessageFor(model => model.ReferenceEmail)
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>Move in date</label>
+                <input type="text" id="datepickerrequest1" placeholder="Select Date" class="form-control" name="date1">
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Move out</label>
+                <input type="text" id="datepickerrequest2" placeholder="Select Date" class="form-control" name="date2">
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Address</label>
+                @Html.TextBoxFor(model => model.Address, null, new { @class = "form-control", oninvalid = "setCustomValidity('Add Address')", oninput = "setCustomValidity('')", placeholder = "Add Address", required = true })
+                @Html.ValidationMessageFor(model => model.Address)
+            </span>
+        </div>
+        <span class="btn_area"><button class="submit_btn" id="btnSave" type="submit">Next</button></span>
+        </div></form>
+

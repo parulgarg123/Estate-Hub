@@ -1,0 +1,501 @@
+﻿@using Proptiwise.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proptiwise</title>
+    <link href="@getallpath.getpath/Content/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="@getallpath.getpath/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="@getallpath.getpath/css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top_header">
+        <div class="container">
+            <div class="pull-right mobile_links">
+                <ul>
+                    <li>
+                        <form id="frmcnt" class="lang_box" method="post">
+                            @*<dl id="drpcountry" class="dropdown1">
+                                    <dt><a href="#"><span>Select Country</span></a></dt>
+                                    <dd>
+                                        <ul>
+                                            @{
+                                                var countries = ViewBag.Country as List<Proptiwise.Models.setting>;
+                                                foreach (var q in countries)
+                                                {
+                                                    <input type="hidden" name="country" id="country" />
+                                                    <input type="hidden" name="textvalue" id="textvalue" />
+                                                    <li><a href="#" data-val="@q.value"><img class="flag" src="@getallpath.getpath/images/@q.flagimg" alt="" />@q.keyId</a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </dd>
+                                </dl>*@
+                        </form>
+                    </li>
+
+
+                    @if (ViewBag.UserName != null)
+                    {
+                        <li><a href="@getallpath.getpath/Logout"><p>LogOut </p></a></li>
+                        <li><a href="@getallpath.getpath/Dashboard"><p>@ViewBag.UserName</p></a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@getallpath.getpath/Login"><i class="fa fa-lock"></i> <p>Log in</p></a></li>
+                        <li><a href="@getallpath.getpath/Register"><i class="fa fa-user"></i> <p>Sign Up</p></a></li>
+                    }
+                </ul>
+
+            </div>
+            <p class="pull-left top_contact">Call us at : +02 458 658 4585</p>
+        </div>
+    </div>
+    <!-- Top Header -->
+    <!-- Header carousel -->
+    <div class="header_main">
+        <header data-spy="affix" data-offset-top="100">
+            <div class="container">
+                <div class="navbar-brand">
+                    <button data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @*<a class="logo" href="#"><img src="@getallpath.getpath/images/logo.png" alt="" /></a>*@
+                    <a class="logo Fixed" href="#"><img src="@getallpath.getpath/images/logo.png" alt="" /></a>
+                </div>
+                <div id="navbar" class="pull-right header-right navbar-collapse collapse">
+                    <nav>
+                        <ul>
+                            <li><a href="@getallpath.getpath/Home">Home</a></li>
+                            <li><a href="@getallpath.getpath/AboutUs">About Us</a></li>
+                            <li><a href="@getallpath.getpath/Plans">Plans &amp; Pricing</a></li>
+                            <li><a href="@getallpath.getpath/Search">Search Properties</a></li>
+                            <li><a href="@getallpath.getpath/Tour">Tour</a></li>
+                            <li><a href="@getallpath.getpath/bloghome">Blog</a></li>
+                            <li><a href="@getallpath.getpath/Contactus">Contact</a></li>
+                            @if (Session["EmailIdTenant"] != null)
+                            {
+                                <li><a href="@getallpath.getpath/Logout">Logout</a></li>
+                            }
+                        </ul>
+                    </nav>
+
+
+                </div>
+            </div>
+        </header>
+
+        <!-- Carousel -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="@getallpath.getpath/images/banner_img.png" alt="">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <h3>Rental Property Management Now Easy like never</h3>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummYtext
+                                ever since the 1500s
+                            </p>
+                            <a class="btn btn-primary" href="@getallpath.getpath/Plans">See Plans &amp; Pricing</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="@getallpath.getpath/images/banner_img.png" alt="">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <h3>Chania</h3>
+                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                            <a class="btn btn-primary" href="@getallpath.getpath/Plans">See Plans &amp; Pricing</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="@getallpath.getpath/images/banner_img.png" alt="">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <h3>Chania</h3>
+                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                            <a class="btn btn-primary" href="@getallpath.getpath/Plans">See Plans &amp; Pricing</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="fa fa-angle-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- Carousel -->
+    </div>
+    <!-- Header carousel -->
+    <!-- we provide -->
+    <div class="we_provide">
+        <div class="container">
+            <h3 class="title text-center">What We Provide</h3>
+            <h5 class="sub_title text-center">Suspendisse potenti. Curabitur ac eros blandit, viverra orci id, </h5>
+            <div class="we_provide_wrapper">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <img class="section_img" src="@getallpath.getpath/images/we_provide.png" alt="" />
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <ul class="we_provide_listing">
+                            <li>
+                                <img class="icons" src="@getallpath.getpath/images/icon1.png" alt="" />
+                                <div class="listing_content">
+                                    <h3>Manage Tenants &amp; Properties</h3>
+                                    <p>Suspendisse potenti. Curabitur ac eros blandit , viverra orci id, </p>
+                                </div>
+                            </li>
+                            <li>
+                                <img class="icons" src="@getallpath.getpath/images/icon2.png" alt="" />
+                                <div class="listing_content">
+                                    <h3>Collect Payments &amp; Track Expenses</h3>
+                                    <p>Suspendisse potenti. Curabitur ac eros blandit, viverra orci id, </p>
+                                </div>
+                            </li>
+                            <li>
+                                <img class="icons" src="@getallpath.getpath/images/icon3.png" alt="" />
+                                <div class="listing_content">
+                                    <h3>Send Forms &amp; Letters</h3>
+                                    <p>Suspendisse potenti. Curabitur ac eros blandit, viverra orci id, </p>
+                                </div>
+                            </li>
+                            <li>
+                                <img class="icons" src="@getallpath.getpath/images/icon4.png" alt="" />
+                                <div class="listing_content">
+                                    <h3>Complete Suite of Reports</h3>
+                                    <p>Suspendisse potenti. Curabitur ac eros blandit, viverra orci id, </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- we provide -->
+    <!-- Testimonial section -->
+    <div class="testtimonail_Wrapper">
+        <div class="container">
+            <h3 class="title text-center">Testimonials</h3>
+            <h5 class="sub_title text-center">What our clients say about us</h5>
+
+            <div class="testimonial_con">
+                <ul>
+                    <li>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text
+                        </p>
+                        <div class="user_detail">
+                            <div class="client_img"><img src="@getallpath.getpath/images/user_img.png" alt="" /></div>
+                            <div class="client_detail">
+                                <h4>Rob Walker </h4>
+                                <h6>Landlord in Palo Alto, CA </h6>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text
+                        </p>
+                        <div class="user_detail">
+                            <div class="client_img"><img src="@getallpath.getpath/images/user_img.png" alt="" /></div>
+                            <div class="client_detail">
+                                <h4>Rob Walker </h4>
+                                <h6>Landlord in Palo Alto, CA </h6>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- Testimonial section -->
+    <!-- users -->
+    <div class="userr_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center">
+                    <div class="user_img_sect">
+                        <img src="@getallpath.getpath/images/user_sec_img.png" alt="" />
+                        <h2>30,000</h2>
+                        <h3>Suspendisse potenti. </h3>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 text-center">
+                    <div class="user_img_sect">
+                        <img src="@getallpath.getpath/images/user_sec_img2.png" alt="" />
+                        <h2>5000</h2>
+                        <h3>Suspendisse potent ndisse . </h3>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 text-center">
+                    <div class="user_img_sect">
+                        <img src="@getallpath.getpath/images/user_sec_img3.png" alt="" />
+                        <h2>Millions</h2>
+                        <h3>Suspendisse potenti.</h3>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 text-center">
+                    <div class="user_img_sect">
+                        <img src="@getallpath.getpath/images/user_sec_img4.png" alt="" />
+                        <h2>30,000</h2>
+                        <h3>Suspendisse potent ndisse . </h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- users -->
+    <!-- Sign up For Free -->
+    <div class="signup_wrapper">
+        <div class="container">
+            <h3 class="title text-center">Sign Up for free </h3>
+            <h5 class="sub_title text-center">Already Registered ? <a class="form_signup" href="@getallpath.getpath/Login">Sign In.</a></h5>
+
+            <div class="signup_form">
+                <form role="form">
+                    <div class="form-group">
+                        <select>
+                            <option>Please Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Full Name" />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email Address" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Confirm Password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Create your Account" />
+                    </div>
+                </form>
+            </div>
+            <p class="terms_of_use text-center">By creating an account you agree to out  <a href="#">Terms of Use.</a></p>
+
+        </div>
+    </div>
+    <!-- Sign up For Free -->
+    <!-- Footer section -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h4 class="foooter_title">Quick Links</h4>
+                    <ul class="footer_links">
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Property</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Property</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Rent</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Rent</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Clients</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Clients</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Cities</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Cities</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>To Buy</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>To Buy</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Contractors</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Contractors</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <h4 class="foooter_title">Subscribe Us</h4>
+                    <form class="form_subscribe">
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Email" />
+                            <input class="btn btn-primary" type="submit" value="Send" />
+                        </div>
+                    </form>
+                    <h4 class="foooter_title">Want to know More</h4>
+                    <form class="footer_search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" />
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <h4 class="foooter_title">Get in Touch</h4>
+                    <div class="address">
+                        <span class="contact-icons"><i class="fa fa-phone"></i> 123 251 2548</span>
+                        <span class="conatac_email"><i class="fa fa-envelope"></i><a href="info@websitename.com">info@websitename.com</a></span>
+                        <span class="conatac_email">
+                            <i class="fa fa-map-marker"></i>17 new street , NSW 2904
+                            waligton PO 4481
+                        </span>
+                    </div>
+
+                    <div class="footer_social_media">
+                        <h4 class="foooter_title">Follow Us</h4>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <div class="footer2_wrapper">
+        <div class="container-fluid">
+            <p class="text-center">© 2016 Reales - Real Estate  |  Term &amp; Condition</p>
+        </div>
+    </div>
+    <!-- Footer section -->
+@if (Session["Country"] == null)
+{
+    <div class="enter-popup">
+        <a id="popuplink" href="#inline" style="display:none;"></a>
+        <div id="inline" style="display:none;text-align:center;">
+            <center>
+                <img src="@getallpath.getpath/images/logo.png" alt="" id="logo">
+                <form method="post">
+                    <h3>Select country to enter</h3>
+                    <p>@Html.DropDownList("country", ViewBag.country as SelectList, "Select", new { id = "country", @class = "form-control Property-Type" })</p>
+                    @*<p><a href="javascript:;" onclick="jQuery.fancybox.close();" style="background-color:#333;padding:5px 10px;color:#fff;border-radius:5px;text-decoration:none;">Close</a></p>*@
+                    <button class="btn btn-primary"  type="submit"><i aria-hidden="true"></i> Save</button>
+                    @*<button class="close_btn" ><i class="fa fa-times" aria-hidden="true"></i></button>*@
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <h4>@ViewBag.ErrorMessage</h4>
+                    }
+                    
+                </form>
+            </center>
+
+        </div>
+    </div>
+}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="@getallpath.getpath/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var selectedtext = getCookie("SelectedText");
+            console.log("selectedtext=" + selectedtext);
+            if (selectedtext != "") {
+                $(".dropdown1 dt a span").html(selectedtext);
+            }
+            else {
+                $(".dropdown1 dt a span").html('<img class="flag" src="@getallpath.getpath/images/uk.png" alt="">United Kingdom');
+            }
+            $(".dropdown1 img.flag").addClass("flagvisibility");
+            $(".dropdown1 dt a").click(function () {
+                $(".dropdown1 dd ul").toggle();
+            });
+            $(".dropdown1 dd ul li a").click(function () {
+                var text = $(this).html();
+                $(".dropdown1 dt a span").html(text);
+                $(".dropdown1 dd ul").hide();
+                var value = $(this).attr("data-val");
+                $("#country").val(value);
+                setCookie("SelectedText", text);
+                $("#frmcnt").submit();
+            });
+            function setCookie(cname, cvalue) {
+                document.cookie = cname + "=" + cvalue + ";";
+            }
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+            $(document).bind('click', function (e) {
+                var $clicked = $(e.target);
+                if (!$clicked.parents().hasClass("dropdown1"))
+                    $(".dropdown1 dd ul").hide();
+            });
+            $(".dropdown1 img.flag").toggleClass("flagvisibility");
+            //  setCookie("SelectedText", null);
+        });
+        jQuery(document).ready(function () {
+           
+            function openFancybox() {
+                setTimeout(function () {
+                    jQuery('#popuplink').trigger('click');
+                }, 500);
+            };
+            var visited = jQuery.cookie('visited');
+            if (visited == 'yes') {
+               
+                    jQuery.fancybox.close();
+                               // second page load, cookie active
+            } else {
+                openFancybox(); // first page load, launch fancybox
+            }
+            var date = new Date();
+            var minutes = 0.1 ;
+            date.setTime(date.getTime() + (minutes * 60 * 1000));
+            jQuery.cookie('visited', 'yes', {
+                //expires: 365 // the number of days cookie  will be effective
+                expires: date
+            });
+            jQuery("#popuplink").fancybox({ modal: true, maxWidth: 400, overlay: { closeClick: true } });            
+            var cnt = $("#country").val();
+            if (cnt != "") {
+                jQuery.fancybox.close();
+            }
+        });
+    </script>
+
+
+
+</body>
+</html>

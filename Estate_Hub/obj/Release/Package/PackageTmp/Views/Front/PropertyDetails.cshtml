@@ -1,0 +1,198 @@
+﻿
+@model Proptiwise.Models.Property
+@using Proptiwise.Models;
+@{
+    ViewBag.Title = "PropertyDetails";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+<section class="prop_column detail_column">
+    <div class="container tab_page">
+        <div class="row">
+            @{
+                if (Model != null)
+                {
+                    <div class="col-md-12">
+                        <span class="page_btn">
+                            <a class="pdf_btn pull-left " href="@getallpath.getpath/BackToList">Back To List</a>
+                            <a id="btnrequest" class="pdf_btn pull-right" href="@getallpath.getpath/Tenant/request/@Model.Property_Id"><i class="fa fa-sticky-note" aria-hidden="true"></i>Request Viewing</a>
+                            @*<a class="pdf_btn" href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Download Pdf</a>*@
+                        </span>
+                        <div class="clearfix"></div>
+                        <div class="slider_panel clearfix">
+                            <h3> @Model.City</h3>
+                            <ul class="bxslider">
+                                @if (Model.PropertyPhotos != null)
+                                {
+                                    var imagess = Model.PropertyPhotos.Split(',');
+                                    if (imagess.Length > 0)
+                                    {
+                                        foreach (var data in imagess)
+                                        {
+                                            <li>
+                                                <img src="@getallpath.getpath/Folders/PropertyImages/@data" alt="@data" />
+                                            </li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <h4 class="text-center">No Images Available</h4>
+                                    }
+                                }
+
+                            </ul>
+                            <div class="thumb-paging clearfix">
+                                <div class="bxpager clearfix">
+
+                                    @if (Model.PropertyPhotos != null)
+                                    {
+                                        var imagess = Model.PropertyPhotos.Split(',');
+                                        var imageCounter = 0;
+                                        if (imagess.Length > 0)
+                                        {
+                                            foreach (var data in imagess)
+                                            {
+                                                <div class="slide">
+                                                    @if (imageCounter == 0)
+                                                    {
+                                                        <a href="javascript:void(0);" onclick="clicked(@imageCounter);" class="counter-@imageCounter all-list-a active-a">
+                                                            <img src="@getallpath.getpath/Folders/PropertyImages/@data" alt="@data" />
+                                                        </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="javascript:void(0);" onclick="clicked(@imageCounter);" class="counter-@imageCounter all-list-a">
+                                                            <img src="@getallpath.getpath/Folders/PropertyImages/@data" alt="@data" />
+                                                        </a>
+                                                    }
+                                                </div>
+                                                imageCounter++;
+                                            }
+                                        }
+                                        else
+                                        {
+
+                                            <h4 class="text-center">No Images Available</h4>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <article class="prop_list clearfix">
+                            <div class="col-md-12">
+                                <h3>Property Description</h3>
+                                <span class="del_content col-md-6 col-sm-6">
+                                    <p><font>Style</font>@Model.PropertyStyle.Style_Name</p>
+                                    <p><font>Beds</font>@Model.Bedroom</p>
+                                    <p><font>Baths</font>@Model.Bathroom</p>
+                                    <p><font>Sq. Ft</font>@Model.SqFt</p>
+                                    <p>
+                                        <font>Furnished</font>@if (Model.Furnished == "Furnished")
+                                        {
+                                            <font>Yes</font>
+                                        }
+                                        else
+                                        {
+                                            <font>No</font>
+                                        }
+                                    </p>
+
+                                </span>
+                                <span class="del_content col-md-6 col-sm-6">
+                                    <p><font>Year Built</font>@Model.YearBuilt</p>
+                                    <p><font>Community</font>TR-Turtle Rock</p>
+                                    <p><font>Agent Name</font>test</p>
+                                    <p><font>Price</font>@getallpath.currency@Math.Round(Convert.ToDouble(Model.Price), 2) /m</p>
+                                    <p><font>Deposit</font>@getallpath.currency@Math.Round(Convert.ToDouble(Model.DepositReq), 2) /m</p>
+                                </span>@*<p>
+                                        <a class="add_btn" href="#">Contact Dealer</a>
+                                    </p>*@
+                                <div class="clearfix"></div>
+                                <p class="des_txt clearfix"><font>Description</font>@Model.Description</p>
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="map_area"><div id="googleMap" style="width:100%;height:380px;"></div></div>
+                        </article>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+</section>
+
+@*center:new google.maps.LatLng(@Model1.Latitude,@Model1.Longitude),*@
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBylNa1W2qT0E8KFu_bAKCIOSpnfSxEos" type="text/javascript"></script>
+<script type="text/javascript">
+                                            window.onload = function () {
+                                                initialize();
+                                            }
+                                            function initialize() {
+                                                var LatLng = new google.maps.LatLng('@Model.Latitude', '@Model.Longitude');
+                                                var mapOptions = {
+                                                    center: LatLng,
+                                                    zoom: 15,
+                                                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                    streetViewControl: true
+                                                };
+                                                var infoWindow = new google.maps.InfoWindow();
+                                                var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+                                                var marker = new google.maps.Marker({
+                                                    position: LatLng,
+                                                    map: map,
+                                                    title:"Location: "+'@Model.City'
+
+                                                });
+                                                google.maps.event.addListener(marker, "click", function (e) {
+                                                    var infoWindow = new google.maps.InfoWindow();
+                                                    infoWindow.setContent(marker.title);
+                                                    infoWindow.open(map, marker);
+                                                });
+                                            }
+
+</script>
+
+@if (Session["TenantId"] == null)
+{
+
+}
+else
+{
+    <div id='myModal' class='modal fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Scripts/Appjs/Phone.js"></script>
+
+@if (TempData["RequestMessage"] != null)
+{
+
+    <div id="myModal" class="modal hide fade modalErrorMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+
+        <div class="modal-body" style="">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p>@TempData["RequestMessage"]</p>
+        </div>
+
+    </div>
+
+}
+@if (Session["TenantId"] == null)
+{
+    <script>
+        $('#btnrequest').click(function () {
+            
+        var r = confirm("Login with your account to Request Viewing!");
+        if (r == true) {
+            window.location.href = "@getallpath.getpath/Login";
+        } else {
+
+        }
+
+    });
+    </script>
+}

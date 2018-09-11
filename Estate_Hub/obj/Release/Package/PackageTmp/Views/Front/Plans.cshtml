@@ -1,0 +1,122 @@
+﻿@*@model IEnumerable<Proptiwise.Models.Plan>*@
+@{
+    ViewBag.Title = "Plans";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+<section class="pricing_table">
+    <div class="container">
+        <div class="row">
+            @using (Html.BeginForm("Plans", "Front", FormMethod.Post))
+            {
+
+                {
+                    int i = 0;
+                    foreach (var item in ViewBag.GetPlansData as List<Proptiwise.Models.Plan>)
+                    {
+                        i++;
+
+                        if (i == 2)
+                        {
+                            <div class="pricing-column active_pricing">
+                                <div class="sale-tag"><span class="top_tag">Most<br>Popular!</span></div>
+                                <span class="prop_head">
+                                    <h3>@item.PlanName</h3>
+                                    <input type="hidden" value="@item.PlanID" name="PlanID1" />
+                                </span>
+                                <div class="pricing-column-content">
+                                    <h4> <span class="dollar-sign">$</span> @Math.Round(Convert.ToDouble(item.PriceMonthly), 2)/mo </h4>
+                                    <span class="interval"><b>@Math.Round(Convert.ToDouble(item.PriceMonthly), 2)/mo</b></span>
+                                    <button type="submit" name="submit" value="@item.PlanID" class="nectar-button">
+                                        <span>SIGN UP</span>
+                                    </button>
+
+                                    <ul class="features" style="height: 427px;">
+                                        <li>@item.PlanDescription</li>
+                                        <li>Explore</li>
+                                        <li><i class="fa fa-times" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-times" aria-hidden="true"></i></li>
+                                        <li>Comparables</li>
+                                        <li>Transfer Search</li>
+                                        <li></li>
+                                        <li>Exports (5,000 / mo included, $0.05 additional)</li>
+                                        <li>Document Images ($3.00 / image)</li>
+                                        <li>Daily Summary Alerts</li>
+                                    </ul>
+                                    <button typye="submit" name="submit" value="@item.PlanID" class="nectar-button">
+                                        <span>SIGN UP</span>
+                                    </button>
+                                    <ul style="height: 427px;">
+                                        <li>Interactive Property Profiles</li>
+                                        <li>Saved Properties &amp; Lists</li>
+                                        <li>Branded Property Profiles, Branded Property Reports &amp; Lists</li>
+                                        <li>
+                                            Tablet Compatible,&nbsp;Apps for <i class="fa fa-apple" aria-hidden="true"></i>iPhone
+                                            <i class="fa fa-android" aria-hidden="true"></i>Android
+                                        </li>
+                                        <li>Title Research</li>
+                                        <li>Printing &amp; Mailing</li>
+                                        <li>Website Widget</li>
+                                    </ul>
+                                    <button typye="submit" name="submit" value="@item.PlanID" class="nectar-button">
+                                        <span>SIGN UP</span>
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="pricing-column">
+                                <span class="prop_head">
+                                    <h3>@item.PlanName</h3>
+                                    <input type="hidden" value="@item.PlanID" name="PlanID" />
+                                </span>
+                                <div class="pricing-column-content">
+                                    <h4> <span class="dollar-sign">$</span> @Math.Round(Convert.ToDouble(item.PriceMonthly), 2)/mo </h4>
+                                    <span class="interval"><b>@Math.Round(Convert.ToDouble(item.PriceMonthly), 2)/mo</b></span>
+                                    <button type="submit" value="@item.PlanID" name="submit" class="nectar-button">
+                                        <span>SIGN UP</span>
+                                    </button>
+                                    <ul class="features" style="height: 427px;">
+                                        <li>@item.PlanDescription</li>
+                                        <li>Explore</li>
+                                        <li><i class="fa fa-times" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-times" aria-hidden="true"></i></li>
+                                        <li>Comparables</li>
+                                        <li>Transfer Search</li>
+                                        <li></li>
+                                        <li>Exports (5,000 / mo included, $0.05 additional)</li>
+                                        <li>Document Images ($3.00 / image)</li>
+                                        <li>Daily Summary Alerts</li>
+                                    </ul>
+                                    <button typye="submit" value="@item.PlanID" name="submit" class="nectar-button">
+                                        <span>SIGN UP</span>
+                                    </button>
+                                    <ul style="height: 427px;">
+                                        <li>Interactive Property Profiles</li>
+                                        <li>Saved Properties &amp; Lists</li>
+                                        <li>Branded Property Profiles, Branded Property Reports &amp; Lists</li>
+                                        <li>
+                                            Tablet Compatible,&nbsp;Apps for <i class="fa fa-apple" aria-hidden="true"></i>iPhone
+                                            <i class="fa fa-android" aria-hidden="true"></i>Android
+                                        </li>
+                                        <li>Title Research</li>
+                                        <li>Printing &amp; Mailing</li>
+                                        <li>Website Widget</li>
+                                    </ul>
+                                    <button type="submit" value="@item.PlanID" name="submit" class="nectar-button">
+                                        <span>SIGN UP</span>
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+
+            }
+        </div>
+    </div>
+
+</section>
+
+

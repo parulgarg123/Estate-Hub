@@ -1,0 +1,66 @@
+﻿@using Proptiwise.Models;
+@{
+    ViewBag.Title = "tour_payments";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+<section class="account_column">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><h1>Payments</h1></div>
+            <aside class="col-md-3 col-sm-4">
+                <ul class="ac_list">
+                    <li><a href="tour_tenants">Tenants</a></li>
+                    <li><a href="tour_properties">Properties</a></li>
+                    <li><a href="tour_leases">Leases</a></li>
+                    <li class="active_list"><a href="tour_payments">Payments</a></li>
+                    <li><a href="tour_accounting">Accounting</a></li>
+                    <li><a href="tour_workorder">Work Orders</a></li>
+                    <li><a href="tour_form">Forms & Letters</a></li>
+                    <li><a href="tour_reports">Reports</a></li>
+                    <li><a href="tour_users">Users & Security</a></li>
+                    <li><a href="tour_tenantportal">Tenant Portal</a></li>
+                    <li><a href="tour_tenantscreening">Tenant Screening</a></li>
+                    <li><a href="tour_extras">Extras</a></li>
+                    <li><a href="tour_screenshots">Screenshots</a></li>
+                </ul>
+            </aside>
+            <div class="content col-md-9 col-sm-8">
+                <div>
+                    <h3>Payments</h3>
+                    <p><img alt="Tour" src="@getallpath.getpath/images/test.png" class="alignright"></p>
+                    <h4>Collect payments &amp; track delinquency</h4>
+                    <p>Record rental payments and keep track of outstanding balances and payment histories. proptiwise will automatically know what's due vs what's been collected, and will allow you to run rent roll reports, send rent due letters, and print or email invoices and receipts.</p>
+                    <ul class="clear">
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Invoices
+                            </h4>
+                            <p>Generate invoices for any outstanding balance - combine multiple receivables per tenant or across multiple properties into one invoice, or split by due date, tenant, etc. Print or email to tenants.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Receipts
+                            </h4>
+                            <p>Print or email receipts for any payment received - similar to invoices, you can combine payments from many due dates into one receipt, or print separate. You can even split payment types into separate receipts (rent, late fee, etc) if required.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Late Fees
+                            </h4>
+                            <p>Proptiwise automatically calculates and suggests the correct late fees for any late payments, based on the settings for the lease. You can add these charges on the fly when you collect the payment, eliminating separate data entry for the late fee.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Rent Roll
+                            </h4>
+                            <p>Print complete tenant balances and payment histories, for all tenants, or a single one.  Group by building, property, etc and show group totals and grand totals. Export to PDF, Word, Excel.</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+

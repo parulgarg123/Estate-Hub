@@ -1,0 +1,300 @@
+﻿
+@using Proptiwise.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <title>Proptiwise</title>
+    <link href="@getallpath.getpath/Content/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="@getallpath.getpath/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="@getallpath.getpath/css/style.css" rel="stylesheet" type="text/css" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body class="Signup1">
+   
+    <!-- Header carousel -->
+    <div class="header_main">
+        <header data-spy="affix" data-offset-top="100" style="background-color: #4F14AC;" class="inner_header">
+            <div class="container">
+                <div class="navbar-brand">
+                    <button data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="logo" href="@getallpath.getpath/Home"><img src="@getallpath.getpath/images/logo.png" alt="" /></a>
+                </div>
+                <div id="navbar" class="pull-right header-right navbar-collapse collapse">
+                    <nav>
+                   
+                        <ul>
+                            <li><a href="@getallpath.getpath/Home">Home</a></li>
+                            <li><a href="@getallpath.getpath/AboutUs">About Us</a></li>
+                            @if (Session["TenantId"] == null)
+                            {
+                                <li><a href="@getallpath.getpath/Plans">Plans &amp; Pricing</a></li>
+                                <li><a href="@getallpath.getpath/Tour">Tour</a></li>
+                                <li><a href="@getallpath.getpath/bloghome">Blog</a></li>
+
+                            }
+                            <li><a href="@getallpath.getpath/Search">Search Properties</a></li>
+
+                            <li><a href="@getallpath.getpath/Contactus">Contact</a></li>
+
+                            @if (Session["TenantId"] != null)
+                            {
+                                <li><a href="@getallpath.getpath/Tenant/TenantHome">View Profle</a></li>
+                                <li><a href="@getallpath.getpath/Tenant/TenantLogout">Logout</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@getallpath.getpath/Login">Log in</a></li>
+                            }
+                        </ul>
+                    </nav>
+
+                 
+
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="clearfix"></div>
+    <div class="body-content">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+    @RenderSection("scripts", required: false)
+
+
+    <!-- Footer section -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <h4 class="foooter_title">Quick Links</h4>
+                    <ul class="footer_links">
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Property</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Property</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Rent</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Rent</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Clients</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Clients</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Cities</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Cities</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>To Buy</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>To Buy</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Contractors</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-right"></i>Contractors</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <h4 class="foooter_title">Subscribe Us</h4>
+                    <form class="form_subscribe">
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Email" />
+                            <input class="btn btn-primary" type="submit" value="Send" />
+                        </div>
+                    </form>
+                    <h4 class="foooter_title">Want to know More</h4>
+                    <form class="footer_search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" />
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <h4 class="foooter_title">Get in Touch</h4>
+                    <div class="address">
+                        <span class="contact-icons"><i class="fa fa-phone"></i> 123 251 2548</span>
+                        <span class="conatac_email"><i class="fa fa-envelope"></i><a href="info@websitename.com">info@websitename.com</a></span>
+                        <span class="conatac_email">
+                            <i class="fa fa-map-marker"></i>17 new street , NSW 2904
+                            waligton PO 4481
+                        </span>
+                    </div>
+
+                    <div class="footer_social_media">
+                        <h4 class="foooter_title">Follow Us</h4>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <div class="footer2_wrapper">
+        <div class="container-fluid">
+            <p class="text-center">© 2016 Reales - Real Estate  |  Term &amp; Condition</p>
+        </div>
+    </div>
+    <!-- Footer section -->
+
+    <script src="@getallpath.getpath/Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script src="@getallpath.getpath/Scripts/responsive-tabs.js"></script>
+    <script src="~/Scripts/select2/select2.min.js"></script>
+    <link href="~/Scripts/select2/select2.min.css" rel="stylesheet" />
+    <script src="~/Scripts/passwordscheck.js"></script>
+    <link href="~/css/passwordscheck.css" rel="stylesheet" />
+    <script type="text/javascript">
+
+        $('ul.nav.nav-tabs  a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+
+        (function ($) {
+            // Test for making sure event are maintained
+            $('.js-alert-test').click(function () {
+                alert('Button Clicked: Event was maintained');
+            });
+            fakewaffle.responsiveTabs(['xs', 'sm']);
+        })(jQuery);
+
+        $(document).ready(function () {
+            if ($('#myModal').hasClass('modalErrorMsg')) {
+                $('#myModal').removeClass('hide');
+                $('#myModal').modal('show');
+            }
+          
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.select2').select2();
+            var optionValue = $('#Country').val();
+            if (optionValue == 1) {
+                $('#uk1').show();
+                $('#ukCanadaUSA1').show();
+                $('#ukCanadaAus1').show();
+                $("#ukcnt1").show();
+                $("#ausCanadaUs1").hide();
+
+                $("#ausUs1").hide();
+                $("#us1").hide();
+                $("#aus1").hide();
+                $("#canada1").hide();
+
+            }
+            else if (optionValue == '2') {
+                $('#aus1').show();
+                $('#ausUs1').show();
+                $('#ausCanadaUs1').show();
+                $('#ukCanadaAus1').show();
+
+
+                $("#ukCanadaUSA1").hide();
+
+                $("#us1").hide();
+
+                $("#canada1").hide();
+                $("#uk1").hide();
+            }
+            else if (optionValue == '3') {
+                $('#us1').show();
+                $('#ausUs1').show();
+                $('#ukCanadaUSA1').show();
+                $('#ausCanadaUs1').show();
+                $("#ukCanadaAus1").hide();
+                $("#aus1").hide();
+                $("#canada1").hide();
+                $("#uk1").hide();
+            }
+            else if (optionValue == '4') {
+                $('#canada1').show();
+                $('#ukCanadaUSA1').show();
+                $('#ausCanadaUs1').show();
+                $('#ukCanadaAus1').show();
+
+
+
+                $("#ausUs1").hide();
+                $("#us1").hide();
+                $("#aus1").hide();
+
+                $("#uk1").hide();
+            }
+                $("#Country").change(function () {
+                    $("#State").empty();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("getstates")',
+
+                        dataType: 'json',
+
+                        data: { id: $("#Country").val() },
+
+
+                        success: function (states) {
+
+
+                            $.each(states, function (i, state) {
+                                $("#State").append('<option value="' + state.Value + '">' +
+                                     state.Text + '</option>');
+
+                            });
+                        },
+                        error: function (ex) {
+                          //  alert('Failed to retrieve states.' + ex);
+                        }
+                    });                  
+                 
+
+                    return false;
+                })
+            });
+    </script>
+    <script type="text/javascript">
+
+            @*$(document).ready(function () {
+
+                $("#State").change(function () {
+                    $("#City").empty();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("getCities")',
+                        dataType: 'json',
+                        data: { id: $("#State").val() },
+                        success: function (city) {                           
+                            $.each(city, function (i, city) {
+                                $("#City").append('<option value="'
+                                                           + city.Value + '">'
+                                                     + city.Text + '</option>');
+                            });
+                        },
+                        error: function (ex) {
+                            alert('Failed.' + ex);
+                        }
+                    });
+                    return false;
+                })
+            });*@
+
+     
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fd528a8b5c034b9995ac63de8fef7360" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="dbrealestateModel.Applicant" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.ApprovalStatus" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Blog" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Building" Width="1.5" PointX="18" PointY="67.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.City" Width="1.5" PointX="5.25" PointY="81.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.CommonDocument" Width="1.5" PointX="11.25" PointY="92.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Contact" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Country" Width="1.5" PointX="0.75" PointY="80.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.damage_intventory" Width="1.5" PointX="14.25" PointY="79.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.deposit_transaction" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Deposit" PointX="39" PointY="103" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Description" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.DocumentType" Width="1.5" PointX="3.75" PointY="76.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Event" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Fault" Width="1.5" PointX="13.5" PointY="115.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.FaultType" Width="1.5" PointX="11.25" PointY="119.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Inspection" Width="1.5" PointX="14.25" PointY="73.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.inventory_type" Width="1.5" PointX="20.25" PointY="68.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.InventoryImage" Width="1.5" PointX="14.25" PointY="85.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Invite" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.MovingIn" Width="1.5" PointX="17.25" PointY="73.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Mylist" Width="1.5" PointX="27.75" PointY="101.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.paymentHistory" Width="1.5" PointX="17.25" PointY="84.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Plan" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.PropertyAirConditioning" Width="1.5" PointX="18" PointY="64.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.PropertyFeature" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.PropertyFlooring" Width="1.5" PointX="18" PointY="91.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.PropertyHeating" Width="1.5" PointX="18" PointY="94.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.PropertyImage" Width="1.5" PointX="11.25" PointY="134.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.PropertyParking" Width="1.5" PointX="18" PointY="96.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.PropertyStyle" Width="1.5" PointX="18" PointY="98.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.PropertyType" Width="1.5" PointX="18" PointY="101.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Purposal" Width="1.5" PointX="27.75" PointY="97.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.reminderlist" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.RentDue" Width="1.5" PointX="28.5" PointY="110.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.ReportRole" Width="1.5" PointX="12" PointY="95.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Serviceprovider" Width="1.5" PointX="16.5" PointY="120.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.service" Width="1.5" PointX="11.25" PointY="164.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.setting" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.State" Width="1.5" PointX="3" PointY="83.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.TabRole" Width="1.5" PointX="9" PointY="70.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.tb_PropertyNotes" Width="1.5" PointX="22.5" PointY="86.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.tbl_area" Width="1.5" PointX="20.25" PointY="93" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.tbl_inventory" Width="1.5" PointX="22.5" PointY="79.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.tbl_invoice" Width="1.5" PointX="27.75" PointY="105.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.tbl_offer" Width="1.5" PointX="24.75" PointY="106.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.tbl_owner" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.tbl_vendor" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.tblDocument" Width="1.5" PointX="3" PointY="79.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.tbMessage" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.TenancyAgreement" Width="1.5" PointX="30.75" PointY="91.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.TenancyDetail" Width="1.5" PointX="24.75" PointY="99.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Tenant" Width="1.5" PointX="22.5" PointY="119.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.Transaction" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.UserDocument" Width="1.5" PointX="6" PointY="76.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.UserReportsPermission" Width="1.5" PointX="14.25" PointY="88.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.UserRole" Width="1.5" PointX="6.75" PointY="85.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.UserTabPermission" Width="1.5" PointX="11.25" PointY="71.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbrealestateModel.ViewingPurposal" Width="1.5" PointX="27.75" PointY="92" IsExpanded="true" />
+        <AssociationConnector Association="dbrealestateModel.FK_Applicants_ApprovalStatuses" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_damage_intventory_Buildings" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_paymentHistory_Buildings" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_inventory_Buildings" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_Cities_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_Cities_States" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_States_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_tblDocuments_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_UserDocuments_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_damage_intventory_TenancyAgreement" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_damage_intventory_Tenants" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="dbrealestateModel.FK_Deposits_Tenants" />
+        <AssociationConnector ManuallyRouted="false" Association="dbrealestateModel.FK_TenancyDetails_Deposits" />
+        <AssociationConnector Association="dbrealestateModel.FK_tblDocuments_DocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_UserDocuments_DocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_Faults_FaultTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_Faults_Serviceprovider" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_Faults_services1" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_Faults_Tenants" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_Inspection_Tenants" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_inventory_inventory_type" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_MovingIn_Tenants" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_Mylists_Tenants" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_paymentHistory_Serviceprovider" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_paymentHistory_Tenants" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_Purposal_Tenants" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyDetails_Purposal" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_UserReportsPermissions_ReportRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_Serviceprovider_services" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_UserTabPermissions_TabRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_inventory_tbl_area" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_invoice_TenancyAgreement" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_invoice_Tenants" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_offer_Tenants" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyDetails_tbl_offer" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyAgreement_Tenants" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyDetails_TenancyAgreement" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyDetails_Tenants" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyDetails_ViewingPurposal" ManuallyRouted="false" />
+        <AssociationConnector Association="dbrealestateModel.FK_ViewingPurposal_Tenants" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbrealestateModel.User" Width="1.5" PointX="9" PointY="76.5" />
+        <AssociationConnector Association="dbrealestateModel.FK_CommonDocuments_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_Users_Countries" />
+        <AssociationConnector Association="dbrealestateModel.FK_damage_intventory_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_Deposits_Deposits" />
+        <AssociationConnector Association="dbrealestateModel.FK_Faults_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_Inspection_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_InventoryImages_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_MovingIn_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_paymentHistory_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_PropertyImages_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_Purposal_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_Serviceprovider_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_services_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_inventory_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_invoice_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_offer_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyAgreement_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyDetails_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_UserDocuments_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_UserReportsPermissions_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_Users_UserRoles" />
+        <AssociationConnector Association="dbrealestateModel.FK_UserTabPermissions_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_ViewingPurposal_Users" />
+        <EntityTypeShape EntityType="dbrealestateModel.Property" Width="1.5" PointX="33.75" PointY="88.25" />
+        <AssociationConnector Association="dbrealestateModel.FK_Properties_Buildings" />
+        <AssociationConnector Association="dbrealestateModel.FK_damage_intventory_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_Deposits_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_Faults_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_Inspection_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_InventoryImages_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_MovingIn_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_Mylists_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_paymentHistory_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_Properties_PropertyStyles" />
+        <AssociationConnector Association="dbrealestateModel.FK_Properties_PropertyTypes1" />
+        <AssociationConnector Association="dbrealestateModel.FK_Properties_Tenant" />
+        <AssociationConnector Association="dbrealestateModel.FK_Properties_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_Purposal_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_tb_PropertyNotes_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_inventory_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_invoice_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_offer_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyAgreement_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyDetails_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_Tenants_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_ViewingPurposal_Properties" />
+        <EntityTypeShape EntityType="dbrealestateModel.tbl_lease" Width="1.5" PointX="31" PointY="104.5" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_lease_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_lease_RentDue" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_lease_Tenants" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_lease_Tenants1" />
+        <EntityTypeShape EntityType="dbrealestateModel.RequestView" PointX="36" PointY="102.625" Width="1.5" />
+        <AssociationConnector Association="dbrealestateModel.FK_RequestView_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_RequestView_Tenants" />
+        <AssociationConnector Association="dbrealestateModel.FK_RequestView_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyDetails_RequestView" />
+        <EntityTypeShape EntityType="dbrealestateModel.tbl_LeaseCredits" Width="1.5" PointX="36" PointY="109" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_LeaseCredits_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_LeaseCredits_tbl_LeaseCredits" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_LeaseCredits_Tenants" />
+        <EntityTypeShape EntityType="dbrealestateModel.tbl_othercharges" Width="1.5" PointX="39" PointY="109" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_othercharges_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_othercharges_tbl_lease" />
+        <AssociationConnector Association="dbrealestateModel.FK_tbl_othercharges_Tenants" />
+        <EntityTypeShape EntityType="dbrealestateModel.application_details" Width="1.5" PointX="42" PointY="98.125" />
+        <AssociationConnector Association="dbrealestateModel.FK_application_details_Properties" />
+        <AssociationConnector Association="dbrealestateModel.FK_application_details_Tenants" />
+        <AssociationConnector Association="dbrealestateModel.FK_application_details_Users" />
+        <AssociationConnector Association="dbrealestateModel.FK_TenancyDetails_application_details" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

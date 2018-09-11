@@ -1,0 +1,63 @@
+﻿@using Proptiwise.Models
+@using PagedList
+@{
+    ViewBag.Title = "TMessages";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+
+<h2>Messages</h2>
+
+<p>
+    <a href="@getallpath.getpath/Tenant/TMessage" class="btn btn-default pull-right">COMPOSE MESSAGE</a>
+</p>
+<div class="container-fluid">
+    <span id="tab">@ViewBag.tab</span>
+    <ul class="nav nav-tabs responsive" id="myTab">
+        <li class="active"><a href="#tab-1">Inbox</a></li>
+        <li><a href="#tab-2">Sent</a></li>
+    </ul>
+    <div class="tab-content responsive">
+        <div class="tab-pane active" id="tab-1">
+            @if (ViewBag.inbox != null)
+            {
+                var model = ViewBag.inbox as IPagedList<Proptiwise.Models.tbMessage>;
+                @Html.Partial("Partials/_TMessagesInbox", model)
+            }
+        </div>
+        <div class="tab-pane" id="tab-2">
+            @if (ViewBag.sent != null)
+            {
+                var modelsent = ViewBag.sent as IPagedList<Proptiwise.Models.tbMessage>;
+                @Html.Partial("Partials/_TMessagesSent", modelsent)
+            }
+        </div>
+    </div>
+</div>
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Appjs/Phone.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tab').hide();
+        var tab = $('#tab').text();
+        if (tab == "tab-1") {
+            $('#myTab li').removeClass('active');
+            $("a[href='#" + tab + "']").parent().addClass('active');
+            $(".tab-pane").removeClass('active');
+            $("#" + tab).addClass('active');
+        }
+        else if (tab == "tab-2") {
+            $('#myTab li').removeClass('active');
+            $("a[href='#" + tab + "']").parent().addClass('active');
+            $(".tab-pane").removeClass('active');
+            $("#" + tab).addClass('active');
+        }
+
+    });
+</script>
+

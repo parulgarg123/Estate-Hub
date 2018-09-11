@@ -1,0 +1,306 @@
+﻿@model PagedList.IPagedList<Proptiwise.Models.Property>
+@using PagedList.Mvc
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "PropertyIndex";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+<script type="text/javascript">
+    function SetAllCheckBoxes(obj) {
+        var c = new Array();
+        c = document.getElementsByTagName('input');
+        for (var i = 0; i < c.length; i++) {
+            if (c[i].type == 'checkbox') {
+                c[i].checked = obj.checked;
+            }
+        }
+    }
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#btnSubmit').click(function () {
+            var r = confirm('Are You Sure You want to delete Selected Data?')
+            if (r == true) {
+                var slvals = []
+                $('input:checkbox[name=cid]:checked').each(function () {
+                    slvals.push($(this).val())
+                })
+
+                document.getElementById("getid").value = slvals;
+            }
+            else {
+            }
+        })
+    });
+</script>
+@if (ViewBag.ErrorMessageIn != null)
+{
+    <script>
+        alert('@ViewBag.ErrorMessageIn');
+    </script>
+}
+@using (Html.BeginForm("PropertyIndex", "Front", FormMethod.Post))
+{
+    <section class="tab_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-me-12"><h1>Properties</h1></div>
+                <span id="tab">@ViewBag.tab</span>
+                <ul class="nav nav-tabs responsive" id="myTab">
+                    <li class="active"><a href="#tab-1">Leased <i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a></li>
+                    <li><a href="#tab-2">Vacant <i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-minus" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class="tab-content responsive">
+                    <div class="tab-pane active" id="tab-1">
+                        @{
+                        if (Session["lst1"] != null)
+                        {
+                            var leasedprp = Session["lst1"] as PagedList.IPagedList<Proptiwise.Models.Property>;                        
+                        @Html.Partial("Partials/_LeasedPropertyPartial", leasedprp)
+                        }
+                        }
+                    </div>
+                    <div class="tab-pane" id="tab-2">
+                        @{                       
+                        if (Session["lst"] != null)
+                        {
+                            var vacantprp = Session["lst"] as PagedList.IPagedList<Proptiwise.Models.Property>;                       
+                        @Html.Partial("Partials/_VacantPropertyPartial", vacantprp)
+                        }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Appjs/Phone.js"></script>
+<div id="myModalEmailproperty" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="text-align-last: center">SendEmail</h4>
+            </div>
+            <form id="frmbuliding" method="post" novalidate>
+                <div class="modal-body">
+
+                    <div class="mark_blue add-category" style="padding-bottom:8px;">
+
+                        <div class="rule"></div>
+                        <div>
+
+                            <table>
+                                <tr>
+                                    <td colspan="1"><h5>Find or Enter Email Address:</h5><p><input name="EmailAddress" id="EmailAddress" type="email" placeholder="Type a tenant, contact, or email address" class="form-control" autocomplete="off" /></p></td>
+                                    <td>
+                                        <div>
+                                            <a title="Add email address to the To: recipient list" id="lnkto" name="lnkto" class="detail_link">To:</a>
+                                            <a title="Add email address to the Cc: recipient list" id="lnkcc" name="lnkcc" class="detail_link">Cc:</a>
+                                            <a title="Add email address to the Bcc: recipient list" id="lnkBcc" name="lnkBcc" class="detail_link">Bcc:</a>
+
+                                        </div>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <strong></strong>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="mark">
+                        <table>
+                            <tr>
+                                <td style="width:40%;">
+                                    <h5>To:</h5>
+                                    <p>
+
+                                        <span id="disto">None</span><a href="#" id="toicon" style="display:none;"><i class="fa fa-times" aria-hidden="true"></i></a>
+
+                                    </p>
+                                </td>
+                                <td style="width:40%">
+                                    <h5>Cc:</h5>
+                                    <p>
+
+                                        <span id="dispcc">None</span><a href="#" id="ccicon" style="display:none;"><i class="fa fa-times" aria-hidden="true"></i></a>
+
+                                    </p>
+                                </td>
+                                <td style="width:20%">
+                                    <h5>Bcc:</h5>
+                                    <p>
+
+                                        <span id="dispbcc">None</span><a href="#" id="bccicon" style="display:none;"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                        <input type="hidden" name="lnkto1" id="lnkto1" />
+                                        <input type="hidden" name="lnkcc1" id="lnkcc1" />
+                                        <input type="hidden" name="lnkBcc1" id="lnkBcc1" />
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table>
+                            <tr>
+                                <td style="width:65%;">
+                                    <h5>Subject:</h5><p><input name="subject" required type="text" class="form-control" /></p>
+                                </td>
+
+
+                            </tr>
+                        </table>
+
+                        <h5>Body:</h5><p>
+                            <textarea name="body" rows="2" cols="15" id="txtBody" required class="input text"></textarea>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="modal-footer">
+                    <button type="submit" name="Command" value="Email" class="btn btn-default">Send Email</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="myModalEmailproperty1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="text-align-last: center">SendEmail</h4>
+            </div>
+            <form id="frmbuliding" method="post" novalidate>
+                <div class="modal-body">
+
+                    <div class="mark_blue add-category" style="padding-bottom:8px;">
+
+                        <div class="rule"></div>
+
+                        <table>
+                            <tr>
+                                <td colspan="1"><h5>Find or Enter Email Address:</h5><p><input name="EmailAddress" id="EmailAddress" type="email" placeholder="Type a tenant, contact, or email address" class="form-control" autocomplete="off" /></p></td>
+                                <td>
+                                    <div>
+                                        <a title="Add email address to the To: recipient list" id="lnkto" name="lnkto" class="detail_link">To:</a>
+                                        <a title="Add email address to the Cc: recipient list" id="lnkcc" name="lnkcc" class="detail_link">Cc:</a>
+                                        <a title="Add email address to the Bcc: recipient list" id="lnkBcc" name="lnkBcc" class="detail_link">Bcc:</a>
+
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <strong></strong>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                    <div class="mark">
+                        <table>
+                            <tr>
+                                <td style="width:40%;">
+                                    <h5>To:</h5>
+                                    <p>
+
+                                        <span id="disto">None</span><a href="#" id="toicon" style="display:none;"><i class="fa fa-times" aria-hidden="true"></i></a>
+
+                                    </p>
+                                </td>
+                                <td style="width:40%">
+                                    <h5>Cc:</h5>
+                                    <p>
+
+                                        <span id="dispcc">None</span><a href="#" id="ccicon" style="display:none;"><i class="fa fa-times" aria-hidden="true"></i></a>
+
+                                    </p>
+                                </td>
+                                <td style="width:20%">
+                                    <h5>Bcc:</h5>
+                                    <p>
+
+                                        <span id="dispbcc">None</span><a href="#" id="bccicon" style="display:none;"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                        <input type="hidden" name="lnkto1" id="lnkto1" />
+                                        <input type="hidden" name="lnkcc1" id="lnkcc1" />
+                                        <input type="hidden" name="lnkBcc1" id="lnkBcc1" />
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table>
+                            <tr>
+                                <td style="width:65%;">
+                                    <h5>Subject:</h5><p><input name="subject" required type="text" class="form-control" /></p>
+                                </td>
+
+
+                            </tr>
+                        </table>
+
+                        <h5>Body:</h5><p>
+                            <textarea name="body" rows="2" cols="15" id="txtBody" required class="input text"></textarea>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="modal-footer">
+                    <button type="submit" name="Command" value="Email1" class="btn btn-default">Send Email</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#tab').hide();
+        var tab = $('#tab').text();
+        if (tab == "tab-1") {
+            $('#myTab li').removeClass('active');
+            $("a[href='#" + tab + "']").parent().addClass('active');
+            $(".tab-pane").removeClass('active');
+            $("#" + tab).addClass('active');
+        }
+        else if (tab == "tab-2") {
+            $('#myTab li').removeClass('active');
+            $("a[href='#" + tab + "']").parent().addClass('active');
+            $(".tab-pane").removeClass('active');
+            $("#" + tab).addClass('active');
+        }
+
+    });
+</script>

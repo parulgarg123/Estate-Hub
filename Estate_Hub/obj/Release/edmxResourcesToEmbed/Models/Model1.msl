@@ -1,0 +1,1184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbrealestateModelStoreContainer" CdmEntityContainer="dbrealestateEntities">
+    <EntitySetMapping Name="Applicants">
+      <EntityTypeMapping TypeName="dbrealestateModel.Applicant">
+        <MappingFragment StoreEntitySet="Applicants">
+          <ScalarProperty Name="Applicant_Id" ColumnName="Applicant_Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Desired_Property" ColumnName="Desired_Property" />
+          <ScalarProperty Name="Received_On" ColumnName="Received_On" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="Dateofbirth" ColumnName="Dateofbirth" />
+          <ScalarProperty Name="DriverLicense" ColumnName="DriverLicense" />
+          <ScalarProperty Name="SocialSecurity" ColumnName="SocialSecurity" />
+          <ScalarProperty Name="Profile" ColumnName="Profile" />
+          <ScalarProperty Name="Smoker" ColumnName="Smoker" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Landlord_Id" ColumnName="Landlord_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApprovalStatuses">
+      <EntityTypeMapping TypeName="dbrealestateModel.ApprovalStatus">
+        <MappingFragment StoreEntitySet="ApprovalStatuses">
+          <ScalarProperty Name="ApprovalStatus_Id" ColumnName="ApprovalStatus_Id" />
+          <ScalarProperty Name="ApprovalStatus1" ColumnName="ApprovalStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="dbrealestateModel.Blog">
+        <MappingFragment StoreEntitySet="Blog">
+          <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+          <ScalarProperty Name="Content_detail1" ColumnName="Content_detail1" />
+          <ScalarProperty Name="Content_detail2" ColumnName="Content_detail2" />
+          <ScalarProperty Name="Content_detail3" ColumnName="Content_detail3" />
+          <ScalarProperty Name="Content_detail4" ColumnName="Content_detail4" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buildings">
+      <EntityTypeMapping TypeName="dbrealestateModel.Building">
+        <MappingFragment StoreEntitySet="Buildings">
+          <ScalarProperty Name="Building_Id" ColumnName="Building_Id" />
+          <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+          <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+          <ScalarProperty Name="ManagerTelephone" ColumnName="ManagerTelephone" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="dbrealestateModel.City">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommonDocuments">
+      <EntityTypeMapping TypeName="dbrealestateModel.CommonDocument">
+        <MappingFragment StoreEntitySet="CommonDocuments">
+          <ScalarProperty Name="CommonDocId" ColumnName="CommonDocId" />
+          <ScalarProperty Name="DocName" ColumnName="DocName" />
+          <ScalarProperty Name="DocComments" ColumnName="DocComments" />
+          <ScalarProperty Name="LandLordId" ColumnName="LandLordId" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="dbrealestateModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="Contact_Id" ColumnName="Contact_Id" />
+          <ScalarProperty Name="contactEmail" ColumnName="contactEmail" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ContactImg" ColumnName="ContactImg" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Replied" ColumnName="Replied" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="dbrealestateModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="countryName" ColumnName="countryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="damage_intventory">
+      <EntityTypeMapping TypeName="dbrealestateModel.damage_intventory">
+        <MappingFragment StoreEntitySet="damage_intventory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Inventory_Id" ColumnName="Inventory_Id" />
+          <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="DepositReq" ColumnName="DepositReq" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Tenant_Id" ColumnName="Tenant_Id" />
+          <ScalarProperty Name="Property_Id" ColumnName="Property_Id" />
+          <ScalarProperty Name="Landlord_Id" ColumnName="Landlord_Id" />
+          <ScalarProperty Name="Building_Id" ColumnName="Building_Id" />
+          <ScalarProperty Name="LandlordComment" ColumnName="LandlordComment" />
+          <ScalarProperty Name="TenantComment" ColumnName="TenantComment" />
+          <ScalarProperty Name="TenancyAgreementId" ColumnName="TenancyAgreementId" />
+          <ScalarProperty Name="Paymentstatus" ColumnName="Paymentstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deposit_transaction">
+      <EntityTypeMapping TypeName="dbrealestateModel.deposit_transaction">
+        <MappingFragment StoreEntitySet="deposit_transaction">
+          <ScalarProperty Name="TrasactionId" ColumnName="TrasactionId" />
+          <ScalarProperty Name="TransId" ColumnName="TransId" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deposits">
+      <EntityTypeMapping TypeName="dbrealestateModel.Deposit">
+        <MappingFragment StoreEntitySet="Deposits">
+          <ScalarProperty Name="ReqviewId" ColumnName="ReqviewId" />
+          <ScalarProperty Name="DepositId" ColumnName="DepositId" />
+          <ScalarProperty Name="DepositAmount" ColumnName="DepositAmount" />
+          <ScalarProperty Name="DepositStatus" ColumnName="DepositStatus" />
+          <ScalarProperty Name="DepositApproval" ColumnName="DepositApproval" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DepositDate" ColumnName="DepositDate" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="OfferId" ColumnName="OfferId" />
+          <ScalarProperty Name="OfferProposalId" ColumnName="OfferProposalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Descriptions">
+      <EntityTypeMapping TypeName="dbrealestateModel.Description">
+        <MappingFragment StoreEntitySet="Description">
+          <ScalarProperty Name="DescriptionId" ColumnName="DescriptionId" />
+          <ScalarProperty Name="Description1" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentTypes">
+      <EntityTypeMapping TypeName="dbrealestateModel.DocumentType">
+        <MappingFragment StoreEntitySet="DocumentType">
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+          <ScalarProperty Name="DocumentTypeName" ColumnName="DocumentTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="dbrealestateModel.Event">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="dateAdded" ColumnName="dateAdded" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="alldays" ColumnName="alldays" />
+          <ScalarProperty Name="Landlord_Id" ColumnName="Landlord_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faults">
+      <EntityTypeMapping TypeName="dbrealestateModel.Fault">
+        <MappingFragment StoreEntitySet="Faults">
+          <ScalarProperty Name="FaultId" ColumnName="FaultId" />
+          <ScalarProperty Name="FaultDescription" ColumnName="FaultDescription" />
+          <ScalarProperty Name="FaultTypeId" ColumnName="FaultTypeId" />
+          <ScalarProperty Name="FaultDate" ColumnName="FaultDate" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RepairStatus" ColumnName="RepairStatus" />
+          <ScalarProperty Name="RepairAmount" ColumnName="RepairAmount" />
+          <ScalarProperty Name="RepairPaymentStatus" ColumnName="RepairPaymentStatus" />
+          <ScalarProperty Name="AgreeWithAmount" ColumnName="AgreeWithAmount" />
+          <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+          <ScalarProperty Name="VisitTime" ColumnName="VisitTime" />
+          <ScalarProperty Name="MaintenanceCost" ColumnName="MaintenanceCost" />
+          <ScalarProperty Name="AcceptCost" ColumnName="AcceptCost" />
+          <ScalarProperty Name="AcceptTime" ColumnName="AcceptTime" />
+          <ScalarProperty Name="SupplierNotes" ColumnName="SupplierNotes" />
+          <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+          <ScalarProperty Name="JobStatusReason" ColumnName="JobStatusReason" />
+          <ScalarProperty Name="VisitDateOffer" ColumnName="VisitDateOffer" />
+          <ScalarProperty Name="VisitTimeOffer" ColumnName="VisitTimeOffer" />
+          <ScalarProperty Name="AcceptOfferTime" ColumnName="AcceptOfferTime" />
+          <ScalarProperty Name="RejectCommentByProvider" ColumnName="RejectCommentByProvider" />
+          <ScalarProperty Name="RejectCommentByTenant" ColumnName="RejectCommentByTenant" />
+          <ScalarProperty Name="TenantMaintainanceCost" ColumnName="TenantMaintainanceCost" />
+          <ScalarProperty Name="ProposalComments" ColumnName="ProposalComments" />
+          <ScalarProperty Name="ProposalProviderComments" ColumnName="ProposalProviderComments" />
+          <ScalarProperty Name="AcceptSchedule" ColumnName="AcceptSchedule" />
+          <ScalarProperty Name="ServiceProviderId" ColumnName="ServiceProviderId" />
+          <ScalarProperty Name="photos" ColumnName="photos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaultTypes">
+      <EntityTypeMapping TypeName="dbrealestateModel.FaultType">
+        <MappingFragment StoreEntitySet="FaultTypes">
+          <ScalarProperty Name="FaultTypeId" ColumnName="FaultTypeId" />
+          <ScalarProperty Name="FaultTypeName" ColumnName="FaultTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inspections">
+      <EntityTypeMapping TypeName="dbrealestateModel.Inspection">
+        <MappingFragment StoreEntitySet="Inspection">
+          <ScalarProperty Name="InspectionId" ColumnName="InspectionId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+          <ScalarProperty Name="RoomNotes" ColumnName="RoomNotes" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="InspectionNotes" ColumnName="InspectionNotes" />
+          <ScalarProperty Name="ActionRequired" ColumnName="ActionRequired" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="InspectionStatus" ColumnName="InspectionStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventory_type">
+      <EntityTypeMapping TypeName="dbrealestateModel.inventory_type">
+        <MappingFragment StoreEntitySet="inventory_type">
+          <ScalarProperty Name="InventoryTypeId" ColumnName="InventoryTypeId" />
+          <ScalarProperty Name="InventoryTypeName" ColumnName="InventoryTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InventoryImages">
+      <EntityTypeMapping TypeName="dbrealestateModel.InventoryImage">
+        <MappingFragment StoreEntitySet="InventoryImages">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invites">
+      <EntityTypeMapping TypeName="dbrealestateModel.Invite">
+        <MappingFragment StoreEntitySet="Invites">
+          <ScalarProperty Name="Invite_Id" ColumnName="Invite_Id" />
+          <ScalarProperty Name="LandlordName" ColumnName="LandlordName" />
+          <ScalarProperty Name="LandlordEmail" ColumnName="LandlordEmail" />
+          <ScalarProperty Name="PropertyAddress" ColumnName="PropertyAddress" />
+          <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
+          <ScalarProperty Name="Tenant_id" ColumnName="Tenant_id" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MovingIns">
+      <EntityTypeMapping TypeName="dbrealestateModel.MovingIn">
+        <MappingFragment StoreEntitySet="MovingIn">
+          <ScalarProperty Name="MovingInId" ColumnName="MovingInId" />
+          <ScalarProperty Name="MoveInDate" ColumnName="MoveInDate" />
+          <ScalarProperty Name="WelcomePack" ColumnName="WelcomePack" />
+          <ScalarProperty Name="Keys" ColumnName="Keys" />
+          <ScalarProperty Name="SetsofKeys" ColumnName="SetsofKeys" />
+          <ScalarProperty Name="PropertyManual" ColumnName="PropertyManual" />
+          <ScalarProperty Name="WhiteGoodManual" ColumnName="WhiteGoodManual" />
+          <ScalarProperty Name="BoilerManual" ColumnName="BoilerManual" />
+          <ScalarProperty Name="UtilitiesInformation" ColumnName="UtilitiesInformation" />
+          <ScalarProperty Name="SubmitMeterReading" ColumnName="SubmitMeterReading" />
+          <ScalarProperty Name="Others" ColumnName="Others" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mylists">
+      <EntityTypeMapping TypeName="dbrealestateModel.Mylist">
+        <MappingFragment StoreEntitySet="Mylists">
+          <ScalarProperty Name="ListId" ColumnName="ListId" />
+          <ScalarProperty Name="ListName" ColumnName="ListName" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="ListDetails" ColumnName="ListDetails" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paymentHistories">
+      <EntityTypeMapping TypeName="dbrealestateModel.paymentHistory">
+        <MappingFragment StoreEntitySet="paymentHistory">
+          <ScalarProperty Name="Paymenthistoryid" ColumnName="Paymenthistoryid" />
+          <ScalarProperty Name="RecievedOn" ColumnName="RecievedOn" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="CheckNo" ColumnName="CheckNo" />
+          <ScalarProperty Name="Tenant_Id" ColumnName="Tenant_Id" />
+          <ScalarProperty Name="Property_Id" ColumnName="Property_Id" />
+          <ScalarProperty Name="Building_Id" ColumnName="Building_Id" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Archievestatus" ColumnName="Archievestatus" />
+          <ScalarProperty Name="TransId" ColumnName="TransId" />
+          <ScalarProperty Name="Landlord_id" ColumnName="Landlord_id" />
+          <ScalarProperty Name="paymentsection" ColumnName="paymentsection" />
+          <ScalarProperty Name="paymentsectionid" ColumnName="paymentsectionid" />
+          <ScalarProperty Name="ServiceProviderId" ColumnName="ServiceProviderId" />
+          <ScalarProperty Name="ItemNumber" ColumnName="ItemNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plans">
+      <EntityTypeMapping TypeName="dbrealestateModel.Plan">
+        <MappingFragment StoreEntitySet="Plans">
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+          <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+          <ScalarProperty Name="PlanDescription" ColumnName="PlanDescription" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="MaxZipCodes" ColumnName="MaxZipCodes" />
+          <ScalarProperty Name="MaxCities" ColumnName="MaxCities" />
+          <ScalarProperty Name="MaxStates" ColumnName="MaxStates" />
+          <ScalarProperty Name="PriceMonthly" ColumnName="PriceMonthly" />
+          <ScalarProperty Name="PriceYearly" ColumnName="PriceYearly" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyAirConditionings">
+      <EntityTypeMapping TypeName="dbrealestateModel.PropertyAirConditioning">
+        <MappingFragment StoreEntitySet="PropertyAirConditioning">
+          <ScalarProperty Name="AirConditioning_Id" ColumnName="AirConditioning_Id" />
+          <ScalarProperty Name="AirConditioningName" ColumnName="AirConditioningName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyFeatures">
+      <EntityTypeMapping TypeName="dbrealestateModel.PropertyFeature">
+        <MappingFragment StoreEntitySet="PropertyFeatures">
+          <ScalarProperty Name="PropertyFeature_Id" ColumnName="PropertyFeature_Id" />
+          <ScalarProperty Name="FeatureName" ColumnName="FeatureName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyFloorings">
+      <EntityTypeMapping TypeName="dbrealestateModel.PropertyFlooring">
+        <MappingFragment StoreEntitySet="PropertyFlooring">
+          <ScalarProperty Name="PropertyFlooring_Id" ColumnName="PropertyFlooring_Id" />
+          <ScalarProperty Name="FlooringName" ColumnName="FlooringName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyHeatings">
+      <EntityTypeMapping TypeName="dbrealestateModel.PropertyHeating">
+        <MappingFragment StoreEntitySet="PropertyHeating">
+          <ScalarProperty Name="PropertyHeating_Id" ColumnName="PropertyHeating_Id" />
+          <ScalarProperty Name="HeatingName" ColumnName="HeatingName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyImages">
+      <EntityTypeMapping TypeName="dbrealestateModel.PropertyImage">
+        <MappingFragment StoreEntitySet="PropertyImages">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyParkings">
+      <EntityTypeMapping TypeName="dbrealestateModel.PropertyParking">
+        <MappingFragment StoreEntitySet="PropertyParking">
+          <ScalarProperty Name="Propertyparking_Id" ColumnName="Propertyparking_Id" />
+          <ScalarProperty Name="ParkingName" ColumnName="ParkingName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyStyles">
+      <EntityTypeMapping TypeName="dbrealestateModel.PropertyStyle">
+        <MappingFragment StoreEntitySet="PropertyStyles">
+          <ScalarProperty Name="Propertystyle_Id" ColumnName="Propertystyle_Id" />
+          <ScalarProperty Name="Style_Name" ColumnName="Style_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyTypes">
+      <EntityTypeMapping TypeName="dbrealestateModel.PropertyType">
+        <MappingFragment StoreEntitySet="PropertyTypes">
+          <ScalarProperty Name="PropertyType_Id" ColumnName="PropertyType_Id" />
+          <ScalarProperty Name="PropertyTypeName" ColumnName="PropertyTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purposals">
+      <EntityTypeMapping TypeName="dbrealestateModel.Purposal">
+        <MappingFragment StoreEntitySet="Purposal">
+          <ScalarProperty Name="PurposalId" ColumnName="PurposalId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="Offerprice" ColumnName="Offerprice" />
+          <ScalarProperty Name="purposal1" ColumnName="purposal" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Approval" ColumnName="Approval" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="offerid" ColumnName="offerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reminderlists">
+      <EntityTypeMapping TypeName="dbrealestateModel.reminderlist">
+        <MappingFragment StoreEntitySet="reminderlist">
+          <ScalarProperty Name="ReminderId" ColumnName="ReminderId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="currentMoveout" ColumnName="currentMoveout" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RentDues">
+      <EntityTypeMapping TypeName="dbrealestateModel.RentDue">
+        <MappingFragment StoreEntitySet="RentDue">
+          <ScalarProperty Name="RentDueId" ColumnName="RentDueId" />
+          <ScalarProperty Name="RentDueValue" ColumnName="RentDueValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportRoles">
+      <EntityTypeMapping TypeName="dbrealestateModel.ReportRole">
+        <MappingFragment StoreEntitySet="ReportRoles">
+          <ScalarProperty Name="ReportRoleId" ColumnName="ReportRoleId" />
+          <ScalarProperty Name="ReportRoleName" ColumnName="ReportRoleName" />
+          <ScalarProperty Name="ReportRoleUrl" ColumnName="ReportRoleUrl" />
+          <ScalarProperty Name="ReportDescription" ColumnName="ReportDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Serviceproviders">
+      <EntityTypeMapping TypeName="dbrealestateModel.Serviceprovider">
+        <MappingFragment StoreEntitySet="Serviceprovider">
+          <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+          <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Approval" ColumnName="Approval" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="services">
+      <EntityTypeMapping TypeName="dbrealestateModel.service">
+        <MappingFragment StoreEntitySet="services">
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="settings">
+      <EntityTypeMapping TypeName="dbrealestateModel.setting">
+        <MappingFragment StoreEntitySet="settings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="keyId" ColumnName="keyId" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="flagimg" ColumnName="flagimg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="dbrealestateModel.State">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabRoles">
+      <EntityTypeMapping TypeName="dbrealestateModel.TabRole">
+        <MappingFragment StoreEntitySet="TabRoles">
+          <ScalarProperty Name="TabRolesId" ColumnName="TabRolesId" />
+          <ScalarProperty Name="TabRolesName" ColumnName="TabRolesName" />
+          <ScalarProperty Name="TabRoleUrl" ColumnName="TabRoleUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_PropertyNotes">
+      <EntityTypeMapping TypeName="dbrealestateModel.tb_PropertyNotes">
+        <MappingFragment StoreEntitySet="tb_PropertyNotes">
+          <ScalarProperty Name="PrpNotesId" ColumnName="PrpNotesId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_area">
+      <EntityTypeMapping TypeName="dbrealestateModel.tbl_area">
+        <MappingFragment StoreEntitySet="tbl_area">
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_inventory">
+      <EntityTypeMapping TypeName="dbrealestateModel.tbl_inventory">
+        <MappingFragment StoreEntitySet="tbl_inventory">
+          <ScalarProperty Name="InventoryId" ColumnName="InventoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="InventoryTypeId" ColumnName="InventoryTypeId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Modal" ColumnName="Modal" />
+          <ScalarProperty Name="Serial" ColumnName="Serial" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_invoice">
+      <EntityTypeMapping TypeName="dbrealestateModel.tbl_invoice">
+        <MappingFragment StoreEntitySet="tbl_invoice">
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="SendStatus" ColumnName="SendStatus" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="AgreementId" ColumnName="AgreementId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Amountpay" ColumnName="Amountpay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_offer">
+      <EntityTypeMapping TypeName="dbrealestateModel.tbl_offer">
+        <MappingFragment StoreEntitySet="tbl_offer">
+          <ScalarProperty Name="OfferId" ColumnName="OfferId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="Askingprice" ColumnName="Askingprice" />
+          <ScalarProperty Name="offer" ColumnName="offer" />
+          <ScalarProperty Name="OfferStatus" ColumnName="OfferStatus" />
+          <ScalarProperty Name="PurposalStatus" ColumnName="PurposalStatus" />
+          <ScalarProperty Name="Approval" ColumnName="Approval" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_owner">
+      <EntityTypeMapping TypeName="dbrealestateModel.tbl_owner">
+        <MappingFragment StoreEntitySet="tbl_owner">
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Cellular" ColumnName="Cellular" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Ownerreserveamt" ColumnName="Ownerreserveamt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_vendor">
+      <EntityTypeMapping TypeName="dbrealestateModel.tbl_vendor">
+        <MappingFragment StoreEntitySet="tbl_vendor">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ComName" ColumnName="ComName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Tel1" ColumnName="Tel1" />
+          <ScalarProperty Name="Tel2" ColumnName="Tel2" />
+          <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocuments">
+      <EntityTypeMapping TypeName="dbrealestateModel.tblDocument">
+        <MappingFragment StoreEntitySet="tblDocuments">
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="DocumentDetails" ColumnName="DocumentDetails" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbMessages">
+      <EntityTypeMapping TypeName="dbrealestateModel.tbMessage">
+        <MappingFragment StoreEntitySet="tbMessage">
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+          <ScalarProperty Name="emailfrom" ColumnName="emailfrom" />
+          <ScalarProperty Name="emailto" ColumnName="emailto" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TenancyAgreements">
+      <EntityTypeMapping TypeName="dbrealestateModel.TenancyAgreement">
+        <MappingFragment StoreEntitySet="TenancyAgreement">
+          <ScalarProperty Name="TenancyAgreementId" ColumnName="TenancyAgreementId" />
+          <ScalarProperty Name="FromAgreementDate" ColumnName="FromAgreementDate" />
+          <ScalarProperty Name="ToAgreementDate" ColumnName="ToAgreementDate" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="TenancyAgreementData" ColumnName="TenancyAgreementData" />
+          <ScalarProperty Name="Signatures" ColumnName="Signatures" />
+          <ScalarProperty Name="SignatureTenant" ColumnName="SignatureTenant" />
+          <ScalarProperty Name="RenewalDate" ColumnName="RenewalDate" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="DateApproved" ColumnName="DateApproved" />
+          <ScalarProperty Name="lastmonthdate" ColumnName="lastmonthdate" />
+          <ScalarProperty Name="RenewStatus" ColumnName="RenewStatus" />
+          <ScalarProperty Name="Checkoutdate" ColumnName="Checkoutdate" />
+          <ScalarProperty Name="Paymentstatus" ColumnName="Paymentstatus" />
+          <ScalarProperty Name="Sendstatus" ColumnName="Sendstatus" />
+          <ScalarProperty Name="Cancelcomment" ColumnName="Cancelcomment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TenancyDetails">
+      <EntityTypeMapping TypeName="dbrealestateModel.TenancyDetail">
+        <MappingFragment StoreEntitySet="TenancyDetails">
+          <ScalarProperty Name="TenancyDetailId" ColumnName="TenancyDetailId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="RequestViewingId" ColumnName="RequestViewingId" />
+          <ScalarProperty Name="ProposalViewingId" ColumnName="ProposalViewingId" />
+          <ScalarProperty Name="OfferId" ColumnName="OfferId" />
+          <ScalarProperty Name="ProposalOfferId" ColumnName="ProposalOfferId" />
+          <ScalarProperty Name="DepositId" ColumnName="DepositId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="TenancyAgrrementId" ColumnName="TenancyAgrrementId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="transactionId" ColumnName="transactionId" />
+          <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+          <ScalarProperty Name="LeaseId" ColumnName="LeaseId" />
+          <ScalarProperty Name="MovingInId" ColumnName="MovingInId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tenants">
+      <EntityTypeMapping TypeName="dbrealestateModel.Tenant">
+        <MappingFragment StoreEntitySet="Tenants">
+          <ScalarProperty Name="Tenant_Id" ColumnName="Tenant_Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Cellular" ColumnName="Cellular" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="Dateofbirth" ColumnName="Dateofbirth" />
+          <ScalarProperty Name="DriverLicense" ColumnName="DriverLicense" />
+          <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+          <ScalarProperty Name="SocialSecurity" ColumnName="SocialSecurity" />
+          <ScalarProperty Name="Profile" ColumnName="Profile" />
+          <ScalarProperty Name="Smoker" ColumnName="Smoker" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="LastPmtOn" ColumnName="LastPmtOn" />
+          <ScalarProperty Name="Nextpmtdue" ColumnName="Nextpmtdue" />
+          <ScalarProperty Name="LeaseEnds" ColumnName="LeaseEnds" />
+          <ScalarProperty Name="Property_Id" ColumnName="Property_Id" />
+          <ScalarProperty Name="leasestatus" ColumnName="leasestatus" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
+          <ScalarProperty Name="Landlord_id" ColumnName="Landlord_id" />
+          <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="IfVisa" ColumnName="IfVisa" />
+          <ScalarProperty Name="Pets" ColumnName="Pets" />
+          <ScalarProperty Name="ifPets" ColumnName="ifPets" />
+          <ScalarProperty Name="Children" ColumnName="Children" />
+          <ScalarProperty Name="IfChildren" ColumnName="IfChildren" />
+          <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+          <ScalarProperty Name="Town" ColumnName="Town" />
+          <ScalarProperty Name="UnitNumber" ColumnName="UnitNumber" />
+          <ScalarProperty Name="Suberb" ColumnName="Suberb" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="County" ColumnName="County" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="dbrealestateModel.Transaction">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="TrasactionId" ColumnName="TrasactionId" />
+          <ScalarProperty Name="TransId" ColumnName="TransId" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDocuments">
+      <EntityTypeMapping TypeName="dbrealestateModel.UserDocument">
+        <MappingFragment StoreEntitySet="UserDocuments">
+          <ScalarProperty Name="UserDocumentId" ColumnName="UserDocumentId" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ContentDetails" ColumnName="ContentDetails" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+          <ScalarProperty Name="DocTitle" ColumnName="DocTitle" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserReportsPermissions">
+      <EntityTypeMapping TypeName="dbrealestateModel.UserReportsPermission">
+        <MappingFragment StoreEntitySet="UserReportsPermissions">
+          <ScalarProperty Name="UserReportsPermissionsId" ColumnName="UserReportsPermissionsId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ReportsRoleId" ColumnName="ReportsRoleId" />
+          <ScalarProperty Name="ReportPermissionStatus" ColumnName="ReportPermissionStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="dbrealestateModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTabPermissions">
+      <EntityTypeMapping TypeName="dbrealestateModel.UserTabPermission">
+        <MappingFragment StoreEntitySet="UserTabPermissions">
+          <ScalarProperty Name="UserTabPermissionsId" ColumnName="UserTabPermissionsId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TabRoleId" ColumnName="TabRoleId" />
+          <ScalarProperty Name="PermissionStatus" ColumnName="PermissionStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewingPurposals">
+      <EntityTypeMapping TypeName="dbrealestateModel.ViewingPurposal">
+        <MappingFragment StoreEntitySet="ViewingPurposal">
+          <ScalarProperty Name="ViewingPurposalid" ColumnName="ViewingPurposalid" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PreferredDate" ColumnName="PreferredDate" />
+          <ScalarProperty Name="PreferredTime" ColumnName="PreferredTime" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="Approve" ColumnName="Approve" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="RequestViewid" ColumnName="RequestViewid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="gettenantdetails" FunctionName="dbrealestateModel.Store.gettenantdetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbrealestateModel.gettenantdetails_Result">
+          <ScalarProperty Name="TenancyAgreementId" ColumnName="TenancyAgreementId" />
+          <ScalarProperty Name="FromAgreementDate" ColumnName="FromAgreementDate" />
+          <ScalarProperty Name="ToAgreementDate" ColumnName="ToAgreementDate" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="TenancyAgreementData" ColumnName="TenancyAgreementData" />
+          <ScalarProperty Name="Signatures" ColumnName="Signatures" />
+          <ScalarProperty Name="SignatureTenant" ColumnName="SignatureTenant" />
+          <ScalarProperty Name="RenewalDate" ColumnName="RenewalDate" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="DateApproved" ColumnName="DateApproved" />
+          <ScalarProperty Name="lastmonthdate" ColumnName="lastmonthdate" />
+          <ScalarProperty Name="RenewStatus" ColumnName="RenewStatus" />
+          <ScalarProperty Name="Checkoutdate" ColumnName="Checkoutdate" />
+          <ScalarProperty Name="Paymentstatus" ColumnName="Paymentstatus" />
+          <ScalarProperty Name="Sendstatus" ColumnName="Sendstatus" />
+          <ScalarProperty Name="Cancelcomment" ColumnName="Cancelcomment" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="dbrealestateModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserLandlordId" ColumnName="UserLandlordId" />
+          <ScalarProperty Name="StripeCustomerId" ColumnName="StripeCustomerId" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="Suberb" ColumnName="Suberb" />
+          <ScalarProperty Name="UnitNumber" ColumnName="UnitNumber" />
+          <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+          <ScalarProperty Name="Town" ColumnName="Town" />
+          <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="NameOnAccount" ColumnName="NameOnAccount" />
+          <ScalarProperty Name="BillingZip" ColumnName="BillingZip" />
+          <ScalarProperty Name="BillingState" ColumnName="BillingState" />
+          <ScalarProperty Name="BillingCity" ColumnName="BillingCity" />
+          <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
+          <ScalarProperty Name="BillingAddressSameAsCase" ColumnName="BillingAddressSameAsCase" />
+          <ScalarProperty Name="CCSecurityNo" ColumnName="CCSecurityNo" />
+          <ScalarProperty Name="CCExpDate" ColumnName="CCExpDate" />
+          <ScalarProperty Name="CCNo" ColumnName="CCNo" />
+          <ScalarProperty Name="CCType" ColumnName="CCType" />
+          <ScalarProperty Name="Terms" ColumnName="Terms" />
+          <ScalarProperty Name="AgreedToTerms" ColumnName="AgreedToTerms" />
+          <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="UserStatusID" ColumnName="UserStatusID" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Properties">
+      <EntityTypeMapping TypeName="dbrealestateModel.Property">
+        <MappingFragment StoreEntitySet="Properties">
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="Suberb" ColumnName="Suberb" />
+          <ScalarProperty Name="UnitNumber" ColumnName="UnitNumber" />
+          <ScalarProperty Name="Town" ColumnName="Town" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+          <ScalarProperty Name="PropertyPhotos" ColumnName="PropertyPhotos" />
+          <ScalarProperty Name="MinimumRent" ColumnName="MinimumRent" />
+          <ScalarProperty Name="IfHoldingFee" ColumnName="IfHoldingFee" />
+          <ScalarProperty Name="HoldingFee" ColumnName="HoldingFee" />
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="LateFee" ColumnName="LateFee" />
+          <ScalarProperty Name="VacancyDate" ColumnName="VacancyDate" />
+          <ScalarProperty Name="AvailableOn" ColumnName="AvailableOn" />
+          <ScalarProperty Name="RentFreq" ColumnName="RentFreq" />
+          <ScalarProperty Name="ApplicationFee" ColumnName="ApplicationFee" />
+          <ScalarProperty Name="DepositReq" ColumnName="DepositReq" />
+          <ScalarProperty Name="VirtualTourUrl" ColumnName="VirtualTourUrl" />
+          <ScalarProperty Name="lsContactEmail" ColumnName="lsContactEmail" />
+          <ScalarProperty Name="lsContactPhone" ColumnName="lsContactPhone" />
+          <ScalarProperty Name="lsContactName" ColumnName="lsContactName" />
+          <ScalarProperty Name="listtitle" ColumnName="listtitle" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="LeasedEnd" ColumnName="LeasedEnd" />
+          <ScalarProperty Name="LeasedTo" ColumnName="LeasedTo" />
+          <ScalarProperty Name="Archievestatus" ColumnName="Archievestatus" />
+          <ScalarProperty Name="leasestatus" ColumnName="leasestatus" />
+          <ScalarProperty Name="Landlord_Id" ColumnName="Landlord_Id" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Garden" ColumnName="Garden" />
+          <ScalarProperty Name="Parking" ColumnName="Parking" />
+          <ScalarProperty Name="PetsAllowed" ColumnName="PetsAllowed" />
+          <ScalarProperty Name="SmokersAllowed" ColumnName="SmokersAllowed" />
+          <ScalarProperty Name="Garage" ColumnName="Garage" />
+          <ScalarProperty Name="Kitchen" ColumnName="Kitchen" />
+          <ScalarProperty Name="UtilityRoom" ColumnName="UtilityRoom" />
+          <ScalarProperty Name="studyRoom" ColumnName="studyRoom" />
+          <ScalarProperty Name="toilet" ColumnName="toilet" />
+          <ScalarProperty Name="Bathroom" ColumnName="Bathroom" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Furnished" ColumnName="Furnished" />
+          <ScalarProperty Name="Bedroom" ColumnName="Bedroom" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="DateAvailable" ColumnName="DateAvailable" />
+          <ScalarProperty Name="YearBuilt" ColumnName="YearBuilt" />
+          <ScalarProperty Name="street_direction" ColumnName="street_direction" />
+          <ScalarProperty Name="street_type" ColumnName="street_type" />
+          <ScalarProperty Name="street_name" ColumnName="street_name" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Apt_Suite_Unit" ColumnName="Apt_Suite_Unit" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="FeaturesAndAmenities" ColumnName="FeaturesAndAmenities" />
+          <ScalarProperty Name="SqFt" ColumnName="SqFt" />
+          <ScalarProperty Name="PropertyTypeId" ColumnName="PropertyTypeId" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="Flooring_Id" ColumnName="Flooring_Id" />
+          <ScalarProperty Name="AirConditioning_Id" ColumnName="AirConditioning_Id" />
+          <ScalarProperty Name="Heating_Id" ColumnName="Heating_Id" />
+          <ScalarProperty Name="Parking_Id" ColumnName="Parking_Id" />
+          <ScalarProperty Name="PropertyStyleId" ColumnName="PropertyStyleId" />
+          <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+          <ScalarProperty Name="Property_Id" ColumnName="Property_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_lease">
+      <EntityTypeMapping TypeName="dbrealestateModel.tbl_lease">
+        <MappingFragment StoreEntitySet="tbl_lease">
+          <ScalarProperty Name="updatedOn" ColumnName="updatedOn" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+          <ScalarProperty Name="paymentmode" ColumnName="paymentmode" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="paymentSchedule" ColumnName="paymentSchedule" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="MaxLateFee" ColumnName="MaxLateFee" />
+          <ScalarProperty Name="ExcludeGracePeriod" ColumnName="ExcludeGracePeriod" />
+          <ScalarProperty Name="baseAmount" ColumnName="baseAmount" />
+          <ScalarProperty Name="percentRent" ColumnName="percentRent" />
+          <ScalarProperty Name="FlatFee" ColumnName="FlatFee" />
+          <ScalarProperty Name="FlatFeeOrBaseAmountOrPercentRent" ColumnName="FlatFeeOrBaseAmountOrPercentRent" />
+          <ScalarProperty Name="DaysAfterDueDate" ColumnName="DaysAfterDueDate" />
+          <ScalarProperty Name="LatefeeEnabled" ColumnName="LatefeeEnabled" />
+          <ScalarProperty Name="CreditedOn" ColumnName="CreditedOn" />
+          <ScalarProperty Name="CreditAmount" ColumnName="CreditAmount" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="ValidUntil" ColumnName="ValidUntil" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DescriptionId" ColumnName="DescriptionId" />
+          <ScalarProperty Name="firstrentalpay" ColumnName="firstrentalpay" />
+          <ScalarProperty Name="rentisdue" ColumnName="rentisdue" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="Rent" ColumnName="Rent" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="term" ColumnName="term" />
+          <ScalarProperty Name="sectenant_Id" ColumnName="sectenant_Id" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Startdate" ColumnName="Startdate" />
+          <ScalarProperty Name="primaryTenant_Id" ColumnName="primaryTenant_Id" />
+          <ScalarProperty Name="Property_Id" ColumnName="Property_Id" />
+          <ScalarProperty Name="LeaseId" ColumnName="LeaseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestViews">
+      <EntityTypeMapping TypeName="dbrealestateModel.RequestView">
+        <MappingFragment StoreEntitySet="RequestView">
+          <ScalarProperty Name="OfferId" ColumnName="OfferId" />
+          <ScalarProperty Name="RequestParentId" ColumnName="RequestParentId" />
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Approve" ColumnName="Approve" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="PreferredTime" ColumnName="PreferredTime" />
+          <ScalarProperty Name="PreferredDate" ColumnName="PreferredDate" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ReqviewId" ColumnName="ReqviewId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LeaseCredits">
+      <EntityTypeMapping TypeName="dbrealestateModel.tbl_LeaseCredits">
+        <MappingFragment StoreEntitySet="tbl_LeaseCredits">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+          <ScalarProperty Name="CreditedOn" ColumnName="CreditedOn" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="tenant_id" ColumnName="tenant_id" />
+          <ScalarProperty Name="Property_id" ColumnName="Property_id" />
+          <ScalarProperty Name="lease_id" ColumnName="lease_id" />
+          <ScalarProperty Name="credits_id" ColumnName="credits_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_othercharges">
+      <EntityTypeMapping TypeName="dbrealestateModel.tbl_othercharges">
+        <MappingFragment StoreEntitySet="tbl_othercharges">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="validuntil" ColumnName="validuntil" />
+          <ScalarProperty Name="validfrom" ColumnName="validfrom" />
+          <ScalarProperty Name="due" ColumnName="due" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="tenant_id" ColumnName="tenant_id" />
+          <ScalarProperty Name="Property_id" ColumnName="Property_id" />
+          <ScalarProperty Name="lease_id" ColumnName="lease_id" />
+          <ScalarProperty Name="othercharges_id" ColumnName="othercharges_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="application_details">
+      <EntityTypeMapping TypeName="dbrealestateModel.application_details">
+        <MappingFragment StoreEntitySet="application_details">
+          <ScalarProperty Name="CmtDeffered" ColumnName="CmtDeffered" />
+          <ScalarProperty Name="CmtRejected" ColumnName="CmtRejected" />
+          <ScalarProperty Name="FillStatus" ColumnName="FillStatus" />
+          <ScalarProperty Name="SentStatus" ColumnName="SentStatus" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LandlordId" ColumnName="LandlordId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="grossduration" ColumnName="grossduration" />
+          <ScalarProperty Name="additionalduration" ColumnName="additionalduration" />
+          <ScalarProperty Name="netduration" ColumnName="netduration" />
+          <ScalarProperty Name="terroristactivity" ColumnName="terroristactivity" />
+          <ScalarProperty Name="criminalactivity" ColumnName="criminalactivity" />
+          <ScalarProperty Name="bankruptcy" ColumnName="bankruptcy" />
+          <ScalarProperty Name="countryagainst" ColumnName="countryagainst" />
+          <ScalarProperty Name="GrossIncome" ColumnName="GrossIncome" />
+          <ScalarProperty Name="AddIncome" ColumnName="AddIncome" />
+          <ScalarProperty Name="NetIncome" ColumnName="NetIncome" />
+          <ScalarProperty Name="CPemail" ColumnName="CPemail" />
+          <ScalarProperty Name="CPNumber" ColumnName="CPNumber" />
+          <ScalarProperty Name="CPName" ColumnName="CPName" />
+          <ScalarProperty Name="LengthEmp" ColumnName="LengthEmp" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="EmpPostCode" ColumnName="EmpPostCode" />
+          <ScalarProperty Name="EmpCountry" ColumnName="EmpCountry" />
+          <ScalarProperty Name="EmpCity" ColumnName="EmpCity" />
+          <ScalarProperty Name="Emptown" ColumnName="Emptown" />
+          <ScalarProperty Name="Empstreetname" ColumnName="Empstreetname" />
+          <ScalarProperty Name="Emphousenum" ColumnName="Emphousenum" />
+          <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+          <ScalarProperty Name="Employmntstatus" ColumnName="Employmntstatus" />
+          <ScalarProperty Name="ReferenceEmail" ColumnName="ReferenceEmail" />
+          <ScalarProperty Name="ReferneceNumber" ColumnName="ReferneceNumber" />
+          <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Moveout" ColumnName="Moveout" />
+          <ScalarProperty Name="Moveindate" ColumnName="Moveindate" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Town" ColumnName="Town" />
+          <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+          <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+          <ScalarProperty Name="fullnames" ColumnName="fullnames" />
+          <ScalarProperty Name="Smoker" ColumnName="Smoker" />
+          <ScalarProperty Name="Pets" ColumnName="Pets" />
+          <ScalarProperty Name="Noage18" ColumnName="Noage18" />
+          <ScalarProperty Name="PeopleNames" ColumnName="PeopleNames" />
+          <ScalarProperty Name="Notolive" ColumnName="Notolive" />
+          <ScalarProperty Name="Children" ColumnName="Children" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FormerName" ColumnName="FormerName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,445 @@
+﻿@model Proptiwise.Models.Tenant
+@using Proptiwise.Models
+@{
+    ViewBag.Title = "tenant_details";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+<section class="tab_page">
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-me-12"><h1>Tenant Details-@Model.FirstName @Model.LastName</h1></div>
+            <ul class="nav nav-tabs responsive" id="myTab">
+                <li class="active"><a href="#tab-1">General Info</a></li>
+                <li><a href="#tab-2">Leased Property</a></li>
+                <li><a href="#tab-3">Charges & Balance</a></li>
+                @* <li><a href="#tab-4">Contact History</a></li>
+                    <li><a href="#tab-4">Custom Fields</a></li>*@
+            </ul>
+            <div class="tab-content responsive">
+                <div class="tab-pane active" id="tab-1">
+                    <div class="columns clear">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="top_info">
+                                <h3>Contact Information</h3>
+                                <a class="edit_link on-edit1 editbutton" href="@getallpath.getpath/tenant_contactedit/" data-modal=''><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="contact_info">
+                                <span class="user_img">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                                <span class="txtinfo">
+                                    @if (Model.FirstName != null)
+                                    {
+                                        <h4>@Model.FirstName</h4>
+                                    }
+                                    else
+                                    {
+                                        <h4>No Name</h4>
+                                    }
+                                    @if (Model.Address1 == null || Model.Address2 == null)
+                                    {
+                                        <p>No Address</p>
+                                    }
+                                    else
+                                    {
+                                        <p>@Model.Address1</p>
+                                        <p>@Model.Address2</p>
+                                    }
+                                    @if (Model.PostCode == null)
+                                    {
+                                        <p>[No Post Code]</p>
+                                    }
+                                    else
+                                    {
+                                        <p>@Model.PostCode</p>
+
+                                    }
+                                    @if (Model.Email == null)
+                                    {
+                                        <p>[ No Email Address ]</p>
+                                    }
+                                    else
+                                    {
+                                        <p>@Model.Email</p>
+
+                                    }
+
+                                    @if (Model.Telephone == null)
+                                    {
+                                        <p><font>Tel : ##########</font></p>
+                                    }
+                                    else
+                                    {
+                                        <p>@Model.Cellular</p>
+
+                                    }
+
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="top_info">
+                                <h3>Identification</h3>
+                                <a class="edit_link on-edit2 editbutton" href="@getallpath.getpath/tenant_infoedit/" data-modal=''><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="contact_info">
+                                <ul class="identi_list">
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Driver's License-
+                                        @if (Model.DriverLicense == null)
+                                        {
+                                            <span>
+
+                                                Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.DriverLicense</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Passport No.-
+                                        @if (Model.PassportNo == null)
+                                        {
+                                            <span>
+                                                Not Entered
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.PassportNo</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Date of Birth-
+                                        @if (Model.Dateofbirth == null)
+                                        {
+                                            <span>
+                                                Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.Dateofbirth.Value.ToShortDateString()</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Social Security -
+                                        @if (Model.SocialSecurity == null)
+                                        {
+                                            <span>
+
+                                                Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.SocialSecurity</span>
+                                        }
+                                    </li>
+                                    <li><i class="fa fa-check" aria-hidden="true"></i>Type, Status- <span>-Type, StatusTenant, Inactive</span></li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i>Tenant Profile -
+                                        @if (Model.Profile == null)
+                                        {
+                                            <span>
+
+                                                Not Entered
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+                                            if (Model.Profile == 1)
+                                            {
+                                                <span> Single </span>
+                                            }
+                                            else if (Model.Profile == 2)
+                                            {
+                                                <span> Unmarried Couple,no children </span>
+                                            }
+                                            else if (Model.Profile == 3)
+                                            {
+                                                <span> Married Couple,no children </span>
+                                            }
+                                            else if (Model.Profile == 4)
+                                            {
+                                                <span> Family with children </span>
+                                            }
+                                            else if (Model.Profile == 5)
+                                            {
+                                                <span> Single Parent with children </span>
+                                            }
+                                            else if (Model.Profile == 6)
+                                            {
+                                                <span> Related Tenants </span>
+                                            }
+                                            else if (Model.Profile == 7)
+                                            {
+                                                <span> Unrelated Tenants </span>
+                                            }
+                                            else if (Model.Profile == 8)
+                                            {
+                                                <span> Student </span>
+                                            }
+                                            else if (Model.Profile == 9)
+                                            {
+                                                <span> Retired or Senior </span>
+                                            }
+                                            else if (Model.Profile == 10)
+                                            {
+                                                <span> Other </span>
+                                            }
+                                            else
+                                            {
+                                                <span>-</span>
+                                            }
+                                        }
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="top_info">
+                                <h3>Other Information</h3>
+                                <a class="edit_link on-edit1 editbutton" href="@getallpath.getpath/tenant_otherInfotedit/" data-modal=''><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="contact_info">
+                                <ul class="identi_list othrinfo">
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i><span class="left_one">
+                                            MaritalStatus -
+                                        </span>
+                                        @if (Model.MaritalStatus != null)
+                                        {
+                                            if (Model.MaritalStatus == 1)
+                                            {
+                                                <span class="right_one">Single</span>
+                                            }
+                                            else if (Model.MaritalStatus == 2)
+                                            {
+                                                <span class="right_one">Married</span>
+                                            }
+                                            else if (Model.MaritalStatus == 3)
+                                            {
+                                                <span class="right_one">Separated</span>
+                                            }
+                                            else if (Model.MaritalStatus == 4)
+                                            {
+                                                <span class="right_one">Divorced</span>
+                                            }
+                                            else if (Model.MaritalStatus == 5)
+                                            {
+                                                <span class="right_one">Widowed</span>
+                                            }
+                                            else if (Model.MaritalStatus == 6)
+                                            {
+                                                <span class="right_one">Domestic Partnership</span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span class="right_one">-</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i><span class="left_one"> If Visa - </span>
+                                        @if (Model.IfVisa != null)
+                                        {
+                                            if (Model.IfVisa == "1")
+                                            {
+                                                <span class="right_one">Yes</span>
+                                            }
+                                            else if (Model.IfVisa == "2")
+                                            {
+                                                <span class="right_one">No</span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span class="right_one">-</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i><span class="left_one"> Pets - </span>
+                                        @if (Model.Pets != null)
+                                        {
+                                            if (Model.Pets == 1)
+                                            {
+                                                <span class="right_one">Yes</span>
+                                            }
+                                            else if (Model.Pets == 2)
+                                            {
+                                                <span class="right_one">No</span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span class="right_one">No</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i><span class="left_one">
+                                            If Pets -
+                                        </span>
+                                        @if (Model.ifPets != null)
+                                        {
+                                            <span class="right_one">@Model.ifPets</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="right_one">-</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i><span class="left_one">Children - </span>
+                                        @if (Model.Children != null)
+                                        {
+                                            if (Model.Children == 1)
+                                            {
+                                                <span class="right_one">Yes</span>
+                                            }
+                                            else if (Model.Children == 2)
+                                            {
+                                                <span class="right_one">No</span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span class="right_one">No</span>
+                                        }
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-check" aria-hidden="true"></i><span class="left_one"> If Children - </span>
+                                        @if (Model.IfChildren != null)
+                                        {
+                                            if (Model.IfChildren == "1")
+                                            {
+                                                <span class="right_one">1</span>
+                                            }
+                                            else if (Model.IfChildren == "2")
+                                            {
+                                                <span class="right_one">2</span>
+                                            }
+                                            else if (Model.IfChildren == "3")
+                                            {
+                                                <span class="right_one">3</span>
+                                            }
+                                            else if (Model.IfChildren == "4")
+                                            {
+                                                <span class="right_one">4</span>
+                                            }
+                                            else if (Model.IfChildren == "5")
+                                            {
+                                                <span class="right_one">5</span>
+                                            }
+                                            else if (Model.IfChildren == "6")
+                                            {
+                                                <span class="right_one">6</span>
+                                            }
+                                            else if (Model.IfChildren == "7")
+                                            {
+                                                <span class="right_one">7</span>
+                                            }
+                                            else if (Model.IfChildren == "8")
+                                            {
+                                                <span class="right_one">8</span>
+                                            }
+                                            else if (Model.IfChildren == "9")
+                                            {
+                                                <span class="right_one">8</span>
+                                            }
+                                            else if (Model.IfChildren == "10")
+                                            {
+                                                <span class="right_one">10</span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span class="right_one">-</span>
+                                        }
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab-2">
+                    <div class="columns clear">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="top_info">
+                                <h3>Leased Property</h3>
+
+                            </div>
+                            <div class="contact_info">
+                                <span class="user_img">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                                <span class="txtinfo">
+                                    @*@if (Session["leasedproperty"] != null)*@
+                                    @if (Session["leasetable"] != null)
+                                    {
+                                        foreach (var item in Session["leasetable"] as List<Proptiwise.Models.tbl_lease>)
+                                        {
+                                            <span><h4><b>@item.Property.PropertyName</b></h4> <a class="pull-right" data-modal="" href="@getallpath.getpath/lease_moveout/@item.LeaseId">Move Out</a></span>
+                                            <p>@item.Property.AddressLine1</p>
+                                            <p>@item.Property.AddressLine2</p>
+                                            //}
+                                            //foreach (var item in Session["leasetable"] as List<Proptiwise.Models.tbl_lease>)
+                                            //{
+                                            <p><a class="editbutton" href="@getallpath.getpath/editlease/@item.LeaseId">edit Lease</a> | <a href="@getallpath.getpath/front/property_details/@item.Property_Id">Property Details</a></p>
+                                            <p>Rent:@item.Rent &nbsp;&nbsp; Balance:@item.balance</p>
+                                            <p>Start:@item.Startdate End:@item.EndDate</p>
+                                            @*<p> Payment Schedule : @item.paymentSchedule</p>*@
+                                        }
+
+                                    }
+
+                                    else
+                                    {
+                                        <h4><b>No Leased Property</b></h4>
+                                        <p>
+                                            This tenant is not currently assigned to a property,<br />
+                                            but you can do so by <a href="@getallpath.getpath/lease"><b>creating a new lease.</b></a>
+                                        </p>
+                                        <p>
+                                            If you need to add a new property,<br /> you can do that as well on the <a href=""><b>Manage Properties page</b></a>
+                                        </p>
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab-3">
+
+                </div>
+                @*<div class="tab-pane" id="tab-4">
+                        <h2>RvTest</h2>
+                    </div>
+                    <div class="tab-pane" id="tab-5">
+                        <h2>RvTest</h2>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div id='myModal' class='modal fade in'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Appjs/Phone.js"></script>
+
+

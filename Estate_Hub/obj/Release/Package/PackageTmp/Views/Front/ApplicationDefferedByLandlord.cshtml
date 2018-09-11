@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "ApplicationDefferedByLandlord";
+    Layout = null;
+}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+</div>
+<div class="modal-body">
+  
+    @using (Html.BeginForm("ApplicationDefferedByLandlord", "Front", FormMethod.Post, new { @id = "ApplicationDefferedByLandlord", @name = "ApplicationDefferedByLandlord", @enctype = "multipart/form-data" }))
+    {
+        <div class="form-horizontal">
+
+     
+            @Html.ValidationSummary(true)
+            <div class="form-group no_mrg clearfix">
+                <span class="col-md-12">
+                    @Html.Label("Reason To Deffered Application", new { @class = "control-label" })
+                    <textarea name="Comments" class="form-control" rows="3" />
+
+                </span>
+
+            </div>
+            <div class="form-group no_mrg clearfix text-center">
+                <input type="submit" value="Deffered" class="btn btn-primary" />
+
+            </div>
+        </div>
+
+    }
+
+</div>
+
+

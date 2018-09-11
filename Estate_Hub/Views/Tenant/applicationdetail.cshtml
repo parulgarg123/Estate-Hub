@@ -1,0 +1,183 @@
+﻿@model Proptiwise.Models.application_details
+@{
+    ViewBag.Title = "applicationdetail";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+
+<h4>Application Details</h4>
+<form method="post">
+    <div class="form-horizontal">
+        
+        @Html.ValidationSummary(true)
+        <div class="form-group clearfix">
+            <h4>General Information</h4>
+            @{
+                var tnt=new Proptiwise.Models.Tenant();
+                if (ViewBag.tnt != null)
+                {
+                    tnt=ViewBag.tnt as Proptiwise.Models.Tenant;
+                }
+            }
+            <span class="col-md-4 col-sm-4">
+                <label>Full Name</label>
+                @if(tnt.FirstName!=null && tnt.LastName!=null)
+                { 
+                    string st=tnt.FirstName+" "+tnt.LastName;
+                @Html.TextBox("FullName",st, null, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter Full Name')", oninput = "setCustomValidity('')", placeholder = "Full Name", required = true, autofocus = true })
+                }
+                else
+                {
+                      @Html.TextBoxFor(model => model.FullName, null, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter Full Name')", oninput = "setCustomValidity('')", placeholder = "Full Name", required = true, autofocus = true })
+                }
+                     @Html.ValidationMessageFor(model => model.FullName)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Former Name</label>
+                @Html.TextBoxFor(model => model.FormerName, null, new { @class = "form-control", pattern = "[a-zA-Z][a-zA-Z ]{0,}", oninvalid = "setCustomValidity('Enter Former Name')", oninput = "setCustomValidity('')", placeholder = "Former Name", required = true })
+                @Html.ValidationMessageFor(model => model.FormerName)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Phone Number</label>
+                @if (tnt.Cellular != null )
+                {                    
+                     @Html.TextBox("PhoneNumber",tnt.Cellular, null, new { @class = "form-control", pattern = @"^\d+$", oninvalid = "setCustomValidity('Enter Valid Phone Number')", oninput = "setCustomValidity('')", placeholder = "Phone Number", required = true })
+                }
+                else
+                {
+                    @Html.TextBoxFor(model => model.PhoneNumber, null, new { @class = "form-control", pattern = @"^\d+$", oninvalid = "setCustomValidity('Enter Valid Phone Number')", oninput = "setCustomValidity('')", placeholder = "Phone Number", required = true })
+                }
+              
+                @Html.ValidationMessageFor(model => model.PhoneNumber)
+            </span>
+        </div>
+
+
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>Mobile Number</label>
+                @Html.TextBoxFor(model => model.MobileNumber, null, new { @class = "form-control", pattern = @"^\d+$", oninvalid = "setCustomValidity('Enter Valid Mobile Number')", oninput = "setCustomValidity('')", placeholder = "Mobile Number", required = true })
+                @Html.ValidationMessageFor(model => model.MobileNumber)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Email Address</label>
+                @if(tnt.Email!=null)
+                {
+                      @Html.TextBox("Email",tnt.Email, null, new { @class = "form-control",type="email", oninvalid = "setCustomValidity('Enter Valid Email')", oninput = "setCustomValidity('')", placeholder = "Email Address", required = true })
+                }
+                else
+                { 
+                @Html.TextBoxFor(model => model.Email, null, new { @class = "form-control", type = "email", oninvalid = "setCustomValidity('Enter Valid Email')", oninput = "setCustomValidity('')", placeholder = "Email Address", required = true })
+                }
+                    @Html.ValidationMessageFor(model => model.Email)
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Date of Birth</label>
+                <input type="text" id="datepickerrequest" placeholder="Select Date" autocomplete="off" class="form-control" name="date">
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>Marital Status</label>
+                @Html.DropDownList("MaritalStatus", new List<SelectListItem>
+                                 {
+                                     new SelectListItem{ Text="Select Marital Status", Value = "0"},
+                                     new SelectListItem{ Text="Married", Value = "Married"},
+                                   new SelectListItem{ Text="Single", Value = "Single"},
+                                     new SelectListItem{ Text="Divorced", Value = "Divorced"},
+                                     new SelectListItem{ Text="Widowed", Value = "Widowed"},
+                                     new SelectListItem{ Text="Live-in Partner", Value = "Live-in Partner"}
+
+
+                                 }, new { id = "MaritalStatus", @class = "form-control" })
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>Children</label>
+                @Html.DropDownList("Children", new List<SelectListItem>
+                                 {
+
+                                     new SelectListItem{ Text="0", Value = "0"},
+                                   new SelectListItem{ Text="1", Value = "1"},
+                                     new SelectListItem{ Text="2", Value = "2"},
+                                     new SelectListItem{ Text="3", Value = "3"},
+                                     new SelectListItem{ Text="4", Value = "4"},
+                                       new SelectListItem{ Text="5", Value = "5"},
+                                         new SelectListItem{ Text="6+", Value = "6"}
+
+                                 }, new { id = "Children", @class = "form-control" })
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>No of who will be living at the property</label>
+                @Html.DropDownList("Notolive", new List<SelectListItem>
+                                 {
+
+                                     new SelectListItem{ Text="0", Value = "0"},
+                                   new SelectListItem{ Text="1", Value = "1"},
+                                     new SelectListItem{ Text="2", Value = "2"},
+                                     new SelectListItem{ Text="3", Value = "3"},
+                                     new SelectListItem{ Text="4", Value = "4"},
+                                       new SelectListItem{ Text="5", Value = "5"},
+                                         new SelectListItem{ Text="6+", Value = "6"}
+
+                                 }, new { id = "Notolive", @class = "form-control" })
+            </span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="col-md-4 col-sm-4">
+                <label>No of people aged 18+ living at the property</label>
+                @Html.DropDownList("Noage18", new List<SelectListItem>
+                                 {
+
+                                     new SelectListItem{ Text="0", Value = "0"},
+                                   new SelectListItem{ Text="1", Value = "1"},
+                                     new SelectListItem{ Text="2", Value = "2"},
+                                     new SelectListItem{ Text="3", Value = "3"},
+                                     new SelectListItem{ Text="4", Value = "4"},
+                                       new SelectListItem{ Text="5", Value = "5"},
+                                         new SelectListItem{ Text="6+", Value = "6"}
+
+                                 }, new { name = "Noage18", id = "Noage18", @class = "form-control" })
+                <br />
+                <div id="content">
+                </div>
+
+           
+            </span>
+          
+            
+          
+            
+               
+       
+            <span class="col-md-4 col-sm-4">
+                <label>  Do you have pets?</label><br />
+
+
+                @Html.RadioButton("Pets", true, true)Yes
+
+                @Html.RadioButton("Pets", false)No
+            </span>
+            <span class="col-md-4 col-sm-4">
+                <label>  Do you smoke?</label><br />
+
+
+                @Html.RadioButton("Smoker", true, true)Yes
+
+                @Html.RadioButton("Smoker", false)No
+            </span>
+        </div>
+       
+    
+   
+
+    
+
+        <br />
+        <span class="btn_area"><button class="submit_btn" id="btnSave" type="submit">Next</button></span>
+
+
+
+
+    </div>
+</form>
+
+

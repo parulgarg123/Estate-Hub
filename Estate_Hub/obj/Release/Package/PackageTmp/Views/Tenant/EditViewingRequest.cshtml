@@ -1,0 +1,209 @@
+﻿@model Proptiwise.Models.RequestView
+@using Proptiwise.Models;
+@{
+    ViewBag.Title = "EditViewingRequest";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+<section class="property_form_container property_bd_con ">
+
+    <div class="container-fluid">
+        <div class="Billing-form">
+            @*<form  method="post">*@
+            @using (Html.BeginForm("EditViewingRequest", "Front", FormMethod.Post))
+            {
+                if (Model != null)
+                {
+                    @Html.HiddenFor(p => p.ReqviewId)
+                }
+                @*<input type="hidden" name="Country" id="Country" value="@ViewBag.country" />*@
+                <div class="UNIT-ADDRESS pop_add_row">
+                    
+                    <div class="prop-form_rgt">
+                        <h1 class="form_heading">Property Details</h1>
+                        <div class="prop_detail_coll">
+                            <article class="prop_list">
+                                @if (ViewBag.prp != null)
+                                {
+                                    var prp = ViewBag.prp as Property;
+                                    if (prp != null)
+                                    {
+                                        @*<input type="hidden" name="pid" value="@p.PID" />*@
+                                        <h3 class="propname">@prp.Street @prp.City @prp.State @prp.Country @prp.PostCode</h3>
+                                        //<h6 class="prop_dtl">@prp.PropertyType.PropertyTypeName|@prp.Bedroom BD |@prp.Bathroom BA |@prp.SqFt SqFt</h6>
+                                        <h6 class="prop_dtl">@prp.PropertyStyle.Style_Name|@prp.Bedroom BD |@prp.Bathroom BA |@prp.SqFt SqFt</h6>
+                                        <div class="prop_cont_lst_con">
+                                            <span class="price_content">
+                                                @if (prp.Price != null)
+                                                {
+                                                    <p><font>Asking Price</font>@getallpath.currency@Math.Round(Convert.ToDouble(prp.Price), 2)/m</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Asking Price</font>--</p>
+                                                }
+                                                @if (prp.DepositReq != null)
+                                                {
+                                                    <p><font>Deposit</font>@getallpath.currency@Math.Round(Convert.ToDouble(prp.DepositReq), 2)/m</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Deposit</font>--</p>
+                                                }
+                                            </span>
+                                            <span class="price_content">
+
+                                                @if (prp.Bedroom != null)
+                                                {
+                                                    <p><font>Bedrooms</font>@prp.Bedroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Bedrooms</font>--</p>
+                                                }
+                                                @if (prp.Bathroom != null)
+                                                {
+                                                    <p><font>Bathrooms</font>@prp.Bathroom</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Bathrooms</font>--</p>
+                                                }
+                                                @if (prp.Furnished != null)
+                                                {
+                                                    if (prp.Furnished == "Furnished")
+                                                    {
+                                                        <p><font>Furnished</font>Yes</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p><font>Furnished</font>No</p>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Furnished</font>--</p>
+                                                }
+                                            </span>
+                                            <span class="price_desc">
+
+                                                @if (prp.Description != null)
+                                                {
+                                                    <p><font>Description</font>@prp.Description</p>
+                                                }
+                                                else
+                                                {
+                                                    <p><font>Description</font>--</p>
+                                                }
+                                                @*<p><font>Estimated Rent</font>$@p.RentIncome/m</p>*@
+                                            </span>
+                                        </div>
+                                        @*<span class="price_content col-md-6 col-sm-6">
+                                                        @{
+                                            double opexp = (p.TotalExpenses / 12);
+                                            double cashflow = (p.CashFlow / 12);
+                                                        }
+                                                        <p><font>OP Expenses</font>$@opexp/m</p>
+                                                        <p><font>Cash Flow</font>$@cashflow/m</p>
+
+                                                        <p><font>Cape Rat</font>$@Math.Round(p.CapRate, 2)%</p>
+                                                    </span>*@
+
+
+                                    }
+                                }
+                            </article>
+                        </div>
+                    </div>
+
+
+                    <div class="prop-form_left">
+                        <h1 class="form_heading">Property Viewing Request</h1>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">First Name</label>
+                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid First Name')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.FirstName)
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Last Name</label>
+
+                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Last Name')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.LastName)
+                            @*@Html.DropDownList("BuildingId", ViewBag.Building as SelectList, "None", new { id = "drp1", @class = "form-control" })*@
+                        </div>
+                        <div class="form-group custom">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Cellular</label>
+
+                            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", oninvalid = "setCustomValidity('Enter valid Cellular')", oninput = "setCustomValidity('')" })
+                            @Html.ValidationMessageFor(model => model.Phone)
+                        </div>
+                        <div class="form-group custom ">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Preferred Date</label>
+                                @Html.TextBoxFor(model => model.PreferredDate, new { @id="datepickerrequest" ,@placeholder="Select Date",@autocomplete="off" ,@class="form-control"})
+                            @*<input type="text" id="datepickerrequest" placeholder="Select Date" autocomplete="off" class="form-control" name="PreferredDate">*@
+                        </div>
+                        <div class="form-group custom ">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Preferred Time</label>
+                            @Html.DropDownList("PreferredTime", new List<SelectListItem>
+                                        {
+                                            new SelectListItem{ Text="9:00 AM", Value ="9:00 AM"},
+                                            new SelectListItem{ Text="9:30 AM", Value = "9:30 AM"},
+                                            new SelectListItem{ Text="10:00 AM", Value = "10:00 AM"},
+                                        new SelectListItem{ Text="10:30 AM", Value ="10:30 AM"},
+                                            new SelectListItem{Text="11:00 AM", Value = "11:00 AM"},
+                                            new SelectListItem{ Text="11:30 AM", Value ="11:30 AM"},
+                                            new SelectListItem{Text="12:00 PM", Value ="12:00 PM"},
+                                            new SelectListItem{Text="12:30 PM", Value = "12:30 PM"},
+                                            new SelectListItem{ Text="1:00 PM", Value ="1:00 PM"},
+                                            new SelectListItem{Text="1:30 PM", Value ="1:30 PM"},
+                                            new SelectListItem{Text="2:00 PM", Value ="2:00 PM"},
+                                                new SelectListItem{Text="2:30 PM", Value ="2:30 PM"},
+                                            new SelectListItem{Text="3:00 PM", Value ="3:00 PM"},
+                                                new SelectListItem{Text="3:30 PM", Value ="3:30 PM"},
+                                                    new SelectListItem{Text="4:00 PM", Value ="4:00 PM"},
+                                                    new SelectListItem{Text="4:30 PM", Value ="4:30 PM"},
+                                                            new SelectListItem{Text="5:00 PM", Value ="5:00 PM"},
+                                                                    new SelectListItem{Text="5:30 PM", Value ="5:30 PM"},
+                                                                            new SelectListItem{Text="6:00 PM", Value ="6:00 PM"},
+
+
+
+                                        }, new { id = "PreferredTime", @class = "form-control" })
+                        </div>
+                        <div class="form-group custom ">
+                            <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Comments</label>
+                                @Html.TextAreaFor(model => model.text, new {@class="form-control", @placeholder="Other Information" })
+                            @*<textarea class="form-control" placeholder="Other Information" name="text"></textarea>*@
+                        </div>
+                        <div class="save_panel_btn">
+                            @*Save & Add Similar Unit*@
+                            <button type="submit" class="Save_btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+            }
+        </div>
+    </div>
+
+
+
+</section>
+
+ <script>
+    $(function () {
+
+        $("#datepickerrequest").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1930:2050"
+        });
+    });
+
+            </script>

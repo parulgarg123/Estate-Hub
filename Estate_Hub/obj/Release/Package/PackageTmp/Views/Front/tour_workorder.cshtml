@@ -1,0 +1,80 @@
+﻿@using Proptiwise.Models;
+@{
+    ViewBag.Title = "tour_workorder";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+<section class="account_column">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><h1>Work Orders</h1></div>
+            <aside class="col-md-3 col-sm-4 col-xs-5">
+                <ul class="ac_list">
+                    <li><a href="tour_tenants">Tenants</a></li>
+                    <li><a href="tour_properties">Properties</a></li>
+                    <li><a href="tour_leases">Leases</a></li>
+                    <li><a href="tour_payments">Payments</a></li>
+                    <li ><a href="tour_accounting">Accounting</a></li>
+                    <li class="active_list"><a href="tour_workorder">Work Orders</a></li>
+                    <li ><a href="tour_form">Forms & Letters</a></li>
+                    <li><a href="tour_reports">Reports</a></li>
+                    <li><a href="tour_users">Users & Security</a></li>
+                    <li><a href="tour_tenantportal">Tenant Portal</a></li>
+                    <li><a href="tour_tenantscreening">Tenant Screening</a></li>
+                    <li><a href="tour_extras">Extras</a></li>
+                    <li><a href="tour_screenshots">Screenshots</a></li>
+                </ul>
+            </aside>
+            <div class="content col-md-9 col-sm-9">
+                <div>
+                    <h3>Work Orders</h3>
+                    <p><img alt="Tour" src="@getallpath.getpath/images/test.png" class="alignright"></p>
+                    <h4>Track maintenance &amp; repairs</h4>
+                    <p>
+                        Stay up to date on every property issue - track repair issues, incidents and damage, regular maintenance and more. Print and email repair issue lists for contractors and vendors, and keep tenants up to date on work status.
+                    </p>
+                    <ul class="clear">
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Vendors
+                            </h4>
+                            <p>Link work orders to vendors you do business with - plumbers, service-people, contractors, electricians, etc - send email directly, with work order lists and work order details reports as attachments.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Generate Work Orders
+                            </h4>
+                            <p>Print or email work order reports for any incident - send complete issue details and work requests to tenants or vendors.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Open, Pending, Closed
+                            </h4>
+                            <p>Track work orders by status and priority, organize and manage due dates, work complete dates, estimates and actual costs, vendor invoice numbers, and more.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Property-Specific
+                            </h4>
+                            <p>Link issues and work orders to properties and get an easy-to-view snapshot of all unit-specific issues on the property profile page. No more sifting through paperwork when your tenant calls for an update!</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;File Attachments
+                            </h4>
+                            <p>Add files (scanned invoices, pictures of damage or repairs, etc) to work orders to provide as much info as you can to contractors and repair staff, and to keep diligent records for legal or audit purposes.</p>
+                        </li>
+                        <li class="left">
+                            <h4>
+                                <img class="v-bt" src="@getallpath.getpath/images/i_stick.png">&nbsp;Expenses
+                            </h4>
+                            <p>Create expense entries specific to the repairs or work performed for a work order; these expenses flow into the main accounting ledger and all of your reporting.</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+

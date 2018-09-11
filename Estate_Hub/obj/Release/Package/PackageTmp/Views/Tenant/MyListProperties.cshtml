@@ -1,0 +1,448 @@
+﻿@using Proptiwise.Models
+@{
+    ViewBag.Title = "MyListProperties";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+<script>
+    function DeleteList() {
+        if (confirm("Are you sure that you want to Delete This Property From List?") == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+<section class="prop_column">
+    <div class="container">
+        <div class="row">
+            <div class="listblock clearfix">
+                <div class="col-md-12">
+                    <form method="post">
+                        <span class="dropdown">
+                            @*<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sort By Property<b class="caret"></b></a>*@
+                            @Html.DropDownList("SortBy", ViewBag.SortByList as SelectList, new { onchange = "this.form.submit();" })
+
+                        </span>
+                    </form>
+                    @*<a class="add_btn savesearch" href="#myModalsavesearch" data-toggle="modal" data-target="#myModalsavesearch">Email List</a>*@
+                    @*<ul class="side_list nav nav-tabs responsive hidden-xs hidden-sm" id="myTab">
+                        <li selected class="active"><a href="#tab-1"><i class="fa fa-list" aria-hidden="true"></i> List</a></li>
+                        <li><a href="#tab-2"><i class="fa fa-map-marker"></i> Map</a></li>
+                    </ul>*@
+                </div>
+                <div class="clearfix"></div>
+
+
+                <div class="col-md-12">
+
+                    <div class="tab-content responsive hidden-xs hidden-sm">
+                        <div class="tab-pane active" id="tab-1">
+                            @{
+                                if (Session["ListData"] != null)
+                                {
+                                    var data1 = Session["ListData"] as List<Proptiwise.Models.Property>;
+                                
+                                     if (ViewBag.MyListSortBy == "1")
+                                    {
+                                        data1 = data1.OrderByDescending(p => p.Price).ToList();
+                                    }
+                                    else if (ViewBag.MyListSortBy == "2")
+                                    {
+                                        data1 = data1.OrderBy(p => p.Price).ToList();
+                                    }
+                               
+                                    else if (ViewBag.MyListSortBy == "3")
+                                    {
+                                        data1 = data1.OrderByDescending(p => p.SqFt).ToList();
+                                    }
+                             
+                                    else if (ViewBag.MyListSortBy == "4")
+                                    {
+                                        data1 = data1.OrderByDescending(p => p.DateAdded).ToList();
+                                    }
+
+                                    if (data1.Count > 0)
+                                    {
+                                        foreach (var p in data1)
+                                        {
+                                            <article class="prop_list clearfix">
+                                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                                @{
+                                              //  var dimg = Proptiwise.Models.RandomFunctions.GetFirstImage(p.Property_Id);
+                                                if (p.PropertyPhotos != null)
+                                                {
+                                                    string[] pimg =p.PropertyPhotos.Split(',');
+                                                <img src="@getallpath.getpath/Folders/PropertyImages/@pimg[0]" alt="Property">
+                                                }
+                                                else
+                                                {
+                                                <img src="@getallpath.getpath/Folders/PropertyImages/No_image_available.png" alt="Property">
+                                                }
+                                               }
+                                            </div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                                @*<input type="hidden" name="pid" value="@p.PID" />*@
+                                                <h3 class="propname"> @p.City</h3>
+                                                @*<h6>@p.PropertyTypeName|@p.Bedroom BD |@p.Bathroom BA |@p.SqFt SqFt</h6>*@
+                                                <h6>@p.Propertystylename|@p.Bedroom BD |@p.Bathroom BA |@p.SqFt SqFt</h6>
+                                                <span class="price_content col-md-6 col-sm-6">
+                                                    @if(p.Price!=null)
+                                                    { 
+                                                    <p><font>Asking Price</font>@getallpath.currency@Math.Round(Convert.ToDouble(p.Price), 2)/m</p>
+                                                    }
+                                                    else
+                                                    {
+                                                          <p><font>Asking Price</font>--</p>
+                                                    }
+                                                    @if (p.DepositReq != null)
+                                                    {
+                                                        <p><font>Deposit</font>@getallpath.currency@Math.Round(Convert.ToDouble(p.DepositReq), 2)/m</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p><font>Deposit</font>--</p>
+                                                    }
+                                                    @if (p.Garden != null)
+                                                    {
+                                                        if (p.Garden == true)
+                                                        {
+                                                            <p><font>Garden</font>Yes</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p><font>Garden</font>No</p>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <p><font>Garden</font>--</p>
+                                                    }
+                                                    </span>
+                                                    <span class="price_content col-md-6 col-sm-6">
+                                                      
+                                                        @if (p.Bedroom != null)
+                                                        {
+                                                            <p><font>Bedrooms</font>@p.Bedroom</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p><font>Bedrooms</font>--</p>
+                                                        }
+                                                        @if (p.Bathroom != null)
+                                                        {
+                                                            <p><font>Bathrooms</font>@p.Bathroom</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p><font>Bathrooms</font>--</p>
+                                                        }
+                                                        @if (p.Furnished != null)
+                                                        {
+                                                            if(p.Furnished=="Furnished")
+                                                            { 
+                                                            <p><font>Furnished</font>Yes</p>
+                                                        }
+                                                            else
+                                                            {
+                                                                 <p><font>Furnished</font>No</p>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            <p><font>Furnished</font>--</p>
+                                                        }
+                                                        </span>
+                                            
+                                                        <span class="price_content col-md-12 col-sm-12">
+                                                            @{
+                                                        var RequestViewing = Proptiwise.Models.RandomFunctions.GetRequestViewing(p.Property_Id);
+                                                        var RequestOffer = Proptiwise.Models.RandomFunctions.GetOffer(p.Property_Id);
+                                                            }
+                                                            @if (RequestViewing != null && RequestViewing.Approve == 0)
+                                                            {
+                                                                <p><font>Request Viewing : </font>Pending Viewing Request</p>
+                                                            }
+                                                            else if (RequestViewing != null && RequestViewing.Approve == 1)
+                                                            {
+                                                                <p><font>Request Viewing : </font>Viewing Request Approved</p>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p><font>Request Viewing : </font>No Viewing Request</p>
+                                                            }
+                                                            @if (RequestOffer != null && RequestOffer.Approval == 0)
+                                                            {
+                                                                <p><font>Offer Request : </font>Pending Offer Request</p>
+                                                            }
+                                                            else if (RequestOffer != null && RequestOffer.Approval == 1)
+                                                            {
+                                                                <p><font>Offer Request : </font>Offer Request Approved</p>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p><font>Offer Request : </font>No Offer Request</p>
+                                                            }
+                                                         
+                                                            @*<p><font>Estimated Rent</font>$@p.RentIncome/m</p>*@
+                                                        </span>
+                                                <div class="col-md-12">
+                                                    <div class="des_txt clearfix">
+                                                        <span class="col-md-1 col-sm-2 col-xs-4">
+                                                            Description
+                                                        </span>
+                                                            @if (p.Description != null)
+                                                            {
+                                                        <span class="col-md-11 col-sm-10 col-xs-10">
+                                                           @p.Description
+                                                        </span>
+                                                            }
+                                                            else
+                                                            {
+                                                        <span class="col-md-11 col-sm-10 col-xs-10">
+                                                        --
+                                                        </span> 
+                                                            }
+                                                    </div>
+                                                    <div class="des_txt clearfix">
+                                                        @if (p.tb_PropertyNotes.Count>0)
+                                                        {
+                                                           
+                                                            var prpdata = p.tb_PropertyNotes as List<tb_PropertyNotes>;
+                                                            if (prpdata.Count > 0)
+                                                            {
+                                                                <span class="col-md-1 col-sm-2 col-xs-4">
+                                                                    Notes
+                                                                </span>
+                                                                <span class="col-md-11 col-sm-10 col-xs-10">
+                                                                    @foreach (var pdata in prpdata)
+                                                                    {
+                                                                        <div class="clearfix">
+                                                                            <span class="col-md-2 col-sm-2 col-xs-3">
+                                                                                @pdata.DateAdded.Value.ToShortDateString()
+                                                                            </span>
+                                                                            <span class="col-md-10 col-sm-10 col-xs-9 note_tag">
+                                                                                <span class="note_btnEdit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                                                                                @pdata.Notes
+                                                                                <div class="note_txtEdit">
+                                                                                    <form method="post">
+                                                                                        <div class="form-group clearfix">
+                                                                                            <input type="hidden" value="@pdata.PrpNotesId" name="editnotesval" />
+                                                                                            <textarea class="form-control" name="UserNotes1" id="UserNotes1"  placeholder="Message">@pdata.Notes</textarea>
+                                                                                            <button type="submit" name="Command" value="EditNotes" class="add_btn">Edit</button>
+                                                                                            <button type="button" class="detail_btn note_btnCancel" style="text-decoration:none;">Cancel</button>
+                                                                                        </div>
+
+                                                                                    </form>
+                                                                                </div>
+                                                                            </span>
+
+
+                                                                        </div>
+                                                                    }
+                                                                </span>
+
+                                                            }
+                                                          
+                                                        }
+
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <p>
+                                                        <button class="note_btn"><i aria-hidden="true" class="fa fa-sticky-note"></i>Add Notes</button>
+                                                    </p>
+                                                    <div class="note_txt clearfix" style="display:none;">
+                                                        <form method="post">
+                                                            <div class="form-group clearfix">
+                                                                <input type="hidden" value="@p.Property_Id" id="propid" name="propid" />
+                                                                <textarea class="form-control" name="UserNotes" placeholder="Message"></textarea>
+                                                                <button type="submit" name="Command" value="SaveNotes" class="add_btn">Save</button>
+                                                                <button type="button" class="detail_btn note_btn" style="text-decoration:none;">Cancel</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                @*<span class="price_content col-md-6 col-sm-6">
+                                                                @{
+                                                    double opexp = (p.TotalExpenses / 12);
+                                                    double cashflow = (p.CashFlow / 12);
+                                                                }
+                                                                <p><font>OP Expenses</font>$@opexp/m</p>
+                                                                <p><font>Cash Flow</font>$@cashflow/m</p>
+
+                                                                <p><font>Cape Rat</font>$@Math.Round(p.CapRate, 2)%</p>
+                                                 </span>*@
+
+                                                <p>
+                                                    <a class="detail_btn " href="@getallpath.getpath/Tenant/RemoveProperty/@p.Property_Id" style="text-decoration:none;" onclick="return DeleteList();">Remove Property</a>
+                                                
+                                                </p>
+                                            </div>
+                                        </article>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <h3 class="text-center">No Properties Found For This List</h3>
+                                    }
+                                }
+                            }
+                        </div>
+                        <div class="tab-pane" id="tab-2">
+                            @{
+                                //  if (Session["SearchData"] != null)
+                                //    {
+                                var data2 = Session["MyListJson"];
+    //if (data22.Count>0)
+    //{  //var   pdata = new JavaScriptSerializer().Serialize(data2);
+
+    <div id="map_canvas" style="width:100%;"></div>
+
+                                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6v5-2uaq_wusHDktM9ILcqIrlPtnZgEk"></script>
+                                <script type="text/javascript">
+                                    window.onload = function () {
+                                        initialize();
+                                    }
+                                    function initialize() {
+                                        //alert(data2);
+                                        var markdata = '@data2';
+                                        console.log(markdata);
+                                        var markers = JSON.parse(markdata.replace(/&quot;/g, '"'));
+                                        var mapOptions = {
+                                            center: new google.maps.LatLng(markers[0].Latitude, markers[0].Longitude),
+                                            zoom: 5,
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                            streetViewControl: true
+                                        };
+                                        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+                                        var infoWindow = new google.maps.InfoWindow();
+                                        for (i = 0; i < markers.length; i++) {
+                                            var data = markers[i]
+                                            var myLatlng = new google.maps.LatLng(data.Latitude, data.Longitude);
+                                            var marker = new google.maps.Marker({
+                                                position: myLatlng,
+                                                map: map,
+                                                title: data.Street + " " + data.City + " " + data.State + " " + data.Zip + " " + "CapRate :" + data.CapRate
+                                            });
+                                            (function (marker, data) {
+                                                google.maps.event.addListener(marker, "click", function (e) {
+                                                    //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                                                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + "<a href=@getallpath.getpath/MyListPropertyDetails/" + data.mylistdetailsid + ">" + data.Street + " " + data.City + " " + data.State + " " + data.Zip + "<br/>CapRate " + data.CapRate.toFixed(2) + "%" + "</a>" + "</div>");
+                                                    infoWindow.open(map, marker);
+                                                });
+                                            })(marker, data);
+
+                                        }
+                                    }
+                                </script>
+                                @*}
+                                    else
+                                    {
+                                        <h3 class="text-center">No Properties Found For This Search</h3>
+                                    }*@
+                            }
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+                <aside style="display:none;" class="col-md-3 col-sm-3">
+                    <a class="sidebar_col clearfix" href="#">
+                        <span class="col-md-4 col-sm-12 col-xs-4"><img src="@getallpath.getpath/images/thumb-3.jpg" alt="Thumb"></span>
+                        <span class="col-md-8 col-sm-12 col-xs-8 sidebar_txt">
+                            <h6>Lorem Ipsum dummy</h6>
+                            <p>Contrary to popular belief, simply random text</p>
+                            <p><font>Marketed By:</font></p>
+                        </span>
+                    </a>
+                    <a class="sidebar_col clearfix" href="#">
+                        <span class="col-md-4 col-sm-12 col-xs-4"><img src="@getallpath.getpath/images/thumb-3.jpg" alt="Thumb"></span>
+                        <span class="col-md-8 col-sm-12 col-xs-8 sidebar_txt">
+                            <h6>Lorem Ipsum dummy</h6>
+                            <p>Contrary to popular belief, simply random text</p>
+                            <p><font>Marketed By:</font></p>
+                        </span>
+                    </a>
+                    <a class="sidebar_col clearfix" href="#">
+                        <span class="col-md-4 col-sm-12 col-xs-4"><img src="@getallpath.getpath/images/thumb-3.jpg" alt="Thumb"></span>
+                        <span class="col-md-8 col-sm-12 col-xs-8 sidebar_txt">
+                            <h6>Lorem Ipsum dummy</h6>
+                            <p>Contrary to popular belief, simply random text</p>
+                            <p><font>Marketed By:</font></p>
+                        </span>
+                    </a>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+</section>
+@if (TempData["RemoveProperty"] != null)
+{
+    <div id="myModal" class="modal hide fade modalErrorMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+
+        <div class="modal-body" style="">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p>@TempData["RemoveProperty"]</p>
+        </div>
+    </div>
+}
+
+@*<script>
+    $(document).on('click', '.add_btn_notes', function (e) {
+        var pid = $('#PayrollPeriodItemIDEmp').val();
+        e.preventDefault();
+        var data = [];
+        var j = 0;
+        $('.employee-grids .employee-item-row').each(function (i, e) {
+            var $e = $(e);
+            var PayrollID = $e.find('.employeecheck:checked').siblings('.PayrollID2').val();
+            var ViewID = $e.find('.employeecheck:checked').siblings('.ViewID').val();
+            if (PayrollID != null) {
+                data.Index = j;
+                data[j] = {};
+                data[j].Index = j;
+                data[j].PayrollID = PayrollID;
+                data[j].ItemPayPeriodId = pid;
+                data[j].ViewID = ViewID;
+                j = j + 1;
+            }
+        });
+
+        var $alert = $('.main-form-alert2');
+
+        // var data = { SubmitSigned: sign, SubmittedHours: total, PayrollID: PayrollPeriodItemID };            
+        $.post($(this).data('url'), { Data: data }, function (res) {
+
+            if (res.status == 'success') {
+
+                // showStageDetails(res.data);
+                $alert.html("Item Approved.");
+                showAlert($alert, 'success');
+                $.post('/Sections/Timekeeper/Index',
+    {
+        PayrollPeriodItemID: null,
+        PayrollPeriodItemIDProject: null,
+        PayrollPeriodItemIDEmp: $('#PayrollPeriodItemIDEmp').val(),
+        //  ResourceID: $(this).val()
+    },
+    function (res) {
+        if (res.status == undefined && res != null) {
+            var employeedetails = document.getElementById("employeedetails");
+            employeedetails.innerHTML = res;
+        }
+    });
+                // document.location = "/Sections/Timekeeper";
+            }
+            else {
+
+                $alert.html("Some error occurred. Please retry.");
+                showAlert($alert, 'danger', -1);
+            }
+        });
+
+    });
+</script>*@

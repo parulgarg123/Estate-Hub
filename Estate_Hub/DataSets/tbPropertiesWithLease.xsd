@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="tbPropertiesWithLease" targetNamespace="http://tempuri.org/tbPropertiesWithLease.xsd" xmlns:mstns="http://tempuri.org/tbPropertiesWithLease.xsd" xmlns="http://tempuri.org/tbPropertiesWithLease.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="tbPropertiesWithLease" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="tbPropertiesWithLease" msprop:Generator_UserDSName="tbPropertiesWithLease">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbPropertiesWithLease" msprop:Generator_TableClassName="tbPropertiesWithLeaseDataTable" msprop:Generator_TableVarName="tabletbPropertiesWithLease" msprop:Generator_TablePropName="_tbPropertiesWithLease" msprop:Generator_RowDeletingName="tbPropertiesWithLeaseRowDeleting" msprop:Generator_RowChangingName="tbPropertiesWithLeaseRowChanging" msprop:Generator_RowEvHandlerName="tbPropertiesWithLeaseRowChangeEventHandler" msprop:Generator_RowDeletedName="tbPropertiesWithLeaseRowDeleted" msprop:Generator_UserTableName="tbPropertiesWithLease" msprop:Generator_RowChangedName="tbPropertiesWithLeaseRowChanged" msprop:Generator_RowEvArgName="tbPropertiesWithLeaseRowChangeEvent" msprop:Generator_RowClassName="tbPropertiesWithLeaseRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PropertyName" msprop:Generator_ColumnVarNameInTable="columnPropertyName" msprop:Generator_ColumnPropNameInRow="PropertyName" msprop:Generator_ColumnPropNameInTable="PropertyNameColumn" msprop:Generator_UserColumnName="PropertyName" type="xs:string" minOccurs="0" />
+              <xs:element name="Address1" msprop:Generator_ColumnVarNameInTable="columnAddress1" msprop:Generator_ColumnPropNameInRow="Address1" msprop:Generator_ColumnPropNameInTable="Address1Column" msprop:Generator_UserColumnName="Address1" type="xs:string" minOccurs="0" />
+              <xs:element name="Address2" msprop:Generator_ColumnVarNameInTable="columnAddress2" msprop:Generator_ColumnPropNameInRow="Address2" msprop:Generator_ColumnPropNameInTable="Address2Column" msprop:Generator_UserColumnName="Address2" type="xs:string" minOccurs="0" />
+              <xs:element name="Size" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" type="xs:string" minOccurs="0" />
+              <xs:element name="LeasedTo" msprop:Generator_ColumnVarNameInTable="columnLeasedTo" msprop:Generator_ColumnPropNameInRow="LeasedTo" msprop:Generator_ColumnPropNameInTable="LeasedToColumn" msprop:Generator_UserColumnName="LeasedTo" type="xs:string" minOccurs="0" />
+              <xs:element name="LeasedEnd" msprop:Generator_ColumnVarNameInTable="columnLeasedEnd" msprop:Generator_ColumnPropNameInRow="LeasedEnd" msprop:Generator_ColumnPropNameInTable="LeasedEndColumn" msprop:Generator_UserColumnName="LeasedEnd" type="xs:string" minOccurs="0" />
+              <xs:element name="BuildingName" msprop:Generator_ColumnVarNameInTable="columnBuildingName" msprop:Generator_ColumnPropNameInRow="BuildingName" msprop:Generator_ColumnPropNameInTable="BuildingNameColumn" msprop:Generator_UserColumnName="BuildingName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

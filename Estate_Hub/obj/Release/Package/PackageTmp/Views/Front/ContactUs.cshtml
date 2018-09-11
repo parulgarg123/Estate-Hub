@@ -1,0 +1,88 @@
+﻿@using Proptiwise.Models;
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/BannerMaster.cshtml";
+}
+
+<section class="contact_us_banner">
+    <img src="@getallpath.getpath/Images/contact-banner-image.jpg">
+    <h2>Contact Us</h2>
+</section>
+<section class="contact_form">
+    <div class="container">
+        <h2>our team at your service</h2>
+
+        <div class="row contact_content">
+            <div class="col-md-6 col-sm-6">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+            </div>
+        </div>
+
+
+        <div class="row contact_heading">
+            <h1>Contact Form</h1>
+        </div>
+
+
+        <br />
+        <div class="row">
+            <div class="col-md-7 col-sm-7">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="name" class="form-control" id="inputEmail3" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Phone</label>
+                        <div class="col-sm-10">
+                            <input type="phone" class="form-control" id="inputPassword3" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Message</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="Message" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-5 col-sm-5 contact_address">
+                <address>
+                    <ul>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> 123 251 2548</li>
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i> info@websitename.com</li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> 17 new street , NSW 2904 waligton PO 4481</li>
+                    </ul>
+                </address>
+                <div class="map">
+                    <img src="@getallpath.getpath/Images/map.jpg">
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</section>
+
+
+

@@ -1,0 +1,113 @@
+﻿@model Proptiwise.Models.Event
+
+@{
+    ViewBag.Title = "CreateApplicant";
+    Layout = "~/Views/Shared/InnerMaster.cshtml";
+}
+<section class="dash_column property-back clearfix" style="background: #fff;">
+
+    <div class="container">
+        <div class="row">
+            <div class="Billing-form">
+
+                @using (Html.BeginForm("AddEvents", "Front", FormMethod.Post, new { @id = "eventcreate", @class = "form-tag" }))
+                {
+                    if (Model != null)
+                    {
+                        @Html.HiddenFor(model => model.EventId)
+                    }
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <section class="UNIT-ADDRESS">
+                            <h1 class="form_heading">Events</h1>
+
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Title </label>
+                                @Html.TextBoxFor(model => model.Title, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Title')", oninput = "setCustomValidity('')" })
+                                @Html.ValidationMessageFor(model => model.Title)
+                            </div>
+
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect">Detail</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.Details, new { @class = "form-control", required = true, oninvalid = "setCustomValidity('Enter valid Detail')", oninput = "setCustomValidity('')" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Details)
+                            </div>
+
+
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> Start Date</label>
+                                <div class="col-md-10">
+                                    @if (Model != null)
+                                    {
+                                        if (Model.startDate != null)
+                                        {
+                                            @Html.TextBoxFor(m => m.startDate, Model.startDate.Value.ToShortDateString(), new { id = "fromdate1", @class = "form-control" })
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(m => m.startDate, new { id = "fromdate1", @class = "form-control" })
+                                    }
+                                    @*<input type="text" id="datepicker1" name="Dateofbirth" class="form-control" placeholder="Select Date">*@
+                                </div>
+                            </div>
+
+                            <div class="input-group form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> End Date</label>
+                                <div class="col-md-10">
+                                    @if (Model != null)
+                                    {
+                                        if (Model.enddate != null)
+                                        {
+                                            @Html.TextBoxFor(m => m.enddate, Model.enddate.Value.ToShortDateString(), new { id = "todate1", @class = "form-control" })
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(m => m.enddate, new { id = "todate1", @class = "form-control" })
+                                    }
+                                    @*<input type="text" id="datepicker1" name="Dateofbirth" class="form-control" placeholder="Select Date">*@
+                                </div>
+                            </div>
+                            <div class="form-group custom">
+                                <label class="mr-sm-2 label-f" for="inlineFormCustomSelect"> All Days </label>
+                                @Html.DropDownList("allday", new List<SelectListItem>
+                                 {
+                                     new SelectListItem{ Text="True", Value = "1"},
+                                   new SelectListItem{ Text="false", Value = "0"},
+
+                                 }, new { id = "allday", @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                                <a class="btn btn-primary" href="Calender">Back To Calender</a>
+                            </div>
+
+                        </section>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function () {
+        $("#fromdate1").datepicker(
+            {
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1930:2050"
+            });
+        $("#todate1").datepicker(
+            {
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1930:2050"
+            });
+    });
+</script>

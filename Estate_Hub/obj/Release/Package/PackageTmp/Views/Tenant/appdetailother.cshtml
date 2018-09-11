@@ -1,0 +1,48 @@
+﻿@model Proptiwise.Models.application_details
+@{
+    ViewBag.Title = "appdetailother";
+    Layout = "~/Views/Shared/TenantMaster.cshtml";
+}
+
+
+<h4>Other Information</h4>
+<form method="post">
+    <div class="form-horizontal">
+        <div class="form-group clearfix">
+            <span class="col-md-3 col-sm-3">
+                <label> Have you ever had a county judgement against you? </label><br />
+
+
+                @Html.RadioButton("countryagainst", true, true)Yes
+
+                @Html.RadioButton("countryagainst", false)No
+            </span>
+            <span class="col-md-3 col-sm-3">
+                <label>Have you ever declared bankruptcy? </label><br />
+
+
+                @Html.RadioButton("bankruptcy", true, true)Yes
+
+                @Html.RadioButton("bankruptcy", false)No
+            </span>
+            <span class="col-md-3 col-sm-3">
+                <label>Have you ever been convicted of criminal activity </label><br />
+
+
+                @Html.RadioButton("criminalactivity", true, true)Yes
+
+                @Html.RadioButton("criminalactivity", false)No
+            </span>
+            <span class="col-md-3 col-sm-3">
+                <label>Have you ever been involved in terrorist activity?</label><br />
+
+
+                @Html.RadioButton("terroristactivity", true, true)Yes
+
+                @Html.RadioButton("terroristactivity", false)No
+            </span>
+        </div>
+        <span class="btn_area"><button class="submit_btn" id="btnSave" type="submit">Next</button></span>
+        </div></form>
+
+
